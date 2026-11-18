@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPER-I · TOPIC 2 — General Mental Ability, Logical Reasoning &amp; Quantitative Aptitude (15 Marks · 15 MCQs) | TPSC ATO Grade-IV Portal</title>
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #0f172a;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.top-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #38bdf8;
+}
+.top-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #bae6fd;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.brand-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.header-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: block;
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: #e2e8f0;
+}
+.layout-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 980px) {
+  .layout-wrap { grid-template-columns: 1fr; }
+}
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+}
+.side-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 12px 6px 6px 6px;
+}
+.sec-btn {
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.sec-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.sec-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+.sec-btn .sec-name {
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sec-btn .sec-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sec-btn.active .sec-pill {
+  background: #0284c7;
+  color: #fff;
+}
+.main-panel {
+  min-width: 0;
+}
+/* Strictly 2-Tab Bar inside every Section */
+.two-tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.two-tab-btn {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+.two-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+.two-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+.toolbar-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13.8px;
+  font-family: inherit;
+}
+.action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.action-btn.secondary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+.action-btn.green {
+  background: #15803d;
+  color: #ffffff;
+}
+/* One-Liner Styles */
+.ol-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-left: 6px solid #0284c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.ol-badge {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.ol-group-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ol-group-header {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  padding: 11px 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ol-group-num {
+  background: #0f172a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.ol-group-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+.ol-group-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ol-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.ol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14.2px;
+  color: #1e293b;
+}
+.ol-item:last-child { border-bottom: none; }
+.ol-bullet {
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+.ol-text { flex: 1; }
+.pyq-inline-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.topic-inline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.ol-ans-highlight {
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+/* 100 MCQ Card Styles */
+.mcq-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+.mcq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mcq-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.mcq-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+.mcq-tag.pyq {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+.mcq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+.mcq-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+.mcq-opt-btn {
+  text-align: left;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.6px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  line-height: 1.4;
+}
+.mcq-opt-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.mcq-opt-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 700;
+}
+.mcq-opt-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+.mcq-exp {
+  margin-top: 10px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13.4px;
+  color: #14532d;
+  display: none;
+}
+.mcq-exp.show { display: block; }
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+.ov-card {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ov-card h4 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+</style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div>
+        <span class="brand-badge">TPSC ATO GRADE-IV (T-ITS) 2026 · 2-TAB STREAMLINED EDITION</span>
+        <h1 class="brand-title">PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning &amp; Quantitative Aptitude (15 Marks · 15 MCQs)</h1>
+        <p class="brand-sub">Paper-I: General Ability Test (50 Marks) · 15 Marks (15 OMR MCQs × 1 Mark) · Tab 1: Master One-Liner Notes (139 One-Liners) | Tab 2: 100 Most Probable MCQs</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="action-btn secondary" style="text-decoration:none;">🏠 All 17 Sections Home</a> <a href="01_P1_U1.html" class="action-btn secondary" style="text-decoration:none;">&larr; Prev: P1_U1</a> <a href="03_P1_U3.html" class="action-btn secondary" style="text-decoration:none;">Next: P1_U3 &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1180px;margin:0 auto;padding:20px;">
+    <div class="two-tab-bar">
+      <button id="btnTab1" class="two-tab-btn active" onclick="switchSecTab('oneliners')">
+        📋 Tab 1: Master One-Liner Sheet (139 One-Liners)
+      </button>
+      <button id="btnTab2" class="two-tab-btn" onclick="switchSecTab('mcqs')">
+        🎯 Tab 2: 100 Most Probable MCQs (TPSC &amp; UGC-NET Pattern)
+      </button>
+    </div>
+
+    <!-- TAB 1: MASTER ONE-LINER NOTES -->
+    <section id="paneOneliners">
+      <div class="toolbar-card">
+        <input type="text" id="olSearch" class="search-input" placeholder="🔍 Search any topic, keyword, or formula in these One-Liner Notes..." oninput="filterOneLiners(this.value)">
+        <span style="font-size:12.5px;font-weight:700;color:#475569;">Showing Crisp Exam One-Liners (Zero Bloat)</span>
+      </div>
+      <div id="olContentWrap">
+        
+    <div class="ol-banner">
+      <div>
+        <span class="ol-badge">PAPER-I · TOPIC 2 · MASTER ONE-LINER SHEET</span>
+        <h2 style="margin:6px 0 4px 0;font-size:20px;color:#0f172a;">General Mental Ability, Logical Reasoning &amp; Quantitative Aptitude (15 Marks · 15 MCQs) — Direct Exam One-Liners</h2>
+        <p style="margin:0;font-size:13.5px;color:#334155;"><strong>Official Gazette Syllabus:</strong> Logical Reasoning, Analytical Reasoning Capabilities, Quantitative and Qualitative abilities, General Aptitude (OMR based MCQ Type - 15 Questions one mark each). · <strong>Weightage:</strong> 15 Marks (15 OMR MCQs × 1 Mark)</p>
+      </div>
+    </div>
+    
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 1</span>
+            <h3 class="ol-group-title">Number Series, Letter Series &amp; Coding-Decoding</h3>
+            <span class="ol-group-count">6 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Prime Numbers from 1 to 100: There are exactly 25 prime numbers (1 to 50 has 15 primes; 51 to 100 has 10 primes; 2 is the only even prime).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Common Series Patterns: Arithmetic Progression (constant 1st difference), Geometric Progression (constant ratio), Two-tier difference, and n² ± 1 or n³ ± 1.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">EJOTY Rule for Alphabet Positions: E=5, J=10, O=15, T=20, Y=25 (or CFILORUX for multiples of 3: 3, 6, 9, 12, 15, 18, 21, 24).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Opposite / Complementary Letter Pair Rule: Sum of forward and backward alphabet positions is always 27 (e.g., A=1 &amp; Z=26 -&gt; 1+26=27; M=13 &amp; N=14 -&gt; 27).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Caesar / Shift Cipher Coding: Every letter shifts by +k or -k positions modulo 26.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Matrix / Chinese Coding: Compare two or more coded statements to isolate common words and their corresponding code tokens.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 2</span>
+            <h3 class="ol-group-title">Blood Relations, Direction Sense &amp; Ranking</h3>
+            <span class="ol-group-count">9 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Blood Relation Anchor: Always resolve from the possessive pronoun (&#x27;my&#x27;, &#x27;his&#x27;, &#x27;her&#x27;) outward step by step.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Only son of my mother&#x27;s father&#x27; = Maternal Uncle (if speaker is female or has no brother) or Mother&#x27;s brother.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;A is the brother of B&#x27; defines A&#x27;s gender (Male), but B&#x27;s gender remains unknown (Male or Female) unless specified.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Direction Sense Pythagoras Rule: Shortest straight-line displacement d = √(Δx² + Δy²); common Pythagorean triplets are (3,4,5), (5,12,13), (6,8,10), (8,15,17), (7,24,25).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Shadow Rule at Sunrise (Morning): Sun is in the East -&gt; all shadows fall toward the WEST (if facing North, shadow falls to your Left; if facing South, to your Right).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Shadow Rule at Sunset (Evening): Sun is in the West -&gt; all shadows fall toward the EAST (if facing North, shadow falls to your Right).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Turn Arithmetic: 4 consecutive Right turns (4 × 90° = 360°) return to the same direction; 1 Right (90° CW) + 1 Left (90° CCW) cancel each other out.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Linear Ranking Formula: Total persons N = (Position from Left + Position from Right) - 1.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Circular Arrangement: Number of circular permutations of n distinct people = (n - 1)!; facing center: Left = Clockwise, Right = Counter-Clockwise.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 3</span>
+            <h3 class="ol-group-title">Syllogisms, Logical Deductions &amp; Clocks/Calendars</h3>
+            <span class="ol-group-count">12 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">All A are B -&gt; &#x27;Some A are B&#x27; and &#x27;Some B are A&#x27; are definitely true, but &#x27;All B are A&#x27; is possible, NOT definite.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">No A is B -&gt; &#x27;No B is A&#x27; and &#x27;Some A are not B&#x27; and &#x27;Some B are not A&#x27; are all definitely true.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Some A are B + All B are C -&gt; Definite conclusion: &#x27;Some A are C&#x27; (and &#x27;Some C are A&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Two Particular Premises (&#x27;Some A are B&#x27; + &#x27;Some B are C&#x27;) yield NO definite universal or particular conclusion between A and C.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Complementary Pair (&#x27;Either-Or&#x27; Case): Occurs when two conclusions (e.g., &#x27;Some A are C&#x27; and &#x27;No A is C&#x27;) share the exact same subject-predicate and neither is individually definite.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Clock Angle Formula: Angle between Hour and Minute hands at H hours M minutes is θ = |30H - 5.5M| degrees (if θ &gt; 180°, reflex angle = 360° - θ).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Clock Hands Coincidence (0°): Hands coincide 11 times in 12 hours (22 times in 24 hours) at every 65(5/11) minutes.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Clock Hands Opposite (180°): Hands are in a straight line opposite each other 11 times in 12 hours (22 times in 24 hours).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Clock Hands Right Angle (90°): Hands are perpendicular 22 times in 12 hours (44 times in 24 hours).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Calendar Odd Days: Ordinary year (365 days = 52 weeks + 1 day) has 1 odd day; Leap year (366 days) has 2 odd days.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Leap Year Century Rule: A century year (ending in 00) is a leap year ONLY if divisible by 400 (1600 and 2000 are leap years; 1700, 1800, 1900 are NOT).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Odd Days in Centuries: 100 years = 5 odd days; 200 years = 3 odd days; 300 years = 1 odd day; 400 years = 0 odd days.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 4</span>
+            <h3 class="ol-group-title">Quantitative Aptitude (Percentages, Profit-Loss, SI/CI, Work, Speed)</h3>
+            <span class="ol-group-count">12 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Successive Percentage Change (a% and b%): Net % change = a + b + (a × b)/100.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">If A is R% more than B, then B is less than A by [R / (100 + R)] × 100%; if A is R% less than B, B is more than A by [R / (100 - R)] × 100%.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Profit % = (SP - CP)/CP × 100 (always on Cost Price); Discount % = (MP - SP)/MP × 100 (always on Marked Price).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Relation between MP and CP: MP / CP = (100 + Profit%) / (100 - Discount%).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Simple Interest: SI = (P × R × T) / 100; Compound Interest: A = P(1 + R/100)^T.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">2-Year CI minus SI Shortcut: (CI - SI) for 2 years = P × (R / 100)².</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">3-Year CI minus SI Shortcut: (CI - SI) for 3 years = P × (R / 100)² × (3 + R/100).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Time &amp; Work Combined Rate: If A takes x days and B takes y days, together they take (x × y) / (x + y) days.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Man-Days-Hours Formula: (M1 × D1 × H1) / W1 = (M2 × D2 × H2) / W2.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Speed Conversion: 1 km/hr = 5/18 m/s; 1 m/s = 18/5 km/hr (e.g., 72 km/hr = 20 m/s; 90 km/hr = 25 m/s).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Average Speed for Equal Distances at speeds u and v: Harmonic Mean = 2uv / (u + v).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Relative Speed: Opposite directions = (u + v); Same direction = |u - v|; Boat Downstream = u + v, Upstream = u - v.</span></li>
+
+          </ul>
+        </div>
+        
+
+    <div class="ol-group-card">
+      <div class="ol-group-header" style="background:linear-gradient(90deg,#f0fdf4,#dcfce7);border-bottom-color:#bbf7d0;">
+        <span class="ol-group-num" style="background:#15803d;">100-Point Quick Sheet</span>
+        <h3 class="ol-group-title" style="color:#14532d;">100 Most Probable Exam Pointers (Question &rarr; Direct One-Liner Answer)</h3>
+        <span class="ol-group-count" style="background:#dcfce7;color:#166534;">100 Pointers</span>
+      </div>
+      <ul class="ol-list">
+        <li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#1 · Clock Reasoning</span> <strong>What is the exact acute angle between the hour hand and the minute hand of an analog clock at 4:20 PM?</strong> &rarr; <span class="ol-ans-highlight">10 degrees</span> <span style="color:#475569;font-size:12.8px;">(Using θ = |30H - 5.5M| = |30(4) - 5.5(20)| = |120 - 110| = 10 degrees.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#2 · Calendar Reasoning</span> <strong>If 25th February 2026 (the date of the Tripura Gazette notification) fell on a Wednesday, on which day of the week will 25th February 2028 fall?</strong> &rarr; <span class="ol-ans-highlight">Friday</span> <span style="color:#475569;font-size:12.8px;">(From 25 Feb 2026 to 25 Feb 2027 is 365 days (1 odd day → Thursday). From 25 Feb 2027 to 25 Feb 2028 is also 365 days because 29th Feb 2028 has NOT yet been crossed (1 odd day → Friday).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#3 · Number Series</span> <strong>Find the missing number in the logical series: 3, 10, 29, 66, 127, ?</strong> &rarr; <span class="ol-ans-highlight">218</span> <span style="color:#475569;font-size:12.8px;">(The pattern is n³ + 2 for n = 1, 2, 3, 4, 5, 6: 1³+2=3, 2³+2=10, 3³+2=29, 4³+2=66, 5³+2=127, and 6³+2 = 216 + 2 = 218.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#4 · Coding-Decoding</span> <strong>In a reverse-alphabet positional cipher where A = 26, B = 25, C = 24, ..., Z = 1, the word &#x27;NET&#x27; is coded as the sum of its reverse positions (13 + 22 + 7 = 42). What will be the numerical code for the word &#x27;WEB&#x27;?</strong> &rarr; <span class="ol-ans-highlight">51</span> <span style="color:#475569;font-size:12.8px;">(In reverse alphabet positions (27 - forward position): W = 27 - 23 = 4, E = 27 - 5 = 22, and B = 27 - 2 = 25. Their sum is 4 + 22 + 25 = 51.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#5 · Direction Sense</span> <strong>An engineer leaves the Agartala Secretariat and walks 14 km North, then turns right and walks 6 km East, and finally turns right and walks 6 km South. What is his shortest straight-line distance and direction from the starting point?</strong> &rarr; <span class="ol-ans-highlight">10 km North-East</span> <span style="color:#475569;font-size:12.8px;">(Net North displacement = 14 - 6 = 8 km North; Net East displacement = 6 km East. By Pythagoras theorem, shortest distance = √(8² + 6²) = √(64 + 36) = 10 km in the North-East direction.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#6 · Syllogism</span> <strong>Statements: (1) All compilers are assemblers. (2) Some assemblers are interpreters. (3) No interpreter is a loader.
+Which of the following conclusions definitely follows?</strong> &rarr; <span class="ol-ans-highlight">Some assemblers are not loaders</span> <span style="color:#475569;font-size:12.8px;">(Since Some assemblers are interpreters (I) and No interpreter is a loader (E), the subset of assemblers that are interpreters cannot be loaders → &#x27;Some assemblers are not loaders&#x27; definitely follows.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#7 · Blood Relations</span> <strong>Pointing to a photograph of a lady, a Technical Officer said, &#x27;She is the only daughter of the father of my mother&#x27;s only brother.&#x27; How is the lady related to the Technical Officer?</strong> &rarr; <span class="ol-ans-highlight">Mother</span> <span style="color:#475569;font-size:12.8px;">(Mother&#x27;s only brother = Maternal Uncle; Father of maternal uncle = Maternal Grandfather; Only daughter of maternal grandfather = the officer&#x27;s Mother.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#8 · Order &amp; Ranking</span> <strong>In a merit list of 65 candidates shortlisted by TPSC, Arjun ranks 22nd from the top and Bhaskar ranks 18th from the bottom. How many candidates are ranked strictly between Arjun and Bhaskar?</strong> &rarr; <span class="ol-ans-highlight">25 candidates</span> <span style="color:#475569;font-size:12.8px;">(Since 22 + 18 = 40 &lt; 65 (non-overlapping), the number of candidates strictly between them is 65 - (22 + 18) = 25.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#9 · Percentage &amp; Successive Change</span> <strong>The bandwidth capacity of a state data centre was first increased by 25% in Q1 and subsequently increased by 20% in Q2. What is the net overall percentage increase in bandwidth?</strong> &rarr; <span class="ol-ans-highlight">50%</span> <span style="color:#475569;font-size:12.8px;">(Using successive change formula: a + b + (ab)/100 = 25 + 20 + (25 × 20)/100 = 45 + 5 = 50%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#10 · Profit, Loss &amp; Discount</span> <strong>A hardware vendor marks a network switch 40% above its cost price and allows a discount of 15% on the marked price. What is his net profit percentage?</strong> &rarr; <span class="ol-ans-highlight">19%</span> <span style="color:#475569;font-size:12.8px;">(Let CP = 100 ⇒ MP = 140. Selling Price SP = 140 × (1 - 0.15) = 140 × 0.85 = 119. Net Profit = 19%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#11 · Compound &amp; Simple Interest</span> <strong>The difference between the Compound Interest (compounded annually) and Simple Interest on a certain principal sum at 8% per annum for 2 years is Rs. 192. What is the principal sum?</strong> &rarr; <span class="ol-ans-highlight">Rs. 30,000</span> <span style="color:#475569;font-size:12.8px;">(Using Diff₂ = P × (R/100)² ⇒ 192 = P × (8/100)² = P × (64 / 10000) ⇒ P = (192 × 10000) / 64 = Rs. 30,000.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#12 · Time &amp; Work</span> <strong>Server Node A can process a batch of census records in 15 hours, while Server Node B can process the same batch in 20 hours. If both nodes work together for 4 hours and then Node A is taken offline for maintenance, how many additional hours will Node B take to finish the remaining records?</strong> &rarr; <span class="ol-ans-highlight">10.67 hours (10 hours 40 minutes)</span> <span style="color:#475569;font-size:12.8px;">(In 1 hr together: 1/15 + 1/20 = 7/60. In 4 hrs together: 28/60 = 7/15 completed. Remaining work = 8/15. Time taken by B alone = (8/15) × 20 = 32/3 = 10.67 hours (10 hrs 40 mins).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#13 · Time, Speed &amp; Distance</span> <strong>A 180-meter-long express train running at a speed of 72 km/hr crosses a bridge completely in 25 seconds. What is the length of the bridge?</strong> &rarr; <span class="ol-ans-highlight">320 meters</span> <span style="color:#475569;font-size:12.8px;">(Speed = 72 × (5/18) = 20 m/s. Total distance covered in 25 s = 20 × 25 = 500 m. Length of bridge = 500 - 180 = 320 meters.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#14 · Ratio &amp; Mixture</span> <strong>Two server racks contain copper and fiber patch cables in the ratio 5 : 3. If 16 copper cables are replaced by 16 fiber cables, the ratio becomes 3 : 5. What is the total number of patch cables in the racks?</strong> &rarr; <span class="ol-ans-highlight">64 cables</span> <span style="color:#475569;font-size:12.8px;">(Let initial counts be 5x and 3x. Then (5x - 16)/(3x + 16) = 3/5 ⇒ 25x - 80 = 9x + 48 ⇒ 16x = 128 ⇒ x = 8. Total cables = 8x = 64.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#15 · Averages</span> <strong>The average age of 12 officers in an IT cell is 30 years. When 3 new Assistant Technical Officers join the cell, the average age drops by 1 year. What is the average age of the 3 newly joined officers?</strong> &rarr; <span class="ol-ans-highlight">25 years</span> <span style="color:#475569;font-size:12.8px;">(Initial total age = 12 × 30 = 360. New total age of 15 officers = 15 × 29 = 435. Sum of 3 new officers = 435 - 360 = 75 ⇒ Average = 75 / 3 = 25 years.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#16 · Cube Cutting</span> <strong>A solid wooden cube painted blue on all six faces is cut into 125 identical smaller cubes of equal size. How many of the smaller cubes have exactly TWO faces painted blue?</strong> &rarr; <span class="ol-ans-highlight">36 cubes</span> <span style="color:#475569;font-size:12.8px;">(Here n³ = 125 ⇒ n = 5. Number of smaller cubes with exactly 2 faces painted (along the 12 edges) = 12(n - 2) = 12(5 - 2) = 36.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#17 · Permutations &amp; Combinations</span> <strong>In how many distinct ways can the letters of the word &#x27;AGARTALA&#x27; be arranged?</strong> &rarr; <span class="ol-ans-highlight">1,680 ways</span> <span style="color:#475569;font-size:12.8px;">(&#x27;AGARTALA&#x27; has 8 letters where &#x27;A&#x27; appears 4 times and G, R, T, L appear once each. Total arrangements = 8! / 4! = 40320 / 24 = 1,680.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#18 · Seating Arrangement</span> <strong>Six officers (P, Q, R, S, T, U) are sitting in a circle facing the center. P is immediate left of R; S is between R and T; and Q is immediate left of U. Who is sitting directly opposite to S?</strong> &rarr; <span class="ol-ans-highlight">Q</span> <span style="color:#475569;font-size:12.8px;">(Clockwise order facing center: R → P (immediate left of R) → Q → U (Q is left of U) → T → S (between R and T). Thus in the 6-seat circle (R, P, Q, U, T, S), opposite to S is Q.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#19 · Number System</span> <strong>When a positive integer N is divided by 56, the remainder is 29. What will be the remainder when the same integer N is divided by 8?</strong> &rarr; <span class="ol-ans-highlight">5</span> <span style="color:#475569;font-size:12.8px;">(Since 56 is a multiple of 8 (56 = 8 × 7), we divide the first remainder 29 by 8: 29 = 8 × 3 + 5 → Remainder is 5.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#20 · Pipes &amp; Cisterns</span> <strong>Cooling Pipe A can fill a liquid-cooling reservoir in 12 minutes and Pipe B can fill it in 18 minutes, while Drain Pipe C can empty the full reservoir in 36 minutes. If all three pipes are opened simultaneously, in how many minutes will the empty reservoir be completely filled?</strong> &rarr; <span class="ol-ans-highlight">9 minutes</span> <span style="color:#475569;font-size:12.8px;">(Net part filled per minute = 1/12 + 1/18 - 1/36 = (3 + 2 - 1)/36 = 4/36 = 1/9. Thus the reservoir fills in 9 minutes.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#21 · Number Series</span> <strong>Find the next term in the prime-gap number series: 2, 5, 11, 23, 47, ?</strong> &rarr; <span class="ol-ans-highlight">95</span> <span style="color:#475569;font-size:12.8px;">(Each term follows the recurrence T_n = 2 × T_(n-1) + 1: 2(2)+1=5, 2(5)+1=11, 2(11)+1=23, 2(23)+1=47, and 2(47)+1 = 95.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#22 · Clock Mirror Image</span> <strong>If an analog wall clock (without numerals, marked only with dots) shows 3:40 in a plane mirror, what is the actual real time?</strong> &rarr; <span class="ol-ans-highlight">8:20</span> <span style="color:#475569;font-size:12.8px;">(To find the mirror image time (or real time from mirror image), subtract the given time from 11:60: 11:60 - 3:40 = 8:20.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#23 · Partnership &amp; Ratio</span> <strong>Ankit and Bikram start an IT consultancy by investing Rs. 45,000 and Rs. 60,000 respectively. After 4 months, Chetan joins them with a capital of Rs. 90,000. At the end of one year, what share of a total profit of Rs. 66,000 will Chetan receive?</strong> &rarr; <span class="ol-ans-highlight">Rs. 24,000</span> <span style="color:#475569;font-size:12.8px;">(Capital × Time ratio = Ankit (45,000 × 12) : Bikram (60,000 × 12) : Chetan (90,000 × 8) = 540 : 720 : 720 = 3 : 4 : 4. Chetan&#x27;s share = (4 / 11) × 66,000 = Rs. 24,000.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#24 · Boats &amp; Streams</span> <strong>A motorboat travels 36 km downstream in 3 hours and takes 6 hours to cover the same 36 km distance upstream. What is the speed of the boat in still water and the speed of the river current?</strong> &rarr; <span class="ol-ans-highlight">Boat speed = 9 km/hr; Stream speed = 3 km/hr</span> <span style="color:#475569;font-size:12.8px;">(Downstream speed D = 36 / 3 = 12 km/hr; Upstream speed U = 36 / 6 = 6 km/hr. Speed in still water B = (D + U)/2 = (12 + 6)/2 = 9 km/hr; Stream speed S = (D - U)/2 = 3 km/hr.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#25 · Syllogism</span> <strong>Statements: (1) Only a few packets are frames. (2) All frames are segments.
+Which conclusion logically follows?</strong> &rarr; <span class="ol-ans-highlight">Some packets are segments, and some packets are definitely not frames</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Only a few A are B&#x27; means BOTH &#x27;Some A are B&#x27; AND &#x27;Some A are not B&#x27;. Combined with &#x27;All B are C&#x27;, &#x27;Some packets are segments&#x27; and &#x27;Some packets are not frames&#x27; both follow.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#26 · Statement &amp; Assumption</span> <strong>Statement: &#x27;The Directorate of Information Technology has mandated biometric and OTP two-factor login for all e-Office users.&#x27;
+Which assumption is implicit in this directive?</strong> &rarr; <span class="ol-ans-highlight">Single-factor password authentication alone is insufficient against credential theft, and employees have access to registered devices for OTP/biometrics</span> <span style="color:#475569;font-size:12.8px;">(Mandating 2FA implicitly assumes that single-factor authentication poses security risks and that the workforce can practically use the 2FA mechanism.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#27 · HCF &amp; LCM</span> <strong>The HCF of two positive integers is 16 and their LCM is 480. If one of the numbers is 96, what is the other number?</strong> &rarr; <span class="ol-ans-highlight">80</span> <span style="color:#475569;font-size:12.8px;">(Using Product of two numbers = HCF × LCM: 96 × b = 16 × 480 ⇒ b = (16 × 480) / 96 = 480 / 6 = 80.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#28 · Mensuration</span> <strong>If the radius of a circular wafer is increased by 10%, by what percentage does its surface area increase?</strong> &rarr; <span class="ol-ans-highlight">21%</span> <span style="color:#475569;font-size:12.8px;">(Area A = πr² depends on r². By successive change: 10 + 10 + (10 × 10)/100 = 21%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#29 · Number Series</span> <strong>Find the missing number in the alternating difference series: 7, 15, 31, 63, 127, ?</strong> &rarr; <span class="ol-ans-highlight">255</span> <span style="color:#475569;font-size:12.8px;">(Pattern is 2^n - 1 (or 2x + 1): 2(7)+1=15, 2(15)+1=31, 2(31)+1=63, 2(63)+1=127, and 2(127)+1 = 255.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#30 · Letter Series</span> <strong>Complete the alphabetical series: BDF, CFI, DHL, ?</strong> &rarr; <span class="ol-ans-highlight">EJO</span> <span style="color:#475569;font-size:12.8px;">(1st letters: B(2), C(3), D(4), E(5). 2nd letters: D(4), F(6), H(8), J(10). 3rd letters: F(6), I(9), L(12), O(15) → EJO.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#31 · Blood Relations</span> <strong>A is the brother of B. B is the wife of C. C is the son of D, and E is the wife of D. How is E related to B?</strong> &rarr; <span class="ol-ans-highlight">Mother-in-law</span> <span style="color:#475569;font-size:12.8px;">(B is married to C, and C&#x27;s parents are D (father) and E (mother). Therefore, E is the mother of B&#x27;s husband = Mother-in-law.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#32 · Clock Coincidence</span> <strong>How many times in a complete 24-hour day do the hour hand and the minute hand of a standard analog clock form a right angle (90° separation)?</strong> &rarr; <span class="ol-ans-highlight">44 times</span> <span style="color:#475569;font-size:12.8px;">(The hands are at 90° twice every hour except between 2–4 and 8–10 (where 3:00 and 9:00 are shared), giving 22 times in 12 hours and 44 times in 24 hours.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#33 · Calendar Leap Year</span> <strong>Which of the following century years is a Leap Year (containing 366 days)?</strong> &rarr; <span class="ol-ans-highlight">2400</span> <span style="color:#475569;font-size:12.8px;">(A century year is a leap year if and only if it is divisible by 400. Among 2100, 2200, 2300, and 2400, only 2400 is divisible by 400.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#34 · Profit &amp; Loss</span> <strong>By selling 45 network cables for Rs. 4,000, a dealer loses 20%. How many network cables should he sell for Rs. 2,400 to gain 20% in the transaction?</strong> &rarr; <span class="ol-ans-highlight">18 cables</span> <span style="color:#475569;font-size:12.8px;">(At 20% loss, SP of 45 cables = 0.80 × CP ⇒ To gain 20% (1.20 × CP), SP of 45 cables must be 4000 × (1.20 / 0.80) = Rs. 6,000. Thus for Rs. 2,400, number of cables = 45 × (2400 / 6000) = 18 cables.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#35 · Average Speed</span> <strong>A network maintenance van travels from Agartala to Udaipur at 40 km/hr and returns along the exact same route at 60 km/hr. What is its average speed for the entire round trip?</strong> &rarr; <span class="ol-ans-highlight">48 km/hr</span> <span style="color:#475569;font-size:12.8px;">(For equal distances covered at speeds u and v, average speed is the harmonic mean: 2uv / (u + v) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/hr.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#36 · Ages Problem</span> <strong>The present ages of a Senior System Analyst and a Junior Programmer are in the ratio 7 : 4. Three years hence, their ages will be in the ratio 5 : 3. What is the present age of the Senior System Analyst?</strong> &rarr; <span class="ol-ans-highlight">42 years</span> <span style="color:#475569;font-size:12.8px;">(Let present ages be 7x and 4x. Three years hence: (7x + 3) / (4x + 3) = 5 / 3 ⇒ 21x + 9 = 20x + 15 ⇒ x = 6. Therefore, the present age of the Senior System Analyst is 7 × 6 = 42 years.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#37 · Data Sufficiency &amp; Ranking</span> <strong>In a queue of applicants at TPSC Bhawan, P is 10th from the front and Q is 15th from the back. If they interchange their positions, P becomes 22nd from the front. How many total applicants are in the queue?</strong> &rarr; <span class="ol-ans-highlight">36 applicants</span> <span style="color:#475569;font-size:12.8px;">(After interchanging, P occupies Q&#x27;s position (which is 15th from the back and 22nd from the front). Total N = Left + Right - 1 = 22 + 15 - 1 = 36.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#38 · Probability &amp; Dice</span> <strong>What is the probability of getting a sum of at least 10 when two fair six-sided dice are thrown simultaneously?</strong> &rarr; <span class="ol-ans-highlight">1 / 6 (6 / 36)</span> <span style="color:#475569;font-size:12.8px;">(Pairs with sum ≥ 10 are: Sum 10 {(4,6),(5,5),(6,4)} + Sum 11 {(5,6),(6,5)} + Sum 12 {(6,6)} = 3 + 2 + 1 = 6 outcomes out of 36 = 1/6.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#39 · Compound Interest</span> <strong>A sum of money invested at Compound Interest (compounded annually) triples itself in 4 years. In how many years will it become 27 times its original value at the same rate?</strong> &rarr; <span class="ol-ans-highlight">12 years</span> <span style="color:#475569;font-size:12.8px;">(Since 27 = 3³, and multiplying by 3 takes 4 years, multiplying by 3³ takes 3 × 4 = 12 years.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#40 · Trains Crossing</span> <strong>Two trains of lengths 140 m and 160 m are running in OPPOSITE directions on parallel tracks at speeds of 65 km/hr and 43 km/hr respectively. In how many seconds will they completely cross each other?</strong> &rarr; <span class="ol-ans-highlight">10 seconds</span> <span style="color:#475569;font-size:12.8px;">(Total length = 140 + 160 = 300 m. Relative speed in opposite directions = 65 + 43 = 108 km/hr = 108 × (5/18) = 30 m/s. Crossing time = 300 / 30 = 10 seconds.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#41 · Number Series</span> <strong>Find the missing term in the series: 4, 18, 48, 100, 180, ?</strong> &rarr; <span class="ol-ans-highlight">294</span> <span style="color:#475569;font-size:12.8px;">(Pattern is n³ - n² = n²(n - 1) for n = 2, 3, 4, 5, 6, 7: 2²(1)=4, 3²(2)=18, 4²(3)=48, 5²(4)=100, 6²(5)=180, and 7²(6) = 49 × 6 = 294.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#42 · Circular Permutation</span> <strong>In how many distinct ways can 7 department heads be seated around a circular conference table if two specific officers insist on sitting next to each other?</strong> &rarr; <span class="ol-ans-highlight">240 ways</span> <span style="color:#475569;font-size:12.8px;">(Treat the 2 officers as 1 bundled unit → 6 units arranged around a circle in (6 - 1)! = 5! = 120 ways. The 2 officers can swap internally in 2! = 2 ways → 120 × 2 = 240 ways.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#43 · Profit &amp; False Weight</span> <strong>A dishonest vendor professes to sell electronic components at Cost Price, but uses a faulty weight of 800 grams instead of 1,000 grams (1 kg). What is his actual profit percentage?</strong> &rarr; <span class="ol-ans-highlight">25%</span> <span style="color:#475569;font-size:12.8px;">(Gain % = [(True Weight - False Weight) / False Weight] × 100 = [(1000 - 800) / 800] × 100 = (200 / 800) × 100 = 25%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#44 · Mixtures &amp; Alligation</span> <strong>A vessel contains 60 liters of a mixture of acid and water in the ratio 2 : 1. How many liters of water must be added to make the ratio of acid to water 1 : 2?</strong> &rarr; <span class="ol-ans-highlight">60 liters</span> <span style="color:#475569;font-size:12.8px;">(Initially: Acid = 40 L, Water = 20 L. Let x liters of water be added so Acid : Water = 40 / (20 + x) = 1 / 2 ⇒ 20 + x = 80 ⇒ x = 60 liters.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#45 · Calendar Reasoning</span> <strong>After how many years does the exact same calendar (identical day-to-date mapping for the entire year) repeat for the year 2025?</strong> &rarr; <span class="ol-ans-highlight">6 years (in the year 2031)</span> <span style="color:#475569;font-size:12.8px;">(Since 2025 = 2024 (Leap Year) + 1, a &#x27;Leap + 1&#x27; year always repeats its exact calendar after 6 years (2025 + 6 = 2031).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#46 · Blood Relations</span> <strong>Introducing a boy, a girl said, &#x27;He is the son of the daughter of the father of my maternal uncle.&#x27; How is the boy related to the girl?</strong> &rarr; <span class="ol-ans-highlight">Brother (or Maternal Cousin)</span> <span style="color:#475569;font-size:12.8px;">(Father of maternal uncle = Maternal Grandfather; Daughter of maternal grandfather = Mother (or Maternal Aunt); Son of mother = Brother.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#47 · Set Theory &amp; Venn Diagram</span> <strong>In a batch of 100 IT officers, 65 know Python, 55 know Java, and 15 know NEITHER Python NOR Java. How many officers know BOTH Python and Java?</strong> &rarr; <span class="ol-ans-highlight">35 officers</span> <span style="color:#475569;font-size:12.8px;">(Officers knowing at least one language n(P ∪ J) = 100 - 15 = 85. By Inclusion-Exclusion: n(P ∩ J) = n(P) + n(J) - n(P ∪ J) = 65 + 55 - 85 = 35.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#48 · 3D Mensuration</span> <strong>If the edge length of a solid metallic cube is increased by 50%, by what percentage does its Total Surface Area (TSA) and Volume increase, respectively?</strong> &rarr; <span class="ol-ans-highlight">Surface Area increases by 125%; Volume increases by 237.5%</span> <span style="color:#475569;font-size:12.8px;">(Multiplier k = 1.5. Surface area scales as k² = (1.5)² = 2.25 → +125% increase. Volume scales as k³ = (1.5)³ = 3.375 → +237.5% increase.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#49 · Derangements</span> <strong>Four letters are placed randomly into four addressed envelopes such that each envelope receives exactly one letter. In how many ways can ALL FOUR letters be placed into the WRONG envelopes (Derangement D₄)?</strong> &rarr; <span class="ol-ans-highlight">9 ways</span> <span style="color:#475569;font-size:12.8px;">(Using the Derangement formula D_n = n!(1/2! - 1/3! + 1/4!): D₄ = 24 × (1/2 - 1/6 + 1/24) = 12 - 4 + 1 = 9 ways.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#50 · Infinite Geometric Progression</span> <strong>A rubber ball is dropped vertically from a height of 36 meters. Every time it hits the floor, it rebounds to two-thirds (2/3) of the height from which it fell. What is the total vertical distance travelled by the ball before coming to rest?</strong> &rarr; <span class="ol-ans-highlight">180 meters</span> <span style="color:#475569;font-size:12.8px;">(Total distance = h × (1 + r) / (1 - r) = 36 × (1 + 2/3) / (1 - 2/3) = 36 × (5/3) / (1/3) = 36 × 5 = 180 meters.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#51 · Chain Rule MDH</span> <strong>If 18 data entry operators working 8 hours a day can digitize 360 land-record files in 15 days, how many days will 24 operators working 9 hours a day take to digitize 432 similar files?</strong> &rarr; <span class="ol-ans-highlight">12 days</span> <span style="color:#475569;font-size:12.8px;">(Using (M₁ × D₁ × H₁)/W₁ = (M₂ × D₂ × H₂)/W₂: (18 × 15 × 8) / 360 = (24 × D₂ × 9) / 432 ⇒ 6 = D₂ / 2 ⇒ D₂ = 12 days.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#52 · Clock Angle</span> <strong>What is the exact acute angle between the hour hand and the minute hand of a clock at 8:30?</strong> &rarr; <span class="ol-ans-highlight">75 degrees</span> <span style="color:#475569;font-size:12.8px;">(Using θ = |30H - 5.5M| = |30(8) - 5.5(30)| = |240 - 165| = 75 degrees.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#53 · Clock Angle</span> <strong>What is the exact angle between the hour hand and the minute hand of a clock at 9:40?</strong> &rarr; <span class="ol-ans-highlight">50 degrees</span> <span style="color:#475569;font-size:12.8px;">(Using θ = |30H - 5.5M| = |30(9) - 5.5(40)| = |270 - 220| = 50 degrees.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#54 · Percentage &amp; Tax</span> <strong>If the price of a server SSD increases by 25%, by what percentage must a department reduce its consumption so that total expenditure on SSDs remains completely unchanged?</strong> &rarr; <span class="ol-ans-highlight">20%</span> <span style="color:#475569;font-size:12.8px;">(Reduction % = [R / (100 + R)] × 100 = (25 / 125) × 100 = 20%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#55 · Compound Interest</span> <strong>What is the Compound Interest (compounded annually) on Rs. 20,000 at 10% per annum for 3 years?</strong> &rarr; <span class="ol-ans-highlight">Rs. 6,620</span> <span style="color:#475569;font-size:12.8px;">(Amount A = 20000 × (1.10)³ = 20000 × 1.331 = Rs. 26,620 ⇒ CI = 26,620 - 20,000 = Rs. 6,620.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#56 · Time &amp; Work Efficiency</span> <strong>A is twice as efficient as B at writing unit tests, and together they finish a test suite in 14 days. In how many days can A alone finish the entire test suite?</strong> &rarr; <span class="ol-ans-highlight">21 days</span> <span style="color:#475569;font-size:12.8px;">(Efficiency ratio A : B = 2 : 1 (total = 3 units/day). Total work = 3 × 14 = 42 units. Time taken by A alone = 42 / 2 = 21 days.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#57 · Trains &amp; Relative Speed</span> <strong>A train 240 meters long passes a telegraph pole in 12 seconds. How long will it take to cross a platform 360 meters long at the same speed?</strong> &rarr; <span class="ol-ans-highlight">30 seconds</span> <span style="color:#475569;font-size:12.8px;">(Speed of train = 240 m / 12 s = 20 m/s. Total distance to cross 360 m platform = 240 + 360 = 600 m ⇒ Time = 600 / 20 = 30 seconds.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#58 · Syllogism</span> <strong>Statements: (1) All firewalls are gateways. (2) All gateways are proxies. (3) Some proxies are load-balancers.
+Which conclusion definitely follows?</strong> &rarr; <span class="ol-ans-highlight">All firewalls are proxies, and some proxies are firewalls</span> <span style="color:#475569;font-size:12.8px;">(Since Firewalls ⊆ Gateways ⊆ Proxies, &#x27;All firewalls are proxies&#x27; and its converse &#x27;Some proxies are firewalls&#x27; follow with 100% certainty.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#59 · Number Divisibility</span> <strong>What is the smallest digit x such that the 7-digit number 5432x76 is completely divisible by 9?</strong> &rarr; <span class="ol-ans-highlight">0 (or 9)</span> <span style="color:#475569;font-size:12.8px;">(Sum of known digits = 5+4+3+2+7+6 = 27, which is already a multiple of 9! Hence the smallest non-negative digit x is 0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#60 · Cube Painting</span> <strong>A solid cube painted red on all faces is cut into 64 smaller equal cubes. How many of the smaller cubes have ZERO faces painted?</strong> &rarr; <span class="ol-ans-highlight">8 cubes</span> <span style="color:#475569;font-size:12.8px;">(Here n³ = 64 ⇒ n = 4. Number of inner core cubes with 0 faces painted = (n - 2)³ = (4 - 2)³ = 8.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#61 · Knockout Tournament</span> <strong>In a single-elimination (knockout) cyber-ctf tournament with 128 participating teams (no ties allowed), how many total matches must be played to determine the single tournament champion?</strong> &rarr; <span class="ol-ans-highlight">127 matches</span> <span style="color:#475569;font-size:12.8px;">(Every match eliminates exactly 1 team; to eliminate 127 teams out of 128 and leave 1 champion, exactly n - 1 = 127 matches are required.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#62 · Number Series</span> <strong>Find the missing term in the prime-squared series: 4, 9, 25, 49, 121, 169, ?</strong> &rarr; <span class="ol-ans-highlight">289</span> <span style="color:#475569;font-size:12.8px;">(The series consists of squares of consecutive prime numbers: 2², 3², 5², 7², 11², 13², 17² = 289.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#63 · Number Series</span> <strong>Find the next number in the series: 2, 6, 12, 20, 30, 42, ?</strong> &rarr; <span class="ol-ans-highlight">56</span> <span style="color:#475569;font-size:12.8px;">(Pattern is n(n+1): 1×2=2, 2×3=6, 3×4=12, 4×5=20, 5×6=30, 6×7=42, 7×8 = 56.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#64 · Number Series</span> <strong>Identify the wrong number in the series: 1, 8, 27, 64, 124, 216, 343:</strong> &rarr; <span class="ol-ans-highlight">124</span> <span style="color:#475569;font-size:12.8px;">(All terms are perfect cubes n³: 5³ should be 125, not 124.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#65 · Letter Series</span> <strong>Complete the alphabetical series: AZ, CX, FU, ?</strong> &rarr; <span class="ol-ans-highlight">JQ</span> <span style="color:#475569;font-size:12.8px;">(First letters increase by +2, +3, +4: A(1)-&gt;C(3)-&gt;F(6)-&gt;J(10); second letters are opposite pairs summing to 27: Q(17) -&gt; JQ.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#66 · Coding-Decoding</span> <strong>If &#x27;COMPUTER&#x27; is coded as &#x27;RFUVQNPC&#x27;, how is &#x27;MEDICINE&#x27; coded in that language?</strong> &rarr; <span class="ol-ans-highlight">EOJDJEFM</span> <span style="color:#475569;font-size:12.8px;">(Reverse the word (&#x27;ENICIDEM&#x27;), keep first and last letters (&#x27;E&#x27; and &#x27;M&#x27;) fixed, and shift middle letters by +1: E O J D J E F M.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#67 · Coding-Decoding</span> <strong>If A = 1, CAT = 24, and DOG = 26, then what is the numerical code for &#x27;TPSC&#x27;?</strong> &rarr; <span class="ol-ans-highlight">58</span> <span style="color:#475569;font-size:12.8px;">(Sum of alphabet positions: T(20) + P(16) + S(19) + C(3) = 58.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#68 · Blood Relations</span> <strong>Pointing to a photograph, a woman says, &#x27;He is the only son of the grandfather of my brother.&#x27; How is the man in the photograph related to the woman?</strong> &rarr; <span class="ol-ans-highlight">Father</span> <span style="color:#475569;font-size:12.8px;">(The only son of her brother&#x27;s paternal grandfather is her own Father.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#69 · Blood Relations</span> <strong>A + B means A is the mother of B; A - B means A is the brother of B; A × B means A is the father of B. Which expression shows P is the maternal uncle of Q?</strong> &rarr; <span class="ol-ans-highlight">P - M + Q</span> <span style="color:#475569;font-size:12.8px;">(P - M means P is the brother of M, and M + Q means M is the mother of Q; hence P is Q&#x27;s maternal uncle.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#70 · Direction Sense</span> <strong>A man walks 5 km South, turns right and walks 3 km, then turns left and walks 5 km. In which direction is he now from his starting point?</strong> &rarr; <span class="ol-ans-highlight">South-West</span> <span style="color:#475569;font-size:12.8px;">(5 km South -&gt; Right turn = 3 km West -&gt; Left turn = 5 km South. Net position = 10 km South, 3 km West = South-West.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#71 · Direction Sense</span> <strong>One morning after sunrise, Vikram and Shobhit were standing face to face at Ujjayanta Palace. Vikram&#x27;s shadow fell exactly to his left. Which direction was Shobhit facing?</strong> &rarr; <span class="ol-ans-highlight">South</span> <span style="color:#475569;font-size:12.8px;">(At sunrise (Sun in East), shadows fall West. Since Vikram&#x27;s shadow is to his Left, West is to Vikram&#x27;s Left, so Vikram faces North and Shobhit (facing him) faces South!)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#72 · Ranking</span> <strong>In a row of 45 candidates, Shivam is 18th from the left end. What is his position from the right end?</strong> &rarr; <span class="ol-ans-highlight">28th</span> <span style="color:#475569;font-size:12.8px;">(Position from Right = Total - Left + 1 = 45 - 18 + 1 = 28th.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#73 · Ranking</span> <strong>In a queue, A is 10th from the front and B is 15th from the back. If they interchange positions, A becomes 20th from the front. How many persons are in the queue?</strong> &rarr; <span class="ol-ans-highlight">34</span> <span style="color:#475569;font-size:12.8px;">(A&#x27;s new position (20th from front) is B&#x27;s old position (15th from back). Total = 20 + 15 - 1 = 34.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#74 · Syllogisms</span> <strong>Statements: All routers are switches. No switch is a hub. Conclusions: I. No router is a hub. II. Some switches are routers.</strong> &rarr; <span class="ol-ans-highlight">Both Conclusions I and II follow</span> <span style="color:#475569;font-size:12.8px;">(Since Router ⊂ Switch and Switch ∩ Hub = ∅, Router ∩ Hub = ∅ (I follows) and Some switches are routers (II follows).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#75 · Syllogisms</span> <strong>Statements: Some files are folders. All folders are disks. Conclusions: I. Some files are disks. II. All disks are folders.</strong> &rarr; <span class="ol-ans-highlight">Only Conclusion I follows</span> <span style="color:#475569;font-size:12.8px;">(Some files are folders + All folders are disks =&gt; Some files are disks (I follows; II is an invalid universal conversion).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#76 · Clocks</span> <strong>What is the exact angle between the hour hand and the minute hand of a clock at 3:40?</strong> &rarr; <span class="ol-ans-highlight">130°</span> <span style="color:#475569;font-size:12.8px;">(Angle θ = |30H - 5.5M| = |30(3) - 5.5(40)| = |90 - 220| = 130°.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#77 · Clocks</span> <strong>How many times do the hands of a clock coincide (overlap at 0°) in a complete 24-hour day?</strong> &rarr; <span class="ol-ans-highlight">22 times</span> <span style="color:#475569;font-size:12.8px;">(Hands coincide 11 times in 12 hours (only once between 11 and 1 at 12:00), so 22 times in 24 hours.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#78 · Calendars</span> <strong>If 21 January 2025 is a Tuesday, what day of the week will 21 January 2026 be?</strong> &rarr; <span class="ol-ans-highlight">Wednesday</span> <span style="color:#475569;font-size:12.8px;">(2025 is an ordinary non-leap year (365 days = 52 weeks + 1 odd day), so the day advances by +1: Tuesday + 1 = Wednesday.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#79 · Calendars</span> <strong>Which of the following century years is a Leap Year?</strong> &rarr; <span class="ol-ans-highlight">2000</span> <span style="color:#475569;font-size:12.8px;">(A century year is a leap year if and only if it is divisible by 400; 2000 ÷ 400 = 5.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#80 · Percentages</span> <strong>If the price of a laptop is first increased by 20% and then decreased by 20%, the net percentage change in price is:</strong> &rarr; <span class="ol-ans-highlight">4% decrease</span> <span style="color:#475569;font-size:12.8px;">(Net % change = +20 - 20 + (20 × -20)/100 = -4% (4% decrease).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#81 · Percentages</span> <strong>If A&#x27;s salary is 25% more than B&#x27;s salary, then by what percentage is B&#x27;s salary less than A&#x27;s salary?</strong> &rarr; <span class="ol-ans-highlight">20%</span> <span style="color:#475569;font-size:12.8px;">(Required % = [R / (100 + R)] × 100 = (25 / 125) × 100 = 20%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#82 · Profit &amp; Loss</span> <strong>A vendor sells an item for ₹720 at a loss of 10%. At what price must he sell it to gain 15%?</strong> &rarr; <span class="ol-ans-highlight">₹920</span> <span style="color:#475569;font-size:12.8px;">(CP = 720 / 0.90 = ₹800; required SP for 15% gain = 800 × 1.15 = ₹920.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#83 · Profit &amp; Loss</span> <strong>If the cost price of 12 pens is equal to the selling price of 10 pens, the profit percentage is:</strong> &rarr; <span class="ol-ans-highlight">20%</span> <span style="color:#475569;font-size:12.8px;">(12 CP = 10 SP =&gt; SP/CP = 12/10 = 6/5 =&gt; Profit % = (1/5) × 100 = 20%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#84 ·  Profit &amp; Discount</span> <strong>A shopkeeper marks his goods 40% above cost price and allows a discount of 20%. His net profit percentage is:</strong> &rarr; <span class="ol-ans-highlight">12%</span> <span style="color:#475569;font-size:12.8px;">(Net Profit % = 40 - 20 - (40 × 20)/100 = 20 - 8 = 12%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#85 · Simple &amp; Compound Interest</span> <strong>At what rate of Simple Interest per annum will a sum of money double itself in 8 years?</strong> &rarr; <span class="ol-ans-highlight">12.5%</span> <span style="color:#475569;font-size:12.8px;">(For doubling, SI = P =&gt; P = P × R × 8 / 100 =&gt; R = 100 / 8 = 12.5%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#86 · Compound Interest</span> <strong>The difference between Compound Interest and Simple Interest on ₹10,000 for 2 years at 10% per annum is:</strong> &rarr; <span class="ol-ans-highlight">₹100</span> <span style="color:#475569;font-size:12.8px;">(2-year (CI - SI) = P × (R/100)² = 10000 × (10/100)² = 10000 × 0.01 = ₹100.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#87 · Time &amp; Work</span> <strong>A can complete a network audit in 12 days and B can complete it in 24 days. Working together, they will finish the audit in:</strong> &rarr; <span class="ol-ans-highlight">8 days</span> <span style="color:#475569;font-size:12.8px;">(Combined time = (12 × 24) / (12 + 24) = 288 / 36 = 8 days.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#88 · Time &amp; Work</span> <strong>If 15 programmers can write 15 modules in 15 days, how many days will 1 programmer take to write 1 module?</strong> &rarr; <span class="ol-ans-highlight">15 days</span> <span style="color:#475569;font-size:12.8px;">(Using (M1 × D1)/W1 = (M2 × D2)/W2: (15 × 15)/15 = (1 × D2)/1 =&gt; D2 = 15 days.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#89 · Pipes &amp; Cisterns</span> <strong>Pipe A can fill a tank in 6 hours and Pipe B can empty the full tank in 12 hours. If both are opened together, the tank will fill in:</strong> &rarr; <span class="ol-ans-highlight">12 hours</span> <span style="color:#475569;font-size:12.8px;">(Net 1-hour filling rate = 1/6 - 1/12 = 1/12 =&gt; 12 hours.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#90 · Time, Speed &amp; Distance</span> <strong>A train 150 m long is running at a speed of 54 km/hr. How much time will it take to cross a telegraph pole?</strong> &rarr; <span class="ol-ans-highlight">10 seconds</span> <span style="color:#475569;font-size:12.8px;">(Speed = 54 × (5/18) = 15 m/s; Time = Distance / Speed = 150 / 15 = 10 seconds.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#91 · Time, Speed &amp; Distance</span> <strong>A car travels from Agartala to Udaipur at 40 km/hr and returns along the same route at 60 km/hr. Its average speed for the whole journey is:</strong> &rarr; <span class="ol-ans-highlight">48 km/hr</span> <span style="color:#475569;font-size:12.8px;">(Average speed for equal distances = 2uv / (u + v) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/hr.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#92 · Boats &amp; Streams</span> <strong>A boat rows downstream at 14 km/hr and upstream at 8 km/hr. What is the speed of the stream (current)?</strong> &rarr; <span class="ol-ans-highlight">3 km/hr</span> <span style="color:#475569;font-size:12.8px;">(Speed of stream = (Downstream - Upstream) / 2 = (14 - 8) / 2 = 3 km/hr.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#93 · Ratio &amp; Proportion</span> <strong>If A : B = 2 : 3 and B : C = 4 : 5, then what is the combined ratio A : B : C?</strong> &rarr; <span class="ol-ans-highlight">8 : 12 : 15</span> <span style="color:#475569;font-size:12.8px;">(A : B : C = (2×4) : (3×4) : (3×5) = 8 : 12 : 15.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#94 · Averages</span> <strong>The average age of 10 officers is 30 years. When the Director&#x27;s age is included, the average increases by 2 years. What is the Director&#x27;s age?</strong> &rarr; <span class="ol-ans-highlight">52 years</span> <span style="color:#475569;font-size:12.8px;">(Director&#x27;s age = 30 + (11 × 2) = 30 + 22 = 52 years.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#95 · Alligation &amp; Mixture</span> <strong>In what ratio must water be mixed with milk costing ₹60 per litre to obtain a mixture worth ₹45 per litre?</strong> &rarr; <span class="ol-ans-highlight">1 : 3</span> <span style="color:#475569;font-size:12.8px;">(By Alligation: Water (0) and Milk (60) around Mean (45) -&gt; (60 - 45) : (45 - 0) = 15 : 45 = 1 : 3.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#96 · Permutations</span> <strong>In how many distinct ways can the letters of the word &#x27;APPLE&#x27; be arranged?</strong> &rarr; <span class="ol-ans-highlight">60</span> <span style="color:#475569;font-size:12.8px;">(5 letters with &#x27;P&#x27; repeated twice: 5! / 2! = 120 / 2 = 60.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#97 · Combinations</span> <strong>How many handshakes occur in a room of 10 people if everyone shakes hands with everyone else exactly once?</strong> &rarr; <span class="ol-ans-highlight">45</span> <span style="color:#475569;font-size:12.8px;">(Number of handshakes = C(10, 2) = (10 × 9) / 2 = 45.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#98 · Venn Diagrams</span> <strong>In a batch of 100 engineers, 60 know Python, 50 know Java, and 20 know both. How many know NEITHER Python nor Java?</strong> &rarr; <span class="ol-ans-highlight">10</span> <span style="color:#475569;font-size:12.8px;">(Know at least one = 60 + 50 - 20 = 90; Know neither = 100 - 90 = 10.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#99 · Ages</span> <strong>The present ages of A and B are in the ratio 4 : 5. After 5 years, their ages will be in the ratio 5 : 6. What is A&#x27;s present age?</strong> &rarr; <span class="ol-ans-highlight">20 years</span> <span style="color:#475569;font-size:12.8px;">(4x + 5 / 5x + 5 = 5/6 =&gt; 24x + 30 = 25x + 25 =&gt; x = 5 =&gt; A&#x27;s age = 4x = 20 years.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#100 · Number System</span> <strong>What is the unit digit in the product (247 × 318 × 573 × 625 × 812)?</strong> &rarr; <span class="ol-ans-highlight">0</span> <span style="color:#475569;font-size:12.8px;">(Since the product contains 625 (multiple of 5) and 318/812 (even numbers, multiples of 2), 5 × 2 = 10 gives unit digit 0!)</span></span></li>
+
+      </ul>
+    </div>
+    
+      </div>
+    </section>
+
+    <!-- TAB 2: 100 MOST PROBABLE MCQs -->
+    <section id="paneMcqs" style="display:none;">
+      <div class="toolbar-card">
+        <input type="text" id="mcqSearch" class="search-input" placeholder="🔍 Filter the 100 Most Probable MCQs by topic or keyword..." oninput="renderMcqList()">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span id="scoreBadge" style="font-size:13px;font-weight:800;background:#dcfce7;color:#14532d;padding:7px 12px;border-radius:8px;">Score: 0 / 0</span>
+          <button class="action-btn green" onclick="toggleRevealAll()" id="btnRevealAll">📖 Show All 100 Answers &amp; Explanations</button>
+          <button class="action-btn secondary" onclick="shuffleAllMcqs()">🔀 Shuffle 100 MCQs &amp; Options</button>
+          <button class="action-btn" onclick="resetMcqSession()">↺ Reset</button>
+        </div>
+      </div>
+      <div id="mcqContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    const RAW_QS = [{"id": "P1_U2_Q001", "num": 1, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clock Reasoning", "question": "What is the exact acute angle between the hour hand and the minute hand of an analog clock at 4:20 PM?", "options": {"A": "10 degrees", "B": "0 degrees under standard IEEE/ISO technical specifications and system constraints", "C": "20 degrees", "D": "15 degrees"}, "answer": "A", "explanation": "Using θ = |30H - 5.5M| = |30(4) - 5.5(20)| = |120 - 110| = 10 degrees."}, {"id": "P1_U2_Q002", "num": 2, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Calendar Reasoning", "question": "If 25th February 2026 (the date of the Tripura Gazette notification) fell on a Wednesday, on which day of the week will 25th February 2028 fall?", "options": {"A": "Thursday", "B": "Friday", "C": "Saturday", "D": "Sunday"}, "answer": "B", "explanation": "From 25 Feb 2026 to 25 Feb 2027 is 365 days (1 odd day → Thursday). From 25 Feb 2027 to 25 Feb 2028 is also 365 days because 29th Feb 2028 has NOT yet been crossed (1 odd day → Friday)."}, {"id": "P1_U2_Q003", "num": 3, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Find the missing number in the logical series: 3, 10, 29, 66, 127, ?", "options": {"A": "216", "B": "214", "C": "218", "D": "225 when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "The pattern is n³ + 2 for n = 1, 2, 3, 4, 5, 6: 1³+2=3, 2³+2=10, 3³+2=29, 4³+2=66, 5³+2=127, and 6³+2 = 216 + 2 = 218."}, {"id": "P1_U2_Q004", "num": 4, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Coding-Decoding", "question": "In a reverse-alphabet positional cipher where A = 26, B = 25, C = 24, ..., Z = 1, the word 'NET' is coded as the sum of its reverse positions (13 + 22 + 7 = 42). What will be the numerical code for the word 'WEB'?", "options": {"A": "48 as prescribed under prevailing statutory and departmental technical norms", "B": "53", "C": "45", "D": "51"}, "answer": "D", "explanation": "In reverse alphabet positions (27 - forward position): W = 27 - 23 = 4, E = 27 - 5 = 22, and B = 27 - 2 = 25. Their sum is 4 + 22 + 25 = 51."}, {"id": "P1_U2_Q005", "num": 5, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Direction Sense", "question": "An engineer leaves the Agartala Secretariat and walks 14 km North, then turns right and walks 6 km East, and finally turns right and walks 6 km South. What is his shortest straight-line distance and direction from the starting point?", "options": {"A": "10 km North-East", "B": "12 km North-East", "C": "14 km South-East under standard IEEE/ISO technical specifications and system constraints", "D": "8 km North-West"}, "answer": "A", "explanation": "Net North displacement = 14 - 6 = 8 km North; Net East displacement = 6 km East. By Pythagoras theorem, shortest distance = √(8² + 6²) = √(64 + 36) = 10 km in the North-East direction."}, {"id": "P1_U2_Q006", "num": 6, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Syllogism", "question": "Statements: (1) All compilers are assemblers. (2) Some assemblers are interpreters. (3) No interpreter is a loader.\nWhich of the following conclusions definitely follows?", "options": {"A": "No compiler is a loader", "B": "Some assemblers are not loaders", "C": "Some compilers are interpreters", "D": "All interpreters are compilers according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "Since Some assemblers are interpreters (I) and No interpreter is a loader (E), the subset of assemblers that are interpreters cannot be loaders → 'Some assemblers are not loaders' definitely follows."}, {"id": "P1_U2_Q007", "num": 7, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Blood Relations", "question": "Pointing to a photograph of a lady, a Technical Officer said, 'She is the only daughter of the father of my mother's only brother.' How is the lady related to the Technical Officer?", "options": {"A": "Maternal Aunt", "B": "Sister", "C": "Mother", "D": "Grandmother"}, "answer": "C", "explanation": "Mother's only brother = Maternal Uncle; Father of maternal uncle = Maternal Grandfather; Only daughter of maternal grandfather = the officer's Mother."}, {"id": "P1_U2_Q008", "num": 8, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Order \u0026 Ranking", "question": "In a merit list of 65 candidates shortlisted by TPSC, Arjun ranks 22nd from the top and Bhaskar ranks 18th from the bottom. How many candidates are ranked strictly between Arjun and Bhaskar?", "options": {"A": "24 candidates", "B": "26 candidates as prescribed under prevailing statutory and departmental technical norms", "C": "27 candidates", "D": "25 candidates"}, "answer": "D", "explanation": "Since 22 + 18 = 40 \u003c 65 (non-overlapping), the number of candidates strictly between them is 65 - (22 + 18) = 25."}, {"id": "P1_U2_Q009", "num": 9, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Percentage \u0026 Successive Change", "question": "The bandwidth capacity of a state data centre was first increased by 25% in Q1 and subsequently increased by 20% in Q2. What is the net overall percentage increase in bandwidth?", "options": {"A": "50%", "B": "45%", "C": "48%", "D": "55% under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Using successive change formula: a + b + (ab)/100 = 25 + 20 + (25 × 20)/100 = 45 + 5 = 50%."}, {"id": "P1_U2_Q010", "num": 10, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Profit, Loss \u0026 Discount", "question": "A hardware vendor marks a network switch 40% above its cost price and allows a discount of 15% on the marked price. What is his net profit percentage?", "options": {"A": "25% according to the formal architectural model and runtime execution rules", "B": "19%", "C": "21%", "D": "16%"}, "answer": "B", "explanation": "Let CP = 100 ⇒ MP = 140. Selling Price SP = 140 × (1 - 0.15) = 140 × 0.85 = 119. Net Profit = 19%."}, {"id": "P1_U2_Q011", "num": 11, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Compound \u0026 Simple Interest", "question": "The difference between the Compound Interest (compounded annually) and Simple Interest on a certain principal sum at 8% per annum for 2 years is Rs. 192. What is the principal sum?", "options": {"A": "Rs. 25,000", "B": "Rs. 24,000 when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "Rs. 30,000", "D": "Rs. 32,000"}, "answer": "C", "explanation": "Using Diff₂ = P × (R/100)² ⇒ 192 = P × (8/100)² = P × (64 / 10000) ⇒ P = (192 × 10000) / 64 = Rs. 30,000."}, {"id": "P1_U2_Q012", "num": 12, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time \u0026 Work", "question": "Server Node A can process a batch of census records in 15 hours, while Server Node B can process the same batch in 20 hours. If both nodes work together for 4 hours and then Node A is taken offline for maintenance, how many additional hours will Node B take to finish the remaining records?", "options": {"A": "9.33 hours (9 hours 20 minutes)", "B": "11.50 hours (11 hours 30 minutes)", "C": "12.00 hours (12 hours 00 minutes) as prescribed under prevailing statutory and departmental technical norms", "D": "10.67 hours (10 hours 40 minutes)"}, "answer": "D", "explanation": "In 1 hr together: 1/15 + 1/20 = 7/60. In 4 hrs together: 28/60 = 7/15 completed. Remaining work = 8/15. Time taken by B alone = (8/15) × 20 = 32/3 = 10.67 hours (10 hrs 40 mins)."}, {"id": "P1_U2_Q013", "num": 13, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time, Speed \u0026 Distance", "question": "A 180-meter-long express train running at a speed of 72 km/hr crosses a bridge completely in 25 seconds. What is the length of the bridge?", "options": {"A": "320 meters", "B": "280 meters under standard IEEE/ISO technical specifications and system constraints", "C": "300 meters", "D": "360 meters"}, "answer": "A", "explanation": "Speed = 72 × (5/18) = 20 m/s. Total distance covered in 25 s = 20 × 25 = 500 m. Length of bridge = 500 - 180 = 320 meters."}, {"id": "P1_U2_Q014", "num": 14, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Ratio \u0026 Mixture", "question": "Two server racks contain copper and fiber patch cables in the ratio 5 : 3. If 16 copper cables are replaced by 16 fiber cables, the ratio becomes 3 : 5. What is the total number of patch cables in the racks?", "options": {"A": "48 cables", "B": "64 cables", "C": "72 cables according to the formal architectural model and runtime execution rules", "D": "80 cables"}, "answer": "B", "explanation": "Let initial counts be 5x and 3x. Then (5x - 16)/(3x + 16) = 3/5 ⇒ 25x - 80 = 9x + 48 ⇒ 16x = 128 ⇒ x = 8. Total cables = 8x = 64."}, {"id": "P1_U2_Q015", "num": 15, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Averages", "question": "The average age of 12 officers in an IT cell is 30 years. When 3 new Assistant Technical Officers join the cell, the average age drops by 1 year. What is the average age of the 3 newly joined officers?", "options": {"A": "24 years", "B": "26 years", "C": "25 years", "D": "27 years when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Initial total age = 12 × 30 = 360. New total age of 15 officers = 15 × 29 = 435. Sum of 3 new officers = 435 - 360 = 75 ⇒ Average = 75 / 3 = 25 years."}, {"id": "P1_U2_Q016", "num": 16, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Cube Cutting", "question": "A solid wooden cube painted blue on all six faces is cut into 125 identical smaller cubes of equal size. How many of the smaller cubes have exactly TWO faces painted blue?", "options": {"A": "24 cubes as prescribed under prevailing statutory and departmental technical norms", "B": "48 cubes", "C": "54 cubes", "D": "36 cubes"}, "answer": "D", "explanation": "Here n³ = 125 ⇒ n = 5. Number of smaller cubes with exactly 2 faces painted (along the 12 edges) = 12(n - 2) = 12(5 - 2) = 36."}, {"id": "P1_U2_Q017", "num": 17, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Permutations \u0026 Combinations", "question": "In how many distinct ways can the letters of the word 'AGARTALA' be arranged?", "options": {"A": "1,680 ways", "B": "3,360 ways", "C": "2,520 ways under standard IEEE/ISO technical specifications and system constraints", "D": "5,040 ways"}, "answer": "A", "explanation": "'AGARTALA' has 8 letters where 'A' appears 4 times and G, R, T, L appear once each. Total arrangements = 8! / 4! = 40320 / 24 = 1,680."}, {"id": "P1_U2_Q018", "num": 18, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Seating Arrangement", "question": "Six officers (P, Q, R, S, T, U) are sitting in a circle facing the center. P is immediate left of R; S is between R and T; and Q is immediate left of U. Who is sitting directly opposite to S?", "options": {"A": "P", "B": "Q", "C": "U", "D": "R according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "Clockwise order facing center: R → P (immediate left of R) → Q → U (Q is left of U) → T → S (between R and T). Thus in the 6-seat circle (R, P, Q, U, T, S), opposite to S is Q."}, {"id": "P1_U2_Q019", "num": 19, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number System", "question": "When a positive integer N is divided by 56, the remainder is 29. What will be the remainder when the same integer N is divided by 8?", "options": {"A": "3 when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "4", "C": "5", "D": "7"}, "answer": "C", "explanation": "Since 56 is a multiple of 8 (56 = 8 × 7), we divide the first remainder 29 by 8: 29 = 8 × 3 + 5 → Remainder is 5."}, {"id": "P1_U2_Q020", "num": 20, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Pipes \u0026 Cisterns", "question": "Cooling Pipe A can fill a liquid-cooling reservoir in 12 minutes and Pipe B can fill it in 18 minutes, while Drain Pipe C can empty the full reservoir in 36 minutes. If all three pipes are opened simultaneously, in how many minutes will the empty reservoir be completely filled?", "options": {"A": "8 minutes", "B": "10 minutes", "C": "12 minutes", "D": "9 minutes"}, "answer": "D", "explanation": "Net part filled per minute = 1/12 + 1/18 - 1/36 = (3 + 2 - 1)/36 = 4/36 = 1/9. Thus the reservoir fills in 9 minutes."}, {"id": "P1_U2_Q021", "num": 21, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Find the next term in the prime-gap number series: 2, 5, 11, 23, 47, ?", "options": {"A": "95", "B": "93", "C": "94", "D": "97 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Each term follows the recurrence T_n = 2 × T_(n-1) + 1: 2(2)+1=5, 2(5)+1=11, 2(11)+1=23, 2(23)+1=47, and 2(47)+1 = 95."}, {"id": "P1_U2_Q022", "num": 22, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clock Mirror Image", "question": "If an analog wall clock (without numerals, marked only with dots) shows 3:40 in a plane mirror, what is the actual real time?", "options": {"A": "8:40 according to the formal architectural model and runtime execution rules", "B": "8:20", "C": "9:20", "D": "7:20"}, "answer": "B", "explanation": "To find the mirror image time (or real time from mirror image), subtract the given time from 11:60: 11:60 - 3:40 = 8:20."}, {"id": "P1_U2_Q023", "num": 23, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Partnership \u0026 Ratio", "question": "Ankit and Bikram start an IT consultancy by investing Rs. 45,000 and Rs. 60,000 respectively. After 4 months, Chetan joins them with a capital of Rs. 90,000. At the end of one year, what share of a total profit of Rs. 66,000 will Chetan receive?", "options": {"A": "Rs. 18,000", "B": "Rs. 22,000 when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "Rs. 24,000", "D": "Rs. 30,000"}, "answer": "C", "explanation": "Capital × Time ratio = Ankit (45,000 × 12) : Bikram (60,000 × 12) : Chetan (90,000 × 8) = 540 : 720 : 720 = 3 : 4 : 4. Chetan's share = (4 / 11) × 66,000 = Rs. 24,000."}, {"id": "P1_U2_Q024", "num": 24, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Boats \u0026 Streams", "question": "A motorboat travels 36 km downstream in 3 hours and takes 6 hours to cover the same 36 km distance upstream. What is the speed of the boat in still water and the speed of the river current?", "options": {"A": "Boat speed = 10 km/hr; Stream speed = 2 km/hr", "B": "Boat speed = 8 km/hr; Stream speed = 4 km/hr", "C": "Boat speed = 12 km/hr; Stream speed = 6 km/hr", "D": "Boat speed = 9 km/hr; Stream speed = 3 km/hr"}, "answer": "D", "explanation": "Downstream speed D = 36 / 3 = 12 km/hr; Upstream speed U = 36 / 6 = 6 km/hr. Speed in still water B = (D + U)/2 = (12 + 6)/2 = 9 km/hr; Stream speed S = (D - U)/2 = 3 km/hr."}, {"id": "P1_U2_Q025", "num": 25, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Syllogism", "question": "Statements: (1) Only a few packets are frames. (2) All frames are segments.\nWhich conclusion logically follows?", "options": {"A": "Some packets are segments, and some packets are definitely not frames", "B": "All packets can never be segments under standard IEEE/ISO technical specifications and system constraints", "C": "No frame is a packet", "D": "All segments are frames"}, "answer": "A", "explanation": "'Only a few A are B' means BOTH 'Some A are B' AND 'Some A are not B'. Combined with 'All B are C', 'Some packets are segments' and 'Some packets are not frames' both follow."}, {"id": "P1_U2_Q026", "num": 26, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Statement \u0026 Assumption", "question": "Statement: 'The Directorate of Information Technology has mandated biometric and OTP two-factor login for all e-Office users.'\nWhich assumption is implicit in this directive?", "options": {"A": "All employees will stop using the e-Office portal due to two-factor login", "B": "Single-factor password authentication alone is insufficient against credential theft, and employees have access to registered devices for OTP/biometrics", "C": "Two-factor authentication completely eliminates the need for network firewalls according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules", "D": "Passwords are no longer stored in any encrypted format"}, "answer": "B", "explanation": "Mandating 2FA implicitly assumes that single-factor authentication poses security risks and that the workforce can practically use the 2FA mechanism."}, {"id": "P1_U2_Q027", "num": 27, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "HCF \u0026 LCM", "question": "The HCF of two positive integers is 16 and their LCM is 480. If one of the numbers is 96, what is the other number?", "options": {"A": "64", "B": "72", "C": "80", "D": "112"}, "answer": "C", "explanation": "Using Product of two numbers = HCF × LCM: 96 × b = 16 × 480 ⇒ b = (16 × 480) / 96 = 480 / 6 = 80."}, {"id": "P1_U2_Q028", "num": 28, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Mensuration", "question": "If the radius of a circular wafer is increased by 10%, by what percentage does its surface area increase?", "options": {"A": "10% as prescribed under prevailing statutory and departmental technical norms", "B": "20%", "C": "22%", "D": "21%"}, "answer": "D", "explanation": "Area A = πr² depends on r². By successive change: 10 + 10 + (10 × 10)/100 = 21%."}, {"id": "P1_U2_Q029", "num": 29, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Find the missing number in the alternating difference series: 7, 15, 31, 63, 127, ?", "options": {"A": "255", "B": "254", "C": "256 under standard IEEE/ISO technical specifications and system constraints", "D": "248"}, "answer": "A", "explanation": "Pattern is 2^n - 1 (or 2x + 1): 2(7)+1=15, 2(15)+1=31, 2(31)+1=63, 2(63)+1=127, and 2(127)+1 = 255."}, {"id": "P1_U2_Q030", "num": 30, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Letter Series", "question": "Complete the alphabetical series: BDF, CFI, DHL, ?", "options": {"A": "EJN", "B": "EJO", "C": "EJM", "D": "FJP according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "1st letters: B(2), C(3), D(4), E(5). 2nd letters: D(4), F(6), H(8), J(10). 3rd letters: F(6), I(9), L(12), O(15) → EJO."}, {"id": "P1_U2_Q031", "num": 31, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Blood Relations", "question": "A is the brother of B. B is the wife of C. C is the son of D, and E is the wife of D. How is E related to B?", "options": {"A": "Maternal Aunt when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "Sister-in-law", "C": "Mother-in-law", "D": "Grandmother"}, "answer": "C", "explanation": "B is married to C, and C's parents are D (father) and E (mother). Therefore, E is the mother of B's husband = Mother-in-law."}, {"id": "P1_U2_Q032", "num": 32, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clock Coincidence", "question": "How many times in a complete 24-hour day do the hour hand and the minute hand of a standard analog clock form a right angle (90° separation)?", "options": {"A": "48 times", "B": "22 times as prescribed under prevailing statutory and departmental technical norms", "C": "24 times", "D": "44 times"}, "answer": "D", "explanation": "The hands are at 90° twice every hour except between 2–4 and 8–10 (where 3:00 and 9:00 are shared), giving 22 times in 12 hours and 44 times in 24 hours."}, {"id": "P1_U2_Q033", "num": 33, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Calendar Leap Year", "question": "Which of the following century years is a Leap Year (containing 366 days)?", "options": {"A": "2400", "B": "2100", "C": "2200", "D": "2300 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "A century year is a leap year if and only if it is divisible by 400. Among 2100, 2200, 2300, and 2400, only 2400 is divisible by 400."}, {"id": "P1_U2_Q034", "num": 34, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Profit \u0026 Loss", "question": "By selling 45 network cables for Rs. 4,000, a dealer loses 20%. How many network cables should he sell for Rs. 2,400 to gain 20% in the transaction?", "options": {"A": "20 cables according to the formal architectural model and runtime execution rules", "B": "18 cables", "C": "24 cables", "D": "15 cables"}, "answer": "B", "explanation": "At 20% loss, SP of 45 cables = 0.80 × CP ⇒ To gain 20% (1.20 × CP), SP of 45 cables must be 4000 × (1.20 / 0.80) = Rs. 6,000. Thus for Rs. 2,400, number of cables = 45 × (2400 / 6000) = 18 cables."}, {"id": "P1_U2_Q035", "num": 35, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Average Speed", "question": "A network maintenance van travels from Agartala to Udaipur at 40 km/hr and returns along the exact same route at 60 km/hr. What is its average speed for the entire round trip?", "options": {"A": "50 km/hr", "B": "45 km/hr when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "48 km/hr", "D": "52 km/hr"}, "answer": "C", "explanation": "For equal distances covered at speeds u and v, average speed is the harmonic mean: 2uv / (u + v) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/hr."}, {"id": "P1_U2_Q036", "num": 36, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Ages Problem", "question": "The present ages of a Senior System Analyst and a Junior Programmer are in the ratio 7 : 4. Three years hence, their ages will be in the ratio 5 : 3. What is the present age of the Senior System Analyst?", "options": {"A": "35 years", "B": "49 years", "C": "28 years as prescribed under prevailing statutory and departmental technical norms", "D": "42 years"}, "answer": "D", "explanation": "Let present ages be 7x and 4x. Three years hence: (7x + 3) / (4x + 3) = 5 / 3 ⇒ 21x + 9 = 20x + 15 ⇒ x = 6. Therefore, the present age of the Senior System Analyst is 7 × 6 = 42 years."}, {"id": "P1_U2_Q037", "num": 37, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Data Sufficiency \u0026 Ranking", "question": "In a queue of applicants at TPSC Bhawan, P is 10th from the front and Q is 15th from the back. If they interchange their positions, P becomes 22nd from the front. How many total applicants are in the queue?", "options": {"A": "36 applicants", "B": "35 applicants under standard IEEE/ISO technical specifications and system constraints", "C": "37 applicants", "D": "34 applicants"}, "answer": "A", "explanation": "After interchanging, P occupies Q's position (which is 15th from the back and 22nd from the front). Total N = Left + Right - 1 = 22 + 15 - 1 = 36."}, {"id": "P1_U2_Q038", "num": 38, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Probability \u0026 Dice", "question": "What is the probability of getting a sum of at least 10 when two fair six-sided dice are thrown simultaneously?", "options": {"A": "5 / 36", "B": "1 / 6 (6 / 36)", "C": "1 / 4 (9 / 36) according to the formal architectural model and runtime execution rules", "D": "1 / 9 (4 / 36)"}, "answer": "B", "explanation": "Pairs with sum ≥ 10 are: Sum 10 {(4,6),(5,5),(6,4)} + Sum 11 {(5,6),(6,5)} + Sum 12 {(6,6)} = 3 + 2 + 1 = 6 outcomes out of 36 = 1/6."}, {"id": "P1_U2_Q039", "num": 39, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Compound Interest", "question": "A sum of money invested at Compound Interest (compounded annually) triples itself in 4 years. In how many years will it become 27 times its original value at the same rate?", "options": {"A": "16 years", "B": "9 years", "C": "12 years", "D": "36 years when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Since 27 = 3³, and multiplying by 3 takes 4 years, multiplying by 3³ takes 3 × 4 = 12 years."}, {"id": "P1_U2_Q040", "num": 40, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Trains Crossing", "question": "Two trains of lengths 140 m and 160 m are running in OPPOSITE directions on parallel tracks at speeds of 65 km/hr and 43 km/hr respectively. In how many seconds will they completely cross each other?", "options": {"A": "12 seconds as prescribed under prevailing statutory and departmental technical norms", "B": "15 seconds", "C": "8 seconds", "D": "10 seconds"}, "answer": "D", "explanation": "Total length = 140 + 160 = 300 m. Relative speed in opposite directions = 65 + 43 = 108 km/hr = 108 × (5/18) = 30 m/s. Crossing time = 300 / 30 = 10 seconds."}, {"id": "P1_U2_Q041", "num": 41, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Find the missing term in the series: 4, 18, 48, 100, 180, ?", "options": {"A": "294", "B": "284", "C": "300 under standard IEEE/ISO technical specifications and system constraints", "D": "276"}, "answer": "A", "explanation": "Pattern is n³ - n² = n²(n - 1) for n = 2, 3, 4, 5, 6, 7: 2²(1)=4, 3²(2)=18, 4²(3)=48, 5²(4)=100, 6²(5)=180, and 7²(6) = 49 × 6 = 294."}, {"id": "P1_U2_Q042", "num": 42, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Circular Permutation", "question": "In how many distinct ways can 7 department heads be seated around a circular conference table if two specific officers insist on sitting next to each other?", "options": {"A": "120 ways", "B": "240 ways", "C": "720 ways", "D": "360 ways according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "Treat the 2 officers as 1 bundled unit → 6 units arranged around a circle in (6 - 1)! = 5! = 120 ways. The 2 officers can swap internally in 2! = 2 ways → 120 × 2 = 240 ways."}, {"id": "P1_U2_Q043", "num": 43, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Profit \u0026 False Weight", "question": "A dishonest vendor professes to sell electronic components at Cost Price, but uses a faulty weight of 800 grams instead of 1,000 grams (1 kg). What is his actual profit percentage?", "options": {"A": "20% when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "15%", "C": "25%", "D": "30%"}, "answer": "C", "explanation": "Gain % = [(True Weight - False Weight) / False Weight] × 100 = [(1000 - 800) / 800] × 100 = (200 / 800) × 100 = 25%."}, {"id": "P1_U2_Q044", "num": 44, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Mixtures \u0026 Alligation", "question": "A vessel contains 60 liters of a mixture of acid and water in the ratio 2 : 1. How many liters of water must be added to make the ratio of acid to water 1 : 2?", "options": {"A": "40 liters", "B": "30 liters as prescribed under prevailing statutory and departmental technical norms", "C": "80 liters", "D": "60 liters"}, "answer": "D", "explanation": "Initially: Acid = 40 L, Water = 20 L. Let x liters of water be added so Acid : Water = 40 / (20 + x) = 1 / 2 ⇒ 20 + x = 80 ⇒ x = 60 liters."}, {"id": "P1_U2_Q045", "num": 45, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Calendar Reasoning", "question": "After how many years does the exact same calendar (identical day-to-date mapping for the entire year) repeat for the year 2025?", "options": {"A": "6 years (in the year 2031)", "B": "11 years (in the year 2036)", "C": "28 years (in the year 2053)", "D": "5 years (in the year 2030)"}, "answer": "A", "explanation": "Since 2025 = 2024 (Leap Year) + 1, a 'Leap + 1' year always repeats its exact calendar after 6 years (2025 + 6 = 2031)."}, {"id": "P1_U2_Q046", "num": 46, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Blood Relations", "question": "Introducing a boy, a girl said, 'He is the son of the daughter of the father of my maternal uncle.' How is the boy related to the girl?", "options": {"A": "Nephew according to the formal architectural model and runtime execution rules", "B": "Brother (or Maternal Cousin)", "C": "Maternal Uncle", "D": "Son-in-law"}, "answer": "B", "explanation": "Father of maternal uncle = Maternal Grandfather; Daughter of maternal grandfather = Mother (or Maternal Aunt); Son of mother = Brother."}, {"id": "P1_U2_Q047", "num": 47, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Set Theory \u0026 Venn Diagram", "question": "In a batch of 100 IT officers, 65 know Python, 55 know Java, and 15 know NEITHER Python NOR Java. How many officers know BOTH Python and Java?", "options": {"A": "25 officers", "B": "30 officers when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "35 officers", "D": "40 officers"}, "answer": "C", "explanation": "Officers knowing at least one language n(P ∪ J) = 100 - 15 = 85. By Inclusion-Exclusion: n(P ∩ J) = n(P) + n(J) - n(P ∪ J) = 65 + 55 - 85 = 35."}, {"id": "P1_U2_Q048", "num": 48, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "3D Mensuration", "question": "If the edge length of a solid metallic cube is increased by 50%, by what percentage does its Total Surface Area (TSA) and Volume increase, respectively?", "options": {"A": "Surface Area increases by 100%; Volume increases by 150%", "B": "Surface Area increases by 125%; Volume increases by 125%", "C": "Surface Area increases by 150%; Volume increases by 337.5% as prescribed under prevailing statutory and departmental technical norms", "D": "Surface Area increases by 125%; Volume increases by 237.5%"}, "answer": "D", "explanation": "Multiplier k = 1.5. Surface area scales as k² = (1.5)² = 2.25 → +125% increase. Volume scales as k³ = (1.5)³ = 3.375 → +237.5% increase."}, {"id": "P1_U2_Q049", "num": 49, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Derangements", "question": "Four letters are placed randomly into four addressed envelopes such that each envelope receives exactly one letter. In how many ways can ALL FOUR letters be placed into the WRONG envelopes (Derangement D₄)?", "options": {"A": "9 ways", "B": "6 ways", "C": "11 ways", "D": "15 ways"}, "answer": "A", "explanation": "Using the Derangement formula D_n = n!(1/2! - 1/3! + 1/4!): D₄ = 24 × (1/2 - 1/6 + 1/24) = 12 - 4 + 1 = 9 ways."}, {"id": "P1_U2_Q050", "num": 50, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Infinite Geometric Progression", "question": "A rubber ball is dropped vertically from a height of 36 meters. Every time it hits the floor, it rebounds to two-thirds (2/3) of the height from which it fell. What is the total vertical distance travelled by the ball before coming to rest?", "options": {"A": "108 meters", "B": "180 meters", "C": "144 meters according to the formal architectural model and runtime execution rules", "D": "216 meters"}, "answer": "B", "explanation": "Total distance = h × (1 + r) / (1 - r) = 36 × (1 + 2/3) / (1 - 2/3) = 36 × (5/3) / (1/3) = 36 × 5 = 180 meters."}, {"id": "P1_U2_Q051", "num": 51, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Chain Rule MDH", "question": "If 18 data entry operators working 8 hours a day can digitize 360 land-record files in 15 days, how many days will 24 operators working 9 hours a day take to digitize 432 similar files?", "options": {"A": "10 days", "B": "14 days", "C": "12 days", "D": "15 days when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Using (M₁ × D₁ × H₁)/W₁ = (M₂ × D₂ × H₂)/W₂: (18 × 15 × 8) / 360 = (24 × D₂ × 9) / 432 ⇒ 6 = D₂ / 2 ⇒ D₂ = 12 days."}, {"id": "P1_U2_Q052", "num": 52, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clock Angle", "question": "What is the exact acute angle between the hour hand and the minute hand of a clock at 8:30?", "options": {"A": "60 degrees as prescribed under prevailing statutory and departmental technical norms", "B": "90 degrees", "C": "65 degrees", "D": "75 degrees"}, "answer": "D", "explanation": "Using θ = |30H - 5.5M| = |30(8) - 5.5(30)| = |240 - 165| = 75 degrees."}, {"id": "P1_U2_Q053", "num": 53, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clock Angle", "question": "What is the exact angle between the hour hand and the minute hand of a clock at 9:40?", "options": {"A": "50 degrees", "B": "40 degrees", "C": "60 degrees under standard IEEE/ISO technical specifications and system constraints", "D": "45 degrees"}, "answer": "A", "explanation": "Using θ = |30H - 5.5M| = |30(9) - 5.5(40)| = |270 - 220| = 50 degrees."}, {"id": "P1_U2_Q054", "num": 54, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Percentage \u0026 Tax", "question": "If the price of a server SSD increases by 25%, by what percentage must a department reduce its consumption so that total expenditure on SSDs remains completely unchanged?", "options": {"A": "25%", "B": "20%", "C": "16.67%", "D": "15%"}, "answer": "B", "explanation": "Reduction % = [R / (100 + R)] × 100 = (25 / 125) × 100 = 20%."}, {"id": "P1_U2_Q055", "num": 55, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Compound Interest", "question": "What is the Compound Interest (compounded annually) on Rs. 20,000 at 10% per annum for 3 years?", "options": {"A": "Rs. 6,000 when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "Rs. 6,420", "C": "Rs. 6,620", "D": "Rs. 6,800"}, "answer": "C", "explanation": "Amount A = 20000 × (1.10)³ = 20000 × 1.331 = Rs. 26,620 ⇒ CI = 26,620 - 20,000 = Rs. 6,620."}, {"id": "P1_U2_Q056", "num": 56, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time \u0026 Work Efficiency", "question": "A is twice as efficient as B at writing unit tests, and together they finish a test suite in 14 days. In how many days can A alone finish the entire test suite?", "options": {"A": "28 days", "B": "42 days as prescribed under prevailing statutory and departmental technical norms", "C": "18 days", "D": "21 days"}, "answer": "D", "explanation": "Efficiency ratio A : B = 2 : 1 (total = 3 units/day). Total work = 3 × 14 = 42 units. Time taken by A alone = 42 / 2 = 21 days."}, {"id": "P1_U2_Q057", "num": 57, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Trains \u0026 Relative Speed", "question": "A train 240 meters long passes a telegraph pole in 12 seconds. How long will it take to cross a platform 360 meters long at the same speed?", "options": {"A": "30 seconds", "B": "24 seconds", "C": "36 seconds", "D": "18 seconds under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Speed of train = 240 m / 12 s = 20 m/s. Total distance to cross 360 m platform = 240 + 360 = 600 m ⇒ Time = 600 / 20 = 30 seconds."}, {"id": "P1_U2_Q058", "num": 58, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Syllogism", "question": "Statements: (1) All firewalls are gateways. (2) All gateways are proxies. (3) Some proxies are load-balancers.\nWhich conclusion definitely follows?", "options": {"A": "All load-balancers are firewalls according to the formal architectural model and runtime execution rules", "B": "All firewalls are proxies, and some proxies are firewalls", "C": "Some firewalls are definitely load-balancers", "D": "No firewall is a load-balancer"}, "answer": "B", "explanation": "Since Firewalls ⊆ Gateways ⊆ Proxies, 'All firewalls are proxies' and its converse 'Some proxies are firewalls' follow with 100% certainty."}, {"id": "P1_U2_Q059", "num": 59, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Divisibility", "question": "What is the smallest digit x such that the 7-digit number 5432x76 is completely divisible by 9?", "options": {"A": "2", "B": "4 when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "0 (or 9)", "D": "6"}, "answer": "C", "explanation": "Sum of known digits = 5+4+3+2+7+6 = 27, which is already a multiple of 9! Hence the smallest non-negative digit x is 0."}, {"id": "P1_U2_Q060", "num": 60, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Cube Painting", "question": "A solid cube painted red on all faces is cut into 64 smaller equal cubes. How many of the smaller cubes have ZERO faces painted?", "options": {"A": "16 cubes", "B": "4 cubes", "C": "24 cubes", "D": "8 cubes"}, "answer": "D", "explanation": "Here n³ = 64 ⇒ n = 4. Number of inner core cubes with 0 faces painted = (n - 2)³ = (4 - 2)³ = 8."}, {"id": "P1_U2_Q061", "num": 61, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Knockout Tournament", "question": "In a single-elimination (knockout) cyber-ctf tournament with 128 participating teams (no ties allowed), how many total matches must be played to determine the single tournament champion?", "options": {"A": "127 matches", "B": "128 matches under standard IEEE/ISO technical specifications and system constraints", "C": "64 matches", "D": "255 matches"}, "answer": "A", "explanation": "Every match eliminates exactly 1 team; to eliminate 127 teams out of 128 and leave 1 champion, exactly n - 1 = 127 matches are required."}, {"id": "P1_U2_Q062", "num": 62, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Find the missing term in the prime-squared series: 4, 9, 25, 49, 121, 169, ?", "options": {"A": "225 (square of composite number 15)", "B": "289", "C": "256 (square of composite number 16)", "D": "324 (square of composite number 18)"}, "answer": "B", "explanation": "The series consists of squares of consecutive prime numbers: 2², 3², 5², 7², 11², 13², 17² = 289."}, {"id": "P1_U2_Q063", "num": 63, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Find the next number in the series: 2, 6, 12, 20, 30, 42, ?", "options": {"A": "52 (adding 10 instead of 14)", "B": "54 (multiplying 6 by 9)", "C": "56", "D": "60 (multiplying 6 by 10)"}, "answer": "C", "explanation": "Pattern is n(n+1): 1×2=2, 2×3=6, 3×4=12, 4×5=20, 5×6=30, 6×7=42, 7×8 = 56."}, {"id": "P1_U2_Q064", "num": 64, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number Series", "question": "Identify the wrong number in the series: 1, 8, 27, 64, 124, 216, 343:", "options": {"A": "27 (which is exact cube 3³)", "B": "64 (which is exact cube 4³)", "C": "216 (which is exact cube 6³)", "D": "124"}, "answer": "D", "explanation": "All terms are perfect cubes n³: 5³ should be 125, not 124."}, {"id": "P1_U2_Q065", "num": 65, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Letter Series", "question": "Complete the alphabetical series: AZ, CX, FU, ?", "options": {"A": "JQ", "B": "IR (shifting by +3 instead of +4)", "C": "KP (shifting by +5 instead of +4)", "D": "GT (shifting by +1 instead of +4)"}, "answer": "A", "explanation": "First letters increase by +2, +3, +4: A(1)-\u003eC(3)-\u003eF(6)-\u003eJ(10); second letters are opposite pairs summing to 27: Q(17) -\u003e JQ."}, {"id": "P1_U2_Q066", "num": 66, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Coding-Decoding", "question": "If 'COMPUTER' is coded as 'RFUVQNPC', how is 'MEDICINE' coded in that language?", "options": {"A": "MFEJDJOE (shifting forward without reversing)", "B": "EOJDJEFM", "C": "EOJDEJFM (swapping middle characters incorrectly)", "D": "ENICIDEM (simple reversal without +1 shift)"}, "answer": "B", "explanation": "Reverse the word ('ENICIDEM'), keep first and last letters ('E' and 'M') fixed, and shift middle letters by +1: E O J D J E F M."}, {"id": "P1_U2_Q067", "num": 67, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Coding-Decoding", "question": "If A = 1, CAT = 24, and DOG = 26, then what is the numerical code for 'TPSC'?", "options": {"A": "54 (subtracting 4 from the alphabetical sum)", "B": "62 (adding 4 to the alphabetical sum)", "C": "58", "D": "48 (ignoring the letter C position value)"}, "answer": "C", "explanation": "Sum of alphabet positions: T(20) + P(16) + S(19) + C(3) = 58."}, {"id": "P1_U2_Q068", "num": 68, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Blood Relations", "question": "Pointing to a photograph, a woman says, 'He is the only son of the grandfather of my brother.' How is the man in the photograph related to the woman?", "options": {"A": "Maternal Cousin", "B": "Nephew", "C": "Brother-in-law", "D": "Father"}, "answer": "D", "explanation": "The only son of her brother's paternal grandfather is her own Father."}, {"id": "P1_U2_Q069", "num": 69, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Blood Relations", "question": "A + B means A is the mother of B; A - B means A is the brother of B; A × B means A is the father of B. Which expression shows P is the maternal uncle of Q?", "options": {"A": "P - M + Q", "B": "P + M - Q (makes P the mother of M)", "C": "P × M + Q (makes P the maternal grandfather of Q)", "D": "M - P + Q (makes M the brother of P)"}, "answer": "A", "explanation": "P - M means P is the brother of M, and M + Q means M is the mother of Q; hence P is Q's maternal uncle."}, {"id": "P1_U2_Q070", "num": 70, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Direction Sense", "question": "A man walks 5 km South, turns right and walks 3 km, then turns left and walks 5 km. In which direction is he now from his starting point?", "options": {"A": "North-East (opposite quadrant)", "B": "South-West", "C": "Due West (ignoring the 10 km southward displacement)", "D": "Due South (ignoring the 3 km westward displacement)"}, "answer": "B", "explanation": "5 km South -\u003e Right turn = 3 km West -\u003e Left turn = 5 km South. Net position = 10 km South, 3 km West = South-West."}, {"id": "P1_U2_Q071", "num": 71, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Direction Sense", "question": "One morning after sunrise, Vikram and Shobhit were standing face to face at Ujjayanta Palace. Vikram's shadow fell exactly to his left. Which direction was Shobhit facing?", "options": {"A": "North (direction Vikram was facing)", "B": "East (direction of the rising morning sun)", "C": "South", "D": "West (direction toward which morning shadows fall)"}, "answer": "C", "explanation": "At sunrise (Sun in East), shadows fall West. Since Vikram's shadow is to his Left, West is to Vikram's Left, so Vikram faces North and Shobhit (facing him) faces South!"}, {"id": "P1_U2_Q072", "num": 72, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Ranking", "question": "In a row of 45 candidates, Shivam is 18th from the left end. What is his position from the right end?", "options": {"A": "27th (forgetting to add 1 in N - L + 1)", "B": "26th (subtracting 1 instead of adding 1)", "C": "29th (adding 2 instead of 1)", "D": "28th"}, "answer": "D", "explanation": "Position from Right = Total - Left + 1 = 45 - 18 + 1 = 28th."}, {"id": "P1_U2_Q073", "num": 73, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Ranking", "question": "In a queue, A is 10th from the front and B is 15th from the back. If they interchange positions, A becomes 20th from the front. How many persons are in the queue?", "options": {"A": "34", "B": "35 (forgetting to subtract 1 for the overlapping position)", "C": "30 (adding initial positions 10 + 20)", "D": "25 (adding initial positions 10 + 15)"}, "answer": "A", "explanation": "A's new position (20th from front) is B's old position (15th from back). Total = 20 + 15 - 1 = 34."}, {"id": "P1_U2_Q074", "num": 74, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Syllogisms", "question": "Statements: All routers are switches. No switch is a hub. Conclusions: I. No router is a hub. II. Some switches are routers.", "options": {"A": "Only Conclusion I follows", "B": "Both Conclusions I and II follow", "C": "Only Conclusion II follows", "D": "Neither Conclusion I nor II follows"}, "answer": "B", "explanation": "Since Router ⊂ Switch and Switch ∩ Hub = ∅, Router ∩ Hub = ∅ (I follows) and Some switches are routers (II follows)."}, {"id": "P1_U2_Q075", "num": 75, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Syllogisms", "question": "Statements: Some files are folders. All folders are disks. Conclusions: I. Some files are disks. II. All disks are folders.", "options": {"A": "Only Conclusion II follows", "B": "Both Conclusions I and II follow", "C": "Only Conclusion I follows", "D": "Neither Conclusion I nor II follows"}, "answer": "C", "explanation": "Some files are folders + All folders are disks =\u003e Some files are disks (I follows; II is an invalid universal conversion)."}, {"id": "P1_U2_Q076", "num": 76, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clocks", "question": "What is the exact angle between the hour hand and the minute hand of a clock at 3:40?", "options": {"A": "120° (ignoring the 20° movement of the hour hand)", "B": "140° (adding instead of subtracting hour hand advance)", "C": "135° (using incorrect per-minute angle)", "D": "130°"}, "answer": "D", "explanation": "Angle θ = |30H - 5.5M| = |30(3) - 5.5(40)| = |90 - 220| = 130°."}, {"id": "P1_U2_Q077", "num": 77, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Clocks", "question": "How many times do the hands of a clock coincide (overlap at 0°) in a complete 24-hour day?", "options": {"A": "22 times", "B": "24 times (assuming once every hour including 11-1)", "C": "11 times (count for 12 hours only)", "D": "44 times (count for 90° right angles in 24 hours)"}, "answer": "A", "explanation": "Hands coincide 11 times in 12 hours (only once between 11 and 1 at 12:00), so 22 times in 24 hours."}, {"id": "P1_U2_Q078", "num": 78, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Calendars", "question": "If 21 January 2025 is a Tuesday, what day of the week will 21 January 2026 be?", "options": {"A": "Thursday (assuming 2025 is a leap year with 2 odd days)", "B": "Wednesday", "C": "Monday (subtracting 1 odd day instead of adding)", "D": "Friday (adding 3 odd days)"}, "answer": "B", "explanation": "2025 is an ordinary non-leap year (365 days = 52 weeks + 1 odd day), so the day advances by +1: Tuesday + 1 = Wednesday."}, {"id": "P1_U2_Q079", "num": 79, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Calendars", "question": "Which of the following century years is a Leap Year?", "options": {"A": "1800 (divisible by 100 but not by 400)", "B": "1900 (divisible by 100 but not by 400)", "C": "2000", "D": "2100 (divisible by 100 but not by 400)"}, "answer": "C", "explanation": "A century year is a leap year if and only if it is divisible by 400; 2000 ÷ 400 = 5."}, {"id": "P1_U2_Q080", "num": 80, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Percentages", "question": "If the price of a laptop is first increased by 20% and then decreased by 20%, the net percentage change in price is:", "options": {"A": "No change (0% net change)", "B": "4% increase", "C": "2% decrease", "D": "4% decrease"}, "answer": "D", "explanation": "Net % change = +20 - 20 + (20 × -20)/100 = -4% (4% decrease)."}, {"id": "P1_U2_Q081", "num": 81, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Percentages", "question": "If A's salary is 25% more than B's salary, then by what percentage is B's salary less than A's salary?", "options": {"A": "20%", "B": "25% (assuming symmetry of percentage base)", "C": "16.67% (using 1/6 instead of 1/5)", "D": "30% (adding 5% to the given percentage)"}, "answer": "A", "explanation": "Required % = [R / (100 + R)] × 100 = (25 / 125) × 100 = 20%."}, {"id": "P1_U2_Q082", "num": 82, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Profit \u0026 Loss", "question": "A vendor sells an item for ₹720 at a loss of 10%. At what price must he sell it to gain 15%?", "options": {"A": "₹880 (calculating 15% on SP instead of CP)", "B": "₹920", "C": "₹900 (calculating 25% on 720)", "D": "₹850 (adding 130 flat to 720)"}, "answer": "B", "explanation": "CP = 720 / 0.90 = ₹800; required SP for 15% gain = 800 × 1.15 = ₹920."}, {"id": "P1_U2_Q083", "num": 83, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Profit \u0026 Loss", "question": "If the cost price of 12 pens is equal to the selling price of 10 pens, the profit percentage is:", "options": {"A": "16.67% (dividing 2 by 12 instead of 10)", "B": "25% (dividing 2 by 8)", "C": "20%", "D": "15% (taking difference of 12 and 10 as 15%)"}, "answer": "C", "explanation": "12 CP = 10 SP =\u003e SP/CP = 12/10 = 6/5 =\u003e Profit % = (1/5) × 100 = 20%."}, {"id": "P1_U2_Q084", "num": 84, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": " Profit \u0026 Discount", "question": "A shopkeeper marks his goods 40% above cost price and allows a discount of 20%. His net profit percentage is:", "options": {"A": "20% (simply subtracting 40% - 20%)", "B": "15% (averaging the markup and discount)", "C": "10% (halving the discount rate)", "D": "12%"}, "answer": "D", "explanation": "Net Profit % = 40 - 20 - (40 × 20)/100 = 20 - 8 = 12%."}, {"id": "P1_U2_Q085", "num": 85, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Simple \u0026 Compound Interest", "question": "At what rate of Simple Interest per annum will a sum of money double itself in 8 years?", "options": {"A": "12.5%", "B": "10% (which doubles in 10 years)", "C": "8% (which doubles in 12.5 years)", "D": "15% (which doubles in 6.67 years)"}, "answer": "A", "explanation": "For doubling, SI = P =\u003e P = P × R × 8 / 100 =\u003e R = 100 / 8 = 12.5%."}, {"id": "P1_U2_Q086", "num": 86, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Compound Interest", "question": "The difference between Compound Interest and Simple Interest on ₹10,000 for 2 years at 10% per annum is:", "options": {"A": "₹200 (taking 2% of principal)", "B": "₹100", "C": "₹50 (taking 0.5% of principal)", "D": "₹110 (using 3-year difference formula)"}, "answer": "B", "explanation": "2-year (CI - SI) = P × (R/100)² = 10000 × (10/100)² = 10000 × 0.01 = ₹100."}, {"id": "P1_U2_Q087", "num": 87, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time \u0026 Work", "question": "A can complete a network audit in 12 days and B can complete it in 24 days. Working together, they will finish the audit in:", "options": {"A": "9 days (averaging 12 and 6)", "B": "10 days (subtracting 2 from 12)", "C": "8 days", "D": "18 days (arithmetic mean of 12 and 24)"}, "answer": "C", "explanation": "Combined time = (12 × 24) / (12 + 24) = 288 / 36 = 8 days."}, {"id": "P1_U2_Q088", "num": 88, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time \u0026 Work", "question": "If 15 programmers can write 15 modules in 15 days, how many days will 1 programmer take to write 1 module?", "options": {"A": "1 day (common proportionate trap)", "B": "225 days (multiplying 15 × 15)", "C": "5 days (dividing 15 by 3)", "D": "15 days"}, "answer": "D", "explanation": "Using (M1 × D1)/W1 = (M2 × D2)/W2: (15 × 15)/15 = (1 × D2)/1 =\u003e D2 = 15 days."}, {"id": "P1_U2_Q089", "num": 89, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Pipes \u0026 Cisterns", "question": "Pipe A can fill a tank in 6 hours and Pipe B can empty the full tank in 12 hours. If both are opened together, the tank will fill in:", "options": {"A": "12 hours", "B": "8 hours", "C": "9 hours under standard IEEE/ISO technical specifications and system constraints", "D": "6 hours"}, "answer": "A", "explanation": "Net 1-hour filling rate = 1/6 - 1/12 = 1/12 =\u003e 12 hours."}, {"id": "P1_U2_Q090", "num": 90, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time, Speed \u0026 Distance", "question": "A train 150 m long is running at a speed of 54 km/hr. How much time will it take to cross a telegraph pole?", "options": {"A": "12 seconds", "B": "10 seconds", "C": "15 seconds", "D": "8 seconds according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "Speed = 54 × (5/18) = 15 m/s; Time = Distance / Speed = 150 / 15 = 10 seconds."}, {"id": "P1_U2_Q091", "num": 91, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Time, Speed \u0026 Distance", "question": "A car travels from Agartala to Udaipur at 40 km/hr and returns along the same route at 60 km/hr. Its average speed for the whole journey is:", "options": {"A": "50 km/hr (arithmetic mean trap)", "B": "45 km/hr", "C": "48 km/hr", "D": "52 km/hr"}, "answer": "C", "explanation": "Average speed for equal distances = 2uv / (u + v) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/hr."}, {"id": "P1_U2_Q092", "num": 92, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Boats \u0026 Streams", "question": "A boat rows downstream at 14 km/hr and upstream at 8 km/hr. What is the speed of the stream (current)?", "options": {"A": "11 km/hr (which is the boat's speed in still water)", "B": "6 km/hr (difference without dividing by 2)", "C": "4 km/hr", "D": "3 km/hr"}, "answer": "D", "explanation": "Speed of stream = (Downstream - Upstream) / 2 = (14 - 8) / 2 = 3 km/hr."}, {"id": "P1_U2_Q093", "num": 93, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Ratio \u0026 Proportion", "question": "If A : B = 2 : 3 and B : C = 4 : 5, then what is the combined ratio A : B : C?", "options": {"A": "8 : 12 : 15", "B": "2 : 3 : 5", "C": "6 : 12 : 15", "D": "8 : 10 : 15 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "A : B : C = (2×4) : (3×4) : (3×5) = 8 : 12 : 15."}, {"id": "P1_U2_Q094", "num": 94, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Averages", "question": "The average age of 10 officers is 30 years. When the Director's age is included, the average increases by 2 years. What is the Director's age?", "options": {"A": "50 years according to the formal architectural model and runtime execution rules", "B": "52 years", "C": "48 years", "D": "42 years"}, "answer": "B", "explanation": "Director's age = 30 + (11 × 2) = 30 + 22 = 52 years."}, {"id": "P1_U2_Q095", "num": 95, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Alligation \u0026 Mixture", "question": "In what ratio must water be mixed with milk costing ₹60 per litre to obtain a mixture worth ₹45 per litre?", "options": {"A": "1 : 2", "B": "1 : 4 when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "1 : 3", "D": "2 : 3"}, "answer": "C", "explanation": "By Alligation: Water (0) and Milk (60) around Mean (45) -\u003e (60 - 45) : (45 - 0) = 15 : 45 = 1 : 3."}, {"id": "P1_U2_Q096", "num": 96, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Permutations", "question": "In how many distinct ways can the letters of the word 'APPLE' be arranged?", "options": {"A": "120 (ignoring the repeated letter P)", "B": "24", "C": "30", "D": "60"}, "answer": "D", "explanation": "5 letters with 'P' repeated twice: 5! / 2! = 120 / 2 = 60."}, {"id": "P1_U2_Q097", "num": 97, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Combinations", "question": "How many handshakes occur in a room of 10 people if everyone shakes hands with everyone else exactly once?", "options": {"A": "45", "B": "90 (counting directed pairs twice)", "C": "100 (squaring 10)", "D": "55"}, "answer": "A", "explanation": "Number of handshakes = C(10, 2) = (10 × 9) / 2 = 45."}, {"id": "P1_U2_Q098", "num": 98, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Venn Diagrams", "question": "In a batch of 100 engineers, 60 know Python, 50 know Java, and 20 know both. How many know NEITHER Python nor Java?", "options": {"A": "20", "B": "10", "C": "15 according to the formal architectural model and runtime execution rules", "D": "30"}, "answer": "B", "explanation": "Know at least one = 60 + 50 - 20 = 90; Know neither = 100 - 90 = 10."}, {"id": "P1_U2_Q099", "num": 99, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Ages", "question": "The present ages of A and B are in the ratio 4 : 5. After 5 years, their ages will be in the ratio 5 : 6. What is A's present age?", "options": {"A": "25 years (which is B's present age)", "B": "16 years", "C": "20 years", "D": "24 years"}, "answer": "C", "explanation": "4x + 5 / 5x + 5 = 5/6 =\u003e 24x + 30 = 25x + 25 =\u003e x = 5 =\u003e A's age = 4x = 20 years."}, {"id": "P1_U2_Q100", "num": 100, "unit_id": "P1_U2", "chapter": "PAPER-I · TOPIC 2: General Mental Ability, Logical Reasoning \u0026 Quantitative Aptitude (15 Marks · 15 MCQs)", "tag": "Number System", "question": "What is the unit digit in the product (247 × 318 × 573 × 625 × 812)?", "options": {"A": "5 as prescribed under prevailing statutory and departmental technical norms", "B": "2", "C": "6", "D": "0"}, "answer": "D", "explanation": "Since the product contains 625 (multiple of 5) and 318/812 (even numbers, multiples of 2), 5 × 2 = 10 gives unit digit 0!"}];
+    let activeQs = JSON.parse(JSON.stringify(RAW_QS));
+    let userAns = {};
+    let revealAll = false;
+
+    function switchSecTab(tab) {
+      const p1 = document.getElementById('paneOneliners');
+      const p2 = document.getElementById('paneMcqs');
+      const b1 = document.getElementById('btnTab1');
+      const b2 = document.getElementById('btnTab2');
+      if (tab === 'oneliners') {
+        p1.style.display = 'block';
+        p2.style.display = 'none';
+        b1.classList.add('active');
+        b2.classList.remove('active');
+      } else {
+        p1.style.display = 'none';
+        p2.style.display = 'block';
+        b1.classList.remove('active');
+        b2.classList.add('active');
+        renderMcqList();
+      }
+    }
+
+    function filterOneLiners(q) {
+      const term = (q || '').trim().toLowerCase();
+      const items = document.querySelectorAll('#olContentWrap .ol-item');
+      items.forEach(li => {
+        const txt = li.textContent.toLowerCase();
+        li.style.display = (!term || txt.includes(term)) ? 'flex' : 'none';
+      });
+    }
+
+    function renderMcqList() {
+      const cont = document.getElementById('mcqContainer');
+      const term = (document.getElementById('mcqSearch').value || '').trim().toLowerCase();
+      let htmlOut = '';
+      let correctCnt = 0;
+      let attemptCnt = 0;
+      Object.keys(userAns).forEach(qid => {
+        attemptCnt++;
+        const qObj = activeQs.find(x => x.id === qid);
+        if (qObj && userAns[qid] === qObj.answer) correctCnt++;
+      });
+      document.getElementById('scoreBadge').textContent = `Score: ${correctCnt} / ${attemptCnt} (Total: 100 MCQs)`;
+
+      activeQs.forEach((q, idx) => {
+        const hay = (q.question + ' ' + q.tag + ' ' + q.explanation + ' ' + Object.values(q.options).join(' ')).toLowerCase();
+        if (term && !hay.includes(term)) return;
+        const picked = userAns[q.id];
+        const showNow = revealAll || Boolean(picked);
+        const isPyq = q.tag.includes('PYQ');
+        let optsHtml = '';
+        ['A', 'B', 'C', 'D'].forEach(L => {
+          let cls = 'mcq-opt-btn';
+          let badge = '';
+          if (showNow) {
+            if (L === q.answer) {
+              cls += ' correct';
+              badge = ' ✅';
+            } else if (picked === L && L !== q.answer) {
+              cls += ' wrong';
+              badge = ' ❌';
+            }
+          }
+          optsHtml += `<button class="${cls}" onclick="pickMcqOption('${q.id}', '${L}')"><strong>(${L})</strong> ${q.options[L]}${badge}</button>`;
+        });
+
+        htmlOut += `
+          <div class="mcq-card">
+            <div class="mcq-head">
+              <span class="mcq-num">MCQ #${idx + 1} · ${q.id}</span>
+              <span class="mcq-tag ${isPyq ? 'pyq' : ''}">${isPyq ? '🔥 ' : ''}${q.tag}</span>
+            </div>
+            <div class="mcq-q">Q${idx + 1}. ${q.question}</div>
+            <div class="mcq-opts">${optsHtml}</div>
+            <div class="mcq-exp ${showNow ? 'show' : ''}">
+              <strong>✔ Answer: Option (${q.answer}) — ${q.options[q.answer]}</strong><br>
+              <span>💡 <strong>One-Liner Explanation:</strong> ${q.explanation}</span>
+            </div>
+          </div>
+        `;
+      });
+      cont.innerHTML = htmlOut || '<div class="mcq-card">No matching MCQs found for this filter.</div>';
+    }
+
+    function pickMcqOption(qid, L) {
+      userAns[qid] = L;
+      renderMcqList();
+    }
+
+    function toggleRevealAll() {
+      revealAll = !revealAll;
+      const btn = document.getElementById('btnRevealAll');
+      btn.textContent = revealAll ? '🙈 Hide Answers (Practice Mode)' : '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+
+    function fyShuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function shuffleAllMcqs() {
+      userAns = {};
+      fyShuffle(activeQs);
+      activeQs.forEach(q => {
+        const corrTxt = q.options[q.answer];
+        const vals = fyShuffle([q.options.A, q.options.B, q.options.C, q.options.D]);
+        ['A', 'B', 'C', 'D'].forEach((L, idx) => {
+          q.options[L] = vals[idx];
+          if (vals[idx] === corrTxt) q.answer = L;
+        });
+      });
+      renderMcqList();
+    }
+
+    function resetMcqSession() {
+      userAns = {};
+      revealAll = false;
+      activeQs = JSON.parse(JSON.stringify(RAW_QS));
+      document.getElementById('btnRevealAll').textContent = '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+  </script>
+</body>
+</html>

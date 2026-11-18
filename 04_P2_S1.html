@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPER-II · SECTION 1 — Engineering Mathematics: Probability and Statistics | TPSC ATO Grade-IV Portal</title>
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #0f172a;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.top-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #38bdf8;
+}
+.top-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #bae6fd;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.brand-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.header-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: block;
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: #e2e8f0;
+}
+.layout-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 980px) {
+  .layout-wrap { grid-template-columns: 1fr; }
+}
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+}
+.side-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 12px 6px 6px 6px;
+}
+.sec-btn {
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.sec-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.sec-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+.sec-btn .sec-name {
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sec-btn .sec-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sec-btn.active .sec-pill {
+  background: #0284c7;
+  color: #fff;
+}
+.main-panel {
+  min-width: 0;
+}
+/* Strictly 2-Tab Bar inside every Section */
+.two-tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.two-tab-btn {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+.two-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+.two-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+.toolbar-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13.8px;
+  font-family: inherit;
+}
+.action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.action-btn.secondary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+.action-btn.green {
+  background: #15803d;
+  color: #ffffff;
+}
+/* One-Liner Styles */
+.ol-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-left: 6px solid #0284c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.ol-badge {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.ol-group-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ol-group-header {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  padding: 11px 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ol-group-num {
+  background: #0f172a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.ol-group-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+.ol-group-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ol-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.ol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14.2px;
+  color: #1e293b;
+}
+.ol-item:last-child { border-bottom: none; }
+.ol-bullet {
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+.ol-text { flex: 1; }
+.pyq-inline-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.topic-inline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.ol-ans-highlight {
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+/* 100 MCQ Card Styles */
+.mcq-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+.mcq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mcq-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.mcq-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+.mcq-tag.pyq {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+.mcq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+.mcq-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+.mcq-opt-btn {
+  text-align: left;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.6px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  line-height: 1.4;
+}
+.mcq-opt-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.mcq-opt-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 700;
+}
+.mcq-opt-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+.mcq-exp {
+  margin-top: 10px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13.4px;
+  color: #14532d;
+  display: none;
+}
+.mcq-exp.show { display: block; }
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+.ov-card {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ov-card h4 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+</style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div>
+        <span class="brand-badge">TPSC ATO GRADE-IV (T-ITS) 2026 · 2-TAB STREAMLINED EDITION</span>
+        <h1 class="brand-title">PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics</h1>
+        <p class="brand-sub">Paper-II: Job Oriented Technical Paper-II (120 Marks) · Section 1 of 14 (Technical Paper-II · 120 Marks Total) · Tab 1: Master One-Liner Notes (136 One-Liners) | Tab 2: 100 Most Probable MCQs</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="action-btn secondary" style="text-decoration:none;">🏠 All 17 Sections Home</a> <a href="03_P1_U3.html" class="action-btn secondary" style="text-decoration:none;">&larr; Prev: P1_U3</a> <a href="05_P2_S2.html" class="action-btn secondary" style="text-decoration:none;">Next: P2_S2 &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1180px;margin:0 auto;padding:20px;">
+    <div class="two-tab-bar">
+      <button id="btnTab1" class="two-tab-btn active" onclick="switchSecTab('oneliners')">
+        📋 Tab 1: Master One-Liner Sheet (136 One-Liners)
+      </button>
+      <button id="btnTab2" class="two-tab-btn" onclick="switchSecTab('mcqs')">
+        🎯 Tab 2: 100 Most Probable MCQs (TPSC &amp; UGC-NET Pattern)
+      </button>
+    </div>
+
+    <!-- TAB 1: MASTER ONE-LINER NOTES -->
+    <section id="paneOneliners">
+      <div class="toolbar-card">
+        <input type="text" id="olSearch" class="search-input" placeholder="🔍 Search any topic, keyword, or formula in these One-Liner Notes..." oninput="filterOneLiners(this.value)">
+        <span style="font-size:12.5px;font-weight:700;color:#475569;">Showing Crisp Exam One-Liners (Zero Bloat)</span>
+      </div>
+      <div id="olContentWrap">
+        
+    <div class="ol-banner">
+      <div>
+        <span class="ol-badge">PAPER-II · SECTION 1 · MASTER ONE-LINER SHEET</span>
+        <h2 style="margin:6px 0 4px 0;font-size:20px;color:#0f172a;">Engineering Mathematics: Probability and Statistics — Direct Exam One-Liners</h2>
+        <p style="margin:0;font-size:13.5px;color:#334155;"><strong>Official Gazette Syllabus:</strong> Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem. · <strong>Weightage:</strong> Section 1 of 14 (Technical Paper-II · 120 Marks Total)</p>
+      </div>
+    </div>
+    
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 1</span>
+            <h3 class="ol-group-title">Measures of Central Tendency &amp; Dispersion (TPSC PYQ Focus)</h3>
+            <span class="ol-group-count">11 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> The Mean of a dataset is the arithmetic average of all values: μ = (Σx_i) / n.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Mean is the measure of central tendency affected the MOST by extreme values (outliers); Median is robust against outliers.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Variance (σ²) is the square of the Standard Deviation (σ), equal to the average of squared differences from the Mean: σ² = E[(X - μ)²] = E[X²] - (E[X])².</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Coefficient of Variation (CV) is a dimensionless relative dispersion metric calculated as: CV = (Standard Deviation / Mean) × 100%.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Linear distribution is NOT a valid standard probability distribution (Normal, Poisson, Exponential, Binomial, Uniform are valid).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Empirical Relationship (Karl Pearson&#x27;s formula for moderately skewed distributions): Mode = 3 × Median - 2 × Mean.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">For a symmetric distribution (such as Normal distribution): Mean = Median = Mode (Skewness = 0).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">For a positively (right) skewed distribution: Mean &gt; Median &gt; Mode; for a negatively (left) skewed distribution: Mean &lt; Median &lt; Mode.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Effect of Change of Origin and Scale: If Y = aX + b, then Mean E[Y] = aE[X] + b, Variance Var(Y) = a²Var(X), and Standard Deviation σ_Y = |a|σ_X (adding a constant b does NOT change Variance or SD!).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Mean Deviation is minimum when measured around the Median; Sum of squared deviations Σ(x_i - c)² is minimum when c = Mean.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Harmonic Mean (HM), Geometric Mean (GM), and Arithmetic Mean (AM) for positive numbers satisfy: AM ≥ GM ≥ HM, and GM² = AM × HM (for two numbers).</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 2</span>
+            <h3 class="ol-group-title">Probability Axioms, Conditional Probability &amp; Bayes&#x27; Theorem</h3>
+            <span class="ol-group-count">9 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Probability of rolling an even number {2, 4, 6} on a fair 6-sided die is 3/6 = 1/2.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> If two events A and B are statistically independent, then P(A ∩ B) = P(A) × P(B), and P(A | B) = P(A).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Addition Theorem of Probability (Inclusion-Exclusion): P(A ∪ B) = P(A) + P(B) - P(A ∩ B).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Mutually Exclusive (Disjoint) Events: A ∩ B = ∅, so P(A ∩ B) = 0 and P(A ∪ B) = P(A) + P(B).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Important Trap: Two events with positive probabilities P(A)&gt;0, P(B)&gt;0 CANNOT be both mutually exclusive and independent simultaneously!</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">De Morgan&#x27;s Laws in Probability: P(A&#x27; ∩ B&#x27;) = P((A ∪ B)&#x27;) = 1 - P(A ∪ B); P(A&#x27; ∪ B&#x27;) = 1 - P(A ∩ B).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Conditional Probability Formula: P(A | B) = P(A ∩ B) / P(B), valid whenever P(B) &gt; 0.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Law of Total Probability: If B_1, B_2, ..., B_n partition the sample space, P(A) = Σ P(B_i) P(A | B_i).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Bayes&#x27; Theorem (Posterior Probability): P(B_k | A) = [P(B_k) P(A | B_k)] / [Σ P(B_i) P(A | B_i)].</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 3</span>
+            <h3 class="ol-group-title">Random Variables, Expectation, Covariance &amp; Correlation</h3>
+            <span class="ol-group-count">7 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">For any valid discrete PMF p(x): p(x) ≥ 0 and Σ p(x) = 1; for any continuous PDF f(x): f(x) ≥ 0 and ∫_{-∞}^{∞} f(x) dx = 1.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">For any continuous random variable X, the probability at a single exact point is always zero: P(X = c) = 0, so P(a ≤ X ≤ b) = P(a &lt; X &lt; b).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Cumulative Distribution Function (CDF): F(x) = P(X ≤ x); PDF is the derivative of CDF: f(x) = dF(x)/dx, and P(a &lt; X ≤ b) = F(b) - F(a).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Linearity of Expectation: E[aX + bY] = aE[X] + bE[Y] holds ALWAYS for all random variables, even if X and Y are dependent!</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Variance of Sum/Difference: Var(aX ± bY) = a²Var(X) + b²Var(Y) ± 2ab Cov(X,Y); if X and Y are independent, Cov(X,Y) = 0 so Var(X ± Y) = Var(X) + Var(Y).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Covariance Formula: Cov(X,Y) = E[XY] - E[X]E[Y]; if X and Y are independent, Cov(X,Y) = 0 (converse is NOT always true).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Pearson Correlation Coefficient (r): r = Cov(X,Y) / (σ_X σ_Y), which always lies in the range -1 ≤ r ≤ +1.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 4</span>
+            <h3 class="ol-group-title">Standard Probability Distributions (Binomial, Poisson, Uniform, Exponential, Normal)</h3>
+            <span class="ol-group-count">9 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Binomial Distribution B(n, p): PMF P(X = k) = C(n,k) p^k q^(n-k); Mean = np, Variance = npq (where q = 1 - p). In Binomial distribution, Mean &gt; Variance always (since 0 &lt; q &lt; 1).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Poisson Distribution Pois(λ): PMF P(X = k) = (e^(-λ) λ^k) / k!; Mean = λ and Variance = λ (Mean equals Variance is the signature property of Poisson!).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Poisson Approximation to Binomial: Used when n → ∞ (large trials) and p → 0 (rare event) such that λ = np stays constant.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Continuous Uniform Distribution U(a, b): PDF f(x) = 1 / (b - a) on [a, b]; Mean = (a + b) / 2, Variance = (b - a)² / 12.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Exponential Distribution Exp(λ): PDF f(x) = λe^(-λx) for x ≥ 0; Mean = 1/λ, Variance = 1/λ², and P(X &gt; t) = e^(-λt).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Memoryless Property: Exponential is the ONLY continuous memoryless distribution (P(X &gt; s+t | X &gt; s) = P(X &gt; t)), and Geometric is the ONLY discrete memoryless distribution.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">If inter-arrival times between packets follow Exponential(λ), the number of arrivals in time T follows Poisson(λT).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Normal (Gaussian) Distribution N(μ, σ²): Bell-shaped, symmetric around μ; Standard Normal Z = (X - μ)/σ has Mean = 0 and Variance = 1.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">68–95–99.7 Rule for Normal Distribution: 68.27% within μ ± 1σ, 95.45% within μ ± 2σ, and 99.73% within μ ± 3σ; Kurtosis of Normal distribution (β_2) = 3 (Excess Kurtosis = 0).</span></li>
+
+          </ul>
+        </div>
+        
+
+    <div class="ol-group-card">
+      <div class="ol-group-header" style="background:linear-gradient(90deg,#f0fdf4,#dcfce7);border-bottom-color:#bbf7d0;">
+        <span class="ol-group-num" style="background:#15803d;">100-Point Quick Sheet</span>
+        <h3 class="ol-group-title" style="color:#14532d;">100 Most Probable Exam Pointers (Question &rarr; Direct One-Liner Answer)</h3>
+        <span class="ol-group-count" style="background:#dcfce7;color:#166534;">100 Pointers</span>
+      </div>
+      <ul class="ol-list">
+        <li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#1 · TPSC PYQ 2025</span> <strong>What is the probability of rolling an even number on a fair six-sided die?</strong> &rarr; <span class="ol-ans-highlight">1/2</span> <span style="color:#475569;font-size:12.8px;">(Even numbers on a die are {2, 4, 6}, so P(even) = 3/6 = 1/2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#2 · TPSC PYQ 2025</span> <strong>If two events A and B are independent, what is P(A ∩ B)?</strong> &rarr; <span class="ol-ans-highlight">P(A) × P(B)</span> <span style="color:#475569;font-size:12.8px;">(For independent events A and B, joint probability P(A ∩ B) = P(A) × P(B).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#3 · TPSC PYQ 2025</span> <strong>The Mean of a dataset is defined as the:</strong> &rarr; <span class="ol-ans-highlight">Average of all values</span> <span style="color:#475569;font-size:12.8px;">(Mean is the arithmetic average of all values (sum divided by count).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#4 · TPSC PYQ 2025</span> <strong>The variance of a dataset is equal to:</strong> &rarr; <span class="ol-ans-highlight">The square of the Standard deviation</span> <span style="color:#475569;font-size:12.8px;">(Variance (σ²) is the square of the Standard Deviation (σ), i.e., average of squared deviations from the mean.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#5 · TPSC PYQ 2025</span> <strong>Which of the following measures of central tendency is affected the most by extreme values (outliers)?</strong> &rarr; <span class="ol-ans-highlight">Mean</span> <span style="color:#475569;font-size:12.8px;">(Arithmetic Mean uses every value directly and shifts strongly toward extreme outliers.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#6 · TPSC PYQ 2025</span> <strong>Which of the following is NOT a valid type of probability distribution?</strong> &rarr; <span class="ol-ans-highlight">Linear distribution</span> <span style="color:#475569;font-size:12.8px;">(Linear distribution is not a standard probability distribution (Uniform, Normal, Poisson, Exponential are standard).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#7 · TPSC PYQ 2025</span> <strong>The Coefficient of Variation (CV) is calculated as:</strong> &rarr; <span class="ol-ans-highlight">(Standard deviation / Mean) × 100</span> <span style="color:#475569;font-size:12.8px;">(Coefficient of Variation CV = (σ / μ) × 100% measures relative dispersion.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#8 · Poisson Distribution</span> <strong>If a discrete random variable X follows a Poisson distribution such that P(X = 1) = P(X = 2), what are the exact values of the Variance Var(X) and the probability P(X = 0)?</strong> &rarr; <span class="ol-ans-highlight">Var(X) = 2 and P(X = 0) = e⁻²</span> <span style="color:#475569;font-size:12.8px;">(For Poisson(λ), P(X=k) = e^(-λ) λ^k / k!. Setting P(X=1) = P(X=2) gives λ/1! = λ²/2! ⇒ λ = 2. In a Poisson distribution, Mean = Variance = λ = 2, and P(X=0) = e⁻².)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#9 · Binomial Distribution</span> <strong>For a Binomial random variable X ~ B(n, p), the mean is 6 and the variance is 4. What is the number of independent Bernoulli trials n?</strong> &rarr; <span class="ol-ans-highlight">n = 18</span> <span style="color:#475569;font-size:12.8px;">(In B(n, p), Mean μ = np = 6 and Variance σ² = npq = 4. Dividing gives q = σ²/μ = 4/6 = 2/3, so p = 1 - q = 1/3. Therefore, n = μ / p = 6 / (1/3) = 18.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#10 · Bayes Theorem</span> <strong>In a data centre, Server A handles 60% of HTTP requests with a 2% error rate, while Server B handles the remaining 40% of requests with a 5% error rate. If a randomly chosen request fails with an error, what is the conditional probability that it was processed by Server B?</strong> &rarr; <span class="ol-ans-highlight">5 / 8 (0.625)</span> <span style="color:#475569;font-size:12.8px;">(By Bayes&#x27; Theorem: P(E) = 0.60(0.02) + 0.40(0.05) = 0.012 + 0.020 = 0.032. P(B | E) = 0.020 / 0.032 = 20 / 32 = 5 / 8 = 0.625.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#11 · Central Tendency &amp; Skewness</span> <strong>In a moderately skewed frequency distribution of network packet latencies, the arithmetic mean is 45 ms and the median is 48 ms. Using Karl Pearson&#x27;s empirical relation, what is the mode of the distribution?</strong> &rarr; <span class="ol-ans-highlight">54 ms</span> <span style="color:#475569;font-size:12.8px;">(By Karl Pearson&#x27;s empirical formula: Mode = 3 × Median - 2 × Mean = 3(48) - 2(45) = 144 - 90 = 54 ms.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#12 · Uniform Distribution</span> <strong>A continuous random variable X is uniformly distributed over the interval [-2, 10]. What are the Mean E[X] and Standard Deviation σ of X?</strong> &rarr; <span class="ol-ans-highlight">Mean = 4 and Standard Deviation = 2√3</span> <span style="color:#475569;font-size:12.8px;">(For X ~ U(a, b) with a = -2, b = 10: Mean = (a + b)/2 = (-2 + 10)/2 = 4. Variance = (b - a)² / 12 = (12)² / 12 = 12 ⇒ Standard Deviation σ = √12 = 2√3.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#13 · Exponential Distribution</span> <strong>The lifetime X (in hours) of a laser diode follows an Exponential distribution with mean 500 hours. Given that the diode has already operated without failure for 300 hours, what is the probability that it will survive for at least another 500 hours?</strong> &rarr; <span class="ol-ans-highlight">e⁻¹ (approx. 0.3679)</span> <span style="color:#475569;font-size:12.8px;">(By the Memoryless Property of the Exponential distribution (λ = 1/500), P(X &gt; 300 + 500 | X &gt; 300) = P(X &gt; 500) = e^(-λ × 500) = e⁻¹.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#14 · Normal Distribution</span> <strong>For a Normal distribution N(μ, σ²), at which points along the horizontal axis do the two points of inflection of the probability density curve occur?</strong> &rarr; <span class="ol-ans-highlight">x = μ - σ and x = μ + σ</span> <span style="color:#475569;font-size:12.8px;">(Setting the second derivative f&#x27;&#x27;(x) = 0 for the Gaussian PDF yields (x - μ)² = σ², so the points of inflection lie exactly one standard deviation away from the mean at x = μ ± σ.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#15 · Conditional Probability</span> <strong>If A and B are two independent events such that P(A) = 0.4 and P(B) = 0.5, what is the probability that NEITHER A NOR B occurs, i.e., P(A&#x27; ∩ B&#x27;)?</strong> &rarr; <span class="ol-ans-highlight">0.30</span> <span style="color:#475569;font-size:12.8px;">(When A and B are independent, A&#x27; and B&#x27; are also independent: P(A&#x27; ∩ B&#x27;) = P(A&#x27;) × P(B&#x27;) = (1 - 0.4) × (1 - 0.5) = 0.6 × 0.5 = 0.30.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#16 · Variance Transformation</span> <strong>If a random variable X has standard deviation σ_X = 4, what is the variance of the linear transformation Y = 15 - 3X?</strong> &rarr; <span class="ol-ans-highlight">Var(Y) = 144</span> <span style="color:#475569;font-size:12.8px;">(Given σ_X = 4, Var(X) = 16. Under linear transformation Y = aX + b, Var(aX + b) = a² Var(X) = (-3)² × 16 = 9 × 16 = 144.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#17 · Probability &amp; Statistics</span> <strong>Two fair six-sided dice are rolled simultaneously. What is the conditional probability that the sum of the numbers on the two dice is 8, given that the two dice show DIFFERENT numbers?</strong> &rarr; <span class="ol-ans-highlight">4 / 30 (2 / 15)</span> <span style="color:#475569;font-size:12.8px;">(Total outcomes with different numbers (excluding the 6 doubles (1,1)...(6,6)) = 36 - 6 = 30. Outcomes summing to 8 are {(2,6), (6,2), (3,5), (5,3), (4,4)}, of which 4 have different numbers: {(2,6), (6,2), (3,5), (5,3)}. Thus P = 4 / 30 = 2 / 15.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#18 · Probability &amp; Statistics</span> <strong>If X and Y are two independent random variables with Var(X) = 9 and Var(Y) = 16, what is the standard deviation of the linear combination Z = 2X - Y + 7?</strong> &rarr; <span class="ol-ans-highlight">√52 (2√13 ≈ 7.21)</span> <span style="color:#475569;font-size:12.8px;">(For independent X and Y, Var(aX + bY + c) = a² Var(X) + b² Var(Y) = (2)²(9) + (-1)²(16) = 36 + 16 = 52. Standard deviation σ_Z = √52 = 2√13.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#19 · Probability &amp; Statistics</span> <strong>A bag contains 6 red and 4 black balls. Two balls are drawn at random without replacement. What is the probability that both drawn balls are of the SAME color?</strong> &rarr; <span class="ol-ans-highlight">7 / 15</span> <span style="color:#475569;font-size:12.8px;">(Total ways = C(10, 2) = 45. Both red = C(6, 2) = 15; Both black = C(4, 2) = 6. Favorable ways = 15 + 6 = 21. Probability = 21 / 45 = 7 / 15.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#20 · Probability &amp; Statistics</span> <strong>For any random variable X with mean μ and standard deviation σ, Chebyshev&#x27;s Inequality guarantees that P(|X - μ| ≥ kσ) is bounded above by:</strong> &rarr; <span class="ol-ans-highlight">1 / k²</span> <span style="color:#475569;font-size:12.8px;">(Chebyshev&#x27;s Inequality states that for any distribution with finite variance, P(|X - μ| ≥ kσ) ≤ 1 / k² (and equivalently P(|X - μ| &lt; kσ) ≥ 1 - 1 / k²).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#21 · Probability &amp; Statistics</span> <strong>A fair coin is tossed 6 times independently. What is the binomial probability of obtaining exactly 4 Heads?</strong> &rarr; <span class="ol-ans-highlight">15 / 64</span> <span style="color:#475569;font-size:12.8px;">(Using Binomial PMF with n = 6, k = 4, p = 1/2: P(X = 4) = C(6, 4) × (1/2)⁶ = 15 / 64.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#22 · Probability &amp; Statistics</span> <strong>If the sum of deviations of 10 observations from 50 is -20, i.e., ∑(x_i - 50) = -20, what is the arithmetic mean of the 10 observations?</strong> &rarr; <span class="ol-ans-highlight">48</span> <span style="color:#475569;font-size:12.8px;">(Since ∑(x_i - 50) = ∑x_i - 10(50) = -20 ⇒ ∑x_i = 500 - 20 = 480. Mean x̄ = 480 / 10 = 48.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#23 · Probability &amp; Statistics</span> <strong>For two events A and B with P(A) = 0.6, P(B) = 0.5, and P(A ∪ B) = 0.8, what is the conditional probability P(A | B)?</strong> &rarr; <span class="ol-ans-highlight">0.60 (and since P(A | B) = P(A), events A and B are statistically independent!)</span> <span style="color:#475569;font-size:12.8px;">(P(A ∩ B) = P(A) + P(B) - P(A ∪ B) = 0.6 + 0.5 - 0.8 = 0.30. Thus P(A | B) = P(A ∩ B) / P(B) = 0.30 / 0.50 = 0.60 = P(A), proving A and B are independent.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#24 · Probability &amp; Statistics</span> <strong>What is the Moment Generating Function (MGF) M_X(t) = E[e^(tX)] of a Poisson random variable X ~ Pois(λ)?</strong> &rarr; <span class="ol-ans-highlight">exp(λ (e^t - 1))</span> <span style="color:#475569;font-size:12.8px;">(For X ~ Pois(λ), M_X(t) = ∑ e^(tk) e^(-λ) λ^k / k! = e^(-λ) ∑ (λ e^t)^k / k! = exp(λ(e^t - 1)).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#25 · Probability &amp; Statistics</span> <strong>A continuous random variable X has PDF f(x) = (3/8) x² for 0 ≤ x ≤ 2 (and 0 otherwise). What is the exact expected value E[X] of X?</strong> &rarr; <span class="ol-ans-highlight">1.5 (3 / 2)</span> <span style="color:#475569;font-size:12.8px;">(E[X] = ∫₀² x · (3/8)x² dx = (3/8) [x⁴ / 4]₀² = (3/8) × (16 / 4) = 3 / 2 = 1.5.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#26 · Probability &amp; Statistics</span> <strong>In a random sample of n = 64 observations drawn from a population with standard deviation σ = 24, what is the Standard Error of the Sample Mean (SE = σ_X̄)?</strong> &rarr; <span class="ol-ans-highlight">3.0</span> <span style="color:#475569;font-size:12.8px;">(Standard Error of the sample mean is SE = σ / √n = 24 / √64 = 24 / 8 = 3.0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#27 · Probability &amp; Statistics</span> <strong>In statistical hypothesis testing, rejecting the Null Hypothesis H₀ when H₀ is actually TRUE is known as which type of error?</strong> &rarr; <span class="ol-ans-highlight">Type-I Error (False Positive, whose probability is the level of significance α)</span> <span style="color:#475569;font-size:12.8px;">(Rejecting a true Null Hypothesis H₀ is a Type-I Error (probability α); failing to reject a false H₀ is a Type-II Error (probability β).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#28 · Probability &amp; Statistics</span> <strong>A box contains 3 defective and 7 non-defective microchips. If 2 microchips are selected at random without replacement, what is the probability that AT LEAST ONE of the selected microchips is defective?</strong> &rarr; <span class="ol-ans-highlight">8 / 15</span> <span style="color:#475569;font-size:12.8px;">(P(at least 1 defective) = 1 - P(both non-defective) = 1 - C(7,2)/C(10,2) = 1 - 21/45 = 24/45 = 8/15.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#29 · Probability &amp; Statistics</span> <strong>If a continuous random variable X follows an Exponential distribution Exp(λ) with mean E[X] = 10 minutes, what is its Median (50th percentile)?</strong> &rarr; <span class="ol-ans-highlight">10 × ln(2) ≈ 6.93 minutes</span> <span style="color:#475569;font-size:12.8px;">(For Exp(λ), CDF F(m) = 1 - e^(-λm) = 0.5 ⇒ e^(-λm) = 0.5 ⇒ m = ln(2)/λ = Mean × ln(2) = 10 × 0.693 = 6.93 minutes.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#30 · Probability &amp; Statistics</span> <strong>In linear regression analysis between variables X and Y, if the two regression coefficients are b_yx = -0.8 and b_xy = -0.2, what is the Karl Pearson correlation coefficient r(X, Y)?</strong> &rarr; <span class="ol-ans-highlight">-0.40</span> <span style="color:#475569;font-size:12.8px;">(The correlation coefficient r is the signed geometric mean of the two regression slopes: r = -√((-0.8) × (-0.2)) = -√0.16 = -0.40 (sign matches the sign of both regression coefficients).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#31 · Probability &amp; Statistics</span> <strong>What is the Variance of the first n natural numbers {1, 2, 3, ..., n}?</strong> &rarr; <span class="ol-ans-highlight">(n² - 1) / 12</span> <span style="color:#475569;font-size:12.8px;">(E[X] = (n+1)/2 and E[X²] = (n+1)(2n+1)/6 ⇒ Var(X) = E[X²] - (E[X])² = (n² - 1) / 12.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#32 · Probability &amp; Statistics</span> <strong>If X ~ N(10, 4) and Y ~ N(15, 9) are two independent Normal random variables, what is the probability distribution of their difference W = Y - X?</strong> &rarr; <span class="ol-ans-highlight">N(5, 13) (Normal with Mean = 5 and Variance = 13)</span> <span style="color:#475569;font-size:12.8px;">(For independent Normal variables, E[Y - X] = 15 - 10 = 5, and Var(Y - X) = Var(Y) + (-1)² Var(X) = 9 + 4 = 13 ⇒ W ~ N(5, 13).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#33 · Probability &amp; Statistics</span> <strong>For a Poisson random variable X with parameter λ = 3, what is the value of the second raw moment E[X²]?</strong> &rarr; <span class="ol-ans-highlight">12</span> <span style="color:#475569;font-size:12.8px;">(For Poisson(λ), Mean E[X] = λ = 3 and Variance Var(X) = λ = 3. Therefore E[X²] = Var(X) + (E[X])² = 3 + 3² = 12.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#34 · Probability &amp; Statistics</span> <strong>In a positively skewed (right-skewed) unimodal frequency distribution, what is the strict order of magnitude among the Mean, Median, and Mode?</strong> &rarr; <span class="ol-ans-highlight">Mode &lt; Median &lt; Mean</span> <span style="color:#475569;font-size:12.8px;">(In a positively (right) skewed distribution, the long right tail pulls the arithmetic Mean to the right of the Median, while the peak (Mode) remains on the left: Mode &lt; Median &lt; Mean.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#35 · Probability &amp; Statistics</span> <strong>If two events A and B are mutually exclusive (disjoint) with P(A) = 0.35 and P(B) = 0.45, what are P(A ∩ B) and P(A ∪ B)?</strong> &rarr; <span class="ol-ans-highlight">P(A ∩ B) = 0 and P(A ∪ B) = 0.80</span> <span style="color:#475569;font-size:12.8px;">(For mutually exclusive events, A ∩ B = ∅ ⇒ P(A ∩ B) = 0, and by additivity P(A ∪ B) = P(A) + P(B) = 0.35 + 0.45 = 0.80.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#36 · Central Tendency</span> <strong>For a moderately skewed distribution, Karl Pearson&#x27;s empirical formula relating Mean, Median, and Mode is:</strong> &rarr; <span class="ol-ans-highlight">Mode = 3 Median - 2 Mean</span> <span style="color:#475569;font-size:12.8px;">(Karl Pearson&#x27;s empirical relation states: Mean - Mode = 3(Mean - Median) =&gt; Mode = 3 Median - 2 Mean.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#37 · Central Tendency</span> <strong>If the Mean of a dataset is 25 and its Mode is 19, what is its approximate Median using the empirical relation?</strong> &rarr; <span class="ol-ans-highlight">23</span> <span style="color:#475569;font-size:12.8px;">(3 Median = Mode + 2 Mean = 19 + 2(25) = 69 =&gt; Median = 69 / 3 = 23.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#38 · Central Tendency</span> <strong>For a perfectly symmetric Normal distribution, the relationship among Mean, Median, and Mode is:</strong> &rarr; <span class="ol-ans-highlight">Mean = Median = Mode</span> <span style="color:#475569;font-size:12.8px;">(In any unimodal symmetric distribution (including the Gaussian/Normal curve), Mean, Median, and Mode coincide at the center.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#39 · Central Tendency</span> <strong>In a positively (right-tailed) skewed distribution, which ordering of central tendency measures holds?</strong> &rarr; <span class="ol-ans-highlight">Mean &gt; Median &gt; Mode</span> <span style="color:#475569;font-size:12.8px;">(A long right tail pulls the Mean furthest to the right, the Median in the middle, and leaves the Mode at the peak: Mean &gt; Median &gt; Mode.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#40 · Central Tendency</span> <strong>The sum of absolute deviations Σ|x_i - A| is MINIMUM when the reference value A is taken as the:</strong> &rarr; <span class="ol-ans-highlight">Median</span> <span style="color:#475569;font-size:12.8px;">(Mean Absolute Deviation is minimized around the Median, whereas sum of squared deviations Σ(x_i - A)² is minimized around the Mean.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#41 · Central Tendency</span> <strong>The algebraic sum of deviations of a set of n observations measured from their Arithmetic Mean Σ(x_i - x̄) is always:</strong> &rarr; <span class="ol-ans-highlight">0</span> <span style="color:#475569;font-size:12.8px;">(Σ(x_i - x̄) = Σx_i - n·x̄ = n·x̄ - n·x̄ = 0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#42 · Dispersion</span> <strong>If every observation in a dataset is increased by a constant 15, the Standard Deviation of the new dataset:</strong> &rarr; <span class="ol-ans-highlight">Remains unchanged</span> <span style="color:#475569;font-size:12.8px;">(Standard Deviation and Variance are invariant to a change of origin (adding/subtracting a constant): SD(X + c) = SD(X).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#43 · Dispersion</span> <strong>If X is a random variable with Variance Var(X) = 4, then what is the Variance of Y = 3X + 7?</strong> &rarr; <span class="ol-ans-highlight">36</span> <span style="color:#475569;font-size:12.8px;">(Var(aX + b) = a² Var(X) = 3² × 4 = 9 × 4 = 36.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#44 · Dispersion</span> <strong>If the Standard Deviation of a sample is 6 and its Arithmetic Mean is 30, what is the Coefficient of Variation (CV)?</strong> &rarr; <span class="ol-ans-highlight">20%</span> <span style="color:#475569;font-size:12.8px;">(CV = (SD / Mean) × 100 = (6 / 30) × 100 = 20%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#45 · Central Tendency</span> <strong>If the Arithmetic Mean of two positive numbers is 25 and their Harmonic Mean is 9, what is their Geometric Mean?</strong> &rarr; <span class="ol-ans-highlight">15</span> <span style="color:#475569;font-size:12.8px;">(For two positive numbers, GM² = AM × HM = 25 × 9 = 225 =&gt; GM = √225 = 15.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#46 · Central Tendency</span> <strong>What is the Median of the unsorted sample: 14, 7, 22, 9, 18, 11, 30?</strong> &rarr; <span class="ol-ans-highlight">14</span> <span style="color:#475569;font-size:12.8px;">(Sorted: 7, 9, 11, 14, 18, 22, 30. The 4th (middle) value is 14.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#47 · Central Tendency</span> <strong>What is the Median of the even-sized sorted sample: 4, 8, 12, 16, 20, 24?</strong> &rarr; <span class="ol-ans-highlight">14</span> <span style="color:#475569;font-size:12.8px;">(For n = 6, Median is the average of the 3rd and 4th values: (12 + 16) / 2 = 14.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#48 · Dispersion</span> <strong>What is the sample Variance of the dataset {2, 4, 6, 8, 10} (using population denominator N = 5)?</strong> &rarr; <span class="ol-ans-highlight">8</span> <span style="color:#475569;font-size:12.8px;">(Mean = 6; squared deviations: (-4)² + (-2)² + 0² + 2² + 4² = 16 + 4 + 0 + 4 + 16 = 40; Variance = 40 / 5 = 8.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#49 · Probability Axioms</span> <strong>For any two events A and B, the Addition Theorem of Probability states that P(A ∪ B) equals:</strong> &rarr; <span class="ol-ans-highlight">P(A) + P(B) - P(A ∩ B)</span> <span style="color:#475569;font-size:12.8px;">(By Inclusion-Exclusion, P(A ∪ B) = P(A) + P(B) - P(A ∩ B).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#50 · Probability Axioms</span> <strong>If events A and B are mutually exclusive (disjoint) with P(A) = 0.35 and P(B) = 0.45, then P(A ∪ B) is:</strong> &rarr; <span class="ol-ans-highlight">0.80</span> <span style="color:#475569;font-size:12.8px;">(For mutually exclusive events, P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B) = 0.35 + 0.45 = 0.80.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#51 · Probability Axioms</span> <strong>If A and B are independent events with P(A) = 0.4 and P(B) = 0.5, what is P(A ∪ B)?</strong> &rarr; <span class="ol-ans-highlight">0.70</span> <span style="color:#475569;font-size:12.8px;">(P(A ∩ B) = 0.4 × 0.5 = 0.20; P(A ∪ B) = 0.4 + 0.5 - 0.20 = 0.70.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#52 · Conditional Probability</span> <strong>If P(A) = 0.6, P(B) = 0.4, and P(A ∩ B) = 0.2, what is the conditional probability P(A | B)?</strong> &rarr; <span class="ol-ans-highlight">0.50</span> <span style="color:#475569;font-size:12.8px;">(P(A | B) = P(A ∩ B) / P(B) = 0.2 / 0.4 = 0.50.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#53 · Independent Events</span> <strong>If A and B are independent events with P(A) = 0.3 and P(B) = 0.6, what is P(A&#x27; ∩ B&#x27;) (probability that NEITHER occurs)?</strong> &rarr; <span class="ol-ans-highlight">0.28</span> <span style="color:#475569;font-size:12.8px;">(Since A and B are independent, A&#x27; and B&#x27; are also independent: P(A&#x27; ∩ B&#x27;) = P(A&#x27;)P(B&#x27;) = (1 - 0.3)(1 - 0.6) = 0.7 × 0.4 = 0.28.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#54 · Classical Probability</span> <strong>Two fair coins are tossed simultaneously. What is the probability of getting AT LEAST one Head?</strong> &rarr; <span class="ol-ans-highlight">3/4</span> <span style="color:#475569;font-size:12.8px;">(Sample space {HH, HT, TH, TT}: P(at least 1 Head) = 1 - P(TT) = 1 - 1/4 = 3/4.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#55 · Classical Probability</span> <strong>Three fair coins are tossed simultaneously. What is the probability of getting EXACTLY two Heads?</strong> &rarr; <span class="ol-ans-highlight">3/8</span> <span style="color:#475569;font-size:12.8px;">(Out of 2³ = 8 outcomes, {HHT, HTH, THH} have exactly 2 Heads =&gt; 3/8.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#56 · Classical Probability</span> <strong>Two fair six-sided dice are rolled simultaneously. What is the probability that the sum of the numbers is 7?</strong> &rarr; <span class="ol-ans-highlight">1/6</span> <span style="color:#475569;font-size:12.8px;">(6 favorable pairs {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} out of 36 outcomes =&gt; 6/36 = 1/6.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#57 · Classical Probability</span> <strong>Two fair six-sided dice are rolled. What is the probability of getting a doublet (both dice showing the same number)?</strong> &rarr; <span class="ol-ans-highlight">1/6</span> <span style="color:#475569;font-size:12.8px;">(There are 6 doublets {(1,1), (2,2), ..., (6,6)} out of 36 outcomes =&gt; 6/36 = 1/6.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#58 · Playing Cards</span> <strong>A card is drawn at random from a standard deck of 52 playing cards. What is the probability that it is a King OR a Heart?</strong> &rarr; <span class="ol-ans-highlight">4/13</span> <span style="color:#475569;font-size:12.8px;">(P(King ∪ Heart) = (4 + 13 - 1) / 52 = 16 / 52 = 4 / 13.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#59 · Urn Problems</span> <strong>A bag contains 4 red balls and 6 blue balls. Two balls are drawn at random without replacement. What is the probability that both are red?</strong> &rarr; <span class="ol-ans-highlight">2/15</span> <span style="color:#475569;font-size:12.8px;">(P(both red) = (4/10) × (3/9) = 12/90 = 2/15.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#60 · Series Problem</span> <strong>Three independent servers have failure probabilities of 1/2, 1/3, and 1/4 respectively. What is the probability that AT LEAST ONE server fails?</strong> &rarr; <span class="ol-ans-highlight">3/4</span> <span style="color:#475569;font-size:12.8px;">(P(none fails) = (1 - 1/2)(1 - 1/3)(1 - 1/4) = (1/2)(2/3)(3/4) = 1/4. Hence P(at least one fails) = 1 - 1/4 = 3/4.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#61 · Bayes Theorem</span> <strong>A diagnostic test for a virus has 99% sensitivity (true positive) and 2% false-positive rate. If 10% of files are infected, what is the total probability P(Test Positive)?</strong> &rarr; <span class="ol-ans-highlight">0.117</span> <span style="color:#475569;font-size:12.8px;">(P(+) = P(Infected)P(+|Infected) + P(Clean)P(+|Clean) = 0.10(0.99) + 0.90(0.02) = 0.099 + 0.018 = 0.117.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#62 · Bayes Theorem</span> <strong>Box 1 has 2 red, 3 black balls; Box 2 has 4 red, 1 black ball. A box is chosen equally likely and a red ball is drawn. What is P(Box 2 | Red)?</strong> &rarr; <span class="ol-ans-highlight">2/3</span> <span style="color:#475569;font-size:12.8px;">(P(R|B1) = 2/5, P(R|B2) = 4/5; by Bayes&#x27; Theorem, P(B2|R) = (4/5) / (2/5 + 4/5) = 4/6 = 2/3.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#63 · Random Variables</span> <strong>A discrete random variable X has PMF P(X = x) = k·x for x = 1, 2, 3, 4. What is the value of the normalizing constant k?</strong> &rarr; <span class="ol-ans-highlight">1/10</span> <span style="color:#475569;font-size:12.8px;">(Σ P(X=x) = 1 =&gt; k(1 + 2 + 3 + 4) = 10k = 1 =&gt; k = 1/10.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#64 · Random Variables</span> <strong>For a continuous random variable X with PDF f(x), what is the probability P(X = 5) at the single exact point x = 5?</strong> &rarr; <span class="ol-ans-highlight">0</span> <span style="color:#475569;font-size:12.8px;">(For any continuous random variable, the integral over a single point has width zero: P(X = c) = ∫_c^c f(x)dx = 0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#65 · Expectation</span> <strong>If E[X] = 5 and E[Y] = 8, what is the expected value E[3X - 2Y + 4]?</strong> &rarr; <span class="ol-ans-highlight">3</span> <span style="color:#475569;font-size:12.8px;">(By linearity of expectation: E[3X - 2Y + 4] = 3(5) - 2(8) + 4 = 15 - 16 + 4 = 3.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#66 · Variance</span> <strong>For a random variable X, if E[X] = 3 and E[X²] = 25, what is the Standard Deviation σ of X?</strong> &rarr; <span class="ol-ans-highlight">4</span> <span style="color:#475569;font-size:12.8px;">(Var(X) = E[X²] - (E[X])² = 25 - 3² = 25 - 9 = 16; Standard Deviation σ = √16 = 4.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#67 · Variance</span> <strong>If X and Y are independent random variables with Var(X) = 5 and Var(Y) = 3, what is Var(2X - 3Y)?</strong> &rarr; <span class="ol-ans-highlight">47</span> <span style="color:#475569;font-size:12.8px;">(For independent X and Y, Var(aX - bY) = a²Var(X) + b²Var(Y) = 4(5) + 9(3) = 20 + 27 = 47 (minus sign is squared!).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#68 · Covariance</span> <strong>If two random variables X and Y are statistically independent, their Covariance Cov(X, Y) and Correlation r are:</strong> &rarr; <span class="ol-ans-highlight">Cov(X, Y) = 0 and r = 0</span> <span style="color:#475569;font-size:12.8px;">(Independence implies E[XY] = E[X]E[Y], so Cov(X,Y) = E[XY] - E[X]E[Y] = 0 and correlation r = 0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#69 · Correlation</span> <strong>The Karl Pearson Coefficient of Correlation (r) between any two variables always lies in the closed interval:</strong> &rarr; <span class="ol-ans-highlight">-1 ≤ r ≤ +1</span> <span style="color:#475569;font-size:12.8px;">(By the Cauchy-Schwarz inequality, Pearson correlation r satisfies -1 ≤ r ≤ +1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#70 · Regression</span> <strong>If the two regression coefficients of Y on X and X on Y are b_yx = -0.8 and b_xy = -0.2, what is the correlation coefficient r?</strong> &rarr; <span class="ol-ans-highlight">-0.4</span> <span style="color:#475569;font-size:12.8px;">(r = ±√(b_yx × b_xy) = -√((-0.8)(-0.2)) = -√0.16 = -0.4 (sign of r matches sign of b_yx and b_xy).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#71 · Binomial Distribution</span> <strong>For a Binomial distribution B(n, p), the Mean and Variance are given by:</strong> &rarr; <span class="ol-ans-highlight">Mean = np, Variance = npq (where q = 1 - p)</span> <span style="color:#475569;font-size:12.8px;">(A Binomial B(n, p) random variable is the sum of n independent Bernoulli(p) trials, so Mean = np and Variance = npq.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#72 · Binomial Distribution</span> <strong>If a Binomial distribution has Mean = 6 and Variance = 2, what are the parameters n (number of trials) and p (success probability)?</strong> &rarr; <span class="ol-ans-highlight">n = 9, p = 2/3</span> <span style="color:#475569;font-size:12.8px;">(q = Var / Mean = 2 / 6 = 1/3 =&gt; p = 1 - 1/3 = 2/3; since np = 6, n(2/3) = 6 =&gt; n = 9.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#73 · Binomial Distribution</span> <strong>In any valid Binomial distribution B(n, p) with 0 &lt; p &lt; 1, which relationship between Mean and Variance ALWAYS holds?</strong> &rarr; <span class="ol-ans-highlight">Mean &gt; Variance</span> <span style="color:#475569;font-size:12.8px;">(Since Variance = npq = Mean × q and 0 &lt; q &lt; 1, Variance is strictly less than Mean (Mean &gt; Variance).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#74 · Binomial Distribution</span> <strong>A fair coin is tossed 4 times. What is the probability of getting exactly 3 Heads?</strong> &rarr; <span class="ol-ans-highlight">1/4</span> <span style="color:#475569;font-size:12.8px;">(P(X = 3) = C(4, 3)(1/2)³(1/2)¹ = 4 / 16 = 1/4.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#75 · Poisson Distribution</span> <strong>For which standard discrete probability distribution are the Mean and Variance ALWAYS equal (Mean = Variance = λ)?</strong> &rarr; <span class="ol-ans-highlight">Poisson distribution</span> <span style="color:#475569;font-size:12.8px;">(In a Poisson(λ) distribution, E[X] = λ and Var(X) = λ.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#76 · Poisson Distribution</span> <strong>If a Poisson random variable X satisfies P(X = 1) = P(X = 2), what is the Mean (λ) and Variance of X?</strong> &rarr; <span class="ol-ans-highlight">2</span> <span style="color:#475569;font-size:12.8px;">(e^(-λ)λ¹/1! = e^(-λ)λ²/2! =&gt; λ = λ²/2 =&gt; λ = 2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#77 · Poisson Distribution</span> <strong>If a Poisson random variable X has parameter λ = 3, what is the probability P(X = 0)?</strong> &rarr; <span class="ol-ans-highlight">e^(-3)</span> <span style="color:#475569;font-size:12.8px;">(P(X = k) = e^(-λ)λ^k / k! =&gt; for k = 0, P(X = 0) = e^(-3)·3^0 / 0! = e^(-3).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#78 · Uniform Distribution</span> <strong>If X follows a Continuous Uniform distribution U(2, 10) on the interval [2, 10], what are its Mean and Variance?</strong> &rarr; <span class="ol-ans-highlight">Mean = 6, Variance = 16/3</span> <span style="color:#475569;font-size:12.8px;">(Mean = (a + b)/2 = (2 + 10)/2 = 6; Variance = (b - a)² / 12 = (10 - 2)² / 12 = 64/12 = 16/3.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#79 · Uniform Distribution</span> <strong>If X ~ Uniform(0, 20), what is the probability P(5 ≤ X ≤ 12)?</strong> &rarr; <span class="ol-ans-highlight">7/20 (0.35)</span> <span style="color:#475569;font-size:12.8px;">(P(5 ≤ X ≤ 12) = (12 - 5) / (20 - 0) = 7/20 = 0.35.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#80 · Exponential Distribution</span> <strong>Which is the ONLY continuous probability distribution that possesses the Memoryless Property P(X &gt; s + t | X &gt; s) = P(X &gt; t)?</strong> &rarr; <span class="ol-ans-highlight">Exponential distribution</span> <span style="color:#475569;font-size:12.8px;">(The Exponential distribution f(x) = λe^(-λx) is the unique continuous memoryless distribution.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#81 · Exponential Distribution</span> <strong>The lifetime of a router component follows an Exponential distribution with rate parameter λ = 0.2 per year. What is its expected Mean lifetime?</strong> &rarr; <span class="ol-ans-highlight">5 years</span> <span style="color:#475569;font-size:12.8px;">(For X ~ Exp(λ), Mean E[X] = 1 / λ = 1 / 0.2 = 5 years (and Variance = 1/λ² = 25).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#82 · Poisson Process</span> <strong>If the number of network packets arriving at a router follows a Poisson process with rate λ = 4 packets/sec, the inter-arrival time between consecutive packets follows:</strong> &rarr; <span class="ol-ans-highlight">Exponential distribution with mean 0.25 sec</span> <span style="color:#475569;font-size:12.8px;">(Inter-arrival times in a Poisson process with rate λ follow an Exponential(λ) distribution with mean 1/λ = 1/4 = 0.25 sec.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#83 · Normal Distribution</span> <strong>If X ~ N(100, 15²) is a Normal random variable with Mean μ = 100 and SD σ = 15, what is the Standard Normal Z-score for X = 130?</strong> &rarr; <span class="ol-ans-highlight">+2.0</span> <span style="color:#475569;font-size:12.8px;">(Z = (X - μ) / σ = (130 - 100) / 15 = 30 / 15 = +2.0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#84 · Normal Distribution</span> <strong>In a Normal distribution N(μ, σ²), approximately what percentage of observations fall within the interval μ ± 2σ?</strong> &rarr; <span class="ol-ans-highlight">95.45% (approx. 95%)</span> <span style="color:#475569;font-size:12.8px;">(By the 68–95–99.7 empirical rule, ~68.27% lie within ±1σ, ~95.45% within ±2σ, and ~99.73% within ±3σ.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#85 · Normal Distribution</span> <strong>For any Normal distribution N(μ, σ²), the points of inflection of the bell-shaped PDF curve occur at:</strong> &rarr; <span class="ol-ans-highlight">x = μ - σ and x = μ + σ</span> <span style="color:#475569;font-size:12.8px;">(Setting the second derivative f&#x27;&#x27;(x) = 0 for the Gaussian PDF gives x = μ ± σ.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#86 · Normal Distribution</span> <strong>What is the probability P(X &gt; μ) that a Normal random variable X ~ N(μ, σ²) exceeds its own mean μ?</strong> &rarr; <span class="ol-ans-highlight">0.50</span> <span style="color:#475569;font-size:12.8px;">(Because the Normal distribution is perfectly symmetric about x = μ, P(X &gt; μ) = P(X &lt; μ) = 0.50.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#87 · Central Limit Theorem</span> <strong>If a random sample of size n = 64 is drawn from a population with Mean μ = 50 and Standard Deviation σ = 16, what is the Standard Error of the Sample Mean (σ_x̄)?</strong> &rarr; <span class="ol-ans-highlight">2</span> <span style="color:#475569;font-size:12.8px;">(Standard Error of the Sample Mean is σ_x̄ = σ / √n = 16 / √64 = 16 / 8 = 2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#88 · Chebyshev Inequality</span> <strong>According to Chebyshev&#x27;s Inequality, for ANY distribution with finite mean μ and variance σ², at least what fraction of values must lie within μ ± 2σ?</strong> &rarr; <span class="ol-ans-highlight">3/4 (75%)</span> <span style="color:#475569;font-size:12.8px;">(Chebyshev&#x27;s Inequality states P(|X - μ| &lt; kσ) ≥ 1 - 1/k²; for k = 2, 1 - 1/4 = 3/4 (75%).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#89 · Kurtosis</span> <strong>For a standard Normal (mesokurtic) distribution, the value of Pearson&#x27;s Kurtosis coefficient β_2 = μ_4 / σ^4 is:</strong> &rarr; <span class="ol-ans-highlight">3</span> <span style="color:#475569;font-size:12.8px;">(A Normal distribution is mesokurtic with β_2 = 3 (and Excess Kurtosis γ_2 = β_2 - 3 = 0).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#90 · Geometric Distribution</span> <strong>A biased coin with P(Head) = 0.25 is tossed repeatedly until the FIRST Head appears. What is the expected number of tosses required?</strong> &rarr; <span class="ol-ans-highlight">4</span> <span style="color:#475569;font-size:12.8px;">(For a Geometric(p) distribution counting trials until first success, Mean E[X] = 1 / p = 1 / 0.25 = 4.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#91 · Bernoulli Trial</span> <strong>For a single Bernoulli(p) trial where X ∈ {0, 1}, what is the maximum possible value of Variance Var(X) = p(1 - p)?</strong> &rarr; <span class="ol-ans-highlight">1/4 (0.25, achieved when p = 0.5)</span> <span style="color:#475569;font-size:12.8px;">(p(1 - p) is maximized at p = 1/2, giving max variance = (1/2)(1/2) = 1/4 = 0.25.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#92 · Moment Generating Function</span> <strong>If the Moment Generating Function (MGF) of a random variable X is M_X(t) = E[e^(tX)], then the Mean E[X] is given by:</strong> &rarr; <span class="ol-ans-highlight">First derivative M&#x27;_X(0) evaluated at t = 0</span> <span style="color:#475569;font-size:12.8px;">(Differentiating M_X(t) k times with respect to t and setting t = 0 yields the k-th raw moment E[X^k].)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#93 · Hypothesis Testing</span> <strong>In statistical hypothesis testing, a Type-I Error (level of significance α) occurs when we:</strong> &rarr; <span class="ol-ans-highlight">Reject a Null Hypothesis (H_0) when it is actually TRUE</span> <span style="color:#475569;font-size:12.8px;">(Type-I Error (false positive, probability α) is rejecting a true null hypothesis H_0.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#94 · Bayes Theorem</span> <strong>If P(A) = 0.5, P(B | A) = 0.8, and P(B | A&#x27;) = 0.2, what is the posterior probability P(A | B)?</strong> &rarr; <span class="ol-ans-highlight">0.80</span> <span style="color:#475569;font-size:12.8px;">(P(B) = 0.5(0.8) + 0.5(0.2) = 0.4 + 0.1 = 0.5; by Bayes&#x27; Theorem, P(A | B) = 0.4 / 0.5 = 0.80.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#95 · Conditional Probability</span> <strong>For any two events A and B with P(B) &gt; 0, which of the following identities is ALWAYS true?</strong> &rarr; <span class="ol-ans-highlight">P(A | B) + P(A&#x27; | B) = 1</span> <span style="color:#475569;font-size:12.8px;">(Conditional probability P(· | B) is a valid probability measure on the reduced sample space B, so P(A | B) + P(A&#x27; | B) = 1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#96 · Expectation</span> <strong>A fair six-sided die is rolled once. What is the Expected Value E[X] of the number shown on the upper face?</strong> &rarr; <span class="ol-ans-highlight">3.5</span> <span style="color:#475569;font-size:12.8px;">(E[X] = (1 + 2 + 3 + 4 + 5 + 6) / 6 = 21 / 6 = 3.5.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#97 · Dispersion</span> <strong>What is the Interquartile Range (IQR) of a distribution in terms of its quartiles Q_1, Q_2, and Q_3?</strong> &rarr; <span class="ol-ans-highlight">Q_3 - Q_1</span> <span style="color:#475569;font-size:12.8px;">(The Interquartile Range is IQR = Q_3 - Q_1 (containing the middle 50% of the data).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#98 · Dispersion</span> <strong>Which measure of dispersion is most appropriate when the dataset contains extreme open-ended classes or severe outliers?</strong> &rarr; <span class="ol-ans-highlight">Quartile Deviation (Interquartile Range)</span> <span style="color:#475569;font-size:12.8px;">(Quartile Deviation (Q_3 - Q_1)/2 depends only on the middle 50% of observations and is unaffected by extreme tails.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#99 · Probability</span> <strong>If P(A) = 0.7 and P(B) = 0.8, what is the MINIMUM possible value of P(A ∩ B) (by Boole-Fréchet inequality)?</strong> &rarr; <span class="ol-ans-highlight">0.50</span> <span style="color:#475569;font-size:12.8px;">(Since P(A ∪ B) ≤ 1, P(A ∩ B) = P(A) + P(B) - P(A ∪ B) ≥ 0.7 + 0.8 - 1.0 = 0.50.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#100 · Normal Distribution</span> <strong>If X ~ N(3, 4) and Y ~ N(5, 9) are independent Normal random variables (where second parameter is Variance σ²), then X + Y follows:</strong> &rarr; <span class="ol-ans-highlight">N(8, 13)</span> <span style="color:#475569;font-size:12.8px;">(The sum of independent Normal variables is Normal with Mean = μ_X + μ_Y = 3 + 5 = 8 and Variance = σ_X² + σ_Y² = 4 + 9 = 13.)</span></span></li>
+
+      </ul>
+    </div>
+    
+      </div>
+    </section>
+
+    <!-- TAB 2: 100 MOST PROBABLE MCQs -->
+    <section id="paneMcqs" style="display:none;">
+      <div class="toolbar-card">
+        <input type="text" id="mcqSearch" class="search-input" placeholder="🔍 Filter the 100 Most Probable MCQs by topic or keyword..." oninput="renderMcqList()">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span id="scoreBadge" style="font-size:13px;font-weight:800;background:#dcfce7;color:#14532d;padding:7px 12px;border-radius:8px;">Score: 0 / 0</span>
+          <button class="action-btn green" onclick="toggleRevealAll()" id="btnRevealAll">📖 Show All 100 Answers &amp; Explanations</button>
+          <button class="action-btn secondary" onclick="shuffleAllMcqs()">🔀 Shuffle 100 MCQs &amp; Options</button>
+          <button class="action-btn" onclick="resetMcqSession()">↺ Reset</button>
+        </div>
+      </div>
+      <div id="mcqContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    const RAW_QS = [{"id": "P2_S1_Q001", "num": 1, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "What is the probability of rolling an even number on a fair six-sided die?", "options": {"A": "1/2", "B": "1/6 corresponding to a single face outcome on the die", "C": "2/3 corresponding to four out of six possible outcomes", "D": "1/3 corresponding to two out of six possible outcomes"}, "answer": "A", "explanation": "Even numbers on a die are {2, 4, 6}, so P(even) = 3/6 = 1/2."}, {"id": "P2_S1_Q002", "num": 2, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "If two events A and B are independent, what is P(A ∩ B)?", "options": {"A": "P(A) + P(B) which holds only for mutually exclusive union", "B": "P(A) × P(B)", "C": "P(A) - P(B) which represents difference of probabilities", "D": "P(A) / P(B) which represents a ratio of marginal probabilities"}, "answer": "B", "explanation": "For independent events A and B, joint probability P(A ∩ B) = P(A) × P(B)."}, {"id": "P2_S1_Q003", "num": 3, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "The Mean of a dataset is defined as the:", "options": {"A": "Middle value when the dataset is arranged in ascending order", "B": "Most frequent value occurring repeatedly inside the dataset", "C": "Average of all values", "D": "Difference between the maximum and minimum observed values"}, "answer": "C", "explanation": "Mean is the arithmetic average of all values (sum divided by count)."}, {"id": "P2_S1_Q004", "num": 4, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "The variance of a dataset is equal to:", "options": {"A": "The positive square root of the arithmetic mean value", "B": "The simple arithmetic average of the raw data points", "C": "The ratio of standard deviation to the sample median", "D": "The square of the Standard deviation"}, "answer": "D", "explanation": "Variance (σ²) is the square of the Standard Deviation (σ), i.e., average of squared deviations from the mean."}, {"id": "P2_S1_Q005", "num": 5, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "Which of the following measures of central tendency is affected the most by extreme values (outliers)?", "options": {"A": "Mean", "B": "Median which depends only on the middle positional rank", "C": "Mode which depends only on the highest frequency count", "D": "Interquartile range which trims both the upper and lower tails"}, "answer": "A", "explanation": "Arithmetic Mean uses every value directly and shifts strongly toward extreme outliers."}, {"id": "P2_S1_Q006", "num": 6, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "Which of the following is NOT a valid type of probability distribution?", "options": {"A": "Normal (Gaussian) continuous bell-shaped distribution", "B": "Linear distribution", "C": "Poisson discrete rare-event arrival count distribution", "D": "Exponential continuous memoryless inter-arrival distribution"}, "answer": "B", "explanation": "Linear distribution is not a standard probability distribution (Uniform, Normal, Poisson, Exponential are standard)."}, {"id": "P2_S1_Q007", "num": 7, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "TPSC PYQ 2025", "question": "The Coefficient of Variation (CV) is calculated as:", "options": {"A": "(Mean / Standard deviation) × 100 as signal-to-noise ratio", "B": "(Standard deviation / Variance) × 100 using squared units", "C": "(Standard deviation / Mean) × 100", "D": "(Variance / Standard deviation) × 100 yielding raw sigma"}, "answer": "C", "explanation": "Coefficient of Variation CV = (σ / μ) × 100% measures relative dispersion."}, {"id": "P2_S1_Q008", "num": 8, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Poisson Distribution", "question": "If a discrete random variable X follows a Poisson distribution such that P(X = 1) = P(X = 2), what are the exact values of the Variance Var(X) and the probability P(X = 0)?", "options": {"A": "Var(X) = 1 and P(X = 0) = e⁻¹", "B": "Var(X) = 4 and P(X = 0) = 2e⁻²", "C": "Var(X) = √2 and P(X = 0) = e⁻⁴", "D": "Var(X) = 2 and P(X = 0) = e⁻²"}, "answer": "D", "explanation": "For Poisson(λ), P(X=k) = e^(-λ) λ^k / k!. Setting P(X=1) = P(X=2) gives λ/1! = λ²/2! ⇒ λ = 2. In a Poisson distribution, Mean = Variance = λ = 2, and P(X=0) = e⁻²."}, {"id": "P2_S1_Q009", "num": 9, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Binomial Distribution", "question": "For a Binomial random variable X ~ B(n, p), the mean is 6 and the variance is 4. What is the number of independent Bernoulli trials n?", "options": {"A": "n = 18", "B": "n = 12", "C": "n = 24", "D": "n = 15 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "In B(n, p), Mean μ = np = 6 and Variance σ² = npq = 4. Dividing gives q = σ²/μ = 4/6 = 2/3, so p = 1 - q = 1/3. Therefore, n = μ / p = 6 / (1/3) = 18."}, {"id": "P2_S1_Q010", "num": 10, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Bayes Theorem", "question": "In a data centre, Server A handles 60% of HTTP requests with a 2% error rate, while Server B handles the remaining 40% of requests with a 5% error rate. If a randomly chosen request fails with an error, what is the conditional probability that it was processed by Server B?", "options": {"A": "3 / 8 (0.375) according to the formal architectural model and runtime execution rules", "B": "5 / 8 (0.625)", "C": "1 / 2 (0.500)", "D": "2 / 5 (0.400)"}, "answer": "B", "explanation": "By Bayes' Theorem: P(E) = 0.60(0.02) + 0.40(0.05) = 0.012 + 0.020 = 0.032. P(B | E) = 0.020 / 0.032 = 20 / 32 = 5 / 8 = 0.625."}, {"id": "P2_S1_Q011", "num": 11, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency \u0026 Skewness", "question": "In a moderately skewed frequency distribution of network packet latencies, the arithmetic mean is 45 ms and the median is 48 ms. Using Karl Pearson's empirical relation, what is the mode of the distribution?", "options": {"A": "51 ms", "B": "42 ms when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "54 ms", "D": "50 ms"}, "answer": "C", "explanation": "By Karl Pearson's empirical formula: Mode = 3 × Median - 2 × Mean = 3(48) - 2(45) = 144 - 90 = 54 ms."}, {"id": "P2_S1_Q012", "num": 12, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Uniform Distribution", "question": "A continuous random variable X is uniformly distributed over the interval [-2, 10]. What are the Mean E[X] and Standard Deviation σ of X?", "options": {"A": "Mean = 4 and Standard Deviation = 12", "B": "Mean = 6 and Standard Deviation = √12", "C": "Mean = 5 and Standard Deviation = 3 as prescribed under prevailing statutory and departmental technical norms", "D": "Mean = 4 and Standard Deviation = 2√3"}, "answer": "D", "explanation": "For X ~ U(a, b) with a = -2, b = 10: Mean = (a + b)/2 = (-2 + 10)/2 = 4. Variance = (b - a)² / 12 = (12)² / 12 = 12 ⇒ Standard Deviation σ = √12 = 2√3."}, {"id": "P2_S1_Q013", "num": 13, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Exponential Distribution", "question": "The lifetime X (in hours) of a laser diode follows an Exponential distribution with mean 500 hours. Given that the diode has already operated without failure for 300 hours, what is the probability that it will survive for at least another 500 hours?", "options": {"A": "e⁻¹ (approx. 0.3679)", "B": "e⁻¹·⁶ (approx. 0.2019)", "C": "1 - e⁻¹ (approx. 0.6321)", "D": "e⁻⁰·⁶ (approx. 0.5488)"}, "answer": "A", "explanation": "By the Memoryless Property of the Exponential distribution (λ = 1/500), P(X \u003e 300 + 500 | X \u003e 300) = P(X \u003e 500) = e^(-λ × 500) = e⁻¹."}, {"id": "P2_S1_Q014", "num": 14, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Normal Distribution", "question": "For a Normal distribution N(μ, σ²), at which points along the horizontal axis do the two points of inflection of the probability density curve occur?", "options": {"A": "x = μ - 2σ and x = μ + 2σ", "B": "x = μ - σ and x = μ + σ", "C": "x = μ - 3σ and x = μ + 3σ", "D": "x = μ - σ² and x = μ + σ²"}, "answer": "B", "explanation": "Setting the second derivative f''(x) = 0 for the Gaussian PDF yields (x - μ)² = σ², so the points of inflection lie exactly one standard deviation away from the mean at x = μ ± σ."}, {"id": "P2_S1_Q015", "num": 15, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Conditional Probability", "question": "If A and B are two independent events such that P(A) = 0.4 and P(B) = 0.5, what is the probability that NEITHER A NOR B occurs, i.e., P(A' ∩ B')?", "options": {"A": "0.10", "B": "0.20", "C": "0.30", "D": "0.70 when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "When A and B are independent, A' and B' are also independent: P(A' ∩ B') = P(A') × P(B') = (1 - 0.4) × (1 - 0.5) = 0.6 × 0.5 = 0.30."}, {"id": "P2_S1_Q016", "num": 16, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Variance Transformation", "question": "If a random variable X has standard deviation σ_X = 4, what is the variance of the linear transformation Y = 15 - 3X?", "options": {"A": "Var(Y) = 48 as prescribed under prevailing statutory and departmental technical norms", "B": "Var(Y) = -12", "C": "Var(Y) = 129", "D": "Var(Y) = 144"}, "answer": "D", "explanation": "Given σ_X = 4, Var(X) = 16. Under linear transformation Y = aX + b, Var(aX + b) = a² Var(X) = (-3)² × 16 = 9 × 16 = 144."}, {"id": "P2_S1_Q017", "num": 17, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "Two fair six-sided dice are rolled simultaneously. What is the conditional probability that the sum of the numbers on the two dice is 8, given that the two dice show DIFFERENT numbers?", "options": {"A": "4 / 30 (2 / 15)", "B": "5 / 36", "C": "5 / 30 (1 / 6) under standard IEEE/ISO technical specifications and system constraints", "D": "4 / 36 (1 / 9)"}, "answer": "A", "explanation": "Total outcomes with different numbers (excluding the 6 doubles (1,1)...(6,6)) = 36 - 6 = 30. Outcomes summing to 8 are {(2,6), (6,2), (3,5), (5,3), (4,4)}, of which 4 have different numbers: {(2,6), (6,2), (3,5), (5,3)}. Thus P = 4 / 30 = 2 / 15."}, {"id": "P2_S1_Q018", "num": 18, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "If X and Y are two independent random variables with Var(X) = 9 and Var(Y) = 16, what is the standard deviation of the linear combination Z = 2X - Y + 7?", "options": {"A": "√20 (2√5 ≈ 4.47)", "B": "√52 (2√13 ≈ 7.21)", "C": "5.00", "D": "52.00 according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "For independent X and Y, Var(aX + bY + c) = a² Var(X) + b² Var(Y) = (2)²(9) + (-1)²(16) = 36 + 16 = 52. Standard deviation σ_Z = √52 = 2√13."}, {"id": "P2_S1_Q019", "num": 19, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "A bag contains 6 red and 4 black balls. Two balls are drawn at random without replacement. What is the probability that both drawn balls are of the SAME color?", "options": {"A": "8 / 15", "B": "1 / 2", "C": "7 / 15", "D": "13 / 25"}, "answer": "C", "explanation": "Total ways = C(10, 2) = 45. Both red = C(6, 2) = 15; Both black = C(4, 2) = 6. Favorable ways = 15 + 6 = 21. Probability = 21 / 45 = 7 / 15."}, {"id": "P2_S1_Q020", "num": 20, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "For any random variable X with mean μ and standard deviation σ, Chebyshev's Inequality guarantees that P(|X - μ| ≥ kσ) is bounded above by:", "options": {"A": "1 / k", "B": "1 - 1 / k²", "C": "e^(-k²)", "D": "1 / k²"}, "answer": "D", "explanation": "Chebyshev's Inequality states that for any distribution with finite variance, P(|X - μ| ≥ kσ) ≤ 1 / k² (and equivalently P(|X - μ| \u003c kσ) ≥ 1 - 1 / k²)."}, {"id": "P2_S1_Q021", "num": 21, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "A fair coin is tossed 6 times independently. What is the binomial probability of obtaining exactly 4 Heads?", "options": {"A": "15 / 64", "B": "20 / 64", "C": "6 / 64", "D": "16 / 64 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Using Binomial PMF with n = 6, k = 4, p = 1/2: P(X = 4) = C(6, 4) × (1/2)⁶ = 15 / 64."}, {"id": "P2_S1_Q022", "num": 22, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "If the sum of deviations of 10 observations from 50 is -20, i.e., ∑(x_i - 50) = -20, what is the arithmetic mean of the 10 observations?", "options": {"A": "52 according to the formal architectural model and runtime execution rules", "B": "48", "C": "30", "D": "45"}, "answer": "B", "explanation": "Since ∑(x_i - 50) = ∑x_i - 10(50) = -20 ⇒ ∑x_i = 500 - 20 = 480. Mean x̄ = 480 / 10 = 48."}, {"id": "P2_S1_Q023", "num": 23, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "For two events A and B with P(A) = 0.6, P(B) = 0.5, and P(A ∪ B) = 0.8, what is the conditional probability P(A | B)?", "options": {"A": "0.50", "B": "0.30 when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "0.60 (and since P(A | B) = P(A), events A and B are statistically independent!)", "D": "0.75"}, "answer": "C", "explanation": "P(A ∩ B) = P(A) + P(B) - P(A ∪ B) = 0.6 + 0.5 - 0.8 = 0.30. Thus P(A | B) = P(A ∩ B) / P(B) = 0.30 / 0.50 = 0.60 = P(A), proving A and B are independent."}, {"id": "P2_S1_Q024", "num": 24, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "What is the Moment Generating Function (MGF) M_X(t) = E[e^(tX)] of a Poisson random variable X ~ Pois(λ)?", "options": {"A": "(q + p e^t)^n", "B": "λ / (λ - t)", "C": "exp(μt + ½σ²t²) as prescribed under prevailing statutory and departmental technical norms", "D": "exp(λ (e^t - 1))"}, "answer": "D", "explanation": "For X ~ Pois(λ), M_X(t) = ∑ e^(tk) e^(-λ) λ^k / k! = e^(-λ) ∑ (λ e^t)^k / k! = exp(λ(e^t - 1))."}, {"id": "P2_S1_Q025", "num": 25, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "A continuous random variable X has PDF f(x) = (3/8) x² for 0 ≤ x ≤ 2 (and 0 otherwise). What is the exact expected value E[X] of X?", "options": {"A": "1.5 (3 / 2)", "B": "1.0 (1 / 1)", "C": "1.2 (6 / 5)", "D": "0.75 (3 / 4)"}, "answer": "A", "explanation": "E[X] = ∫₀² x · (3/8)x² dx = (3/8) [x⁴ / 4]₀² = (3/8) × (16 / 4) = 3 / 2 = 1.5."}, {"id": "P2_S1_Q026", "num": 26, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "In a random sample of n = 64 observations drawn from a population with standard deviation σ = 24, what is the Standard Error of the Sample Mean (SE = σ_X̄)?", "options": {"A": "0.375", "B": "3.0", "C": "4.0", "D": "6.0"}, "answer": "B", "explanation": "Standard Error of the sample mean is SE = σ / √n = 24 / √64 = 24 / 8 = 3.0."}, {"id": "P2_S1_Q027", "num": 27, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "In statistical hypothesis testing, rejecting the Null Hypothesis H₀ when H₀ is actually TRUE is known as which type of error?", "options": {"A": "Type-II Error (False Negative, whose probability is β)", "B": "Standard Error of Estimate", "C": "Type-I Error (False Positive, whose probability is the level of significance α)", "D": "Bessel's Correction Error when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Rejecting a true Null Hypothesis H₀ is a Type-I Error (probability α); failing to reject a false H₀ is a Type-II Error (probability β)."}, {"id": "P2_S1_Q028", "num": 28, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "A box contains 3 defective and 7 non-defective microchips. If 2 microchips are selected at random without replacement, what is the probability that AT LEAST ONE of the selected microchips is defective?", "options": {"A": "7 / 15 as prescribed under prevailing statutory and departmental technical norms", "B": "1 / 15", "C": "3 / 10", "D": "8 / 15"}, "answer": "D", "explanation": "P(at least 1 defective) = 1 - P(both non-defective) = 1 - C(7,2)/C(10,2) = 1 - 21/45 = 24/45 = 8/15."}, {"id": "P2_S1_Q029", "num": 29, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "If a continuous random variable X follows an Exponential distribution Exp(λ) with mean E[X] = 10 minutes, what is its Median (50th percentile)?", "options": {"A": "10 × ln(2) ≈ 6.93 minutes", "B": "10.00 minutes", "C": "5.00 minutes under standard IEEE/ISO technical specifications and system constraints", "D": "10 / e ≈ 3.68 minutes"}, "answer": "A", "explanation": "For Exp(λ), CDF F(m) = 1 - e^(-λm) = 0.5 ⇒ e^(-λm) = 0.5 ⇒ m = ln(2)/λ = Mean × ln(2) = 10 × 0.693 = 6.93 minutes."}, {"id": "P2_S1_Q030", "num": 30, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "In linear regression analysis between variables X and Y, if the two regression coefficients are b_yx = -0.8 and b_xy = -0.2, what is the Karl Pearson correlation coefficient r(X, Y)?", "options": {"A": "+0.40", "B": "-0.40", "C": "-0.16", "D": "-0.50 according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "The correlation coefficient r is the signed geometric mean of the two regression slopes: r = -√((-0.8) × (-0.2)) = -√0.16 = -0.40 (sign matches the sign of both regression coefficients)."}, {"id": "P2_S1_Q031", "num": 31, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "What is the Variance of the first n natural numbers {1, 2, 3, ..., n}?", "options": {"A": "(n + 1) / 2 when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "n(n + 1) / 12", "C": "(n² - 1) / 12", "D": "(n - 1)² / 12"}, "answer": "C", "explanation": "E[X] = (n+1)/2 and E[X²] = (n+1)(2n+1)/6 ⇒ Var(X) = E[X²] - (E[X])² = (n² - 1) / 12."}, {"id": "P2_S1_Q032", "num": 32, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "If X ~ N(10, 4) and Y ~ N(15, 9) are two independent Normal random variables, what is the probability distribution of their difference W = Y - X?", "options": {"A": "N(5, 5) (Normal with Mean = 5 and Variance = 5)", "B": "N(25, 13) (Normal with Mean = 25 and Variance = 13)", "C": "N(5, -5) (Normal with negative variance)", "D": "N(5, 13) (Normal with Mean = 5 and Variance = 13)"}, "answer": "D", "explanation": "For independent Normal variables, E[Y - X] = 15 - 10 = 5, and Var(Y - X) = Var(Y) + (-1)² Var(X) = 9 + 4 = 13 ⇒ W ~ N(5, 13)."}, {"id": "P2_S1_Q033", "num": 33, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "For a Poisson random variable X with parameter λ = 3, what is the value of the second raw moment E[X²]?", "options": {"A": "12", "B": "9", "C": "3", "D": "6 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "For Poisson(λ), Mean E[X] = λ = 3 and Variance Var(X) = λ = 3. Therefore E[X²] = Var(X) + (E[X])² = 3 + 3² = 12."}, {"id": "P2_S1_Q034", "num": 34, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "In a positively skewed (right-skewed) unimodal frequency distribution, what is the strict order of magnitude among the Mean, Median, and Mode?", "options": {"A": "Mean \u003c Median \u003c Mode according to the formal architectural model and runtime execution rules", "B": "Mode \u003c Median \u003c Mean", "C": "Mean = Median = Mode", "D": "Median \u003c Mode \u003c Mean"}, "answer": "B", "explanation": "In a positively (right) skewed distribution, the long right tail pulls the arithmetic Mean to the right of the Median, while the peak (Mode) remains on the left: Mode \u003c Median \u003c Mean."}, {"id": "P2_S1_Q035", "num": 35, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability \u0026 Statistics", "question": "If two events A and B are mutually exclusive (disjoint) with P(A) = 0.35 and P(B) = 0.45, what are P(A ∩ B) and P(A ∪ B)?", "options": {"A": "P(A ∩ B) = 0.1575 and P(A ∪ B) = 0.6425", "B": "P(A ∩ B) = 0.10 and P(A ∪ B) = 0.70", "C": "P(A ∩ B) = 0 and P(A ∪ B) = 0.80", "D": "P(A ∩ B) = 0 and P(A ∪ B) = 1.00"}, "answer": "C", "explanation": "For mutually exclusive events, A ∩ B = ∅ ⇒ P(A ∩ B) = 0, and by additivity P(A ∪ B) = P(A) + P(B) = 0.35 + 0.45 = 0.80."}, {"id": "P2_S1_Q036", "num": 36, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "For a moderately skewed distribution, Karl Pearson's empirical formula relating Mean, Median, and Mode is:", "options": {"A": "Mode = 2 Median - 3 Mean", "B": "Mean = 3 Median - 2 Mode", "C": "Median = 3 Mode - 2 Mean as prescribed under prevailing statutory and departmental technical norms", "D": "Mode = 3 Median - 2 Mean"}, "answer": "D", "explanation": "Karl Pearson's empirical relation states: Mean - Mode = 3(Mean - Median) =\u003e Mode = 3 Median - 2 Mean."}, {"id": "P2_S1_Q037", "num": 37, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "If the Mean of a dataset is 25 and its Mode is 19, what is its approximate Median using the empirical relation?", "options": {"A": "23", "B": "21 (averaging incorrectly)", "C": "22 (arithmetic mean of 25 and 19)", "D": "24 (adding 5 to 19)"}, "answer": "A", "explanation": "3 Median = Mode + 2 Mean = 19 + 2(25) = 69 =\u003e Median = 69 / 3 = 23."}, {"id": "P2_S1_Q038", "num": 38, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "For a perfectly symmetric Normal distribution, the relationship among Mean, Median, and Mode is:", "options": {"A": "Mean \u003e Median \u003e Mode", "B": "Mean = Median = Mode", "C": "Mean \u003c Median \u003c Mode according to the formal architectural model and runtime execution rules", "D": "Mean = 2 × Median"}, "answer": "B", "explanation": "In any unimodal symmetric distribution (including the Gaussian/Normal curve), Mean, Median, and Mode coincide at the center."}, {"id": "P2_S1_Q039", "num": 39, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "In a positively (right-tailed) skewed distribution, which ordering of central tendency measures holds?", "options": {"A": "Mode \u003e Median \u003e Mean", "B": "Median \u003e Mean \u003e Mode", "C": "Mean \u003e Median \u003e Mode", "D": "Mean = Mode \u003e Median when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "A long right tail pulls the Mean furthest to the right, the Median in the middle, and leaves the Mode at the peak: Mean \u003e Median \u003e Mode."}, {"id": "P2_S1_Q040", "num": 40, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "The sum of absolute deviations Σ|x_i - A| is MINIMUM when the reference value A is taken as the:", "options": {"A": "Arithmetic Mean", "B": "Mode", "C": "Geometric Mean", "D": "Median"}, "answer": "D", "explanation": "Mean Absolute Deviation is minimized around the Median, whereas sum of squared deviations Σ(x_i - A)² is minimized around the Mean."}, {"id": "P2_S1_Q041", "num": 41, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "The algebraic sum of deviations of a set of n observations measured from their Arithmetic Mean Σ(x_i - x̄) is always:", "options": {"A": "0", "B": "1", "C": "n", "D": "Standard Deviation σ"}, "answer": "A", "explanation": "Σ(x_i - x̄) = Σx_i - n·x̄ = n·x̄ - n·x̄ = 0."}, {"id": "P2_S1_Q042", "num": 42, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Dispersion", "question": "If every observation in a dataset is increased by a constant 15, the Standard Deviation of the new dataset:", "options": {"A": "Increases by 15", "B": "Remains unchanged", "C": "Increases by √15", "D": "Increases by 225 according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "Standard Deviation and Variance are invariant to a change of origin (adding/subtracting a constant): SD(X + c) = SD(X)."}, {"id": "P2_S1_Q043", "num": 43, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Dispersion", "question": "If X is a random variable with Variance Var(X) = 4, then what is the Variance of Y = 3X + 7?", "options": {"A": "12 (multiplying by 3 instead of 3²)", "B": "19 (calculating 3×4 + 7)", "C": "36", "D": "43 (calculating 9×4 + 7)"}, "answer": "C", "explanation": "Var(aX + b) = a² Var(X) = 3² × 4 = 9 × 4 = 36."}, {"id": "P2_S1_Q044", "num": 44, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Dispersion", "question": "If the Standard Deviation of a sample is 6 and its Arithmetic Mean is 30, what is the Coefficient of Variation (CV)?", "options": {"A": "5%", "B": "18%", "C": "120%", "D": "20%"}, "answer": "D", "explanation": "CV = (SD / Mean) × 100 = (6 / 30) × 100 = 20%."}, {"id": "P2_S1_Q045", "num": 45, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "If the Arithmetic Mean of two positive numbers is 25 and their Harmonic Mean is 9, what is their Geometric Mean?", "options": {"A": "15", "B": "17 (average of 25 and 9)", "C": "12", "D": "225 (square of GM)"}, "answer": "A", "explanation": "For two positive numbers, GM² = AM × HM = 25 × 9 = 225 =\u003e GM = √225 = 15."}, {"id": "P2_S1_Q046", "num": 46, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "What is the Median of the unsorted sample: 14, 7, 22, 9, 18, 11, 30?", "options": {"A": "18 (middle element before sorting)", "B": "14", "C": "15 (arithmetic mean)", "D": "11"}, "answer": "B", "explanation": "Sorted: 7, 9, 11, 14, 18, 22, 30. The 4th (middle) value is 14."}, {"id": "P2_S1_Q047", "num": 47, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Tendency", "question": "What is the Median of the even-sized sorted sample: 4, 8, 12, 16, 20, 24?", "options": {"A": "12 (3rd element only)", "B": "16 (4th element only)", "C": "14", "D": "15"}, "answer": "C", "explanation": "For n = 6, Median is the average of the 3rd and 4th values: (12 + 16) / 2 = 14."}, {"id": "P2_S1_Q048", "num": 48, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Dispersion", "question": "What is the sample Variance of the dataset {2, 4, 6, 8, 10} (using population denominator N = 5)?", "options": {"A": "2√2 (which is the standard deviation)", "B": "10 (using sample denominator n - 1 = 4)", "C": "6 (which is the arithmetic mean)", "D": "8"}, "answer": "D", "explanation": "Mean = 6; squared deviations: (-4)² + (-2)² + 0² + 2² + 4² = 16 + 4 + 0 + 4 + 16 = 40; Variance = 40 / 5 = 8."}, {"id": "P2_S1_Q049", "num": 49, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability Axioms", "question": "For any two events A and B, the Addition Theorem of Probability states that P(A ∪ B) equals:", "options": {"A": "P(A) + P(B) - P(A ∩ B)", "B": "P(A) + P(B) + P(A ∩ B) under standard IEEE/ISO technical specifications and system constraints", "C": "P(A) × P(B)", "D": "P(A) - P(B)"}, "answer": "A", "explanation": "By Inclusion-Exclusion, P(A ∪ B) = P(A) + P(B) - P(A ∩ B)."}, {"id": "P2_S1_Q050", "num": 50, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability Axioms", "question": "If events A and B are mutually exclusive (disjoint) with P(A) = 0.35 and P(B) = 0.45, then P(A ∪ B) is:", "options": {"A": "0.1575 (multiplying as if independent)", "B": "0.80", "C": "0.6425 (subtracting 0.35 × 0.45)", "D": "0.10 (difference of probabilities)"}, "answer": "B", "explanation": "For mutually exclusive events, P(A ∩ B) = 0, so P(A ∪ B) = P(A) + P(B) = 0.35 + 0.45 = 0.80."}, {"id": "P2_S1_Q051", "num": 51, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability Axioms", "question": "If A and B are independent events with P(A) = 0.4 and P(B) = 0.5, what is P(A ∪ B)?", "options": {"A": "0.90 (summing without subtracting intersection)", "B": "0.20 (which is P(A ∩ B))", "C": "0.70", "D": "0.30 (probability of neither A nor B)"}, "answer": "C", "explanation": "P(A ∩ B) = 0.4 × 0.5 = 0.20; P(A ∪ B) = 0.4 + 0.5 - 0.20 = 0.70."}, {"id": "P2_S1_Q052", "num": 52, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Conditional Probability", "question": "If P(A) = 0.6, P(B) = 0.4, and P(A ∩ B) = 0.2, what is the conditional probability P(A | B)?", "options": {"A": "0.333 (calculating P(B | A) = 0.2/0.6)", "B": "0.24 (multiplying 0.6 × 0.4)", "C": "0.80 (calculating P(A ∪ B))", "D": "0.50"}, "answer": "D", "explanation": "P(A | B) = P(A ∩ B) / P(B) = 0.2 / 0.4 = 0.50."}, {"id": "P2_S1_Q053", "num": 53, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Independent Events", "question": "If A and B are independent events with P(A) = 0.3 and P(B) = 0.6, what is P(A' ∩ B') (probability that NEITHER occurs)?", "options": {"A": "0.28", "B": "0.18 (multiplying 0.3 × 0.6)", "C": "0.10 (subtracting 0.9 from 1)", "D": "0.72 (probability that at least one occurs)"}, "answer": "A", "explanation": "Since A and B are independent, A' and B' are also independent: P(A' ∩ B') = P(A')P(B') = (1 - 0.3)(1 - 0.6) = 0.7 × 0.4 = 0.28."}, {"id": "P2_S1_Q054", "num": 54, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Classical Probability", "question": "Two fair coins are tossed simultaneously. What is the probability of getting AT LEAST one Head?", "options": {"A": "1/2 (probability of getting exactly one Head)", "B": "3/4", "C": "1/4 (probability of getting two Heads)", "D": "2/3 (ignoring order of HT and TH)"}, "answer": "B", "explanation": "Sample space {HH, HT, TH, TT}: P(at least 1 Head) = 1 - P(TT) = 1 - 1/4 = 3/4."}, {"id": "P2_S1_Q055", "num": 55, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Classical Probability", "question": "Three fair coins are tossed simultaneously. What is the probability of getting EXACTLY two Heads?", "options": {"A": "1/8 (probability of all 3 Heads)", "B": "1/2 (probability of at least 2 Heads)", "C": "3/8", "D": "1/4"}, "answer": "C", "explanation": "Out of 2³ = 8 outcomes, {HHT, HTH, THH} have exactly 2 Heads =\u003e 3/8."}, {"id": "P2_S1_Q056", "num": 56, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Classical Probability", "question": "Two fair six-sided dice are rolled simultaneously. What is the probability that the sum of the numbers is 7?", "options": {"A": "1/12", "B": "5/36 (which is the probability of sum = 6 or 8)", "C": "7/36", "D": "1/6"}, "answer": "D", "explanation": "6 favorable pairs {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} out of 36 outcomes =\u003e 6/36 = 1/6."}, {"id": "P2_S1_Q057", "num": 57, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Classical Probability", "question": "Two fair six-sided dice are rolled. What is the probability of getting a doublet (both dice showing the same number)?", "options": {"A": "1/6", "B": "1/36 (probability of a specific doublet like (6,6))", "C": "1/12", "D": "1/3"}, "answer": "A", "explanation": "There are 6 doublets {(1,1), (2,2), ..., (6,6)} out of 36 outcomes =\u003e 6/36 = 1/6."}, {"id": "P2_S1_Q058", "num": 58, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Playing Cards", "question": "A card is drawn at random from a standard deck of 52 playing cards. What is the probability that it is a King OR a Heart?", "options": {"A": "17/52 (forgetting to subtract the King of Hearts)", "B": "4/13", "C": "1/13 (probability of drawing a King only)", "D": "1/4 (probability of drawing a Heart only)"}, "answer": "B", "explanation": "P(King ∪ Heart) = (4 + 13 - 1) / 52 = 16 / 52 = 4 / 13."}, {"id": "P2_S1_Q059", "num": 59, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Urn Problems", "question": "A bag contains 4 red balls and 6 blue balls. Two balls are drawn at random without replacement. What is the probability that both are red?", "options": {"A": "4/25 (with replacement: 4/10 × 4/10)", "B": "1/5", "C": "2/15", "D": "6/15"}, "answer": "C", "explanation": "P(both red) = (4/10) × (3/9) = 12/90 = 2/15."}, {"id": "P2_S1_Q060", "num": 60, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Series Problem", "question": "Three independent servers have failure probabilities of 1/2, 1/3, and 1/4 respectively. What is the probability that AT LEAST ONE server fails?", "options": {"A": "1/24 (probability that all three fail simultaneously)", "B": "1/4 (probability that none of the three fails)", "C": "23/24", "D": "3/4"}, "answer": "D", "explanation": "P(none fails) = (1 - 1/2)(1 - 1/3)(1 - 1/4) = (1/2)(2/3)(3/4) = 1/4. Hence P(at least one fails) = 1 - 1/4 = 3/4."}, {"id": "P2_S1_Q061", "num": 61, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Bayes Theorem", "question": "A diagnostic test for a virus has 99% sensitivity (true positive) and 2% false-positive rate. If 10% of files are infected, what is the total probability P(Test Positive)?", "options": {"A": "0.117", "B": "0.099 (considering only true positives)", "C": "0.018 (considering only false positives)", "D": "0.210"}, "answer": "A", "explanation": "P(+) = P(Infected)P(+|Infected) + P(Clean)P(+|Clean) = 0.10(0.99) + 0.90(0.02) = 0.099 + 0.018 = 0.117."}, {"id": "P2_S1_Q062", "num": 62, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Bayes Theorem", "question": "Box 1 has 2 red, 3 black balls; Box 2 has 4 red, 1 black ball. A box is chosen equally likely and a red ball is drawn. What is P(Box 2 | Red)?", "options": {"A": "1/3 (which is P(Box 1 | Red))", "B": "2/3", "C": "4/5 (which is P(Red | Box 2))", "D": "3/5"}, "answer": "B", "explanation": "P(R|B1) = 2/5, P(R|B2) = 4/5; by Bayes' Theorem, P(B2|R) = (4/5) / (2/5 + 4/5) = 4/6 = 2/3."}, {"id": "P2_S1_Q063", "num": 63, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Random Variables", "question": "A discrete random variable X has PMF P(X = x) = k·x for x = 1, 2, 3, 4. What is the value of the normalizing constant k?", "options": {"A": "1/4", "B": "1/16", "C": "1/10", "D": "1/20 when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Σ P(X=x) = 1 =\u003e k(1 + 2 + 3 + 4) = 10k = 1 =\u003e k = 1/10."}, {"id": "P2_S1_Q064", "num": 64, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Random Variables", "question": "For a continuous random variable X with PDF f(x), what is the probability P(X = 5) at the single exact point x = 5?", "options": {"A": "f(5)", "B": "0.5", "C": "1", "D": "0"}, "answer": "D", "explanation": "For any continuous random variable, the integral over a single point has width zero: P(X = c) = ∫_c^c f(x)dx = 0."}, {"id": "P2_S1_Q065", "num": 65, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Expectation", "question": "If E[X] = 5 and E[Y] = 8, what is the expected value E[3X - 2Y + 4]?", "options": {"A": "3", "B": "-1 (forgetting to add the constant 4)", "C": "15", "D": "31"}, "answer": "A", "explanation": "By linearity of expectation: E[3X - 2Y + 4] = 3(5) - 2(8) + 4 = 15 - 16 + 4 = 3."}, {"id": "P2_S1_Q066", "num": 66, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Variance", "question": "For a random variable X, if E[X] = 3 and E[X²] = 25, what is the Standard Deviation σ of X?", "options": {"A": "16 (which is the Variance σ²)", "B": "4", "C": "22 (calculating 25 - 3)", "D": "5 (square root of 25)"}, "answer": "B", "explanation": "Var(X) = E[X²] - (E[X])² = 25 - 3² = 25 - 9 = 16; Standard Deviation σ = √16 = 4."}, {"id": "P2_S1_Q067", "num": 67, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Variance", "question": "If X and Y are independent random variables with Var(X) = 5 and Var(Y) = 3, what is Var(2X - 3Y)?", "options": {"A": "-7 (calculating 2(5) - 3(3) + ...)", "B": "1 (calculating 4(5) - 9(3) with minus sign!)", "C": "47", "D": "19 (calculating 2(5) + 3(3))"}, "answer": "C", "explanation": "For independent X and Y, Var(aX - bY) = a²Var(X) + b²Var(Y) = 4(5) + 9(3) = 20 + 27 = 47 (minus sign is squared!)."}, {"id": "P2_S1_Q068", "num": 68, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Covariance", "question": "If two random variables X and Y are statistically independent, their Covariance Cov(X, Y) and Correlation r are:", "options": {"A": "Cov(X, Y) = 1 and r = 1", "B": "Cov(X, Y) = E[X]E[Y] as prescribed under prevailing statutory and departmental technical norms", "C": "Cov(X, Y) = -1", "D": "Cov(X, Y) = 0 and r = 0"}, "answer": "D", "explanation": "Independence implies E[XY] = E[X]E[Y], so Cov(X,Y) = E[XY] - E[X]E[Y] = 0 and correlation r = 0."}, {"id": "P2_S1_Q069", "num": 69, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Correlation", "question": "The Karl Pearson Coefficient of Correlation (r) between any two variables always lies in the closed interval:", "options": {"A": "-1 ≤ r ≤ +1", "B": "0 ≤ r ≤ 1", "C": "-∞ \u003c r \u003c +∞", "D": "0 ≤ r ≤ 100 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "By the Cauchy-Schwarz inequality, Pearson correlation r satisfies -1 ≤ r ≤ +1."}, {"id": "P2_S1_Q070", "num": 70, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Regression", "question": "If the two regression coefficients of Y on X and X on Y are b_yx = -0.8 and b_xy = -0.2, what is the correlation coefficient r?", "options": {"A": "+0.4 (ignoring the negative signs of regression slopes)", "B": "-0.4", "C": "+0.16 (product without square root)", "D": "-0.5 (arithmetic average)"}, "answer": "B", "explanation": "r = ±√(b_yx × b_xy) = -√((-0.8)(-0.2)) = -√0.16 = -0.4 (sign of r matches sign of b_yx and b_xy)."}, {"id": "P2_S1_Q071", "num": 71, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Binomial Distribution", "question": "For a Binomial distribution B(n, p), the Mean and Variance are given by:", "options": {"A": "Mean = npq, Variance = np", "B": "Mean = np, Variance = np when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "Mean = np, Variance = npq (where q = 1 - p)", "D": "Mean = 1/p, Variance = q/p²"}, "answer": "C", "explanation": "A Binomial B(n, p) random variable is the sum of n independent Bernoulli(p) trials, so Mean = np and Variance = npq."}, {"id": "P2_S1_Q072", "num": 72, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Binomial Distribution", "question": "If a Binomial distribution has Mean = 6 and Variance = 2, what are the parameters n (number of trials) and p (success probability)?", "options": {"A": "n = 12, p = 1/2", "B": "n = 18, p = 1/3", "C": "n = 6, p = 1/3", "D": "n = 9, p = 2/3"}, "answer": "D", "explanation": "q = Var / Mean = 2 / 6 = 1/3 =\u003e p = 1 - 1/3 = 2/3; since np = 6, n(2/3) = 6 =\u003e n = 9."}, {"id": "P2_S1_Q073", "num": 73, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Binomial Distribution", "question": "In any valid Binomial distribution B(n, p) with 0 \u003c p \u003c 1, which relationship between Mean and Variance ALWAYS holds?", "options": {"A": "Mean \u003e Variance", "B": "Mean = Variance (holds for Poisson distribution)", "C": "Mean \u003c Variance (holds for Negative Binomial)", "D": "Mean = 2 × Variance always"}, "answer": "A", "explanation": "Since Variance = npq = Mean × q and 0 \u003c q \u003c 1, Variance is strictly less than Mean (Mean \u003e Variance)."}, {"id": "P2_S1_Q074", "num": 74, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Binomial Distribution", "question": "A fair coin is tossed 4 times. What is the probability of getting exactly 3 Heads?", "options": {"A": "1/16", "B": "1/4", "C": "3/8", "D": "1/2"}, "answer": "B", "explanation": "P(X = 3) = C(4, 3)(1/2)³(1/2)¹ = 4 / 16 = 1/4."}, {"id": "P2_S1_Q075", "num": 75, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Poisson Distribution", "question": "For which standard discrete probability distribution are the Mean and Variance ALWAYS equal (Mean = Variance = λ)?", "options": {"A": "Binomial distribution", "B": "Geometric distribution", "C": "Poisson distribution", "D": "Discrete Uniform distribution"}, "answer": "C", "explanation": "In a Poisson(λ) distribution, E[X] = λ and Var(X) = λ."}, {"id": "P2_S1_Q076", "num": 76, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Poisson Distribution", "question": "If a Poisson random variable X satisfies P(X = 1) = P(X = 2), what is the Mean (λ) and Variance of X?", "options": {"A": "1", "B": "0.5", "C": "4", "D": "2"}, "answer": "D", "explanation": "e^(-λ)λ¹/1! = e^(-λ)λ²/2! =\u003e λ = λ²/2 =\u003e λ = 2."}, {"id": "P2_S1_Q077", "num": 77, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Poisson Distribution", "question": "If a Poisson random variable X has parameter λ = 3, what is the probability P(X = 0)?", "options": {"A": "e^(-3)", "B": "3 e^(-3)", "C": "1 - e^(-3)", "D": "0"}, "answer": "A", "explanation": "P(X = k) = e^(-λ)λ^k / k! =\u003e for k = 0, P(X = 0) = e^(-3)·3^0 / 0! = e^(-3)."}, {"id": "P2_S1_Q078", "num": 78, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Uniform Distribution", "question": "If X follows a Continuous Uniform distribution U(2, 10) on the interval [2, 10], what are its Mean and Variance?", "options": {"A": "Mean = 6, Variance = 64/12 = 8", "B": "Mean = 6, Variance = 16/3", "C": "Mean = 5, Variance = 16/3", "D": "Mean = 8, Variance = 4"}, "answer": "B", "explanation": "Mean = (a + b)/2 = (2 + 10)/2 = 6; Variance = (b - a)² / 12 = (10 - 2)² / 12 = 64/12 = 16/3."}, {"id": "P2_S1_Q079", "num": 79, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Uniform Distribution", "question": "If X ~ Uniform(0, 20), what is the probability P(5 ≤ X ≤ 12)?", "options": {"A": "5/20 (0.25)", "B": "12/20 (0.60)", "C": "7/20 (0.35)", "D": "1/20 (0.05)"}, "answer": "C", "explanation": "P(5 ≤ X ≤ 12) = (12 - 5) / (20 - 0) = 7/20 = 0.35."}, {"id": "P2_S1_Q080", "num": 80, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Exponential Distribution", "question": "Which is the ONLY continuous probability distribution that possesses the Memoryless Property P(X \u003e s + t | X \u003e s) = P(X \u003e t)?", "options": {"A": "Normal (Gaussian) distribution", "B": "Continuous Uniform distribution", "C": "Gamma distribution with shape k \u003e 1", "D": "Exponential distribution"}, "answer": "D", "explanation": "The Exponential distribution f(x) = λe^(-λx) is the unique continuous memoryless distribution."}, {"id": "P2_S1_Q081", "num": 81, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Exponential Distribution", "question": "The lifetime of a router component follows an Exponential distribution with rate parameter λ = 0.2 per year. What is its expected Mean lifetime?", "options": {"A": "5 years", "B": "0.2 years", "C": "25 years (which is the variance 1/λ²)", "D": "2 years"}, "answer": "A", "explanation": "For X ~ Exp(λ), Mean E[X] = 1 / λ = 1 / 0.2 = 5 years (and Variance = 1/λ² = 25)."}, {"id": "P2_S1_Q082", "num": 82, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Poisson Process", "question": "If the number of network packets arriving at a router follows a Poisson process with rate λ = 4 packets/sec, the inter-arrival time between consecutive packets follows:", "options": {"A": "Poisson distribution with mean 0.25 sec according to the formal architectural model and runtime execution rules", "B": "Exponential distribution with mean 0.25 sec", "C": "Normal distribution with mean 4 sec", "D": "Uniform distribution on [0, 4]"}, "answer": "B", "explanation": "Inter-arrival times in a Poisson process with rate λ follow an Exponential(λ) distribution with mean 1/λ = 1/4 = 0.25 sec."}, {"id": "P2_S1_Q083", "num": 83, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Normal Distribution", "question": "If X ~ N(100, 15²) is a Normal random variable with Mean μ = 100 and SD σ = 15, what is the Standard Normal Z-score for X = 130?", "options": {"A": "+1.5", "B": "+3.0 when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "+2.0", "D": "+0.5"}, "answer": "C", "explanation": "Z = (X - μ) / σ = (130 - 100) / 15 = 30 / 15 = +2.0."}, {"id": "P2_S1_Q084", "num": 84, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Normal Distribution", "question": "In a Normal distribution N(μ, σ²), approximately what percentage of observations fall within the interval μ ± 2σ?", "options": {"A": "68.27% (which is for μ ± 1σ)", "B": "99.73% (which is for μ ± 3σ)", "C": "50.00%", "D": "95.45% (approx. 95%)"}, "answer": "D", "explanation": "By the 68–95–99.7 empirical rule, ~68.27% lie within ±1σ, ~95.45% within ±2σ, and ~99.73% within ±3σ."}, {"id": "P2_S1_Q085", "num": 85, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Normal Distribution", "question": "For any Normal distribution N(μ, σ²), the points of inflection of the bell-shaped PDF curve occur at:", "options": {"A": "x = μ - σ and x = μ + σ", "B": "x = μ - 2σ and x = μ + 2σ", "C": "x = μ - 3σ and x = μ + 3σ", "D": "x = μ only"}, "answer": "A", "explanation": "Setting the second derivative f''(x) = 0 for the Gaussian PDF gives x = μ ± σ."}, {"id": "P2_S1_Q086", "num": 86, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Normal Distribution", "question": "What is the probability P(X \u003e μ) that a Normal random variable X ~ N(μ, σ²) exceeds its own mean μ?", "options": {"A": "0.68", "B": "0.50", "C": "0.25 according to the formal architectural model and runtime execution rules", "D": "1.00"}, "answer": "B", "explanation": "Because the Normal distribution is perfectly symmetric about x = μ, P(X \u003e μ) = P(X \u003c μ) = 0.50."}, {"id": "P2_S1_Q087", "num": 87, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Central Limit Theorem", "question": "If a random sample of size n = 64 is drawn from a population with Mean μ = 50 and Standard Deviation σ = 16, what is the Standard Error of the Sample Mean (σ_x̄)?", "options": {"A": "0.25 (dividing by n = 64 instead of √64)", "B": "4", "C": "2", "D": "16"}, "answer": "C", "explanation": "Standard Error of the Sample Mean is σ_x̄ = σ / √n = 16 / √64 = 16 / 8 = 2."}, {"id": "P2_S1_Q088", "num": 88, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Chebyshev Inequality", "question": "According to Chebyshev's Inequality, for ANY distribution with finite mean μ and variance σ², at least what fraction of values must lie within μ ± 2σ?", "options": {"A": "8/9 (88.9%, which holds for μ ± 3σ)", "B": "1/2 (50%)", "C": "95% (which holds specifically for Normal distribution)", "D": "3/4 (75%)"}, "answer": "D", "explanation": "Chebyshev's Inequality states P(|X - μ| \u003c kσ) ≥ 1 - 1/k²; for k = 2, 1 - 1/4 = 3/4 (75%)."}, {"id": "P2_S1_Q089", "num": 89, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Kurtosis", "question": "For a standard Normal (mesokurtic) distribution, the value of Pearson's Kurtosis coefficient β_2 = μ_4 / σ^4 is:", "options": {"A": "3", "B": "0 (which is the Excess Kurtosis γ_2 = β_2 - 3)", "C": "1", "D": "2"}, "answer": "A", "explanation": "A Normal distribution is mesokurtic with β_2 = 3 (and Excess Kurtosis γ_2 = β_2 - 3 = 0)."}, {"id": "P2_S1_Q090", "num": 90, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Geometric Distribution", "question": "A biased coin with P(Head) = 0.25 is tossed repeatedly until the FIRST Head appears. What is the expected number of tosses required?", "options": {"A": "0.25", "B": "4", "C": "2", "D": "16"}, "answer": "B", "explanation": "For a Geometric(p) distribution counting trials until first success, Mean E[X] = 1 / p = 1 / 0.25 = 4."}, {"id": "P2_S1_Q091", "num": 91, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Bernoulli Trial", "question": "For a single Bernoulli(p) trial where X ∈ {0, 1}, what is the maximum possible value of Variance Var(X) = p(1 - p)?", "options": {"A": "1/2 (0.50) when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "1.0", "C": "1/4 (0.25, achieved when p = 0.5)", "D": "0"}, "answer": "C", "explanation": "p(1 - p) is maximized at p = 1/2, giving max variance = (1/2)(1/2) = 1/4 = 0.25."}, {"id": "P2_S1_Q092", "num": 92, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Moment Generating Function", "question": "If the Moment Generating Function (MGF) of a random variable X is M_X(t) = E[e^(tX)], then the Mean E[X] is given by:", "options": {"A": "M_X(0) (which is always equal to 1)", "B": "M_X(1) as prescribed under prevailing statutory and departmental technical norms", "C": "∫ M_X(t) dt", "D": "First derivative M'_X(0) evaluated at t = 0"}, "answer": "D", "explanation": "Differentiating M_X(t) k times with respect to t and setting t = 0 yields the k-th raw moment E[X^k]."}, {"id": "P2_S1_Q093", "num": 93, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Hypothesis Testing", "question": "In statistical hypothesis testing, a Type-I Error (level of significance α) occurs when we:", "options": {"A": "Reject a Null Hypothesis (H_0) when it is actually TRUE", "B": "Accept/fail to reject a Null Hypothesis when it is actually FALSE (Type-II Error β)", "C": "Correctly reject a false Null Hypothesis (Power of test 1 - β)", "D": "Correctly accept a true Null Hypothesis (Confidence level 1 - α)"}, "answer": "A", "explanation": "Type-I Error (false positive, probability α) is rejecting a true null hypothesis H_0."}, {"id": "P2_S1_Q094", "num": 94, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Bayes Theorem", "question": "If P(A) = 0.5, P(B | A) = 0.8, and P(B | A') = 0.2, what is the posterior probability P(A | B)?", "options": {"A": "0.40 (which is P(A ∩ B))", "B": "0.80", "C": "0.50", "D": "0.20"}, "answer": "B", "explanation": "P(B) = 0.5(0.8) + 0.5(0.2) = 0.4 + 0.1 = 0.5; by Bayes' Theorem, P(A | B) = 0.4 / 0.5 = 0.80."}, {"id": "P2_S1_Q095", "num": 95, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Conditional Probability", "question": "For any two events A and B with P(B) \u003e 0, which of the following identities is ALWAYS true?", "options": {"A": "P(A | B) + P(A | B') = 1", "B": "P(A | B) = P(B | A) when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "P(A | B) + P(A' | B) = 1", "D": "P(A | B) = P(A) / P(B)"}, "answer": "C", "explanation": "Conditional probability P(· | B) is a valid probability measure on the reduced sample space B, so P(A | B) + P(A' | B) = 1."}, {"id": "P2_S1_Q096", "num": 96, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Expectation", "question": "A fair six-sided die is rolled once. What is the Expected Value E[X] of the number shown on the upper face?", "options": {"A": "3.0", "B": "4.0", "C": "2.5 as prescribed under prevailing statutory and departmental technical norms", "D": "3.5"}, "answer": "D", "explanation": "E[X] = (1 + 2 + 3 + 4 + 5 + 6) / 6 = 21 / 6 = 3.5."}, {"id": "P2_S1_Q097", "num": 97, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Dispersion", "question": "What is the Interquartile Range (IQR) of a distribution in terms of its quartiles Q_1, Q_2, and Q_3?", "options": {"A": "Q_3 - Q_1", "B": "(Q_3 - Q_1) / 2 (which is the Semi-Interquartile Range / Quartile Deviation)", "C": "Q_3 + Q_1", "D": "Q_2 - Q_1"}, "answer": "A", "explanation": "The Interquartile Range is IQR = Q_3 - Q_1 (containing the middle 50% of the data)."}, {"id": "P2_S1_Q098", "num": 98, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Dispersion", "question": "Which measure of dispersion is most appropriate when the dataset contains extreme open-ended classes or severe outliers?", "options": {"A": "Range (Max - Min, completely dominated by the two extremes)", "B": "Quartile Deviation (Interquartile Range)", "C": "Standard Deviation (squares extreme outlier deviations)", "D": "Variance (squares extreme outlier deviations)"}, "answer": "B", "explanation": "Quartile Deviation (Q_3 - Q_1)/2 depends only on the middle 50% of observations and is unaffected by extreme tails."}, {"id": "P2_S1_Q099", "num": 99, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Probability", "question": "If P(A) = 0.7 and P(B) = 0.8, what is the MINIMUM possible value of P(A ∩ B) (by Boole-Fréchet inequality)?", "options": {"A": "0.56 (which holds if A and B are independent)", "B": "0.00 (impossible since 0.7 + 0.8 \u003e 1)", "C": "0.50", "D": "0.70 (which is the MAXIMUM possible value of P(A ∩ B))"}, "answer": "C", "explanation": "Since P(A ∪ B) ≤ 1, P(A ∩ B) = P(A) + P(B) - P(A ∪ B) ≥ 0.7 + 0.8 - 1.0 = 0.50."}, {"id": "P2_S1_Q100", "num": 100, "unit_id": "P2_S1", "chapter": "PAPER-II · SECTION 1: Engineering Mathematics: Probability and Statistics", "tag": "Normal Distribution", "question": "If X ~ N(3, 4) and Y ~ N(5, 9) are independent Normal random variables (where second parameter is Variance σ²), then X + Y follows:", "options": {"A": "N(8, 5)", "B": "N(8, 36)", "C": "N(15, 13)", "D": "N(8, 13)"}, "answer": "D", "explanation": "The sum of independent Normal variables is Normal with Mean = μ_X + μ_Y = 3 + 5 = 8 and Variance = σ_X² + σ_Y² = 4 + 9 = 13."}];
+    let activeQs = JSON.parse(JSON.stringify(RAW_QS));
+    let userAns = {};
+    let revealAll = false;
+
+    function switchSecTab(tab) {
+      const p1 = document.getElementById('paneOneliners');
+      const p2 = document.getElementById('paneMcqs');
+      const b1 = document.getElementById('btnTab1');
+      const b2 = document.getElementById('btnTab2');
+      if (tab === 'oneliners') {
+        p1.style.display = 'block';
+        p2.style.display = 'none';
+        b1.classList.add('active');
+        b2.classList.remove('active');
+      } else {
+        p1.style.display = 'none';
+        p2.style.display = 'block';
+        b1.classList.remove('active');
+        b2.classList.add('active');
+        renderMcqList();
+      }
+    }
+
+    function filterOneLiners(q) {
+      const term = (q || '').trim().toLowerCase();
+      const items = document.querySelectorAll('#olContentWrap .ol-item');
+      items.forEach(li => {
+        const txt = li.textContent.toLowerCase();
+        li.style.display = (!term || txt.includes(term)) ? 'flex' : 'none';
+      });
+    }
+
+    function renderMcqList() {
+      const cont = document.getElementById('mcqContainer');
+      const term = (document.getElementById('mcqSearch').value || '').trim().toLowerCase();
+      let htmlOut = '';
+      let correctCnt = 0;
+      let attemptCnt = 0;
+      Object.keys(userAns).forEach(qid => {
+        attemptCnt++;
+        const qObj = activeQs.find(x => x.id === qid);
+        if (qObj && userAns[qid] === qObj.answer) correctCnt++;
+      });
+      document.getElementById('scoreBadge').textContent = `Score: ${correctCnt} / ${attemptCnt} (Total: 100 MCQs)`;
+
+      activeQs.forEach((q, idx) => {
+        const hay = (q.question + ' ' + q.tag + ' ' + q.explanation + ' ' + Object.values(q.options).join(' ')).toLowerCase();
+        if (term && !hay.includes(term)) return;
+        const picked = userAns[q.id];
+        const showNow = revealAll || Boolean(picked);
+        const isPyq = q.tag.includes('PYQ');
+        let optsHtml = '';
+        ['A', 'B', 'C', 'D'].forEach(L => {
+          let cls = 'mcq-opt-btn';
+          let badge = '';
+          if (showNow) {
+            if (L === q.answer) {
+              cls += ' correct';
+              badge = ' ✅';
+            } else if (picked === L && L !== q.answer) {
+              cls += ' wrong';
+              badge = ' ❌';
+            }
+          }
+          optsHtml += `<button class="${cls}" onclick="pickMcqOption('${q.id}', '${L}')"><strong>(${L})</strong> ${q.options[L]}${badge}</button>`;
+        });
+
+        htmlOut += `
+          <div class="mcq-card">
+            <div class="mcq-head">
+              <span class="mcq-num">MCQ #${idx + 1} · ${q.id}</span>
+              <span class="mcq-tag ${isPyq ? 'pyq' : ''}">${isPyq ? '🔥 ' : ''}${q.tag}</span>
+            </div>
+            <div class="mcq-q">Q${idx + 1}. ${q.question}</div>
+            <div class="mcq-opts">${optsHtml}</div>
+            <div class="mcq-exp ${showNow ? 'show' : ''}">
+              <strong>✔ Answer: Option (${q.answer}) — ${q.options[q.answer]}</strong><br>
+              <span>💡 <strong>One-Liner Explanation:</strong> ${q.explanation}</span>
+            </div>
+          </div>
+        `;
+      });
+      cont.innerHTML = htmlOut || '<div class="mcq-card">No matching MCQs found for this filter.</div>';
+    }
+
+    function pickMcqOption(qid, L) {
+      userAns[qid] = L;
+      renderMcqList();
+    }
+
+    function toggleRevealAll() {
+      revealAll = !revealAll;
+      const btn = document.getElementById('btnRevealAll');
+      btn.textContent = revealAll ? '🙈 Hide Answers (Practice Mode)' : '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+
+    function fyShuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function shuffleAllMcqs() {
+      userAns = {};
+      fyShuffle(activeQs);
+      activeQs.forEach(q => {
+        const corrTxt = q.options[q.answer];
+        const vals = fyShuffle([q.options.A, q.options.B, q.options.C, q.options.D]);
+        ['A', 'B', 'C', 'D'].forEach((L, idx) => {
+          q.options[L] = vals[idx];
+          if (vals[idx] === corrTxt) q.answer = L;
+        });
+      });
+      renderMcqList();
+    }
+
+    function resetMcqSession() {
+      userAns = {};
+      revealAll = false;
+      activeQs = JSON.parse(JSON.stringify(RAW_QS));
+      document.getElementById('btnRevealAll').textContent = '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+  </script>
+</body>
+</html>

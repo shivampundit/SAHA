@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPER-II · SECTION 2 — Digital Logic &amp; Computer Arithmetic | TPSC ATO Grade-IV Portal</title>
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #0f172a;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.top-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #38bdf8;
+}
+.top-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #bae6fd;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.brand-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.header-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: block;
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: #e2e8f0;
+}
+.layout-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 980px) {
+  .layout-wrap { grid-template-columns: 1fr; }
+}
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+}
+.side-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 12px 6px 6px 6px;
+}
+.sec-btn {
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.sec-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.sec-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+.sec-btn .sec-name {
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sec-btn .sec-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sec-btn.active .sec-pill {
+  background: #0284c7;
+  color: #fff;
+}
+.main-panel {
+  min-width: 0;
+}
+/* Strictly 2-Tab Bar inside every Section */
+.two-tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.two-tab-btn {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+.two-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+.two-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+.toolbar-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13.8px;
+  font-family: inherit;
+}
+.action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.action-btn.secondary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+.action-btn.green {
+  background: #15803d;
+  color: #ffffff;
+}
+/* One-Liner Styles */
+.ol-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-left: 6px solid #0284c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.ol-badge {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.ol-group-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ol-group-header {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  padding: 11px 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ol-group-num {
+  background: #0f172a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.ol-group-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+.ol-group-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ol-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.ol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14.2px;
+  color: #1e293b;
+}
+.ol-item:last-child { border-bottom: none; }
+.ol-bullet {
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+.ol-text { flex: 1; }
+.pyq-inline-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.topic-inline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.ol-ans-highlight {
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+/* 100 MCQ Card Styles */
+.mcq-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+.mcq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mcq-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.mcq-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+.mcq-tag.pyq {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+.mcq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+.mcq-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+.mcq-opt-btn {
+  text-align: left;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.6px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  line-height: 1.4;
+}
+.mcq-opt-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.mcq-opt-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 700;
+}
+.mcq-opt-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+.mcq-exp {
+  margin-top: 10px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13.4px;
+  color: #14532d;
+  display: none;
+}
+.mcq-exp.show { display: block; }
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+.ov-card {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ov-card h4 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+</style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div>
+        <span class="brand-badge">TPSC ATO GRADE-IV (T-ITS) 2026 · 2-TAB STREAMLINED EDITION</span>
+        <h1 class="brand-title">PAPER-II · SECTION 2: Digital Logic &amp; Computer Arithmetic</h1>
+        <p class="brand-sub">Paper-II: Job Oriented Technical Paper-II (120 Marks) · Section 2 of 14 (Technical Paper-II · 120 Marks Total) · Tab 1: Master One-Liner Notes (135 One-Liners) | Tab 2: 100 Most Probable MCQs</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="action-btn secondary" style="text-decoration:none;">🏠 All 17 Sections Home</a> <a href="04_P2_S1.html" class="action-btn secondary" style="text-decoration:none;">&larr; Prev: P2_S1</a> <a href="06_P2_S3.html" class="action-btn secondary" style="text-decoration:none;">Next: P2_S3 &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1180px;margin:0 auto;padding:20px;">
+    <div class="two-tab-bar">
+      <button id="btnTab1" class="two-tab-btn active" onclick="switchSecTab('oneliners')">
+        📋 Tab 1: Master One-Liner Sheet (135 One-Liners)
+      </button>
+      <button id="btnTab2" class="two-tab-btn" onclick="switchSecTab('mcqs')">
+        🎯 Tab 2: 100 Most Probable MCQs (TPSC &amp; UGC-NET Pattern)
+      </button>
+    </div>
+
+    <!-- TAB 1: MASTER ONE-LINER NOTES -->
+    <section id="paneOneliners">
+      <div class="toolbar-card">
+        <input type="text" id="olSearch" class="search-input" placeholder="🔍 Search any topic, keyword, or formula in these One-Liner Notes..." oninput="filterOneLiners(this.value)">
+        <span style="font-size:12.5px;font-weight:700;color:#475569;">Showing Crisp Exam One-Liners (Zero Bloat)</span>
+      </div>
+      <div id="olContentWrap">
+        
+    <div class="ol-banner">
+      <div>
+        <span class="ol-badge">PAPER-II · SECTION 2 · MASTER ONE-LINER SHEET</span>
+        <h2 style="margin:6px 0 4px 0;font-size:20px;color:#0f172a;">Digital Logic &amp; Computer Arithmetic — Direct Exam One-Liners</h2>
+        <p style="margin:0;font-size:13.5px;color:#334155;"><strong>Official Gazette Syllabus:</strong> Boolean algebra, Combinational and sequential circuits, Minimization, Number representations and computer arithmetic (fixed and floating point). · <strong>Weightage:</strong> Section 2 of 14 (Technical Paper-II · 120 Marks Total)</p>
+      </div>
+    </div>
+    
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 1</span>
+            <h3 class="ol-group-title">Number Systems, Base Conversions &amp; Signed/Floating-Point Arithmetic (TPSC PYQ Focus)</h3>
+            <span class="ol-group-count">10 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2024]</span> (1.3125)_10 in base 16 (Hexadecimal) is 1.5, because 0.3125 × 16 = 5.0.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2024]</span> Decimal 13 in binary is 1101 (8 + 4 + 0 + 1 = 13).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2024]</span> In 16-bit 2&#x27;s complement, multiplying P = (F87B)_16 by 8 equals a left arithmetic shift by 3 bits, giving (C3D8)_16.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2024]</span> In IEEE 754 single-precision (32-bit: 1 sign, 8 biased exponent with bias 127, 23 fraction), decimal 0.5 = 1.0 × 2^(-1) has fraction bits 000...000 and true exponent -1 (biased exponent 126).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Range of n-bit Signed Representations: Sign-Magnitude and 1&#x27;s Complement = -(2^(n-1) - 1) to +(2^(n-1) - 1) (two zeros: +0 and -0); 2&#x27;s Complement = -2^(n-1) to +(2^(n-1) - 1) (unique zero).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Range of 8-bit 2&#x27;s Complement Integer is -128 to +127; Range of 16-bit 2&#x27;s Complement Integer is -32,768 to +32,767.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">2&#x27;s Complement Overflow Condition: Overflow occurs iff Carry-into-MSB (C_{n-1}) XOR Carry-out-of-MSB (C_n) = 1 (adding two positives gives negative, or two negatives gives positive).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Sign Extension in 2&#x27;s Complement: Replicate the MSB (sign bit) into all newly added left positions.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">BCD (8421) Code uses 4 bits per decimal digit (0000 to 1001; 1010–1111 are invalid; add 0110 = 6 on invalid sum or carry); Excess-3 (XS-3) and 2421 are Self-Complementing codes.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Gray Code is a unit-distance unweighted code where consecutive numbers differ by only 1 bit (minimizes switching errors in rotary encoders and K-maps): G_msb = B_msb, G_i = B_{i+1} ⊕ B_i.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 2</span>
+            <h3 class="ol-group-title">Boolean Algebra, Logic Gates &amp; K-Map Minimization (TPSC PYQ Focus)</h3>
+            <span class="ol-group-count">10 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> XNOR gate (Equivalence gate, A ⊙ B = AB + A&#x27;B&#x27;) outputs &#x27;1&#x27; ONLY when both inputs are the same (0,0 or 1,1).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> XOR gate (Inequality / Odd-1s detector, A ⊕ B = A&#x27;B + AB&#x27;) outputs &#x27;1&#x27; when inputs are different.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Boolean expression for AND gate is A · B; OR gate outputs &#x27;1&#x27; if at least one input is 1 (A + B).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> NAND and NOR are Universal Gates because any Boolean function can be realized using only NAND or only NOR gates.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Minimum Universal Gates needed for basic gates: NOT = 1 NAND / 1 NOR; AND = 2 NAND / 3 NOR; OR = 3 NAND / 2 NOR; XOR = 4 NAND / 5 NOR; XNOR = 5 NAND / 4 NOR.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">De Morgan&#x27;s Laws: (A · B)&#x27; = A&#x27; + B&#x27; (NAND = Bubbled OR) and (A + B)&#x27; = A&#x27; · B&#x27; (NOR = Bubbled AND).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Absorption Laws: A + AB = A; A(A + B) = A; A + A&#x27;B = A + B; A(A&#x27; + B) = AB.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Consensus Theorem: AB + A&#x27;C + BC = AB + A&#x27;C (the redundant consensus term BC is eliminated); Dual: (A+B)(A&#x27;+C)(B+C) = (A+B)(A&#x27;+C).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">For n Boolean variables, there are 2^n minterms/maxterms and 2^(2^n) possible Boolean functions (for n=2, 16 functions; for n=3, 256 functions).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">K-Map Grouping Rules: Groups must have size 2^k (1, 2, 4, 8, 16); a group of 2^k adjacent 1s eliminates k variables and leaves (n - k) literals.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 3</span>
+            <h3 class="ol-group-title">Combinational Circuits (Adders, MUX, Decoders, Encoders)</h3>
+            <span class="ol-group-count">7 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Full Adder Sum output is S = A ⊕ B ⊕ C_in, and Carry output is C_out = AB + BC_in + AC_in = AB + C_in(A ⊕ B).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Half Adder adds 2 bits: Sum = A ⊕ B, Carry = A · B (requires 5 NAND gates or 5 NOR gates); a Full Adder is built from 2 Half Adders + 1 OR gate (9 NAND gates).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Half Subtractor: Difference = A ⊕ B, Borrow = A&#x27;B; Full Subtractor Borrow = A&#x27;B + A&#x27;B_in + BB_in.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Carry Look-Ahead (CLA) Adder eliminates ripple carry propagation delay using Generate G_i = A_i B_i and Propagate P_i = A_i ⊕ B_i, where C_{i+1} = G_i + P_i C_i.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">A 2^n : 1 Multiplexer (Data Selector) has 2^n data inputs, n select lines, and 1 output; a 2:1 MUX is a universal logic module.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Number of 2:1 MUXes required to build a 2^n : 1 MUX is (2^n - 1) (e.g., 16:1 MUX needs 15 of 2:1 MUXes).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">An n-to-2^n Decoder with OR gates can implement any Boolean function by summing its minterms; an Encoder performs the inverse operation (Priority Encoder resolves multiple simultaneous active inputs).</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 4</span>
+            <h3 class="ol-group-title">Sequential Circuits (Flip-Flops, Counters &amp; Shift Registers)</h3>
+            <span class="ol-group-count">8 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Latches are level-triggered (transparent when enable is high), whereas Flip-Flops are edge-triggered (sampled at rising or falling clock edge).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">SR Flip-Flop: S=0, R=0 (Hold Q_n); S=0, R=1 (Reset 0); S=1, R=0 (Set 1); S=1, R=1 is the Invalid / Forbidden state (Q_{n+1} = S + R&#x27;Q_n with SR = 0).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">JK Flip-Flop eliminates the SR invalid state: J=1, K=1 toggles the output (Q_{n+1} = Q_n&#x27;); characteristic equation is Q_{n+1} = JQ_n&#x27; + K&#x27;Q_n.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Race-Around Condition occurs in a level-triggered JK Latch when J=K=1 and clock pulse width t_p &gt; propagation delay t_pd; cured by Master-Slave JK Flip-Flop or edge triggering.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">D Flip-Flop (Delay / Data FF): Q_{n+1} = D; T Flip-Flop (Toggle FF): Q_{n+1} = T ⊕ Q_n (when T=1, it divides clock frequency by 2: f_out = f_clk / 2).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">A MOD-N counter has N distinct states, divides input clock frequency by N (f_out = f_in / N), and requires n = ⌈log_2 N⌉ flip-flops (e.g., MOD-10 Decade/BCD counter requires 4 flip-flops).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">n-bit Ring Counter has N = n states; n-bit Johnson (Twisted Ring / Mobius) Counter has N = 2n states.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Shift Register Types: SISO (requires n clocks to load, n-1 to read), SIPO (n clocks), PISO (1 clock load, n-1 shift), PIPO (1 clock); left-shift by 1 multiplies by 2, right-shift divides by 2.</span></li>
+
+          </ul>
+        </div>
+        
+
+    <div class="ol-group-card">
+      <div class="ol-group-header" style="background:linear-gradient(90deg,#f0fdf4,#dcfce7);border-bottom-color:#bbf7d0;">
+        <span class="ol-group-num" style="background:#15803d;">100-Point Quick Sheet</span>
+        <h3 class="ol-group-title" style="color:#14532d;">100 Most Probable Exam Pointers (Question &rarr; Direct One-Liner Answer)</h3>
+        <span class="ol-group-count" style="background:#dcfce7;color:#166534;">100 Pointers</span>
+      </div>
+      <ul class="ol-list">
+        <li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#1 · TPSC PYQ 2024</span> <strong>(1.3125)_10 is represented as 1.5 in which of the following number system bases?</strong> &rarr; <span class="ol-ans-highlight">16</span> <span style="color:#475569;font-size:12.8px;">(1 + 5/b = 1.3125 =&gt; 5/b = 0.3125 = 5/16 =&gt; base b = 16.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#2 · TPSC PYQ 2024</span> <strong>Suppose in a ternary system numbers are written using digits 0, 1, and 2 with 0 &lt; 1 &lt; 2. What will be the binary equivalent of (222)_3?</strong> &rarr; <span class="ol-ans-highlight">11010</span> <span style="color:#475569;font-size:12.8px;">((222)_3 = 2(9) + 2(3) + 2(1) = 18 + 6 + 2 = 26_10 = (11010)_2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#3 · TPSC PYQ 2024</span> <strong>P is a 16-bit signed integer whose 2&#x27;s complement representation is (F87B)_16. The 2&#x27;s complement representation of 8 * P is:</strong> &rarr; <span class="ol-ans-highlight">(C3D8)_16</span> <span style="color:#475569;font-size:12.8px;">(F87B_16 = 1111 1000 0111 1011_2; multiplying by 8 = left shift by 3 bits = 1100 0011 1101 1000_2 = (C3D8)_16.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#4 · TPSC PYQ 2024</span> <strong>What is the binary representation of the decimal number 13?</strong> &rarr; <span class="ol-ans-highlight">1101</span> <span style="color:#475569;font-size:12.8px;">(13 = 8 + 4 + 0 + 1 = (1101)_2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#5 · TPSC PYQ 2024</span> <strong>The decimal value 0.5 in IEEE 754 single-precision floating-point representation has:</strong> &rarr; <span class="ol-ans-highlight">fraction bits of 000...000 and exponent value of -1</span> <span style="color:#475569;font-size:12.8px;">(0.5_10 = (0.1)_2 = 1.0 × 2^(-1), so mantissa/fraction bits are all 0s and true exponent is -1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#6 · TPSC PYQ 2025</span> <strong>Which logic gate has the output &#x27;1&#x27; ONLY when both inputs are the same?</strong> &rarr; <span class="ol-ans-highlight">XNOR gate</span> <span style="color:#475569;font-size:12.8px;">(XNOR (equivalence gate, AB + A&#x27;B&#x27;) outputs 1 when inputs are (0,0) or (1,1).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#7 · TPSC PYQ 2025</span> <strong>What is the Boolean expression for the two-input AND gate?</strong> &rarr; <span class="ol-ans-highlight">A · B</span> <span style="color:#475569;font-size:12.8px;">(The AND gate performs logical multiplication: Y = A · B.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#8 · TPSC PYQ 2025</span> <strong>Which of the following is a Universal Gate?</strong> &rarr; <span class="ol-ans-highlight">NOR gate</span> <span style="color:#475569;font-size:12.8px;">(NAND and NOR are universal gates capable of implementing any Boolean function.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#9 · TPSC PYQ 2025</span> <strong>The output of an OR gate is 1 if:</strong> &rarr; <span class="ol-ans-highlight">At least one input is 1</span> <span style="color:#475569;font-size:12.8px;">(An OR gate outputs 1 whenever one or more of its inputs are 1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#10 · TPSC PYQ 2025</span> <strong>The sum output of a Full Adder is given by which Boolean expression?</strong> &rarr; <span class="ol-ans-highlight">(A ⊕ B) ⊕ C_in</span> <span style="color:#475569;font-size:12.8px;">(Full Adder Sum = A ⊕ B ⊕ C_in (and Carry = AB + BC_in + AC_in).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#11 · Universal Gates</span> <strong>What is the minimum number of 2-input NAND gates required to implement a 2-input XOR gate (Y = A ⊕ B) and a 2-input XNOR gate (Y = A ⊙ B), respectively?</strong> &rarr; <span class="ol-ans-highlight">4 NAND gates for XOR and 5 NAND gates for XNOR</span> <span style="color:#475569;font-size:12.8px;">(A 2-input XOR gate requires a minimum of 4 two-input NAND gates (or 5 NOR gates), while a 2-input XNOR gate requires 5 two-input NAND gates (or 4 NOR gates).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#12 · Boolean Minimization</span> <strong>By applying the Consensus Theorem of Boolean algebra, the expression F(A, B, C) = A·B + A&#x27;·C + B·C simplifies to which minimal sum-of-products (SOP) form?</strong> &rarr; <span class="ol-ans-highlight">A·B + A&#x27;·C</span> <span style="color:#475569;font-size:12.8px;">(By the Consensus Theorem (XY + X&#x27;Z + YZ = XY + X&#x27;Z), the third term B·C is the redundant consensus of A·B and A&#x27;·C and is eliminated.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#13 · Multiplexer Design</span> <strong>Without using any external logic gates (assuming only constants 0, 1 and complement of the least significant variable are available), what size Multiplexer is sufficient to implement any arbitrary 4-variable Boolean function F(A, B, C, D)?</strong> &rarr; <span class="ol-ans-highlight">8 : 1 Multiplexer with 3 select lines</span> <span style="color:#475569;font-size:12.8px;">(An n-variable Boolean function can always be implemented using a 2^(n-1) : 1 MUX by connecting n - 1 variables (A, B, C) to the select lines and feeding {0, 1, D, D&#x27;} to the data inputs. For n = 4, a 2³ : 1 = 8 : 1 MUX suffices.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#14 · Sequential Counters</span> <strong>An 8-bit Johnson Counter (Twisted-Ring Counter) is driven by a 160 MHz clock signal. What is its modulus (MOD number), output frequency at any flip-flop, and number of unused states?</strong> &rarr; <span class="ol-ans-highlight">MOD-16; Output frequency = 10 MHz; Unused states = 240</span> <span style="color:#475569;font-size:12.8px;">(An n-bit Johnson counter has Modulus = 2n = 2(8) = 16 states. Output frequency = f_clk / 2n = 160 MHz / 16 = 10 MHz. Unused states = 2^n - 2n = 256 - 16 = 240.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#15 · Flip-Flops</span> <strong>In a level-triggered JK flip-flop with J = 1 and K = 1, the undesirable &#x27;Race-Around Condition&#x27; occurs when the clock pulse width t_p satisfies which condition relative to flip-flop propagation delay t_pd?</strong> &rarr; <span class="ol-ans-highlight">t_p &gt; t_pd (and is eliminated by using a Master-Slave JK or edge-triggered flip-flop)</span> <span style="color:#475569;font-size:12.8px;">(When J = K = 1 in a level-triggered JK latch and the clock pulse width t_p exceeds propagation delay t_pd, the output toggles multiple times within a single clock pulse (Race-Around), solved via Master-Slave JK or edge triggering.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#16 · 2&#x27;s Complement Arithmetic</span> <strong>In an 8-bit 2&#x27;s complement fixed-point representation, what is the exact decimal range of representable signed integers, and what is the 8-bit 2&#x27;s complement binary pattern for -45?</strong> &rarr; <span class="ol-ans-highlight">Range: -128 to +127; Binary for -45: 11010011</span> <span style="color:#475569;font-size:12.8px;">(8-bit 2&#x27;s complement range is -2⁷ to +(2⁷ - 1) = -128 to +127. Since +45 = 00101101₂, inverting bits gives 11010010₂ and adding 1 yields 11010011₂.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#17 · IEEE-754 Floating Point</span> <strong>What is the decimal value of the 32-bit IEEE-754 single-precision floating-point number represented in hexadecimal as 0xC1480000?</strong> &rarr; <span class="ol-ans-highlight">-12.5</span> <span style="color:#475569;font-size:12.8px;">(0xC1480000 = 1100 0001 0100 1000 0000...₂. Sign S = 1 (negative); 8-bit Exponent E = 10000010₂ = 130 (True exponent = 130 - 127 = 3); Mantissa 1.M = 1.1001₂ = 1 + 0.5 + 0.0625 = 1.5625. Value = -1.5625 × 2³ = -12.5.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#18 · Sequential Timing</span> <strong>In a synchronous sequential circuit, each flip-flop has a clock-to-Q propagation delay of 4 ns and a setup time of 3 ns, and the longest combinational logic path between flip-flops has a delay of 13 ns. What is the maximum safe clock frequency?</strong> &rarr; <span class="ol-ans-highlight">50 MHz</span> <span style="color:#475569;font-size:12.8px;">(Minimum clock period T_min = t_pcq + t_comb + t_setup = 4 + 13 + 3 = 20 ns (hold time does not add to T_min). Maximum clock frequency f_max = 1 / 20 ns = 50 MHz.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#19 · Digital Logic</span> <strong>How many 2-to-1 Multiplexers are required to construct a 32-to-1 Multiplexer tree without using any other logic gates?</strong> &rarr; <span class="ol-ans-highlight">31</span> <span style="color:#475569;font-size:12.8px;">(To build a 2^n : 1 MUX using 2 : 1 MUXes, the total number required is 2^n - 1 = 16 + 8 + 4 + 2 + 1 = 31.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#20 · Digital Logic</span> <strong>A 4-variable Boolean function F(A,B,C,D) = ∑m(0, 2, 5, 7, 8, 10, 13, 15) is minimized using a 4-variable Karnaugh Map. What is the simplified minimal SOP expression?</strong> &rarr; <span class="ol-ans-highlight">B&#x27;·D&#x27; + B·D (i.e., B ⊙ D)</span> <span style="color:#475569;font-size:12.8px;">(Minterms {0, 2, 8, 10} form the four corners quad B&#x27;·D&#x27;, and minterms {5, 7, 13, 15} form the center quad B·D. Together, F = B&#x27;·D&#x27; + B·D = B ⊙ D.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#21 · Digital Logic</span> <strong>How many distinct Boolean functions can be formed using n = 4 binary variables, and how many of them are Self-Dual functions?</strong> &rarr; <span class="ol-ans-highlight">65,536 total Boolean functions; 256 Self-Dual functions</span> <span style="color:#475569;font-size:12.8px;">(With n = 4 variables, there are 2⁴ = 16 minterms, yielding 2^(2⁴) = 2¹⁶ = 65,536 Boolean functions, and 2^(2^(n-1)) = 2⁸ = 256 Self-Dual functions.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#22 · Digital Logic</span> <strong>In a 4-bit Carry Look-Ahead (CLA) adder, what are the Boolean expressions for Carry Generate (G_i), Carry Propagate (P_i), and the output carry C_(i+1)?</strong> &rarr; <span class="ol-ans-highlight">G_i = A_i · B_i, P_i = A_i ⊕ B_i, and C_(i+1) = G_i + P_i · C_i</span> <span style="color:#475569;font-size:12.8px;">(Carry Look-Ahead defines Generate G_i = A_i · B_i and Propagate P_i = A_i ⊕ B_i so that C_(i+1) = G_i + P_i C_i can be computed in 2 gate levels independent of bit width.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#23 · Digital Logic</span> <strong>What is the minimum number of flip-flops required to construct a MOD-50 synchronous counter, and what is the modulus of a 6-bit Ring Counter?</strong> &rarr; <span class="ol-ans-highlight">6 flip-flops for MOD-50; 6-bit Ring Counter is MOD-6</span> <span style="color:#475569;font-size:12.8px;">(For a MOD-N counter, minimum flip-flops n = ⌈log₂(50)⌉ = 6 (since 2⁵=32 &lt; 50 ≤ 2⁶=64). An n-bit standard Ring Counter has exactly n states (MOD-6).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#24 · Digital Logic</span> <strong>When converting a 4-bit binary number B₃ B₂ B₁ B₀ into its 4-bit Gray Code G₃ G₂ G₁ G₀, what is the exact conversion formula?</strong> &rarr; <span class="ol-ans-highlight">G₃ = B₃, and G_i = B_(i+1) ⊕ B_i for i = 2, 1, 0</span> <span style="color:#475569;font-size:12.8px;">(Binary-to-Gray conversion keeps the MSB unchanged (G₃ = B₃) and XORs adjacent binary bits: G₂ = B₃ ⊕ B₂, G₁ = B₂ ⊕ B₁, G₀ = B₁ ⊕ B₀ (for example, Binary 1011₂ → Gray 1110₂).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#25 · Digital Logic</span> <strong>Among Programmable Logic Devices (PROM, PAL, PLA), which device has BOTH a programmable AND array and a programmable OR array, offering maximum logic sharing flexibility?</strong> &rarr; <span class="ol-ans-highlight">PLA (Programmable Logic Array)</span> <span style="color:#475569;font-size:12.8px;">(PROM has a fixed AND decoder and programmable OR array; PAL has a programmable AND array and fixed OR array; PLA has both programmable AND and programmable OR arrays.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#26 · Digital Logic</span> <strong>To convert a D Flip-Flop into a T (Toggle) Flip-Flop, what combinational logic expression must be connected to the D input in terms of external input T and present state Q_n?</strong> &rarr; <span class="ol-ans-highlight">D = T ⊕ Q_n (i.e., T·Q_n&#x27; + T&#x27;·Q_n)</span> <span style="color:#475569;font-size:12.8px;">(Since a D flip-flop has Q_(n+1) = D and a T flip-flop requires Q_(n+1) = T ⊕ Q_n, driving D with an XOR gate D = T ⊕ Q_n converts D into T.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#27 · Digital Logic</span> <strong>Which Analog-to-Digital Converter (ADC) architecture achieves the FASTEST conversion speed (completing conversion in a single step using 2^n - 1 parallel comparators), and which ADC offers the highest noise rejection using an integrator?</strong> &rarr; <span class="ol-ans-highlight">Fastest: Flash (Parallel Comparator) ADC; Highest noise immunity: Dual-Slope Integrating ADC</span> <span style="color:#475569;font-size:12.8px;">(Flash ADC uses 2^n - 1 comparators in parallel for ultra-fast O(1) conversion; Dual-Slope Integrating ADC averages input noise over a fixed integration period, making it ideal for precision digital voltmeters.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#28 · Digital Logic</span> <strong>In a two-level Sum-of-Products (SOP) combinational circuit, how is a &#x27;Static-1 Hazard&#x27; (a momentary 0 glitch during a single-variable change between two adjacent 1-minterms) eliminated?</strong> &rarr; <span class="ol-ans-highlight">By adding the redundant Prime Implicant (Consensus term) that bridges the two adjacent K-Map groups</span> <span style="color:#475569;font-size:12.8px;">(A Static-1 hazard occurs when two adjacent 1s in a K-Map belong to different product terms with unequal gate delays; adding the overlapping consensus prime implicant holds the output at 1 during the transition.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#29 · Digital Logic</span> <strong>What is the minimum number of 2-input NOR gates required to implement a 2-input XNOR gate (Y = A ⊙ B) and a 2-input XOR gate (Y = A ⊕ B)?</strong> &rarr; <span class="ol-ans-highlight">4 NOR gates for XNOR and 5 NOR gates for XOR</span> <span style="color:#475569;font-size:12.8px;">(With 2-input NOR gates, XNOR takes 4 NOR gates and adding 1 inverter NOR gate yields XOR in 5 NOR gates (exact dual of NAND gates!).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#30 · Digital Logic</span> <strong>In radix-r number systems, if the quadratic equation x² - 11x + 22 = 0 has roots x = 3 and x = 6, what is the base (radix) r of the number system?</strong> &rarr; <span class="ol-ans-highlight">Base r = 8 (Octal)</span> <span style="color:#475569;font-size:12.8px;">(In base r: (x - 3)(x - 6) = x² - 9x + 18 = 0. Comparing with x² - (1·r + 1)x + (2·r + 2) = 0 gives r + 1 = 9 and 2r + 2 = 18 ⇒ r = 8!)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#31 · Digital Logic</span> <strong>An 8-bit Successive Approximation Register (SAR) Analog-to-Digital Converter (ADC) is driven by a 2 MHz clock. How much time does it take to complete one 8-bit conversion?</strong> &rarr; <span class="ol-ans-highlight">4 microseconds (8 clock cycles)</span> <span style="color:#475569;font-size:12.8px;">(An n-bit SAR ADC requires exactly n clock cycles (or n+1 with reset). For n = 8 at 2 MHz (0.5 μs/cycle), T_conv = 8 × 0.5 μs = 4 μs.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#32 · Digital Logic</span> <strong>What is the Dual expression F^D of the Boolean function F(A, B, C) = A·B&#x27; + B·C + 0?</strong> &rarr; <span class="ol-ans-highlight">(A + B&#x27;) · (B + C) · 1</span> <span style="color:#475569;font-size:12.8px;">(To find the Dual F^D (without complementing variables!), swap AND (·) ↔ OR (+) and swap 0 ↔ 1, keeping literals A, B&#x27;, B, C unchanged: (A + B&#x27;)·(B + C)·1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#33 · Digital Logic</span> <strong>How many address input lines and data input/output lines are required for a 4K × 16 RAM memory chip, and how many such chips are needed to build a 64K × 32 memory module?</strong> &rarr; <span class="ol-ans-highlight">12 address lines and 16 data lines per chip; 32 chips required for 64K × 32</span> <span style="color:#475569;font-size:12.8px;">(4K = 2¹² words ⇒ 12 address lines and 16 data lines. Number of chips for 64K × 32 = (64K / 4K) × (32 / 16) = 16 × 2 = 32 chips.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#34 · Digital Logic</span> <strong>A 10-bit Digital-to-Analog Converter (DAC) has a full-scale output voltage of 10.23 V. What is its step size (resolution in mV) and percentage resolution?</strong> &rarr; <span class="ol-ans-highlight">Step size = 10 mV; Percentage resolution = 0.0977% (1 / 1023)</span> <span style="color:#475569;font-size:12.8px;">(For n = 10 bits, 2^10 - 1 = 1023 steps. Step size = 10.23 V / 1023 = 0.01 V = 10 mV; % resolution = (1 / 1023) × 100% = 0.0977%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#35 · Digital Logic</span> <strong>In a 3-bit synchronous counter using T Flip-Flops (Q₂ Q₁ Q₀) that counts up in binary (000 → 001 → ... → 111), what are the T-input logic equations for T₀, T₁, and T₂?</strong> &rarr; <span class="ol-ans-highlight">T₀ = 1, T₁ = Q₀, and T₂ = Q₁ · Q₀</span> <span style="color:#475569;font-size:12.8px;">(In a synchronous binary up-counter, LSB Q₀ toggles every clock (T₀ = 1), Q₁ toggles when Q₀ = 1 (T₁ = Q₀), and Q₂ toggles when both lower bits are 1 (T₂ = Q₁ · Q₀).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#36 · Digital Logic</span> <strong>Which digital IC logic family is the fastest (using non-saturated bipolar Differential Amplifier current-mode switching) and which logic family consumes the lowest static power?</strong> &rarr; <span class="ol-ans-highlight">Fastest: ECL (Emitter-Coupled Logic); Lowest static power: CMOS (Complementary MOS)</span> <span style="color:#475569;font-size:12.8px;">(ECL avoids transistor saturation to achieve sub-nanosecond gate delays (fastest), while CMOS draws virtually zero static power when idle.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#37 · Number Systems</span> <strong>What is the hexadecimal equivalent of the binary number `(101101111001)_2`?</strong> &rarr; <span class="ol-ans-highlight">(B79)_16</span> <span style="color:#475569;font-size:12.8px;">(Group into 4-bit nibbles: 1011 = B, 0111 = 7, 1001 = 9 -&gt; (B79)_16.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#38 · Number Systems</span> <strong>What is the octal equivalent of the hexadecimal number `(2F5)_16`?</strong> &rarr; <span class="ol-ans-highlight">(1365)_8</span> <span style="color:#475569;font-size:12.8px;">((2F5)_16 = 0010 1111 0101_2 = 001 011 110 101_2 = (1365)_8.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#39 · Number Systems</span> <strong>What is the 2&#x27;s complement representation of `-45` in an 8-bit signed binary register?</strong> &rarr; <span class="ol-ans-highlight">11010011</span> <span style="color:#475569;font-size:12.8px;">(+45 = 00101101_2; 1&#x27;s complement = 11010010_2; adding 1 gives 2&#x27;s complement = 11010011_2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#40 · Number Systems</span> <strong>What is the exact range of signed integers representable in an 8-bit 2&#x27;s complement system?</strong> &rarr; <span class="ol-ans-highlight">-128 to +127</span> <span style="color:#475569;font-size:12.8px;">(For n = 8 bits, 2&#x27;s complement range is -2^(n-1) to +(2^(n-1) - 1) = -128 to +127.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#41 · Number Systems</span> <strong>Which of the following binary codes is a Self-Complementing and Unweighted code?</strong> &rarr; <span class="ol-ans-highlight">Excess-3 (XS-3) code</span> <span style="color:#475569;font-size:12.8px;">(Excess-3 (BCD + 0011) is unweighted and self-complementing (1&#x27;s complement of XS-3 code gives the 9&#x27;s complement of the decimal digit).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#42 · Number Systems</span> <strong>What is the Gray code equivalent of the binary number `(1011)_2`?</strong> &rarr; <span class="ol-ans-highlight">1110</span> <span style="color:#475569;font-size:12.8px;">(G_3 = B_3 = 1; G_2 = 1⊕0 = 1; G_1 = 0⊕1 = 1; G_0 = 1⊕1 = 0 -&gt; 1110.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#43 · Number Systems</span> <strong>What is the binary equivalent of the Gray code `(1101)_Gray`?</strong> &rarr; <span class="ol-ans-highlight">1001</span> <span style="color:#475569;font-size:12.8px;">(B_3 = G_3 = 1; B_2 = B_3⊕G_2 = 1⊕1 = 0; B_1 = B_2⊕G_1 = 0⊕0 = 0; B_0 = B_1⊕G_0 = 0⊕1 = 1 -&gt; 1001.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#44 · Number Systems</span> <strong>In BCD (8421) addition, if the 4-bit sum exceeds 9 (`1001_2`) or generates a carry out, which correction factor is added?</strong> &rarr; <span class="ol-ans-highlight">0110 (decimal 6)</span> <span style="color:#475569;font-size:12.8px;">(Adding 6 (`0110_2`) skips the 6 invalid 4-bit states (1010 through 1111) in BCD addition.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#45 · Number Systems</span> <strong>In 2&#x27;s complement arithmetic on n-bit numbers, overflow is detected by:</strong> &rarr; <span class="ol-ans-highlight">C_in(MSB) XOR C_out(MSB) = 1</span> <span style="color:#475569;font-size:12.8px;">(Signed 2&#x27;s complement overflow occurs iff the carry into the sign bit (MSB) differs from the carry out of the sign bit.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#46 · Number Systems</span> <strong>If `(123)_5 = (x8)_y`, how many possible values of base `y` exist, or what is `(123)_5` in decimal?</strong> &rarr; <span class="ol-ans-highlight">38 in decimal (so 38 = x·y + 8 =&gt; x·y = 30 with y &gt; 8)</span> <span style="color:#475569;font-size:12.8px;">((123)_5 = 1(25) + 2(5) + 3(1) = 38_10; since digit 8 appears in base y, y ≥ 9 (x=1, y=30; x=2, y=15; x=3, y=10 -&gt; 3 solutions).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#47 · Boolean Algebra</span> <strong>According to De Morgan&#x27;s Law, the complement of `(A + B&#x27;C)` is:</strong> &rarr; <span class="ol-ans-highlight">A&#x27; · (B + C&#x27;)</span> <span style="color:#475569;font-size:12.8px;">((A + B&#x27;C)&#x27; = A&#x27; · (B&#x27;C)&#x27; = A&#x27; · (B&#x27;&#x27; + C&#x27;) = A&#x27; · (B + C&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#48 · Boolean Algebra</span> <strong>Simplify the Boolean expression: `Y = A + A&#x27;B`:</strong> &rarr; <span class="ol-ans-highlight">A + B</span> <span style="color:#475569;font-size:12.8px;">(By the distributive/absorption law, A + A&#x27;B = (A + A&#x27;)(A + B) = 1 · (A + B) = A + B.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#49 · Boolean Algebra</span> <strong>By the Consensus Theorem, the Boolean expression `AB + A&#x27;C + BC` simplifies to:</strong> &rarr; <span class="ol-ans-highlight">AB + A&#x27;C</span> <span style="color:#475569;font-size:12.8px;">(In AB + A&#x27;C + BC, the term BC is the consensus of AB and A&#x27;C (`BC = BC(A + A&#x27;) = ABC + A&#x27;BC`) and is redundant.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#50 · Boolean Algebra</span> <strong>How many distinct Boolean functions can be formed using `n = 3` Boolean variables?</strong> &rarr; <span class="ol-ans-highlight">256</span> <span style="color:#475569;font-size:12.8px;">(For n variables, there are 2^n truth-table rows and 2^(2^n) possible Boolean functions: for n = 3, 2^(2³) = 2^8 = 256.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#51 · Boolean Algebra</span> <strong>What is the Dual of the Boolean expression `A · B&#x27; + C · 1 = 0`?</strong> &rarr; <span class="ol-ans-highlight">(A + B&#x27;) · (C + 0) = 1</span> <span style="color:#475569;font-size:12.8px;">(To find the Dual, swap AND (·) with OR (+), and swap 0 with 1, while keeping literals unchanged!)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#52 · Logic Gates</span> <strong>What is the minimum number of 2-input NAND gates required to implement a 2-input XOR gate (`A ⊕ B`)?</strong> &rarr; <span class="ol-ans-highlight">4</span> <span style="color:#475569;font-size:12.8px;">(A 2-input XOR gate requires a minimum of 4 two-input NAND gates (and 5 two-input NOR gates).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#53 · Logic Gates</span> <strong>What is the minimum number of 2-input NAND gates required to implement a 2-input OR gate (`A + B`)?</strong> &rarr; <span class="ol-ans-highlight">3</span> <span style="color:#475569;font-size:12.8px;">(By De Morgan&#x27;s law, A + B = ((A&#x27;) · (B&#x27;))&#x27;, requiring 2 NAND gates as inverters plus 1 NAND gate = 3 NAND gates.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#54 · Logic Gates</span> <strong>If one input of a 2-input XOR gate is connected to logic `1` and the other input is `X`, the output is:</strong> &rarr; <span class="ol-ans-highlight">X&#x27; (Controlled Inverter)</span> <span style="color:#475569;font-size:12.8px;">(Since X ⊕ 1 = X&#x27;·1 + X·0 = X&#x27;, an XOR gate with one input tied to 1 acts as an Inverter!)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#55 · Logic Gates</span> <strong>For a 3-input XOR gate `Y = A ⊕ B ⊕ C`, the output is `1` whenever the inputs contain:</strong> &rarr; <span class="ol-ans-highlight">An ODD number of 1s (1 or 3 ones)</span> <span style="color:#475569;font-size:12.8px;">(Multi-input XOR is an Odd-1s (Odd Parity) detector: it outputs 1 for minterms m1, m2, m4, m7.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#56 · K-Map</span> <strong>In a 4-variable Karnaugh Map (K-Map), a group (octet) of 8 adjacent 1s simplifies to a product term containing how many literals?</strong> &rarr; <span class="ol-ans-highlight">1 literal</span> <span style="color:#475569;font-size:12.8px;">(In an n-variable K-map, a group of 2^k cells eliminates k variables and leaves (n - k) literals: 4 - 3 = 1 literal.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#57 · K-Map</span> <strong>In a 3-variable K-Map for `F(A, B, C) = Σm(0, 1, 2, 3, 4, 5, 6, 7)`, the simplified expression is:</strong> &rarr; <span class="ol-ans-highlight">1</span> <span style="color:#475569;font-size:12.8px;">(When all 2^3 = 8 minterms are 1, the entire K-map forms a group of 8, simplifying to constant logic 1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#58 · K-Map</span> <strong>For any Boolean function of n variables, the relationship between its minterm list and maxterm list is:</strong> &rarr; <span class="ol-ans-highlight">Minterm indices and Maxterm indices are complementary subsets of {0, ..., 2^n - 1}</span> <span style="color:#475569;font-size:12.8px;">(Since M_i = (m_i)&#x27;, a function with Σm(1, 3, 5) has product-of-sums ΠM(0, 2, 4, 6, 7); also Σm_i (over all 2^n minterms) = 1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#59 · Combinational Circuits</span> <strong>A Half Adder has two inputs A and B. Its Sum (S) and Carry (C) outputs are:</strong> &rarr; <span class="ol-ans-highlight">S = A ⊕ B, C = A · B</span> <span style="color:#475569;font-size:12.8px;">(A Half Adder adds two 1-bit binary numbers without carry-in: Sum = A ⊕ B and Carry = A · B.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#60 · Combinational Circuits</span> <strong>How many Half Adders and OR gates are required to construct a 1-bit Full Adder?</strong> &rarr; <span class="ol-ans-highlight">2 Half Adders and 1 OR gate</span> <span style="color:#475569;font-size:12.8px;">(A Full Adder is built by cascading 2 Half Adders and combining their carry outputs with 1 two-input OR gate.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#61 · Combinational Circuits</span> <strong>In a Half Subtractor subtracting B from A (`A - B`), the Difference (D) and Borrow (B_out) expressions are:</strong> &rarr; <span class="ol-ans-highlight">D = A ⊕ B, B_out = A&#x27; · B</span> <span style="color:#475569;font-size:12.8px;">(A borrow is needed only when A = 0 and B = 1, so B_out = A&#x27;B, while Difference D = A ⊕ B.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#62 · Combinational Circuits</span> <strong>Which adder circuit eliminates the cumulative carry propagation delay of a Ripple Carry Adder by computing carries in parallel using `G_i = A_i B_i` and `P_i = A_i ⊕ B_i`?</strong> &rarr; <span class="ol-ans-highlight">Carry Look-Ahead (CLA) Adder</span> <span style="color:#475569;font-size:12.8px;">(A Carry Look-Ahead (CLA) Adder precomputes carry-generate (G_i) and carry-propagate (P_i) signals to achieve O(1) gate-level carry delay.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#63 · Multiplexers</span> <strong>A `16 : 1` Multiplexer (MUX) has how many data input lines and how many select lines?</strong> &rarr; <span class="ol-ans-highlight">16 data inputs and 4 select lines</span> <span style="color:#475569;font-size:12.8px;">(A 2^n : 1 MUX has 2^n = 16 data inputs, n = log_2(16) = 4 select lines, and 1 output.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#64 · Multiplexers</span> <strong>How many `2 : 1` Multiplexers are required to construct a `16 : 1` Multiplexer (without using any extra gates)?</strong> &rarr; <span class="ol-ans-highlight">15</span> <span style="color:#475569;font-size:12.8px;">(Building a 2^n : 1 MUX from 2 : 1 MUXes requires (2^n - 1) = 8 + 4 + 2 + 1 = 15 MUXes.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#65 · Multiplexers</span> <strong>A `2 : 1` Multiplexer has output `Y = S&#x27;·I_0 + S·I_1`. If `S = A`, `I_0 = B`, and `I_1 = B&#x27;`, what logic gate does `Y` implement?</strong> &rarr; <span class="ol-ans-highlight">XOR gate (A ⊕ B)</span> <span style="color:#475569;font-size:12.8px;">(Substituting into Y = S&#x27;I_0 + SI_1 gives Y = A&#x27;B + AB&#x27; = A ⊕ B (2-input XOR gate).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#66 · Decoders</span> <strong>A `3-to-8` Line Decoder has 3 input lines and 8 active-high minterm outputs. How many `3-to-8` Decoders (with enable pins) are needed to build a `5-to-32` Decoder?</strong> &rarr; <span class="ol-ans-highlight">4 (plus 1 of 2-to-4 decoder to drive enables, or 5 total)</span> <span style="color:#475569;font-size:12.8px;">(32 outputs / 8 outputs per chip = 4 `3-to-8` decoders at the output stage (selected by the 2 MSBs).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#67 · Encoders</span> <strong>What is the main advantage of a Priority Encoder over a simple binary Encoder?</strong> &rarr; <span class="ol-ans-highlight">It resolves ambiguity when two or more inputs are active simultaneously by encoding the highest-priority input</span> <span style="color:#475569;font-size:12.8px;">(A simple encoder produces invalid output if multiple inputs are high; a Priority Encoder outputs the binary code of the highest-indexed active input.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#68 · Comparators</span> <strong>In a 2-bit Magnitude Comparator comparing `A = A_1 A_0` and `B = B_1 B_0`, for how many input combinations out of 16 is the output `A = B` equal to `1`?</strong> &rarr; <span class="ol-ans-highlight">4</span> <span style="color:#475569;font-size:12.8px;">(There are 2² = 4 values for A (00, 01, 10, 11), and for each, B must match identically =&gt; 4 combinations where A = B (and 6 where A &gt; B, 6 where A &lt; B).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#69 · Sequential Circuits</span> <strong>Unlike a combinational circuit, the output of a Sequential Circuit depends on:</strong> &rarr; <span class="ol-ans-highlight">Both the present inputs and the past history (present internal state stored in memory)</span> <span style="color:#475569;font-size:12.8px;">(Sequential circuits incorporate memory elements (latches/flip-flops) in a feedback path, so output depends on Present Input + Present State.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#70 · Flip-Flops</span> <strong>How many stable states does a single Flip-Flop (Bistable Multivibrator) have, and how many bits of information can it store?</strong> &rarr; <span class="ol-ans-highlight">2 stable states; stores 1 bit</span> <span style="color:#475569;font-size:12.8px;">(A flip-flop is a bistable circuit (states Q=0 and Q=1) that stores exactly 1 bit of binary data.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#71 · Flip-Flops</span> <strong>In a standard NOR-gate SR Latch, which input combination is the Forbidden / Invalid state?</strong> &rarr; <span class="ol-ans-highlight">S = 1, R = 1</span> <span style="color:#475569;font-size:12.8px;">(In an active-high NOR SR latch, S = 1 and R = 1 forces both Q and Q&#x27; to 0 simultaneously, violating complementarity.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#72 · Flip-Flops</span> <strong>How does a JK Flip-Flop overcome the invalid `S = 1, R = 1` condition of an SR Flip-Flop?</strong> &rarr; <span class="ol-ans-highlight">When J = 1 and K = 1, the output toggles to its complement (Q_{n+1} = Q_n&#x27;)</span> <span style="color:#475569;font-size:12.8px;">(Cross-coupled feedback from Q and Q&#x27; makes J = 1, K = 1 toggle the flip-flop state (`Q_{n+1} = Q_n&#x27;`).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#73 · Flip-Flops</span> <strong>What is the Characteristic Equation (next-state equation) of a JK Flip-Flop?</strong> &rarr; <span class="ol-ans-highlight">Q_{n+1} = J·Q_n&#x27; + K&#x27;·Q_n</span> <span style="color:#475569;font-size:12.8px;">(The JK flip-flop characteristic equation is Q_{n+1} = JQ_n&#x27; + K&#x27;Q_n.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#74 · Flip-Flops</span> <strong>What is the Characteristic Equation of a T (Toggle) Flip-Flop?</strong> &rarr; <span class="ol-ans-highlight">Q_{n+1} = T ⊕ Q_n</span> <span style="color:#475569;font-size:12.8px;">(When T = 0, Q_{n+1} = Q_n (hold); when T = 1, Q_{n+1} = Q_n&#x27; (toggle), which is Q_{n+1} = T ⊕ Q_n.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#75 · Flip-Flops</span> <strong>The &#x27;Race-Around Condition&#x27; occurs in a level-triggered JK Latch when:</strong> &rarr; <span class="ol-ans-highlight">J = 1, K = 1, and clock pulse width t_p is greater than flip-flop propagation delay t_pd</span> <span style="color:#475569;font-size:12.8px;">(When J=K=1 and clock stays high longer than propagation delay, the output toggles multiple times within a single clock pulse; eliminated by Master-Slave or Edge Triggering.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#76 · Flip-Flops</span> <strong>How do you convert a JK Flip-Flop into a D (Data/Delay) Flip-Flop?</strong> &rarr; <span class="ol-ans-highlight">Connect J = D and K = D&#x27; (through an inverter)</span> <span style="color:#475569;font-size:12.8px;">(Setting J = D and K = D&#x27; gives Q_{n+1} = D·Q_n&#x27; + D·Q_n = D ( whereas J = K = T gives a T flip-flop).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#77 · Counters</span> <strong>What is the minimum number of flip-flops required to construct a MOD-10 (Decade / BCD) counter?</strong> &rarr; <span class="ol-ans-highlight">4</span> <span style="color:#475569;font-size:12.8px;">(Since 2³ = 8 &lt; 10 ≤ 2⁴ = 16, a MOD-10 counter requires n = ⌈log_2(10)⌉ = 4 flip-flops.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#78 · Counters</span> <strong>If a 16 MHz clock signal is applied to a cascade of a MOD-4 counter followed by a MOD-8 counter, what is the output frequency of the final stage?</strong> &rarr; <span class="ol-ans-highlight">500 kHz</span> <span style="color:#475569;font-size:12.8px;">(Cascading MOD-M and MOD-N counters yields a MOD-(M×N) = MOD-32 counter: f_out = 16 MHz / 32 = 0.5 MHz = 500 kHz.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#79 · Counters</span> <strong>A 4-bit Asynchronous (Ripple) Counter uses 4 flip-flops, each having a propagation delay of `15 ns`. What is the worst-case total propagation delay of the counter?</strong> &rarr; <span class="ol-ans-highlight">60 ns</span> <span style="color:#475569;font-size:12.8px;">(In a ripple counter, the carry/toggle ripples sequentially through all n = 4 flip-flops: 4 × 15 ns = 60 ns.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#80 · Counters</span> <strong>In an n-bit Ring Counter and an n-bit Johnson (Twisted Ring) Counter, the number of valid states in the main counting cycle are respectively:</strong> &rarr; <span class="ol-ans-highlight">n states (Ring) and 2n states (Johnson)</span> <span style="color:#475569;font-size:12.8px;">(For n flip-flops, a Ring Counter circulates a single 1 through n states, while a Johnson Counter feeds Q_n&#x27; back to D_0 to produce 2n states.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#81 · Shift Registers</span> <strong>In a 4-bit SISO (Serial-In Serial-Out) shift register initially cleared, how many clock pulses are required to serially load a 4-bit word and then serially read all 4 bits out at the output pin?</strong> &rarr; <span class="ol-ans-highlight">7 clock pulses (4 to load + 3 to shift out remaining bits)</span> <span style="color:#475569;font-size:12.8px;">(After 4 clock pulses the 4-bit word is loaded (and the first bit is already visible at Q_3); 3 more pulses shift out the remaining 3 bits: 4 + 3 = 7.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#82 · Shift Registers</span> <strong>Shifting an unsigned binary number in a register by 1 bit position to the LEFT (inserting 0 at LSB) is equivalent to:</strong> &rarr; <span class="ol-ans-highlight">Multiplying the number by 2</span> <span style="color:#475569;font-size:12.8px;">(Each left shift by k bits multiplies an integer by 2^k (so 1-bit left shift multiplies by 2).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#83 · FSM</span> <strong>What is the key difference between a Moore Machine and a Mealy Machine in Finite State Machines?</strong> &rarr; <span class="ol-ans-highlight">In a Moore machine, output depends ONLY on the present state; in a Mealy machine, output depends on both present state and present input</span> <span style="color:#475569;font-size:12.8px;">(Moore output is a function of current state only `O = g(S_t)`, whereas Mealy output is a function of current state and current input `O = g(S_t, I_t)`.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#84 · Programmable Logic</span> <strong>In Programmable Logic Devices (PROM, PLA, PAL), which device has a Programmable AND array and a Programmable OR array?</strong> &rarr; <span class="ol-ans-highlight">PLA (Programmable Logic Array)</span> <span style="color:#475569;font-size:12.8px;">(PROM = Fixed AND + Programmable OR; PAL = Programmable AND + Fixed OR; PLA = Programmable AND + Programmable OR (most flexible).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#85 · Logic Families</span> <strong>Which digital IC logic family is famous for having the LOWEST static power dissipation and highest fan-out?</strong> &rarr; <span class="ol-ans-highlight">CMOS (Complementary Metal-Oxide-Semiconductor)</span> <span style="color:#475569;font-size:12.8px;">(CMOS uses complementary PMOS and NMOS pairs so almost zero static current flows in steady logic 0 or 1 states.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#86 · Logic Families</span> <strong>Which digital logic family has the FASTEST switching speed (shortest propagation delay) because its transistors never enter saturation?</strong> &rarr; <span class="ol-ans-highlight">ECL (Emitter-Coupled Logic)</span> <span style="color:#475569;font-size:12.8px;">(ECL operates bipolar transistors in the active region (preventing saturation storage delay), achieving sub-nanosecond propagation delays.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#87 · ADC/DAC</span> <strong>Which type of Analog-to-Digital Converter (ADC) is the FASTEST (completing conversion in a single clock cycle using `2^n - 1` comparators)?</strong> &rarr; <span class="ol-ans-highlight">Flash (Parallel Comparator) ADC</span> <span style="color:#475569;font-size:12.8px;">(A Flash ADC uses 2^n - 1 parallel comparators to convert analog voltage to n-bit digital output in a single step.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#88 · ADC/DAC</span> <strong>In an 8-bit R-2R Ladder Digital-to-Analog Converter (DAC) with full-scale output of 10 V, what is the resolution (step size corresponding to 1 LSB)?</strong> &rarr; <span class="ol-ans-highlight">10 / 255 ≈ 39.2 mV</span> <span style="color:#475569;font-size:12.8px;">(For an n-bit DAC, resolution (step size) = V_FS / (2^n - 1) = 10 / (2^8 - 1) = 10 / 255 ≈ 39.2 mV.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#89 · Boolean Algebra</span> <strong>Simplify the Boolean expression: `(A + B)(A + B&#x27;)`:</strong> &rarr; <span class="ol-ans-highlight">A</span> <span style="color:#475569;font-size:12.8px;">((A + B)(A + B&#x27;) = A + (B · B&#x27;) = A + 0 = A.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#90 · Boolean Algebra</span> <strong>In a 3-variable Boolean function `F(A, B, C) = Σm(1, 2, 4, 7)`, what standard circuit output does `F` represent?</strong> &rarr; <span class="ol-ans-highlight">Full Adder Sum (A ⊕ B ⊕ C)</span> <span style="color:#475569;font-size:12.8px;">(Minterms 1 (001), 2 (010), 4 (100), and 7 (111) all have an odd number of 1s, which is `A ⊕ B ⊕ C` (Full Adder Sum).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#91 · Boolean Algebra</span> <strong>In a 3-variable Boolean function `F(A, B, C) = Σm(3, 5, 6, 7)`, what standard circuit output does `F` represent?</strong> &rarr; <span class="ol-ans-highlight">Full Adder Carry / 3-Input Majority Function (AB + BC + AC)</span> <span style="color:#475569;font-size:12.8px;">(Minterms 3 (011), 5 (101), 6 (110), and 7 (111) have two or three 1s, simplifying to `AB + BC + AC` (Full Adder Carry).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#92 · Number Systems</span> <strong>How many bits are required to represent a 4-digit decimal number in 8421 BCD code?</strong> &rarr; <span class="ol-ans-highlight">16 bits (4 bits per decimal digit)</span> <span style="color:#475569;font-size:12.8px;">(BCD encodes each decimal digit separately into a 4-bit nibble: 4 digits × 4 bits/digit = 16 bits.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#93 · Number Systems</span> <strong>What is the 9&#x27;s complement and 10&#x27;s complement of the decimal number `456`?</strong> &rarr; <span class="ol-ans-highlight">9&#x27;s complement = 543, 10&#x27;s complement = 544</span> <span style="color:#475569;font-size:12.8px;">(9&#x27;s complement = 999 - 456 = 543; 10&#x27;s complement = 9&#x27;s complement + 1 = 544.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#94 · Logic Gates</span> <strong>When the outputs of two Open-Collector TTL gates are tied together to a single pull-up resistor, what implicit logic function is formed without an extra gate?</strong> &rarr; <span class="ol-ans-highlight">Wired-AND</span> <span style="color:#475569;font-size:12.8px;">(Tying open-collector outputs together with a pull-up resistor pulls the line low if ANY gate conducts, creating an active-high Wired-AND (`Y = Y_1 · Y_2`).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#95 · Logic Gates</span> <strong>What is the purpose of a Tri-State Buffer (with a High-Impedance `Hi-Z` third state) in digital bus systems?</strong> &rarr; <span class="ol-ans-highlight">To allow multiple devices to share a common data bus without electrical contention (only one driver enabled at a time)</span> <span style="color:#475569;font-size:12.8px;">(When disabled, a Tri-State Buffer enters High-Impedance (`Hi-Z`, effectively an open circuit), isolating the device from the shared bus.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#96 · Counters</span> <strong>Which problem can occur in a Ring Counter or Johnson Counter with unused states (`2^n - N` invalid states), and how is it solved?</strong> &rarr; <span class="ol-ans-highlight">Lock-out (getting stuck in an invalid state cycle); solved by designing a self-starting feedback circuit</span> <span style="color:#475569;font-size:12.8px;">(If power-up noise puts a counter into one of the unused states, it may cycle endlessly there (Lock-out) unless feedback drives unused states back into the main cycle.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#97 · Flip-Flops</span> <strong>For a D Flip-Flop, the minimum time before the active clock edge during which the data input D must remain stable is called:</strong> &rarr; <span class="ol-ans-highlight">Setup Time (t_su)</span> <span style="color:#475569;font-size:12.8px;">(Setup Time (t_su) is the pre-clock stability window; Hold Time (t_h) is the post-clock stability window (violating either causes Metastability).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#98 · Counters</span> <strong>In a 4-bit Synchronous Up-Counter built with T Flip-Flops (`Q_3 Q_2 Q_1 Q_0`, where `Q_0` is LSB), the toggle input `T_3` for the MSB flip-flop is:</strong> &rarr; <span class="ol-ans-highlight">T_3 = Q_0 · Q_1 · Q_2</span> <span style="color:#475569;font-size:12.8px;">(In a synchronous binary up-counter, flip-flop i toggles only when all lower-order bits `Q_0 ... Q_{i-1}` are simultaneously 1.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#99 · Combinational Circuits</span> <strong>Which combinational circuit takes a single data input and routes it to one of `2^n` output lines based on `n` select lines?</strong> &rarr; <span class="ol-ans-highlight">1-to-2^n Demultiplexer (DEMUX)</span> <span style="color:#475569;font-size:12.8px;">(A Demultiplexer (Data Distributor) performs the inverse of a MUX, routing 1 input to one of 2^n outputs (a Decoder with an Enable pin acts as a DEMUX!).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#100 · Boolean Algebra</span> <strong>A Boolean function `F(A, B, C)` is called Self-Dual if `F^D(A, B, C) = F(A, B, C)`. How many Self-Dual functions of `n = 3` variables exist?</strong> &rarr; <span class="ol-ans-highlight">16 (given by 2^(2^(n-1)))</span> <span style="color:#475569;font-size:12.8px;">(For n variables, the number of self-dual Boolean functions is 2^(2^(n-1)) = 2^(2²) = 2^4 = 16.)</span></span></li>
+
+      </ul>
+    </div>
+    
+      </div>
+    </section>
+
+    <!-- TAB 2: 100 MOST PROBABLE MCQs -->
+    <section id="paneMcqs" style="display:none;">
+      <div class="toolbar-card">
+        <input type="text" id="mcqSearch" class="search-input" placeholder="🔍 Filter the 100 Most Probable MCQs by topic or keyword..." oninput="renderMcqList()">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span id="scoreBadge" style="font-size:13px;font-weight:800;background:#dcfce7;color:#14532d;padding:7px 12px;border-radius:8px;">Score: 0 / 0</span>
+          <button class="action-btn green" onclick="toggleRevealAll()" id="btnRevealAll">📖 Show All 100 Answers &amp; Explanations</button>
+          <button class="action-btn secondary" onclick="shuffleAllMcqs()">🔀 Shuffle 100 MCQs &amp; Options</button>
+          <button class="action-btn" onclick="resetMcqSession()">↺ Reset</button>
+        </div>
+      </div>
+      <div id="mcqContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    const RAW_QS = [{"id": "P2_S2_Q001", "num": 1, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2024", "question": "(1.3125)_10 is represented as 1.5 in which of the following number system bases?", "options": {"A": "16", "B": "8 (Octal radix system where 0.5 equals 0.625 in decimal)", "C": "12 (Duodecimal system where 0.5 equals 5/12 in decimal)", "D": "18 (Base-18 system where 0.5 equals 5/18 in decimal)"}, "answer": "A", "explanation": "1 + 5/b = 1.3125 =\u003e 5/b = 0.3125 = 5/16 =\u003e base b = 16."}, {"id": "P2_S2_Q002", "num": 2, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2024", "question": "Suppose in a ternary system numbers are written using digits 0, 1, and 2 with 0 \u003c 1 \u003c 2. What will be the binary equivalent of (222)_3?", "options": {"A": "11011 which represents decimal twenty-seven in binary", "B": "11010", "C": "11000 which represents decimal twenty-four in binary", "D": "10110 which represents decimal twenty-two in binary"}, "answer": "B", "explanation": "(222)_3 = 2(9) + 2(3) + 2(1) = 18 + 6 + 2 = 26_10 = (11010)_2."}, {"id": "P2_S2_Q003", "num": 3, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2024", "question": "P is a 16-bit signed integer whose 2's complement representation is (F87B)_16. The 2's complement representation of 8 * P is:", "options": {"A": "(187B)_16 obtained by altering only the highest nibble", "B": "(F878)_16 obtained by clearing the lowest two bits", "C": "(C3D8)_16", "D": "(987B)_16 obtained by shifting only the sign bit position"}, "answer": "C", "explanation": "F87B_16 = 1111 1000 0111 1011_2; multiplying by 8 = left shift by 3 bits = 1100 0011 1101 1000_2 = (C3D8)_16."}, {"id": "P2_S2_Q004", "num": 4, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2024", "question": "What is the binary representation of the decimal number 13?", "options": {"A": "1011 which is the binary representation of decimal 11", "B": "1001 which is the binary representation of decimal 9", "C": "1110 which is the binary representation of decimal 14", "D": "1101"}, "answer": "D", "explanation": "13 = 8 + 4 + 0 + 1 = (1101)_2."}, {"id": "P2_S2_Q005", "num": 5, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2024", "question": "The decimal value 0.5 in IEEE 754 single-precision floating-point representation has:", "options": {"A": "fraction bits of 000...000 and exponent value of -1", "B": "fraction bits of 000...000 and exponent value of 0", "C": "fraction bits of 100...000 and exponent value of 0", "D": "no exact finite representation in binary floating point"}, "answer": "A", "explanation": "0.5_10 = (0.1)_2 = 1.0 × 2^(-1), so mantissa/fraction bits are all 0s and true exponent is -1."}, {"id": "P2_S2_Q006", "num": 6, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2025", "question": "Which logic gate has the output '1' ONLY when both inputs are the same?", "options": {"A": "AND gate which outputs 1 only when both inputs are 1", "B": "XNOR gate", "C": "OR gate which outputs 1 when at least one input is 1", "D": "XOR gate which outputs 1 only when both inputs differ"}, "answer": "B", "explanation": "XNOR (equivalence gate, AB + A'B') outputs 1 when inputs are (0,0) or (1,1)."}, {"id": "P2_S2_Q007", "num": 7, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2025", "question": "What is the Boolean expression for the two-input AND gate?", "options": {"A": "A + B which represents the logical OR gate operation", "B": "A' + B' which represents the logical NAND gate operation", "C": "A · B", "D": "A' · B' which represents the logical NOR gate operation"}, "answer": "C", "explanation": "The AND gate performs logical multiplication: Y = A · B."}, {"id": "P2_S2_Q008", "num": 8, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2025", "question": "Which of the following is a Universal Gate?", "options": {"A": "AND gate which cannot perform logical inversion alone", "B": "OR gate which cannot perform logical inversion alone", "C": "XOR gate which preserves parity and is not universal", "D": "NOR gate"}, "answer": "D", "explanation": "NAND and NOR are universal gates capable of implementing any Boolean function."}, {"id": "P2_S2_Q009", "num": 9, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2025", "question": "The output of an OR gate is 1 if:", "options": {"A": "At least one input is 1", "B": "All inputs are 0 simultaneously at the gate terminals", "C": "Only one input is 0 while others are unspecified", "D": "All inputs are 1 simultaneously as required in AND"}, "answer": "A", "explanation": "An OR gate outputs 1 whenever one or more of its inputs are 1."}, {"id": "P2_S2_Q010", "num": 10, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "TPSC PYQ 2025", "question": "The sum output of a Full Adder is given by which Boolean expression?", "options": {"A": "A + B which is simple logical OR without carry", "B": "(A ⊕ B) ⊕ C_in", "C": "A ⊕ B which is the sum of a Half Adder only", "D": "A · B which is the carry output of a Half Adder"}, "answer": "B", "explanation": "Full Adder Sum = A ⊕ B ⊕ C_in (and Carry = AB + BC_in + AC_in)."}, {"id": "P2_S2_Q011", "num": 11, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Universal Gates", "question": "What is the minimum number of 2-input NAND gates required to implement a 2-input XOR gate (Y = A ⊕ B) and a 2-input XNOR gate (Y = A ⊙ B), respectively?", "options": {"A": "5 NAND gates for XOR and 4 NAND gates for XNOR", "B": "3 NAND gates for XOR and 4 NAND gates for XNOR when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "4 NAND gates for XOR and 5 NAND gates for XNOR", "D": "4 NAND gates for XOR and 4 NAND gates for XNOR"}, "answer": "C", "explanation": "A 2-input XOR gate requires a minimum of 4 two-input NAND gates (or 5 NOR gates), while a 2-input XNOR gate requires 5 two-input NAND gates (or 4 NOR gates)."}, {"id": "P2_S2_Q012", "num": 12, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Minimization", "question": "By applying the Consensus Theorem of Boolean algebra, the expression F(A, B, C) = A·B + A'·C + B·C simplifies to which minimal sum-of-products (SOP) form?", "options": {"A": "A·B + B·C", "B": "A'·C + B·C", "C": "A + B + C as prescribed under prevailing statutory and departmental technical norms", "D": "A·B + A'·C"}, "answer": "D", "explanation": "By the Consensus Theorem (XY + X'Z + YZ = XY + X'Z), the third term B·C is the redundant consensus of A·B and A'·C and is eliminated."}, {"id": "P2_S2_Q013", "num": 13, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Multiplexer Design", "question": "Without using any external logic gates (assuming only constants 0, 1 and complement of the least significant variable are available), what size Multiplexer is sufficient to implement any arbitrary 4-variable Boolean function F(A, B, C, D)?", "options": {"A": "8 : 1 Multiplexer with 3 select lines", "B": "16 : 1 Multiplexer with 4 select lines", "C": "4 : 1 Multiplexer with 2 select lines", "D": "2 : 1 Multiplexer with 1 select line"}, "answer": "A", "explanation": "An n-variable Boolean function can always be implemented using a 2^(n-1) : 1 MUX by connecting n - 1 variables (A, B, C) to the select lines and feeding {0, 1, D, D'} to the data inputs. For n = 4, a 2³ : 1 = 8 : 1 MUX suffices."}, {"id": "P2_S2_Q014", "num": 14, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Sequential Counters", "question": "An 8-bit Johnson Counter (Twisted-Ring Counter) is driven by a 160 MHz clock signal. What is its modulus (MOD number), output frequency at any flip-flop, and number of unused states?", "options": {"A": "MOD-8; Output frequency = 20 MHz; Unused states = 248", "B": "MOD-16; Output frequency = 10 MHz; Unused states = 240", "C": "MOD-256; Output frequency = 625 kHz; Unused states = 0 according to the formal architectural model and runtime execution rules", "D": "MOD-16; Output frequency = 20 MHz; Unused states = 16"}, "answer": "B", "explanation": "An n-bit Johnson counter has Modulus = 2n = 2(8) = 16 states. Output frequency = f_clk / 2n = 160 MHz / 16 = 10 MHz. Unused states = 2^n - 2n = 256 - 16 = 240."}, {"id": "P2_S2_Q015", "num": 15, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "In a level-triggered JK flip-flop with J = 1 and K = 1, the undesirable 'Race-Around Condition' occurs when the clock pulse width t_p satisfies which condition relative to flip-flop propagation delay t_pd?", "options": {"A": "t_p \u003c t_pd (and is eliminated by increasing the clock high duration)", "B": "t_p = 0 (and is eliminated by tying Preset and Clear inputs together)", "C": "t_p \u003e t_pd (and is eliminated by using a Master-Slave JK or edge-triggered flip-flop)", "D": "t_p \u003c t_setup (and is eliminated by adding a combinational ripple delay) when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "When J = K = 1 in a level-triggered JK latch and the clock pulse width t_p exceeds propagation delay t_pd, the output toggles multiple times within a single clock pulse (Race-Around), solved via Master-Slave JK or edge triggering."}, {"id": "P2_S2_Q016", "num": 16, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "2's Complement Arithmetic", "question": "In an 8-bit 2's complement fixed-point representation, what is the exact decimal range of representable signed integers, and what is the 8-bit 2's complement binary pattern for -45?", "options": {"A": "Range: -127 to +127; Binary for -45: 11010010 as prescribed under prevailing statutory and departmental technical norms", "B": "Range: -128 to +128; Binary for -45: 10101101", "C": "Range: -256 to +255; Binary for -45: 11010101", "D": "Range: -128 to +127; Binary for -45: 11010011"}, "answer": "D", "explanation": "8-bit 2's complement range is -2⁷ to +(2⁷ - 1) = -128 to +127. Since +45 = 00101101₂, inverting bits gives 11010010₂ and adding 1 yields 11010011₂."}, {"id": "P2_S2_Q017", "num": 17, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "IEEE-754 Floating Point", "question": "What is the decimal value of the 32-bit IEEE-754 single-precision floating-point number represented in hexadecimal as 0xC1480000?", "options": {"A": "-12.5", "B": "-25.0", "C": "+12.5 under standard IEEE/ISO technical specifications and system constraints", "D": "-6.25"}, "answer": "A", "explanation": "0xC1480000 = 1100 0001 0100 1000 0000...₂. Sign S = 1 (negative); 8-bit Exponent E = 10000010₂ = 130 (True exponent = 130 - 127 = 3); Mantissa 1.M = 1.1001₂ = 1 + 0.5 + 0.0625 = 1.5625. Value = -1.5625 × 2³ = -12.5."}, {"id": "P2_S2_Q018", "num": 18, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Sequential Timing", "question": "In a synchronous sequential circuit, each flip-flop has a clock-to-Q propagation delay of 4 ns and a setup time of 3 ns, and the longest combinational logic path between flip-flops has a delay of 13 ns. What is the maximum safe clock frequency?", "options": {"A": "40 MHz", "B": "50 MHz", "C": "62.5 MHz", "D": "75 MHz"}, "answer": "B", "explanation": "Minimum clock period T_min = t_pcq + t_comb + t_setup = 4 + 13 + 3 = 20 ns (hold time does not add to T_min). Maximum clock frequency f_max = 1 / 20 ns = 50 MHz."}, {"id": "P2_S2_Q019", "num": 19, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "How many 2-to-1 Multiplexers are required to construct a 32-to-1 Multiplexer tree without using any other logic gates?", "options": {"A": "32 when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "16", "C": "31", "D": "63"}, "answer": "C", "explanation": "To build a 2^n : 1 MUX using 2 : 1 MUXes, the total number required is 2^n - 1 = 16 + 8 + 4 + 2 + 1 = 31."}, {"id": "P2_S2_Q020", "num": 20, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "A 4-variable Boolean function F(A,B,C,D) = ∑m(0, 2, 5, 7, 8, 10, 13, 15) is minimized using a 4-variable Karnaugh Map. What is the simplified minimal SOP expression?", "options": {"A": "A'·C' + A·C (i.e., A ⊙ C)", "B": "B'·D + B·D' (i.e., B ⊕ D) as prescribed under prevailing statutory and departmental technical norms", "C": "A·B + C·D", "D": "B'·D' + B·D (i.e., B ⊙ D)"}, "answer": "D", "explanation": "Minterms {0, 2, 8, 10} form the four corners quad B'·D', and minterms {5, 7, 13, 15} form the center quad B·D. Together, F = B'·D' + B·D = B ⊙ D."}, {"id": "P2_S2_Q021", "num": 21, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "How many distinct Boolean functions can be formed using n = 4 binary variables, and how many of them are Self-Dual functions?", "options": {"A": "65,536 total Boolean functions; 256 Self-Dual functions", "B": "16 total Boolean functions; 8 Self-Dual functions", "C": "256 total Boolean functions; 16 Self-Dual functions", "D": "32,768 total Boolean functions; 1,024 Self-Dual functions"}, "answer": "A", "explanation": "With n = 4 variables, there are 2⁴ = 16 minterms, yielding 2^(2⁴) = 2¹⁶ = 65,536 Boolean functions, and 2^(2^(n-1)) = 2⁸ = 256 Self-Dual functions."}, {"id": "P2_S2_Q022", "num": 22, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "In a 4-bit Carry Look-Ahead (CLA) adder, what are the Boolean expressions for Carry Generate (G_i), Carry Propagate (P_i), and the output carry C_(i+1)?", "options": {"A": "G_i = A_i ⊕ B_i, P_i = A_i · B_i, and C_(i+1) = G_i · P_i + C_i according to the formal architectural model and runtime execution rules", "B": "G_i = A_i · B_i, P_i = A_i ⊕ B_i, and C_(i+1) = G_i + P_i · C_i", "C": "G_i = A_i + B_i, P_i = A_i ⊙ B_i, and C_(i+1) = G_i ⊕ C_i", "D": "G_i = A_i' · B_i', P_i = A_i + B_i, and C_(i+1) = P_i + G_i"}, "answer": "B", "explanation": "Carry Look-Ahead defines Generate G_i = A_i · B_i and Propagate P_i = A_i ⊕ B_i so that C_(i+1) = G_i + P_i C_i can be computed in 2 gate levels independent of bit width."}, {"id": "P2_S2_Q023", "num": 23, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "What is the minimum number of flip-flops required to construct a MOD-50 synchronous counter, and what is the modulus of a 6-bit Ring Counter?", "options": {"A": "5 flip-flops for MOD-50; 6-bit Ring Counter is MOD-12", "B": "6 flip-flops for MOD-50; 6-bit Ring Counter is MOD-64", "C": "6 flip-flops for MOD-50; 6-bit Ring Counter is MOD-6", "D": "50 flip-flops for MOD-50; 6-bit Ring Counter is MOD-6"}, "answer": "C", "explanation": "For a MOD-N counter, minimum flip-flops n = ⌈log₂(50)⌉ = 6 (since 2⁵=32 \u003c 50 ≤ 2⁶=64). An n-bit standard Ring Counter has exactly n states (MOD-6)."}, {"id": "P2_S2_Q024", "num": 24, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "When converting a 4-bit binary number B₃ B₂ B₁ B₀ into its 4-bit Gray Code G₃ G₂ G₁ G₀, what is the exact conversion formula?", "options": {"A": "G₀ = B₀, and G_i = B_(i-1) ⊕ B_i for i = 1, 2, 3", "B": "G_i = B_i' for all i = 3, 2, 1, 0", "C": "G₃ = B₀, and G_i = B_i · B_(i+1) as prescribed under prevailing statutory and departmental technical norms", "D": "G₃ = B₃, and G_i = B_(i+1) ⊕ B_i for i = 2, 1, 0"}, "answer": "D", "explanation": "Binary-to-Gray conversion keeps the MSB unchanged (G₃ = B₃) and XORs adjacent binary bits: G₂ = B₃ ⊕ B₂, G₁ = B₂ ⊕ B₁, G₀ = B₁ ⊕ B₀ (for example, Binary 1011₂ → Gray 1110₂)."}, {"id": "P2_S2_Q025", "num": 25, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "Among Programmable Logic Devices (PROM, PAL, PLA), which device has BOTH a programmable AND array and a programmable OR array, offering maximum logic sharing flexibility?", "options": {"A": "PLA (Programmable Logic Array)", "B": "PROM (Programmable Read-Only Memory — fixed AND, programmable OR)", "C": "PAL (Programmable Array Logic — programmable AND, fixed OR)", "D": "Multiplexer (Fixed AND and Fixed OR)"}, "answer": "A", "explanation": "PROM has a fixed AND decoder and programmable OR array; PAL has a programmable AND array and fixed OR array; PLA has both programmable AND and programmable OR arrays."}, {"id": "P2_S2_Q026", "num": 26, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "To convert a D Flip-Flop into a T (Toggle) Flip-Flop, what combinational logic expression must be connected to the D input in terms of external input T and present state Q_n?", "options": {"A": "D = T · Q_n", "B": "D = T ⊕ Q_n (i.e., T·Q_n' + T'·Q_n)", "C": "D = T + Q_n' according to the formal architectural model and runtime execution rules", "D": "D = T ⊙ Q_n"}, "answer": "B", "explanation": "Since a D flip-flop has Q_(n+1) = D and a T flip-flop requires Q_(n+1) = T ⊕ Q_n, driving D with an XOR gate D = T ⊕ Q_n converts D into T."}, {"id": "P2_S2_Q027", "num": 27, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "Which Analog-to-Digital Converter (ADC) architecture achieves the FASTEST conversion speed (completing conversion in a single step using 2^n - 1 parallel comparators), and which ADC offers the highest noise rejection using an integrator?", "options": {"A": "Fastest: Dual-Slope ADC; Highest noise immunity: Flash ADC", "B": "Fastest: Counter-Type Ramp ADC; Highest noise immunity: SAR ADC", "C": "Fastest: Flash (Parallel Comparator) ADC; Highest noise immunity: Dual-Slope Integrating ADC", "D": "Fastest: SAR ADC; Highest noise immunity: R-2R Ladder DAC when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Flash ADC uses 2^n - 1 comparators in parallel for ultra-fast O(1) conversion; Dual-Slope Integrating ADC averages input noise over a fixed integration period, making it ideal for precision digital voltmeters."}, {"id": "P2_S2_Q028", "num": 28, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "In a two-level Sum-of-Products (SOP) combinational circuit, how is a 'Static-1 Hazard' (a momentary 0 glitch during a single-variable change between two adjacent 1-minterms) eliminated?", "options": {"A": "By removing all flip-flops from the circuit as prescribed under prevailing statutory and departmental technical norms", "B": "By decreasing the power supply voltage below 1.2 V", "C": "By replacing all NAND gates with XOR gates", "D": "By adding the redundant Prime Implicant (Consensus term) that bridges the two adjacent K-Map groups"}, "answer": "D", "explanation": "A Static-1 hazard occurs when two adjacent 1s in a K-Map belong to different product terms with unequal gate delays; adding the overlapping consensus prime implicant holds the output at 1 during the transition."}, {"id": "P2_S2_Q029", "num": 29, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "What is the minimum number of 2-input NOR gates required to implement a 2-input XNOR gate (Y = A ⊙ B) and a 2-input XOR gate (Y = A ⊕ B)?", "options": {"A": "4 NOR gates for XNOR and 5 NOR gates for XOR", "B": "5 NOR gates for XNOR and 4 NOR gates for XOR", "C": "4 NOR gates for both XNOR and XOR under standard IEEE/ISO technical specifications and system constraints", "D": "3 NOR gates for XNOR and 4 NOR gates for XOR"}, "answer": "A", "explanation": "With 2-input NOR gates, XNOR takes 4 NOR gates and adding 1 inverter NOR gate yields XOR in 5 NOR gates (exact dual of NAND gates!)."}, {"id": "P2_S2_Q030", "num": 30, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "In radix-r number systems, if the quadratic equation x² - 11x + 22 = 0 has roots x = 3 and x = 6, what is the base (radix) r of the number system?", "options": {"A": "Base r = 7", "B": "Base r = 8 (Octal)", "C": "Base r = 9", "D": "Base r = 10 (Decimal)"}, "answer": "B", "explanation": "In base r: (x - 3)(x - 6) = x² - 9x + 18 = 0. Comparing with x² - (1·r + 1)x + (2·r + 2) = 0 gives r + 1 = 9 and 2r + 2 = 18 ⇒ r = 8!"}, {"id": "P2_S2_Q031", "num": 31, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "An 8-bit Successive Approximation Register (SAR) Analog-to-Digital Converter (ADC) is driven by a 2 MHz clock. How much time does it take to complete one 8-bit conversion?", "options": {"A": "128 microseconds (256 clock cycles)", "B": "0.5 microseconds (1 clock cycle)", "C": "4 microseconds (8 clock cycles)", "D": "8 microseconds (16 clock cycles)"}, "answer": "C", "explanation": "An n-bit SAR ADC requires exactly n clock cycles (or n+1 with reset). For n = 8 at 2 MHz (0.5 μs/cycle), T_conv = 8 × 0.5 μs = 4 μs."}, {"id": "P2_S2_Q032", "num": 32, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "What is the Dual expression F^D of the Boolean function F(A, B, C) = A·B' + B·C + 0?", "options": {"A": "A'·B + B'·C + 1", "B": "(A' + B) · (B' + C) · 1", "C": "A + B' + C", "D": "(A + B') · (B + C) · 1"}, "answer": "D", "explanation": "To find the Dual F^D (without complementing variables!), swap AND (·) ↔ OR (+) and swap 0 ↔ 1, keeping literals A, B', B, C unchanged: (A + B')·(B + C)·1."}, {"id": "P2_S2_Q033", "num": 33, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "How many address input lines and data input/output lines are required for a 4K × 16 RAM memory chip, and how many such chips are needed to build a 64K × 32 memory module?", "options": {"A": "12 address lines and 16 data lines per chip; 32 chips required for 64K × 32", "B": "10 address lines and 16 data lines per chip; 16 chips required", "C": "12 address lines and 8 data lines per chip; 64 chips required", "D": "14 address lines and 16 data lines per chip; 8 chips required under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "4K = 2¹² words ⇒ 12 address lines and 16 data lines. Number of chips for 64K × 32 = (64K / 4K) × (32 / 16) = 16 × 2 = 32 chips."}, {"id": "P2_S2_Q034", "num": 34, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "A 10-bit Digital-to-Analog Converter (DAC) has a full-scale output voltage of 10.23 V. What is its step size (resolution in mV) and percentage resolution?", "options": {"A": "Step size = 1 mV; Percentage resolution = 0.01% according to the formal architectural model and runtime execution rules", "B": "Step size = 10 mV; Percentage resolution = 0.0977% (1 / 1023)", "C": "Step size = 20 mV; Percentage resolution = 0.20%", "D": "Step size = 5 mV; Percentage resolution = 0.05%"}, "answer": "B", "explanation": "For n = 10 bits, 2^10 - 1 = 1023 steps. Step size = 10.23 V / 1023 = 0.01 V = 10 mV; % resolution = (1 / 1023) × 100% = 0.0977%."}, {"id": "P2_S2_Q035", "num": 35, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "In a 3-bit synchronous counter using T Flip-Flops (Q₂ Q₁ Q₀) that counts up in binary (000 → 001 → ... → 111), what are the T-input logic equations for T₀, T₁, and T₂?", "options": {"A": "T₀ = Q₀, T₁ = Q₁, and T₂ = Q₂", "B": "T₀ = 1, T₁ = Q₀', and T₂ = Q₁ + Q₀", "C": "T₀ = 1, T₁ = Q₀, and T₂ = Q₁ · Q₀", "D": "T₀ = Q₂, T₁ = Q₁ ⊕ Q₀, and T₂ = 1"}, "answer": "C", "explanation": "In a synchronous binary up-counter, LSB Q₀ toggles every clock (T₀ = 1), Q₁ toggles when Q₀ = 1 (T₁ = Q₀), and Q₂ toggles when both lower bits are 1 (T₂ = Q₁ · Q₀)."}, {"id": "P2_S2_Q036", "num": 36, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Digital Logic", "question": "Which digital IC logic family is the fastest (using non-saturated bipolar Differential Amplifier current-mode switching) and which logic family consumes the lowest static power?", "options": {"A": "Fastest: CMOS; Lowest static power: ECL", "B": "Fastest: Standard TTL; Lowest static power: RTL", "C": "Fastest: DTL; Lowest static power: TTL as prescribed under prevailing statutory and departmental technical norms", "D": "Fastest: ECL (Emitter-Coupled Logic); Lowest static power: CMOS (Complementary MOS)"}, "answer": "D", "explanation": "ECL avoids transistor saturation to achieve sub-nanosecond gate delays (fastest), while CMOS draws virtually zero static power when idle."}, {"id": "P2_S2_Q037", "num": 37, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the hexadecimal equivalent of the binary number `(101101111001)_2`?", "options": {"A": "(B79)_16", "B": "(A79)_16 under standard IEEE/ISO technical specifications and system constraints", "C": "(B69)_16", "D": "(C79)_16"}, "answer": "A", "explanation": "Group into 4-bit nibbles: 1011 = B, 0111 = 7, 1001 = 9 -\u003e (B79)_16."}, {"id": "P2_S2_Q038", "num": 38, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the octal equivalent of the hexadecimal number `(2F5)_16`?", "options": {"A": "(1265)_8", "B": "(1365)_8", "C": "(1355)_8 according to the formal architectural model and runtime execution rules", "D": "(1465)_8"}, "answer": "B", "explanation": "(2F5)_16 = 0010 1111 0101_2 = 001 011 110 101_2 = (1365)_8."}, {"id": "P2_S2_Q039", "num": 39, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the 2's complement representation of `-45` in an 8-bit signed binary register?", "options": {"A": "11010010 (which is the 1's complement of 45)", "B": "10101101 (which is the sign-magnitude representation of -45)", "C": "11010011", "D": "00101101 (which is +45 in binary)"}, "answer": "C", "explanation": "+45 = 00101101_2; 1's complement = 11010010_2; adding 1 gives 2's complement = 11010011_2."}, {"id": "P2_S2_Q040", "num": 40, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the exact range of signed integers representable in an 8-bit 2's complement system?", "options": {"A": "-127 to +127 (range of 8-bit 1's complement and sign-magnitude)", "B": "-256 to +255", "C": "0 to +255 (range of 8-bit unsigned integers)", "D": "-128 to +127"}, "answer": "D", "explanation": "For n = 8 bits, 2's complement range is -2^(n-1) to +(2^(n-1) - 1) = -128 to +127."}, {"id": "P2_S2_Q041", "num": 41, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "Which of the following binary codes is a Self-Complementing and Unweighted code?", "options": {"A": "Excess-3 (XS-3) code", "B": "8421 BCD code (weighted and not self-complementing)", "C": "Gray code (unweighted unit-distance, not self-complementing)", "D": "Binary positional code (weighted)"}, "answer": "A", "explanation": "Excess-3 (BCD + 0011) is unweighted and self-complementing (1's complement of XS-3 code gives the 9's complement of the decimal digit)."}, {"id": "P2_S2_Q042", "num": 42, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the Gray code equivalent of the binary number `(1011)_2`?", "options": {"A": "1101", "B": "1110", "C": "1001", "D": "1111 according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "G_3 = B_3 = 1; G_2 = 1⊕0 = 1; G_1 = 0⊕1 = 1; G_0 = 1⊕1 = 0 -\u003e 1110."}, {"id": "P2_S2_Q043", "num": 43, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the binary equivalent of the Gray code `(1101)_Gray`?", "options": {"A": "1110 when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "1011", "C": "1001", "D": "1100"}, "answer": "C", "explanation": "B_3 = G_3 = 1; B_2 = B_3⊕G_2 = 1⊕1 = 0; B_1 = B_2⊕G_1 = 0⊕0 = 0; B_0 = B_1⊕G_0 = 0⊕1 = 1 -\u003e 1001."}, {"id": "P2_S2_Q044", "num": 44, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "In BCD (8421) addition, if the 4-bit sum exceeds 9 (`1001_2`) or generates a carry out, which correction factor is added?", "options": {"A": "0011 (decimal 3)", "B": "1010 (decimal 10)", "C": "0100 (decimal 4)", "D": "0110 (decimal 6)"}, "answer": "D", "explanation": "Adding 6 (`0110_2`) skips the 6 invalid 4-bit states (1010 through 1111) in BCD addition."}, {"id": "P2_S2_Q045", "num": 45, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "In 2's complement arithmetic on n-bit numbers, overflow is detected by:", "options": {"A": "C_in(MSB) XOR C_out(MSB) = 1", "B": "C_out(MSB) = 1 alone (which is valid in 2's complement)", "C": "C_in(MSB) AND C_out(MSB) = 1", "D": "LSB = 1"}, "answer": "A", "explanation": "Signed 2's complement overflow occurs iff the carry into the sign bit (MSB) differs from the carry out of the sign bit."}, {"id": "P2_S2_Q046", "num": 46, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "If `(123)_5 = (x8)_y`, how many possible values of base `y` exist, or what is `(123)_5` in decimal?", "options": {"A": "28 in decimal according to the formal architectural model and runtime execution rules", "B": "38 in decimal (so 38 = x·y + 8 =\u003e x·y = 30 with y \u003e 8)", "C": "48 in decimal", "D": "123 in decimal"}, "answer": "B", "explanation": "(123)_5 = 1(25) + 2(5) + 3(1) = 38_10; since digit 8 appears in base y, y ≥ 9 (x=1, y=30; x=2, y=15; x=3, y=10 -\u003e 3 solutions)."}, {"id": "P2_S2_Q047", "num": 47, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "According to De Morgan's Law, the complement of `(A + B'C)` is:", "options": {"A": "A' + B · C'", "B": "A' · B · C' when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "A' · (B + C')", "D": "A + B · C'"}, "answer": "C", "explanation": "(A + B'C)' = A' · (B'C)' = A' · (B'' + C') = A' · (B + C')."}, {"id": "P2_S2_Q048", "num": 48, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "Simplify the Boolean expression: `Y = A + A'B`:", "options": {"A": "A · B", "B": "A", "C": "B as prescribed under prevailing statutory and departmental technical norms", "D": "A + B"}, "answer": "D", "explanation": "By the distributive/absorption law, A + A'B = (A + A')(A + B) = 1 · (A + B) = A + B."}, {"id": "P2_S2_Q049", "num": 49, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "By the Consensus Theorem, the Boolean expression `AB + A'C + BC` simplifies to:", "options": {"A": "AB + A'C", "B": "AB + BC", "C": "A'C + BC", "D": "A + B + C"}, "answer": "A", "explanation": "In AB + A'C + BC, the term BC is the consensus of AB and A'C (`BC = BC(A + A') = ABC + A'BC`) and is redundant."}, {"id": "P2_S2_Q050", "num": 50, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "How many distinct Boolean functions can be formed using `n = 3` Boolean variables?", "options": {"A": "8 (which is the number of minterms 2³)", "B": "256", "C": "16 (which is 2^(2²) for n = 2 variables)", "D": "64"}, "answer": "B", "explanation": "For n variables, there are 2^n truth-table rows and 2^(2^n) possible Boolean functions: for n = 3, 2^(2³) = 2^8 = 256."}, {"id": "P2_S2_Q051", "num": 51, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "What is the Dual of the Boolean expression `A · B' + C · 1 = 0`?", "options": {"A": "A' + B · C' = 1 (which takes complement, not dual)", "B": "(A + B) · (C + 1) = 0", "C": "(A + B') · (C + 0) = 1", "D": "A · B + C · 0 = 1"}, "answer": "C", "explanation": "To find the Dual, swap AND (·) with OR (+), and swap 0 with 1, while keeping literals unchanged!"}, {"id": "P2_S2_Q052", "num": 52, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Gates", "question": "What is the minimum number of 2-input NAND gates required to implement a 2-input XOR gate (`A ⊕ B`)?", "options": {"A": "3 (minimum for OR gate using NAND)", "B": "5 (minimum for XNOR gate using NAND)", "C": "6", "D": "4"}, "answer": "D", "explanation": "A 2-input XOR gate requires a minimum of 4 two-input NAND gates (and 5 two-input NOR gates)."}, {"id": "P2_S2_Q053", "num": 53, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Gates", "question": "What is the minimum number of 2-input NAND gates required to implement a 2-input OR gate (`A + B`)?", "options": {"A": "3", "B": "2 (minimum for AND gate using NAND)", "C": "4 (minimum for XOR gate using NAND)", "D": "1 (minimum for NOT gate using NAND)"}, "answer": "A", "explanation": "By De Morgan's law, A + B = ((A') · (B'))', requiring 2 NAND gates as inverters plus 1 NAND gate = 3 NAND gates."}, {"id": "P2_S2_Q054", "num": 54, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Gates", "question": "If one input of a 2-input XOR gate is connected to logic `1` and the other input is `X`, the output is:", "options": {"A": "X (Buffer, which occurs when control input is 0)", "B": "X' (Controlled Inverter)", "C": "1 (constant high)", "D": "0 (constant low)"}, "answer": "B", "explanation": "Since X ⊕ 1 = X'·1 + X·0 = X', an XOR gate with one input tied to 1 acts as an Inverter!"}, {"id": "P2_S2_Q055", "num": 55, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Gates", "question": "For a 3-input XOR gate `Y = A ⊕ B ⊕ C`, the output is `1` whenever the inputs contain:", "options": {"A": "An EVEN number of 1s (0 or 2 ones)", "B": "All 0s only", "C": "An ODD number of 1s (1 or 3 ones)", "D": "At least one 1"}, "answer": "C", "explanation": "Multi-input XOR is an Odd-1s (Odd Parity) detector: it outputs 1 for minterms m1, m2, m4, m7."}, {"id": "P2_S2_Q056", "num": 56, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "K-Map", "question": "In a 4-variable Karnaugh Map (K-Map), a group (octet) of 8 adjacent 1s simplifies to a product term containing how many literals?", "options": {"A": "2 literals (group of 4 / quad)", "B": "3 literals (group of 2 / pair)", "C": "4 literals (single isolated cell)", "D": "1 literal"}, "answer": "D", "explanation": "In an n-variable K-map, a group of 2^k cells eliminates k variables and leaves (n - k) literals: 4 - 3 = 1 literal."}, {"id": "P2_S2_Q057", "num": 57, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "K-Map", "question": "In a 3-variable K-Map for `F(A, B, C) = Σm(0, 1, 2, 3, 4, 5, 6, 7)`, the simplified expression is:", "options": {"A": "1", "B": "0", "C": "A + B + C", "D": "A · B · C"}, "answer": "A", "explanation": "When all 2^3 = 8 minterms are 1, the entire K-map forms a group of 8, simplifying to constant logic 1."}, {"id": "P2_S2_Q058", "num": 58, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "K-Map", "question": "For any Boolean function of n variables, the relationship between its minterm list and maxterm list is:", "options": {"A": "Minterm indices are identical to Maxterm indices according to the formal architectural model and runtime execution rules", "B": "Minterm indices and Maxterm indices are complementary subsets of {0, ..., 2^n - 1}", "C": "M_i = m_i for every index i", "D": "The sum of all minterms equals 0"}, "answer": "B", "explanation": "Since M_i = (m_i)', a function with Σm(1, 3, 5) has product-of-sums ΠM(0, 2, 4, 6, 7); also Σm_i (over all 2^n minterms) = 1."}, {"id": "P2_S2_Q059", "num": 59, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Combinational Circuits", "question": "A Half Adder has two inputs A and B. Its Sum (S) and Carry (C) outputs are:", "options": {"A": "S = A + B, C = A ⊕ B", "B": "S = A'B, C = A ⊕ B when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "S = A ⊕ B, C = A · B", "D": "S = A ⊙ B, C = A + B"}, "answer": "C", "explanation": "A Half Adder adds two 1-bit binary numbers without carry-in: Sum = A ⊕ B and Carry = A · B."}, {"id": "P2_S2_Q060", "num": 60, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Combinational Circuits", "question": "How many Half Adders and OR gates are required to construct a 1-bit Full Adder?", "options": {"A": "2 Half Adders and 1 AND gate", "B": "3 Half Adders and 1 OR gate", "C": "1 Half Adder and 2 OR gates", "D": "2 Half Adders and 1 OR gate"}, "answer": "D", "explanation": "A Full Adder is built by cascading 2 Half Adders and combining their carry outputs with 1 two-input OR gate."}, {"id": "P2_S2_Q061", "num": 61, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Combinational Circuits", "question": "In a Half Subtractor subtracting B from A (`A - B`), the Difference (D) and Borrow (B_out) expressions are:", "options": {"A": "D = A ⊕ B, B_out = A' · B", "B": "D = A ⊕ B, B_out = A · B' under standard IEEE/ISO technical specifications and system constraints", "C": "D = A ⊕ B, B_out = A · B", "D": "D = A - B, B_out = A + B"}, "answer": "A", "explanation": "A borrow is needed only when A = 0 and B = 1, so B_out = A'B, while Difference D = A ⊕ B."}, {"id": "P2_S2_Q062", "num": 62, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Combinational Circuits", "question": "Which adder circuit eliminates the cumulative carry propagation delay of a Ripple Carry Adder by computing carries in parallel using `G_i = A_i B_i` and `P_i = A_i ⊕ B_i`?", "options": {"A": "Serial Bit-by-Bit Adder", "B": "Carry Look-Ahead (CLA) Adder", "C": "BCD Excess-3 Adder according to the formal architectural model and runtime execution rules", "D": "Half Subtractor Array"}, "answer": "B", "explanation": "A Carry Look-Ahead (CLA) Adder precomputes carry-generate (G_i) and carry-propagate (P_i) signals to achieve O(1) gate-level carry delay."}, {"id": "P2_S2_Q063", "num": 63, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Multiplexers", "question": "A `16 : 1` Multiplexer (MUX) has how many data input lines and how many select lines?", "options": {"A": "4 data inputs and 16 select lines", "B": "16 data inputs and 2 select lines", "C": "16 data inputs and 4 select lines", "D": "8 data inputs and 4 select lines when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "A 2^n : 1 MUX has 2^n = 16 data inputs, n = log_2(16) = 4 select lines, and 1 output."}, {"id": "P2_S2_Q064", "num": 64, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Multiplexers", "question": "How many `2 : 1` Multiplexers are required to construct a `16 : 1` Multiplexer (without using any extra gates)?", "options": {"A": "16 as prescribed under prevailing statutory and departmental technical norms", "B": "8", "C": "14", "D": "15"}, "answer": "D", "explanation": "Building a 2^n : 1 MUX from 2 : 1 MUXes requires (2^n - 1) = 8 + 4 + 2 + 1 = 15 MUXes."}, {"id": "P2_S2_Q065", "num": 65, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Multiplexers", "question": "A `2 : 1` Multiplexer has output `Y = S'·I_0 + S·I_1`. If `S = A`, `I_0 = B`, and `I_1 = B'`, what logic gate does `Y` implement?", "options": {"A": "XOR gate (A ⊕ B)", "B": "XNOR gate (A ⊙ B)", "C": "AND gate (A · B)", "D": "NAND gate ((A · B)')"}, "answer": "A", "explanation": "Substituting into Y = S'I_0 + SI_1 gives Y = A'B + AB' = A ⊕ B (2-input XOR gate)."}, {"id": "P2_S2_Q066", "num": 66, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Decoders", "question": "A `3-to-8` Line Decoder has 3 input lines and 8 active-high minterm outputs. How many `3-to-8` Decoders (with enable pins) are needed to build a `5-to-32` Decoder?", "options": {"A": "2", "B": "4 (plus 1 of 2-to-4 decoder to drive enables, or 5 total)", "C": "8", "D": "16 according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "32 outputs / 8 outputs per chip = 4 `3-to-8` decoders at the output stage (selected by the 2 MSBs)."}, {"id": "P2_S2_Q067", "num": 67, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Encoders", "question": "What is the main advantage of a Priority Encoder over a simple binary Encoder?", "options": {"A": "It requires zero logic gates to implement when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "It converts n inputs into 2^n outputs", "C": "It resolves ambiguity when two or more inputs are active simultaneously by encoding the highest-priority input", "D": "It stores bits permanently like ROM"}, "answer": "C", "explanation": "A simple encoder produces invalid output if multiple inputs are high; a Priority Encoder outputs the binary code of the highest-indexed active input."}, {"id": "P2_S2_Q068", "num": 68, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Comparators", "question": "In a 2-bit Magnitude Comparator comparing `A = A_1 A_0` and `B = B_1 B_0`, for how many input combinations out of 16 is the output `A = B` equal to `1`?", "options": {"A": "2", "B": "8 as prescribed under prevailing statutory and departmental technical norms", "C": "6", "D": "4"}, "answer": "D", "explanation": "There are 2² = 4 values for A (00, 01, 10, 11), and for each, B must match identically =\u003e 4 combinations where A = B (and 6 where A \u003e B, 6 where A \u003c B)."}, {"id": "P2_S2_Q069", "num": 69, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Sequential Circuits", "question": "Unlike a combinational circuit, the output of a Sequential Circuit depends on:", "options": {"A": "Both the present inputs and the past history (present internal state stored in memory)", "B": "Only the present external input signals", "C": "Only the power supply voltage level", "D": "Only future clock edges under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Sequential circuits incorporate memory elements (latches/flip-flops) in a feedback path, so output depends on Present Input + Present State."}, {"id": "P2_S2_Q070", "num": 70, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "How many stable states does a single Flip-Flop (Bistable Multivibrator) have, and how many bits of information can it store?", "options": {"A": "1 stable state (Monostable); stores 2 bits", "B": "2 stable states; stores 1 bit", "C": "0 stable states (Astable); stores 0 bits", "D": "4 stable states; stores 2 bits"}, "answer": "B", "explanation": "A flip-flop is a bistable circuit (states Q=0 and Q=1) that stores exactly 1 bit of binary data."}, {"id": "P2_S2_Q071", "num": 71, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "In a standard NOR-gate SR Latch, which input combination is the Forbidden / Invalid state?", "options": {"A": "S = 0, R = 0 (Hold / No change state)", "B": "S = 1, R = 0 (Set state Q = 1)", "C": "S = 1, R = 1", "D": "S = 0, R = 1 (Reset state Q = 0)"}, "answer": "C", "explanation": "In an active-high NOR SR latch, S = 1 and R = 1 forces both Q and Q' to 0 simultaneously, violating complementarity."}, {"id": "P2_S2_Q072", "num": 72, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "How does a JK Flip-Flop overcome the invalid `S = 1, R = 1` condition of an SR Flip-Flop?", "options": {"A": "When J = 1 and K = 1, the output holds its previous state", "B": "When J = 1 and K = 1, the output always resets to 0", "C": "When J = 1 and K = 1, the clock is disconnected as prescribed under prevailing statutory and departmental technical norms", "D": "When J = 1 and K = 1, the output toggles to its complement (Q_{n+1} = Q_n')"}, "answer": "D", "explanation": "Cross-coupled feedback from Q and Q' makes J = 1, K = 1 toggle the flip-flop state (`Q_{n+1} = Q_n'`)."}, {"id": "P2_S2_Q073", "num": 73, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "What is the Characteristic Equation (next-state equation) of a JK Flip-Flop?", "options": {"A": "Q_{n+1} = J·Q_n' + K'·Q_n", "B": "Q_{n+1} = J·Q_n + K'·Q_n' under standard IEEE/ISO technical specifications and system constraints", "C": "Q_{n+1} = J + K'·Q_n", "D": "Q_{n+1} = J ⊕ Q_n"}, "answer": "A", "explanation": "The JK flip-flop characteristic equation is Q_{n+1} = JQ_n' + K'Q_n."}, {"id": "P2_S2_Q074", "num": 74, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "What is the Characteristic Equation of a T (Toggle) Flip-Flop?", "options": {"A": "Q_{n+1} = T", "B": "Q_{n+1} = T ⊕ Q_n", "C": "Q_{n+1} = T · Q_n according to the formal architectural model and runtime execution rules", "D": "Q_{n+1} = T + Q_n"}, "answer": "B", "explanation": "When T = 0, Q_{n+1} = Q_n (hold); when T = 1, Q_{n+1} = Q_n' (toggle), which is Q_{n+1} = T ⊕ Q_n."}, {"id": "P2_S2_Q075", "num": 75, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "The 'Race-Around Condition' occurs in a level-triggered JK Latch when:", "options": {"A": "J = 0, K = 0, and clock is low", "B": "D = 1 in an edge-triggered D flip-flop", "C": "J = 1, K = 1, and clock pulse width t_p is greater than flip-flop propagation delay t_pd", "D": "S = 0, R = 1 in an SR latch when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "When J=K=1 and clock stays high longer than propagation delay, the output toggles multiple times within a single clock pulse; eliminated by Master-Slave or Edge Triggering."}, {"id": "P2_S2_Q076", "num": 76, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "How do you convert a JK Flip-Flop into a D (Data/Delay) Flip-Flop?", "options": {"A": "Connect both J and K directly to D (which makes a T flip-flop!)", "B": "Connect J = 1 and K = 1 permanently", "C": "Connect J = 0 and K = D", "D": "Connect J = D and K = D' (through an inverter)"}, "answer": "D", "explanation": "Setting J = D and K = D' gives Q_{n+1} = D·Q_n' + D·Q_n = D ( whereas J = K = T gives a T flip-flop)."}, {"id": "P2_S2_Q077", "num": 77, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Counters", "question": "What is the minimum number of flip-flops required to construct a MOD-10 (Decade / BCD) counter?", "options": {"A": "4", "B": "3 (can count up to max 2³ = 8 states only)", "C": "5 (used for up to 32 states)", "D": "10 (which would be a 10-bit ring counter)"}, "answer": "A", "explanation": "Since 2³ = 8 \u003c 10 ≤ 2⁴ = 16, a MOD-10 counter requires n = ⌈log_2(10)⌉ = 4 flip-flops."}, {"id": "P2_S2_Q078", "num": 78, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Counters", "question": "If a 16 MHz clock signal is applied to a cascade of a MOD-4 counter followed by a MOD-8 counter, what is the output frequency of the final stage?", "options": {"A": "2 MHz", "B": "500 kHz", "C": "1 MHz", "D": "4 MHz according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "Cascading MOD-M and MOD-N counters yields a MOD-(M×N) = MOD-32 counter: f_out = 16 MHz / 32 = 0.5 MHz = 500 kHz."}, {"id": "P2_S2_Q079", "num": 79, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Counters", "question": "A 4-bit Asynchronous (Ripple) Counter uses 4 flip-flops, each having a propagation delay of `15 ns`. What is the worst-case total propagation delay of the counter?", "options": {"A": "15 ns (which is the delay of a 4-bit Synchronous counter!)", "B": "30 ns", "C": "60 ns", "D": "45 ns"}, "answer": "C", "explanation": "In a ripple counter, the carry/toggle ripples sequentially through all n = 4 flip-flops: 4 × 15 ns = 60 ns."}, {"id": "P2_S2_Q080", "num": 80, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Counters", "question": "In an n-bit Ring Counter and an n-bit Johnson (Twisted Ring) Counter, the number of valid states in the main counting cycle are respectively:", "options": {"A": "2^n states (Ring) and n states (Johnson)", "B": "2n states (Ring) and n states (Johnson)", "C": "n² states and 2^n states", "D": "n states (Ring) and 2n states (Johnson)"}, "answer": "D", "explanation": "For n flip-flops, a Ring Counter circulates a single 1 through n states, while a Johnson Counter feeds Q_n' back to D_0 to produce 2n states."}, {"id": "P2_S2_Q081", "num": 81, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Shift Registers", "question": "In a 4-bit SISO (Serial-In Serial-Out) shift register initially cleared, how many clock pulses are required to serially load a 4-bit word and then serially read all 4 bits out at the output pin?", "options": {"A": "7 clock pulses (4 to load + 3 to shift out remaining bits)", "B": "4 clock pulses", "C": "8 clock pulses", "D": "1 clock pulse under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "After 4 clock pulses the 4-bit word is loaded (and the first bit is already visible at Q_3); 3 more pulses shift out the remaining 3 bits: 4 + 3 = 7."}, {"id": "P2_S2_Q082", "num": 82, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Shift Registers", "question": "Shifting an unsigned binary number in a register by 1 bit position to the LEFT (inserting 0 at LSB) is equivalent to:", "options": {"A": "Dividing the number by 2 (which is a 1-bit right shift)", "B": "Multiplying the number by 2", "C": "Adding 2 to the number", "D": "Taking the 2's complement of the number"}, "answer": "B", "explanation": "Each left shift by k bits multiplies an integer by 2^k (so 1-bit left shift multiplies by 2)."}, {"id": "P2_S2_Q083", "num": 83, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "FSM", "question": "What is the key difference between a Moore Machine and a Mealy Machine in Finite State Machines?", "options": {"A": "In a Moore machine, output depends on present input only", "B": "A Mealy machine has no flip-flops when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "In a Moore machine, output depends ONLY on the present state; in a Mealy machine, output depends on both present state and present input", "D": "A Moore machine always uses fewer states than a Mealy machine"}, "answer": "C", "explanation": "Moore output is a function of current state only `O = g(S_t)`, whereas Mealy output is a function of current state and current input `O = g(S_t, I_t)`."}, {"id": "P2_S2_Q084", "num": 84, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Programmable Logic", "question": "In Programmable Logic Devices (PROM, PLA, PAL), which device has a Programmable AND array and a Programmable OR array?", "options": {"A": "PROM (Fixed AND decoder array, Programmable OR array)", "B": "PAL (Programmable AND array, Fixed OR array)", "C": "Simple 2-input MUX", "D": "PLA (Programmable Logic Array)"}, "answer": "D", "explanation": "PROM = Fixed AND + Programmable OR; PAL = Programmable AND + Fixed OR; PLA = Programmable AND + Programmable OR (most flexible)."}, {"id": "P2_S2_Q085", "num": 85, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Families", "question": "Which digital IC logic family is famous for having the LOWEST static power dissipation and highest fan-out?", "options": {"A": "CMOS (Complementary Metal-Oxide-Semiconductor)", "B": "ECL (Emitter-Coupled Logic — fastest speed, highest power dissipation)", "C": "Standard TTL (Transistor-Transistor Logic)", "D": "RTL (Resistor-Transistor Logic)"}, "answer": "A", "explanation": "CMOS uses complementary PMOS and NMOS pairs so almost zero static current flows in steady logic 0 or 1 states."}, {"id": "P2_S2_Q086", "num": 86, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Families", "question": "Which digital logic family has the FASTEST switching speed (shortest propagation delay) because its transistors never enter saturation?", "options": {"A": "CMOS", "B": "ECL (Emitter-Coupled Logic)", "C": "Standard TTL", "D": "DTL (Diode-Transistor Logic)"}, "answer": "B", "explanation": "ECL operates bipolar transistors in the active region (preventing saturation storage delay), achieving sub-nanosecond propagation delays."}, {"id": "P2_S2_Q087", "num": 87, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "ADC/DAC", "question": "Which type of Analog-to-Digital Converter (ADC) is the FASTEST (completing conversion in a single clock cycle using `2^n - 1` comparators)?", "options": {"A": "Dual-Slope Integrating ADC (slowest, highest noise rejection, used in digital multimeters)", "B": "Successive Approximation Register (SAR) ADC (takes n clock cycles)", "C": "Flash (Parallel Comparator) ADC", "D": "Counter-type Ramp ADC (takes up to 2^n clock cycles)"}, "answer": "C", "explanation": "A Flash ADC uses 2^n - 1 parallel comparators to convert analog voltage to n-bit digital output in a single step."}, {"id": "P2_S2_Q088", "num": 88, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "ADC/DAC", "question": "In an 8-bit R-2R Ladder Digital-to-Analog Converter (DAC) with full-scale output of 10 V, what is the resolution (step size corresponding to 1 LSB)?", "options": {"A": "10 / 8 = 1.25 V", "B": "10 / 16 = 0.625 V", "C": "10 / 1024 ≈ 9.77 mV", "D": "10 / 255 ≈ 39.2 mV"}, "answer": "D", "explanation": "For an n-bit DAC, resolution (step size) = V_FS / (2^n - 1) = 10 / (2^8 - 1) = 10 / 255 ≈ 39.2 mV."}, {"id": "P2_S2_Q089", "num": 89, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "Simplify the Boolean expression: `(A + B)(A + B')`:", "options": {"A": "A", "B": "B", "C": "A + B", "D": "1"}, "answer": "A", "explanation": "(A + B)(A + B') = A + (B · B') = A + 0 = A."}, {"id": "P2_S2_Q090", "num": 90, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "In a 3-variable Boolean function `F(A, B, C) = Σm(1, 2, 4, 7)`, what standard circuit output does `F` represent?", "options": {"A": "Full Adder Carry (Σm(3, 5, 6, 7))", "B": "Full Adder Sum (A ⊕ B ⊕ C)", "C": "3-bit Majority voter circuit", "D": "3-input XNOR equivalence gate (Σm(0, 3, 5, 6))"}, "answer": "B", "explanation": "Minterms 1 (001), 2 (010), 4 (100), and 7 (111) all have an odd number of 1s, which is `A ⊕ B ⊕ C` (Full Adder Sum)."}, {"id": "P2_S2_Q091", "num": 91, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "In a 3-variable Boolean function `F(A, B, C) = Σm(3, 5, 6, 7)`, what standard circuit output does `F` represent?", "options": {"A": "Full Adder Sum (A ⊕ B ⊕ C) when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "Half Adder Carry", "C": "Full Adder Carry / 3-Input Majority Function (AB + BC + AC)", "D": "3-Input OR Gate"}, "answer": "C", "explanation": "Minterms 3 (011), 5 (101), 6 (110), and 7 (111) have two or three 1s, simplifying to `AB + BC + AC` (Full Adder Carry)."}, {"id": "P2_S2_Q092", "num": 92, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "How many bits are required to represent a 4-digit decimal number in 8421 BCD code?", "options": {"A": "14 bits (required for pure binary representation of 9999)", "B": "12 bits", "C": "8 bits", "D": "16 bits (4 bits per decimal digit)"}, "answer": "D", "explanation": "BCD encodes each decimal digit separately into a 4-bit nibble: 4 digits × 4 bits/digit = 16 bits."}, {"id": "P2_S2_Q093", "num": 93, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Number Systems", "question": "What is the 9's complement and 10's complement of the decimal number `456`?", "options": {"A": "9's complement = 543, 10's complement = 544", "B": "9's complement = 544, 10's complement = 543", "C": "9's complement = 654, 10's complement = 655", "D": "9's complement = 443, 10's complement = 444 under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "9's complement = 999 - 456 = 543; 10's complement = 9's complement + 1 = 544."}, {"id": "P2_S2_Q094", "num": 94, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Gates", "question": "When the outputs of two Open-Collector TTL gates are tied together to a single pull-up resistor, what implicit logic function is formed without an extra gate?", "options": {"A": "Wired-XOR", "B": "Wired-AND", "C": "Wired-XNOR", "D": "Flip-Flop Latch"}, "answer": "B", "explanation": "Tying open-collector outputs together with a pull-up resistor pulls the line low if ANY gate conducts, creating an active-high Wired-AND (`Y = Y_1 · Y_2`)."}, {"id": "P2_S2_Q095", "num": 95, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Logic Gates", "question": "What is the purpose of a Tri-State Buffer (with a High-Impedance `Hi-Z` third state) in digital bus systems?", "options": {"A": "To store 3 bits of binary data in a single flip-flop", "B": "To convert analog signals into ternary base-3 logic when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "To allow multiple devices to share a common data bus without electrical contention (only one driver enabled at a time)", "D": "To triple the clock frequency of a microprocessor"}, "answer": "C", "explanation": "When disabled, a Tri-State Buffer enters High-Impedance (`Hi-Z`, effectively an open circuit), isolating the device from the shared bus."}, {"id": "P2_S2_Q096", "num": 96, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Counters", "question": "Which problem can occur in a Ring Counter or Johnson Counter with unused states (`2^n - N` invalid states), and how is it solved?", "options": {"A": "Race-around condition; solved by increasing clock width", "B": "Belady's anomaly; solved by using LRU", "C": "Bus contention; solved by removing flip-flops as prescribed under prevailing statutory and departmental technical norms", "D": "Lock-out (getting stuck in an invalid state cycle); solved by designing a self-starting feedback circuit"}, "answer": "D", "explanation": "If power-up noise puts a counter into one of the unused states, it may cycle endlessly there (Lock-out) unless feedback drives unused states back into the main cycle."}, {"id": "P2_S2_Q097", "num": 97, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Flip-Flops", "question": "For a D Flip-Flop, the minimum time before the active clock edge during which the data input D must remain stable is called:", "options": {"A": "Setup Time (t_su)", "B": "Hold Time (t_h — minimum time D must remain stable AFTER the clock edge)", "C": "Propagation Delay (t_pd)", "D": "Clock Skew"}, "answer": "A", "explanation": "Setup Time (t_su) is the pre-clock stability window; Hold Time (t_h) is the post-clock stability window (violating either causes Metastability)."}, {"id": "P2_S2_Q098", "num": 98, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Counters", "question": "In a 4-bit Synchronous Up-Counter built with T Flip-Flops (`Q_3 Q_2 Q_1 Q_0`, where `Q_0` is LSB), the toggle input `T_3` for the MSB flip-flop is:", "options": {"A": "T_3 = 1", "B": "T_3 = Q_0 · Q_1 · Q_2", "C": "T_3 = Q_2 only according to the formal architectural model and runtime execution rules", "D": "T_3 = Q_0 + Q_1 + Q_2"}, "answer": "B", "explanation": "In a synchronous binary up-counter, flip-flop i toggles only when all lower-order bits `Q_0 ... Q_{i-1}` are simultaneously 1."}, {"id": "P2_S2_Q099", "num": 99, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Combinational Circuits", "question": "Which combinational circuit takes a single data input and routes it to one of `2^n` output lines based on `n` select lines?", "options": {"A": "2^n-to-1 Multiplexer (MUX)", "B": "2^n-to-n Priority Encoder", "C": "1-to-2^n Demultiplexer (DEMUX)", "D": "Half Adder when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "A Demultiplexer (Data Distributor) performs the inverse of a MUX, routing 1 input to one of 2^n outputs (a Decoder with an Enable pin acts as a DEMUX!)."}, {"id": "P2_S2_Q100", "num": 100, "unit_id": "P2_S2", "chapter": "PAPER-II · SECTION 2: Digital Logic \u0026 Computer Arithmetic", "tag": "Boolean Algebra", "question": "A Boolean function `F(A, B, C)` is called Self-Dual if `F^D(A, B, C) = F(A, B, C)`. How many Self-Dual functions of `n = 3` variables exist?", "options": {"A": "256 (total Boolean functions of 3 variables)", "B": "8", "C": "64", "D": "16 (given by 2^(2^(n-1)))"}, "answer": "D", "explanation": "For n variables, the number of self-dual Boolean functions is 2^(2^(n-1)) = 2^(2²) = 2^4 = 16."}];
+    let activeQs = JSON.parse(JSON.stringify(RAW_QS));
+    let userAns = {};
+    let revealAll = false;
+
+    function switchSecTab(tab) {
+      const p1 = document.getElementById('paneOneliners');
+      const p2 = document.getElementById('paneMcqs');
+      const b1 = document.getElementById('btnTab1');
+      const b2 = document.getElementById('btnTab2');
+      if (tab === 'oneliners') {
+        p1.style.display = 'block';
+        p2.style.display = 'none';
+        b1.classList.add('active');
+        b2.classList.remove('active');
+      } else {
+        p1.style.display = 'none';
+        p2.style.display = 'block';
+        b1.classList.remove('active');
+        b2.classList.add('active');
+        renderMcqList();
+      }
+    }
+
+    function filterOneLiners(q) {
+      const term = (q || '').trim().toLowerCase();
+      const items = document.querySelectorAll('#olContentWrap .ol-item');
+      items.forEach(li => {
+        const txt = li.textContent.toLowerCase();
+        li.style.display = (!term || txt.includes(term)) ? 'flex' : 'none';
+      });
+    }
+
+    function renderMcqList() {
+      const cont = document.getElementById('mcqContainer');
+      const term = (document.getElementById('mcqSearch').value || '').trim().toLowerCase();
+      let htmlOut = '';
+      let correctCnt = 0;
+      let attemptCnt = 0;
+      Object.keys(userAns).forEach(qid => {
+        attemptCnt++;
+        const qObj = activeQs.find(x => x.id === qid);
+        if (qObj && userAns[qid] === qObj.answer) correctCnt++;
+      });
+      document.getElementById('scoreBadge').textContent = `Score: ${correctCnt} / ${attemptCnt} (Total: 100 MCQs)`;
+
+      activeQs.forEach((q, idx) => {
+        const hay = (q.question + ' ' + q.tag + ' ' + q.explanation + ' ' + Object.values(q.options).join(' ')).toLowerCase();
+        if (term && !hay.includes(term)) return;
+        const picked = userAns[q.id];
+        const showNow = revealAll || Boolean(picked);
+        const isPyq = q.tag.includes('PYQ');
+        let optsHtml = '';
+        ['A', 'B', 'C', 'D'].forEach(L => {
+          let cls = 'mcq-opt-btn';
+          let badge = '';
+          if (showNow) {
+            if (L === q.answer) {
+              cls += ' correct';
+              badge = ' ✅';
+            } else if (picked === L && L !== q.answer) {
+              cls += ' wrong';
+              badge = ' ❌';
+            }
+          }
+          optsHtml += `<button class="${cls}" onclick="pickMcqOption('${q.id}', '${L}')"><strong>(${L})</strong> ${q.options[L]}${badge}</button>`;
+        });
+
+        htmlOut += `
+          <div class="mcq-card">
+            <div class="mcq-head">
+              <span class="mcq-num">MCQ #${idx + 1} · ${q.id}</span>
+              <span class="mcq-tag ${isPyq ? 'pyq' : ''}">${isPyq ? '🔥 ' : ''}${q.tag}</span>
+            </div>
+            <div class="mcq-q">Q${idx + 1}. ${q.question}</div>
+            <div class="mcq-opts">${optsHtml}</div>
+            <div class="mcq-exp ${showNow ? 'show' : ''}">
+              <strong>✔ Answer: Option (${q.answer}) — ${q.options[q.answer]}</strong><br>
+              <span>💡 <strong>One-Liner Explanation:</strong> ${q.explanation}</span>
+            </div>
+          </div>
+        `;
+      });
+      cont.innerHTML = htmlOut || '<div class="mcq-card">No matching MCQs found for this filter.</div>';
+    }
+
+    function pickMcqOption(qid, L) {
+      userAns[qid] = L;
+      renderMcqList();
+    }
+
+    function toggleRevealAll() {
+      revealAll = !revealAll;
+      const btn = document.getElementById('btnRevealAll');
+      btn.textContent = revealAll ? '🙈 Hide Answers (Practice Mode)' : '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+
+    function fyShuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function shuffleAllMcqs() {
+      userAns = {};
+      fyShuffle(activeQs);
+      activeQs.forEach(q => {
+        const corrTxt = q.options[q.answer];
+        const vals = fyShuffle([q.options.A, q.options.B, q.options.C, q.options.D]);
+        ['A', 'B', 'C', 'D'].forEach((L, idx) => {
+          q.options[L] = vals[idx];
+          if (vals[idx] === corrTxt) q.answer = L;
+        });
+      });
+      renderMcqList();
+    }
+
+    function resetMcqSession() {
+      userAns = {};
+      revealAll = false;
+      activeQs = JSON.parse(JSON.stringify(RAW_QS));
+      document.getElementById('btnRevealAll').textContent = '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+  </script>
+</body>
+</html>

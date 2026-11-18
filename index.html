@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPSC ATO Grade-IV (T-ITS) 2026 — Master One-Liner &amp; 100 MCQ/Section Portal</title>
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #0f172a;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.top-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #38bdf8;
+}
+.top-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #bae6fd;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.brand-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.header-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: block;
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: #e2e8f0;
+}
+.layout-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 980px) {
+  .layout-wrap { grid-template-columns: 1fr; }
+}
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+}
+.side-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 12px 6px 6px 6px;
+}
+.sec-btn {
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.sec-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.sec-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+.sec-btn .sec-name {
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sec-btn .sec-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sec-btn.active .sec-pill {
+  background: #0284c7;
+  color: #fff;
+}
+.main-panel {
+  min-width: 0;
+}
+/* Strictly 2-Tab Bar inside every Section */
+.two-tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.two-tab-btn {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+.two-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+.two-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+.toolbar-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13.8px;
+  font-family: inherit;
+}
+.action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.action-btn.secondary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+.action-btn.green {
+  background: #15803d;
+  color: #ffffff;
+}
+/* One-Liner Styles */
+.ol-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-left: 6px solid #0284c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.ol-badge {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.ol-group-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ol-group-header {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  padding: 11px 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ol-group-num {
+  background: #0f172a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.ol-group-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+.ol-group-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ol-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.ol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14.2px;
+  color: #1e293b;
+}
+.ol-item:last-child { border-bottom: none; }
+.ol-bullet {
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+.ol-text { flex: 1; }
+.pyq-inline-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.topic-inline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.ol-ans-highlight {
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+/* 100 MCQ Card Styles */
+.mcq-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+.mcq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mcq-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.mcq-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+.mcq-tag.pyq {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+.mcq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+.mcq-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+.mcq-opt-btn {
+  text-align: left;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.6px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  line-height: 1.4;
+}
+.mcq-opt-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.mcq-opt-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 700;
+}
+.mcq-opt-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+.mcq-exp {
+  margin-top: 10px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13.4px;
+  color: #14532d;
+  display: none;
+}
+.mcq-exp.show { display: block; }
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+.ov-card {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ov-card h4 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+</style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div>
+        <span class="brand-badge">TRIPURA GAZETTE (FEB 25, 2026) · ADVT. NO. 02/2026 · 220 VACANCIES</span>
+        <h1 class="brand-title">TPSC Assistant Technical Officer (ATO) Grade-IV — 2-Tab Master Portal</h1>
+        <p class="brand-sub">Strictly 2 Tabs in Every Section: (1) Master One-Liner Sheet &amp; (2) 100 Most Probable MCQs (TPSC PYQ + UGC-NET Pattern)</p>
+      </div>
+      <div class="header-stats">
+        <div class="stat-pill"><span class="num">17</span><span class="lbl">Syllabus Sections</span></div>
+        <div class="stat-pill"><span class="num">2 Tabs</span><span class="lbl">Per Section</span></div>
+        <div class="stat-pill"><span class="num">100 MCQs</span><span class="lbl">Every Section</span></div>
+        <div class="stat-pill"><span class="num">1,700</span><span class="lbl">Total Solved MCQs</span></div>
+      </div>
+    </div>
+  </header>
+  <main style="max-width:1360px;margin:0 auto;padding:24px;">
+    <div class="ol-banner">
+      <h2 style="margin:0 0 6px 0;font-size:19px;">All 17 Syllabus Sections (Paper-I: 3 Sections · 50M | Paper-II: 14 Sections · 120M)</h2>
+      <p style="margin:0;font-size:13.6px;color:#334155;">Click any section below to open its <strong>2-Tab Module</strong>: <strong>Tab 1 (Master One-Liner Sheet)</strong> and <strong>Tab 2 (100 Most Probable MCQs)</strong> calibrated to the 3 uploaded TPSC PYQ papers (Senior Computer Assistant 2024 &amp; Programmer 2025) and UGC-NET level.</p>
+    </div>
+    <div class="overview-grid">
+      
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-I · TOPIC 1 · 15 Marks (15 OMR MCQs × 1 Mark)</span>
+            <h4>English Composition &amp; Verbal Ability (15 Marks · 15 MCQs)</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">English Composition will cover Synonyms, Antonyms, use of common Phrase &amp; Idioms, use of appropriate Prepositions and Articles, Comprehension, ordering of words in a sentence, Ordering of sentences, spotting of errors, use of appropriate and qualifying words.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="01_P1_U1.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (165) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-I · TOPIC 2 · 15 Marks (15 OMR MCQs × 1 Mark)</span>
+            <h4>General Mental Ability, Logical Reasoning &amp; Quantitative Aptitude (15 Marks · 15 MCQs)</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Logical Reasoning, Analytical Reasoning Capabilities, Quantitative and Qualitative abilities, General Aptitude (OMR based MCQ Type - 15 Questions one mark each).</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="02_P1_U2.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (139) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-I · TOPIC 3 · 20 Marks (20 OMR MCQs × 1 Mark)</span>
+            <h4>General Knowledge &amp; Current Affairs: Tripura, NE States, Indian History/Geography &amp; Current Events (20 Marks · 20 MCQs)</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">(i) General Knowledge with special reference to Tripura and Northeastern States; (ii) Elementary knowledge of Indian History and Indian Geography; (iii) Matter of common experience and current events and problems with special reference to Tripura, India and world.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="03_P1_U3.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (147) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 1 · Section 1 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Engineering Mathematics: Probability and Statistics</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Random variables. Uniform, normal, exponential, Poisson and binomial distributions. Mean, median, mode and standard deviation. Conditional probability and Bayes theorem.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="04_P2_S1.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (136) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 2 · Section 2 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Digital Logic &amp; Computer Arithmetic</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Boolean algebra, Combinational and sequential circuits, Minimization, Number representations and computer arithmetic (fixed and floating point).</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="05_P2_S2.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (135) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 3 · Section 3 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Computer Organization and Architecture (COA)</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Machine instructions and addressing modes, ALU, data path and control unit, Instruction pipelining, pipeline hazards, Memory hierarchy: cache, main memory and secondary storage; I/O interface (interrupt and DMA mode).</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="06_P2_S3.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (135) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 4 · Section 4 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Analog and Digital Communication</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Autocorrelation and power spectral density, properties of white noise, filtering of random signals through LTI systems, amplitude modulation and demodulation, angle modulation and demodulation, spectra of AM and FM, Super heterodyne receivers, circuits for analog communications, Information theory, entropy, mutual information and channel capacity theorem, Digital communications, PCM, DPCM, digital modulation schemes, amplitude, phase and frequency shift keying (ASK, PSK, FSK), QAM, MAP and ML decoding, matched filter receiver, calculation of bandwidth, SNR and BER for digital modulation; Fundamentals of error correction, Hamming codes; Timing and frequency synchronization, inter-symbol interference and its mitigation; Basics of TDMA, FDMA and CDMA.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="07_P2_S4.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (132) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 5 · Section 5 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Data Structures and Programming (C, C++, Java, Recursion)</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps, graphs. Programming in C, C++, Java, Recursion.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="08_P2_S5.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (134) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 6 · Section 6 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Algorithms: Design Techniques, Complexity &amp; Graph Algorithms</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Searching, sorting, hashing, Asymptotic worst-case time and space complexity. Algorithm design techniques: greedy, dynamic programming and divide and conquer. Graph traversals, minimum spanning trees, shortest paths.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="09_P2_S6.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (129) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 7 · Section 7 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Compiler Design: Parsing, SDT, Runtime &amp; Data Flow Analysis</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Lexical analysis, parsing, syntax-directed translation. Runtime environments. Intermediate code generation. Local optimization, Data flow analyses: constant propagation, liveness analysis, common subexpression elimination.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="10_P2_S7.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (130) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 8 · Section 8 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Operating System: Processes, Synchronization, Deadlock, Memory &amp; File Systems</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">System calls, processes, threads, inter process communication, concurrency and synchronization. Deadlock. CPU and I/O scheduling. Memory management and virtual memory. File systems.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="11_P2_S8.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (131) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 9 · Section 9 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Databases: ER-Model, Relational Algebra, SQL, Normalization, Indexing &amp; Transactions</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">ER- model. Relational model: relational algebra, tuple calculus, SQL. Integrity constraints, normal forms. File organization, indexing (e.g., B and B+ trees). Transactions and concurrency control.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="12_P2_S9.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (139) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 10 · Section 10 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Information Systems and Software Engineering</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Information gathering, requirement and feasibility analysis, data flow diagrams, process specifications, input/output design, process life cycle, planning and managing the project, design, coding, testing, implementation, maintenance.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="13_P2_S10.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (130) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 11 · Section 11 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Computer Networks: OSI/TCP-IP, Switching, MAC, Routing, IPv4/CIDR, TCP/UDP &amp; Protocols</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Concept of layering: OSI and TCP/IP Protocol Stacks; Basics of packet, circuit and virtual circuit-switching; Data link layer: framing, error detection, Medium Access Control, Ethernet bridging; Routing protocols: shortest path, flooding, distance vector and link state routing; Fragmentation and IP addressing, IPv4, CIDR notation, Basics of IP support protocols (ARP, DHCP, ICMP), Network Address Translation (NAT); Transport layer: flow control and congestion control, UDP, TCP, sockets; Application layer protocols: DNS, SMTP, HTTP, FTP, Email.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="14_P2_S11.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (131) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 12 · Section 12 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Web Technologies: HTML5, CSS3, XML, Client-Server, Web/Proxy Servers, MVC &amp; Web Services</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">HTML5, CSS3, XML, basic concept of client-server computing, web server, proxy server, web application development, MVC Architecture, web services, frontend technologies.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="15_P2_S12.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (127) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 13 · Section 13 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Cyber Security and Emerging Technologies: Secure Coding, OWASP Top 10, IoT, Blockchain &amp; AI</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Secure programming techniques, OWASP top 10 vulnerabilities, concepts on IoT, Block chain, AI.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="16_P2_S13.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (126) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+        <div class="ov-card">
+          <div>
+            <span class="ol-badge">PAPER-II · SECTION 14 · Section 14 of 14 (Technical Paper-II · 120 Marks Total)</span>
+            <h4>Cloud Technology: Cloud Computing, Compute, Network, Storage Management &amp; Edge Computing</h4>
+            <p style="font-size:12.6px;color:#475569;margin:4px 0 12px 0;">Cloud Computing, Compute, Network, Storage Management Technologies, Edge Computing.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="17_P2_S14.html" class="action-btn" style="text-decoration:none;flex:1;text-align:center;">📋 One-Liners (124) + 🎯 100 MCQs &rarr;</a>
+          </div>
+        </div>
+        
+    </div>
+  </main>
+</body>
+</html>

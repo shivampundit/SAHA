@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPER-II · SECTION 3 — Computer Organization and Architecture (COA) | TPSC ATO Grade-IV Portal</title>
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #0f172a;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.top-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #38bdf8;
+}
+.top-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #bae6fd;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.brand-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.header-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: block;
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: #e2e8f0;
+}
+.layout-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 980px) {
+  .layout-wrap { grid-template-columns: 1fr; }
+}
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+}
+.side-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 12px 6px 6px 6px;
+}
+.sec-btn {
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.sec-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.sec-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+.sec-btn .sec-name {
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sec-btn .sec-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sec-btn.active .sec-pill {
+  background: #0284c7;
+  color: #fff;
+}
+.main-panel {
+  min-width: 0;
+}
+/* Strictly 2-Tab Bar inside every Section */
+.two-tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.two-tab-btn {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+.two-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+.two-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+.toolbar-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13.8px;
+  font-family: inherit;
+}
+.action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.action-btn.secondary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+.action-btn.green {
+  background: #15803d;
+  color: #ffffff;
+}
+/* One-Liner Styles */
+.ol-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-left: 6px solid #0284c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.ol-badge {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.ol-group-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ol-group-header {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  padding: 11px 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ol-group-num {
+  background: #0f172a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.ol-group-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+.ol-group-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ol-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.ol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14.2px;
+  color: #1e293b;
+}
+.ol-item:last-child { border-bottom: none; }
+.ol-bullet {
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+.ol-text { flex: 1; }
+.pyq-inline-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.topic-inline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.ol-ans-highlight {
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+/* 100 MCQ Card Styles */
+.mcq-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+.mcq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mcq-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.mcq-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+.mcq-tag.pyq {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+.mcq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+.mcq-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+.mcq-opt-btn {
+  text-align: left;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.6px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  line-height: 1.4;
+}
+.mcq-opt-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.mcq-opt-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 700;
+}
+.mcq-opt-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+.mcq-exp {
+  margin-top: 10px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13.4px;
+  color: #14532d;
+  display: none;
+}
+.mcq-exp.show { display: block; }
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+.ov-card {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ov-card h4 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+</style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div>
+        <span class="brand-badge">TPSC ATO GRADE-IV (T-ITS) 2026 · 2-TAB STREAMLINED EDITION</span>
+        <h1 class="brand-title">PAPER-II · SECTION 3: Computer Organization and Architecture (COA)</h1>
+        <p class="brand-sub">Paper-II: Job Oriented Technical Paper-II (120 Marks) · Section 3 of 14 (Technical Paper-II · 120 Marks Total) · Tab 1: Master One-Liner Notes (135 One-Liners) | Tab 2: 100 Most Probable MCQs</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="action-btn secondary" style="text-decoration:none;">🏠 All 17 Sections Home</a> <a href="05_P2_S2.html" class="action-btn secondary" style="text-decoration:none;">&larr; Prev: P2_S2</a> <a href="07_P2_S4.html" class="action-btn secondary" style="text-decoration:none;">Next: P2_S4 &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1180px;margin:0 auto;padding:20px;">
+    <div class="two-tab-bar">
+      <button id="btnTab1" class="two-tab-btn active" onclick="switchSecTab('oneliners')">
+        📋 Tab 1: Master One-Liner Sheet (135 One-Liners)
+      </button>
+      <button id="btnTab2" class="two-tab-btn" onclick="switchSecTab('mcqs')">
+        🎯 Tab 2: 100 Most Probable MCQs (TPSC &amp; UGC-NET Pattern)
+      </button>
+    </div>
+
+    <!-- TAB 1: MASTER ONE-LINER NOTES -->
+    <section id="paneOneliners">
+      <div class="toolbar-card">
+        <input type="text" id="olSearch" class="search-input" placeholder="🔍 Search any topic, keyword, or formula in these One-Liner Notes..." oninput="filterOneLiners(this.value)">
+        <span style="font-size:12.5px;font-weight:700;color:#475569;">Showing Crisp Exam One-Liners (Zero Bloat)</span>
+      </div>
+      <div id="olContentWrap">
+        
+    <div class="ol-banner">
+      <div>
+        <span class="ol-badge">PAPER-II · SECTION 3 · MASTER ONE-LINER SHEET</span>
+        <h2 style="margin:6px 0 4px 0;font-size:20px;color:#0f172a;">Computer Organization and Architecture (COA) — Direct Exam One-Liners</h2>
+        <p style="margin:0;font-size:13.5px;color:#334155;"><strong>Official Gazette Syllabus:</strong> Machine instructions and addressing modes, ALU, data path and control unit, Instruction pipelining, pipeline hazards, Memory hierarchy: cache, main memory and secondary storage; I/O interface (interrupt and DMA mode). · <strong>Weightage:</strong> Section 3 of 14 (Technical Paper-II · 120 Marks Total)</p>
+      </div>
+    </div>
+    
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 1</span>
+            <h3 class="ol-group-title">8085 &amp; 8086 Microprocessor Architecture (Direct TPSC PYQ Focus)</h3>
+            <span class="ol-group-count">10 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Intel 8085 is an 8-bit microprocessor with an 8-bit data bus and a 16-bit address bus (can address 2^16 = 64 KB of memory).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Intel 8086 is a 16-bit microprocessor with a 16-bit data bus and a 20-bit address bus (can address 2^20 = 1 MB of memory).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> In 8085, the Accumulator (8-bit register A) stores one of the operands and the result of arithmetic and logical operations.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Program Counter (PC) in 8085 is a 16-bit special-purpose register that holds the memory address of the NEXT instruction to be fetched.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Stack Pointer (SP) in 8085 is a 16-bit register that always points to the top of the stack in memory (stack grows downward).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Memory Address Register (MAR / Address Register) holds the address of the memory location currently accessed for data transfer.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> 8085 has 6 general-purpose 8-bit registers (B, C, D, E, H, L) which can form 3 16-bit register pairs (BC, DE, HL), plus 5 Flag bits (Sign S, Zero Z, Auxiliary Carry AC, Parity P, Carry CY).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> 8085 Addressing Modes (5 modes): Immediate (MVI A, 05H), Register (MOV A, B), Direct (LDA 2500H), Register Indirect (MOV A, M via HL pair), and Implied/Implicit (CMA, STC).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Data transfer instructions in 8085 include MOV, MVI, LDA, STA, LXI, LHLD, SHLD (they do NOT affect any flags!).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">8085 Hardware Interrupts (5 pins): TRAP is Non-Maskable and highest priority (vectored to 0024H); RST 7.5, RST 6.5, RST 5.5, and INTR (lowest priority, non-vectored).</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 2</span>
+            <h3 class="ol-group-title">CPU Organization, Buses, Addressing Modes &amp; Instruction Cycle (TPSC PYQ Focus)</h3>
+            <span class="ol-group-count">9 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Core components of the CPU are the Arithmetic Logic Unit (ALU), Control Unit (CU), and Registers (Hard Disk Drive is secondary storage, NOT a CPU component).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> A Bus in computer organization is a shared physical pathway (set of wires) for transferring addresses, data, and control signals between components.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> The Control Unit (CU) is responsible for fetching instructions from memory, decoding them, and generating timing/control signals.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> The Arithmetic Logic Unit (ALU) performs all arithmetic (addition, subtraction) and bitwise logical (AND, OR, XOR, shift) operations.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2024]</span> Parallel processing involves executing multiple tasks or instructions simultaneously across multiple processing units.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Address Bus is unidirectional (CPU -&gt; Memory/IO), Data Bus is bidirectional, and Control Bus carries read/write/interrupt control lines.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Effective Address (EA) in key Addressing Modes: Immediate (no memory ref, fastest), Direct (EA = Address field, 1 mem ref), Indirect (EA = M[Address], 2 mem refs), PC-Relative (EA = PC + Offset, used for relocatable code and branch instructions), Base/Indexed (EA = R_base + Index, used for arrays).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Hardwired Control Unit uses fixed combinational logic (faster, used in RISC), whereas Microprogrammed Control Unit stores control words in Control Memory ROM (flexible, used in CISC).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">RISC (Reduced Instruction Set Computer) uses fixed-length instructions, single-cycle execution, load/store architecture, and many registers; CISC uses variable-length complex instructions.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 3</span>
+            <h3 class="ol-group-title">Instruction Pipelining &amp; Pipeline Hazards</h3>
+            <span class="ol-group-count">7 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Classic 5-Stage RISC Pipeline: IF (Instruction Fetch) -&gt; ID (Decode &amp; Register Read) -&gt; EX (Execute/ALU) -&gt; MEM (Memory Access) -&gt; WB (Write Back).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Pipeline Clock Period τ = max(stage delays) + latch overhead; execution time for N instructions on a k-stage pipeline is T_pipe = (k + N - 1) × τ.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Ideal Pipeline Speedup as N → ∞ is equal to the number of stages k; with average stall penalty s per instruction, CPI_actual = 1 + s.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Structural Hazard occurs when two instructions in different stages compete for the same hardware resource (solved by separate Instruction and Data caches — Harvard architecture).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Data Hazard (RAW — Read After Write) is a true dependency solved by Operand Forwarding (Bypassing); Load-Use hazard still requires 1 stall bubble.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">WAR (Write After Read — Anti-dependency) and WAW (Write After Write — Output dependency) are name dependencies eliminated by Register Renaming.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Control (Branch) Hazard occurs when a conditional branch changes PC; mitigated via Branch Prediction, Delayed Branch (delay slot), and Branch Target Buffer (BTB).</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 4</span>
+            <h3 class="ol-group-title">Memory Hierarchy, Cache Mapping &amp; I/O Interface (TPSC PYQ Focus)</h3>
+            <span class="ol-group-count">9 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2025]</span> Access speed order (Fastest to Slowest): CPU Registers &gt; Cache Memory (SRAM) &gt; Main Memory (DRAM) &gt; Solid State Drive (SSD) &gt; Hard Disk Drive (HDD) &gt; Magnetic Tape.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text"><span class="pyq-inline-badge">[TPSC PYQ 2024]</span> In Direct Mapping with m main memory blocks and n cache blocks (lines), the Cache Index field requires log_2(n) bits, and the Tag field requires log_2(m/n) bits.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">SRAM (Static RAM, 6 transistors per cell, fast, no refresh needed) is used for Cache; DRAM (Dynamic RAM, 1 transistor + 1 capacitor, dense, requires periodic refresh) is used for Main Memory.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Direct Mapping formula: Memory Block B maps strictly to Cache Line (B mod n); suffers from conflict misses (thrashing) but has the simplest tag comparison (1 comparator).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Fully Associative Mapping allows Block B to go into ANY cache line (0 index bits; Address = Tag + Offset); eliminates conflict misses but needs n parallel comparators.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">k-Way Set-Associative Mapping has S = n/k sets; Block B maps to Set (B mod S), with Index = log_2(S) bits and k comparators.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Effective Memory Access Time (EMAT): Simultaneous = h·t_c + (1-h)·t_m; Hierarchical = t_c + (1-h)·t_m (where h = hit ratio).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Cache Write Policies: Write-Through updates cache and main memory simultaneously (uses Write Buffer); Write-Back updates only cache and sets a Dirty Bit (writes to memory only on eviction).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">DMA (Direct Memory Access) transfers bulk data directly between I/O device and Main Memory without CPU intervention using Bus Mastering (Cycle Stealing or Burst Mode).</span></li>
+
+          </ul>
+        </div>
+        
+
+    <div class="ol-group-card">
+      <div class="ol-group-header" style="background:linear-gradient(90deg,#f0fdf4,#dcfce7);border-bottom-color:#bbf7d0;">
+        <span class="ol-group-num" style="background:#15803d;">100-Point Quick Sheet</span>
+        <h3 class="ol-group-title" style="color:#14532d;">100 Most Probable Exam Pointers (Question &rarr; Direct One-Liner Answer)</h3>
+        <span class="ol-group-count" style="background:#dcfce7;color:#166534;">100 Pointers</span>
+      </div>
+      <ul class="ol-list">
+        <li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#1 · TPSC PYQ 2024</span> <strong>Which of the following storage devices offers the fastest access speed for retrieving data?</strong> &rarr; <span class="ol-ans-highlight">Solid State Drive (SSD)</span> <span style="color:#475569;font-size:12.8px;">(Among secondary storage devices listed, NVMe/SATA SSD uses flash memory with no moving parts and is fastest.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#2 · TPSC PYQ 2024</span> <strong>Which processing technique involves executing multiple tasks simultaneously across multiple processing units?</strong> &rarr; <span class="ol-ans-highlight">Parallel processing</span> <span style="color:#475569;font-size:12.8px;">(Parallel processing executes multiple tasks/instructions simultaneously on multiple CPUs/cores.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#3 · TPSC PYQ 2024</span> <strong>The number of index bits in direct cache mapping (where m = main memory blocks, n = cache blocks) is given by:</strong> &rarr; <span class="ol-ans-highlight">log_2(n)</span> <span style="color:#475569;font-size:12.8px;">(In direct mapping with n cache lines, selecting the cache line requires log_2(n) index bits (while tag is log_2(m/n) bits).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#4 · TPSC PYQ 2025</span> <strong>Which register in the 8085 microprocessor holds the address of the memory location for data transfer?</strong> &rarr; <span class="ol-ans-highlight">Address Register (MAR / HL Pair)</span> <span style="color:#475569;font-size:12.8px;">(The Memory Address Register (MAR) / Address Register holds the target memory address for data transfer.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#5 · TPSC PYQ 2025</span> <strong>Which of the following is true about the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">It has an 8-bit data bus (and supports direct addressing)</span> <span style="color:#475569;font-size:12.8px;">(Intel 8085 is an 8-bit microprocessor with an 8-bit data bus, 16-bit address bus, and supports direct addressing (e.g., LDA/STA).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#6 · TPSC PYQ 2025</span> <strong>Which of the following instructions is used to transfer data in the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">MOV</span> <span style="color:#475569;font-size:12.8px;">(MOV Rd, Rs copies/transfers data from source register Rs to destination register Rd.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#7 · TPSC PYQ 2025</span> <strong>Which of the following is a valid addressing mode in the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">Immediate addressing mode</span> <span style="color:#475569;font-size:12.8px;">(8085 supports 5 addressing modes: Immediate, Register, Direct, Register Indirect, and Implied.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#8 · TPSC PYQ 2025</span> <strong>What is the size of the Program Counter (PC) in the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">16 bits</span> <span style="color:#475569;font-size:12.8px;">(Both Program Counter (PC) and Stack Pointer (SP) in 8085 are 16-bit registers to address 64 KB of memory.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#9 · TPSC PYQ 2025</span> <strong>Which of the following microprocessors is an 8-bit processor?</strong> &rarr; <span class="ol-ans-highlight">8085</span> <span style="color:#475569;font-size:12.8px;">(Intel 8085 is an 8-bit microprocessor (note: 8051 is an 8-bit microcontroller).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#10 · TPSC PYQ 2025</span> <strong>In the 8085 microprocessor, which register is used to store the result of an arithmetic operation?</strong> &rarr; <span class="ol-ans-highlight">Accumulator</span> <span style="color:#475569;font-size:12.8px;">(In 8085, the 8-bit Accumulator (Register A) stores the result of ALU arithmetic and logic operations.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#11 · TPSC PYQ 2025</span> <strong>What is the size of the address bus in the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">16 bits</span> <span style="color:#475569;font-size:12.8px;">(8085 has a 16-bit unidirectional address bus (A0–A15), addressing 2^16 = 64 KB of memory.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#12 · TPSC PYQ 2025</span> <strong>Which of the following is a key feature of the 8086 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">16-bit data bus</span> <span style="color:#475569;font-size:12.8px;">(Intel 8086 is a 16-bit microprocessor featuring a 16-bit data bus, 20-bit address bus, and 6-byte instruction queue.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#13 · TPSC PYQ 2025</span> <strong>What is the function of the Stack Pointer (SP) in the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">Points to the top of the stack in memory</span> <span style="color:#475569;font-size:12.8px;">(The 16-bit Stack Pointer (SP) always holds the memory address of the current top of the stack.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#14 · TPSC PYQ 2025</span> <strong>Which of the following is NOT an internal component of the CPU?</strong> &rarr; <span class="ol-ans-highlight">Hard Disk Drive</span> <span style="color:#475569;font-size:12.8px;">(Hard Disk Drive (HDD) is an external secondary storage device, not an internal CPU component.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#15 · TPSC PYQ 2025</span> <strong>What does the term &#x27;Bus&#x27; in computer organization refer to?</strong> &rarr; <span class="ol-ans-highlight">A physical pathway for data transfer between components</span> <span style="color:#475569;font-size:12.8px;">(A system bus is a shared physical communication pathway (wires/traces) transferring data, addresses, and control signals.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#16 · TPSC PYQ 2025</span> <strong>Which unit is responsible for fetching instructions from memory and decoding them in the CPU?</strong> &rarr; <span class="ol-ans-highlight">Control Unit (CU)</span> <span style="color:#475569;font-size:12.8px;">(The Control Unit (CU) directs the instruction fetch-decode-execute cycle and generates control signals.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#17 · TPSC PYQ 2025</span> <strong>In the memory hierarchy, which of the following has the highest access speed?</strong> &rarr; <span class="ol-ans-highlight">Cache memory</span> <span style="color:#475569;font-size:12.8px;">(Among the given options, Cache memory (SRAM) is closest to the CPU and has the fastest access speed.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#18 · TPSC PYQ 2025</span> <strong>Which of the following is the main function of the Arithmetic Logic Unit (ALU)?</strong> &rarr; <span class="ol-ans-highlight">Perform the arithmetic and logical operations</span> <span style="color:#475569;font-size:12.8px;">(The ALU executes all integer arithmetic (add, subtract) and bitwise logical (AND, OR, XOR, NOT, shift) operations.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#19 · Cache Mapping</span> <strong>A computer has a 64 KB, 4-way set-associative cache with a block (line) size of 64 bytes and a 32-bit physical main memory address. What are the exact bit widths of the Tag, Set Index, and Byte Offset fields?</strong> &rarr; <span class="ol-ans-highlight">Tag = 18 bits, Set Index = 8 bits, Byte Offset = 6 bits</span> <span style="color:#475569;font-size:12.8px;">(Block size B = 64 B = 2⁶ ⇒ Byte Offset = 6 bits. Total cache lines C = 64 KB / 64 B = 1024 = 2¹⁰ lines. Number of sets S = C / 4 = 1024 / 4 = 256 = 2⁸ sets ⇒ Set Index = 8 bits. Tag = 32 - 8 - 6 = 18 bits.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#20 · Instruction Pipelining</span> <strong>A 5-stage instruction pipeline has stage delays of 150 ps, 120 ps, 160 ps, 140 ps, and 130 ps, and each inter-stage pipeline register has a latch delay of 20 ps. What is the pipeline clock cycle time and the asymptotic speedup over a non-pipelined processor?</strong> &rarr; <span class="ol-ans-highlight">Clock cycle = 180 ps; Asymptotic speedup = 3.89</span> <span style="color:#475569;font-size:12.8px;">(Non-pipelined time T_non = 150+120+160+140+130 = 700 ps. Pipeline clock period τ_p = max(150,120,160,140,130) + 20 = 160 + 20 = 180 ps. Asymptotic speedup S_max = 700 / 180 = 3.89.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#21 · Pipeline Hazards</span> <strong>In an out-of-order superscalar processor pipeline, which of the following data hazards represents a TRUE data dependency that cannot be eliminated by Register Renaming alone?</strong> &rarr; <span class="ol-ans-highlight">Read After Write (RAW — Flow Dependency)</span> <span style="color:#475569;font-size:12.8px;">(WAR and WAW are false (name) dependencies caused by reusing architectural register names and are completely eliminated by Register Renaming; RAW is a true producer-consumer data dependency.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#22 · Addressing Modes</span> <strong>Which CPU addressing mode is specifically suited for implementing position-independent conditional branch instructions and relocatable code?</strong> &rarr; <span class="ol-ans-highlight">PC-Relative Addressing Mode</span> <span style="color:#475569;font-size:12.8px;">(PC-Relative Addressing computes Effective Address = PC + Signed Offset, allowing branch instructions to execute correctly regardless of where the program module is loaded in memory.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#23 · Memory Hierarchy AMAT</span> <strong>A hierarchical memory system has an L1 cache with an access time of 2 ns and a hit ratio of 95%, backed by main memory with a miss penalty of 60 ns. Under sequential (look-through) access, what is the Average Memory Access Time (AMAT)?</strong> &rarr; <span class="ol-ans-highlight">5.0 ns</span> <span style="color:#475569;font-size:12.8px;">(In hierarchical (look-through) access, cache is always checked first: AMAT = T_c + (1 - h) × T_m = 2 ns + (1 - 0.95) × 60 ns = 2 + 3.0 = 5.0 ns.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#24 · DMA &amp; I/O</span> <strong>A DMA controller transfers data from a high-speed disk running at 4 MB/s into main memory over a 32-bit (4-byte) system bus using Cycle Stealing mode. If each memory bus cycle takes 100 ns, what percentage of CPU bus time is stolen by the DMA controller?</strong> &rarr; <span class="ol-ans-highlight">10%</span> <span style="color:#475569;font-size:12.8px;">(At 4 MB/s and 4 bytes per word, DMA transfers 1,000,000 words/sec (1 word every 1,000 ns = 1 μs). Each word transfer steals 100 ns of bus time, so fraction stolen = 100 ns / 1000 ns = 10%.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#25 · Expanding Opcode</span> <strong>A processor uses 16-bit instructions and 4-bit register address fields. If the ISA already defines 14 three-address instructions and 30 two-address instructions, what is the maximum number of one-address instructions that can be formulated?</strong> &rarr; <span class="ol-ans-highlight">32 one-address instructions</span> <span style="color:#475569;font-size:12.8px;">(With 16-bit instruction and three 4-bit fields (12 bits), top opcode has 4 bits (2⁴ = 16 patterns). 14 used for 3-address leaves 16 - 14 = 2 unused patterns → 2 × 2⁴ = 32 two-address slots. Using 30 leaves 32 - 30 = 2 unused patterns → 2 × 2⁴ = 32 one-address instructions.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#26 · Control Unit</span> <strong>How does Horizontal Microprogramming differ from Vertical Microprogramming in control unit design?</strong> &rarr; <span class="ol-ans-highlight">Horizontal microinstructions use unencoded control bits for higher parallelism and zero decoder delay, whereas Vertical microinstructions use encoded fields requiring external decoders</span> <span style="color:#475569;font-size:12.8px;">(Horizontal microprogramming assigns 1 bit per control line (wide word, high parallelism, fast), while Vertical microprogramming encodes mutually exclusive control signals into log₂(N) bits (short word, slower due to decoder delay).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#27 · COA</span> <strong>A 32-bit processor has a 32 KB, 2-way set-associative cache with a 32-byte cache line (block) size and uses a Write-Back policy (1 Valid bit + 1 Dirty bit per line). What is the total size (in bits) of the Tag Directory (metadata bits across all lines)?</strong> &rarr; <span class="ol-ans-highlight">20,480 bits (2.5 KB)</span> <span style="color:#475569;font-size:12.8px;">(Block size = 32 B = 2⁵ ⇒ Offset = 5 bits. Total lines C = 32 KB / 32 B = 1024 = 2¹⁰ lines. Sets S = 1024 / 2 = 512 = 2⁹ sets ⇒ Index = 9 bits. Tag = 32 - 9 - 5 = 18 bits. Metadata per line = 18 (Tag) + 1 (Valid) + 1 (Dirty) = 20 bits. Total Tag Directory = 1024 × 20 = 20,480 bits.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#28 · COA</span> <strong>A magnetic hard disk rotates at 7,200 RPM (rotations per minute) and has an average seek time of 6 ms. What is the average rotational latency of this disk?</strong> &rarr; <span class="ol-ans-highlight">4.17 ms</span> <span style="color:#475569;font-size:12.8px;">(Time for 1 full rotation at 7,200 RPM = 60 / 7200 s = 8.333 ms. Average rotational latency is half of a full rotation = 8.333 / 2 = 4.17 ms.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#29 · COA</span> <strong>In Booth&#x27;s Multiplication Algorithm for signed 2&#x27;s complement numbers, how many additions and subtractions are performed when multiplying by the 8-bit multiplier Q = 01111100₂?</strong> &rarr; <span class="ol-ans-highlight">1 addition and 1 subtraction</span> <span style="color:#475569;font-size:12.8px;">(Booth&#x27;s algorithm scans adjacent bit pairs (Q_i, Q_(i-1)) with Q_(-1) = 0. A contiguous block of five 1s from bit 2 to bit 6 in 01111100₂ triggers only 1 subtraction at the start of the 1s block (10 transition at bit 2) and 1 addition at the end of the block (01 transition at bit 7)!)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#30 · COA</span> <strong>Which register in the CPU holds the memory address of the next instruction to be fetched, and which register holds the actual data word read from or written to main memory?</strong> &rarr; <span class="ol-ans-highlight">Program Counter (PC) holds next instruction address; Memory Data/Buffer Register (MDR/MBR) holds the data word</span> <span style="color:#475569;font-size:12.8px;">(PC holds the address of the next instruction; MAR holds the target memory address on the address bus; MDR (MBR) holds the data word transferred over the data bus; IR holds the currently decoding instruction.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#31 · COA</span> <strong>A processor executes a program of 10⁶ instructions on a 2 GHz clock. The instruction mix consists of 50% ALU instructions (1 cycle), 30% Load/Store instructions (3 cycles), and 20% Branch instructions (2 cycles). What are the average CPI and total CPU execution time?</strong> &rarr; <span class="ol-ans-highlight">Average CPI = 1.8; Execution time = 0.9 ms</span> <span style="color:#475569;font-size:12.8px;">(Average CPI = 0.50(1) + 0.30(3) + 0.20(2) = 0.5 + 0.9 + 0.4 = 1.8 cycles/instruction. Total clock cycles = 1.8 × 10⁶. At 2 GHz (2 × 10⁹ Hz), Execution time = 1.8 × 10⁶ / (2 × 10⁹) = 0.9 × 10⁻³ s = 0.9 ms.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#32 · COA</span> <strong>In an Interrupt-Driven I/O system using hardware &#x27;Daisy Chaining&#x27; to resolve simultaneous interrupt requests from multiple devices sharing a single INTR line, which device receives the highest priority?</strong> &rarr; <span class="ol-ans-highlight">The device physically wired closest to the CPU along the serial INTA (Interrupt Acknowledge) daisy-chain line</span> <span style="color:#475569;font-size:12.8px;">(In Daisy Chaining, the CPU&#x27;s Interrupt Acknowledge (INTA) signal propagates serially through devices; the first requesting device closest to the CPU intercepts INTA, blocks downstream propagation, and places its vector on the bus.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#33 · COA</span> <strong>In a 5-stage RISC pipeline (IF, ID, EX, MEM, WB) equipped with full hardware operand forwarding (bypassing) paths from EX/MEM and MEM/WB to ALU inputs, how many stall cycles (bubbles) are required for the Load-Use sequence:
+LW R1, 0(R2)
+ADD R3, R1, R4</strong> &rarr; <span class="ol-ans-highlight">Exactly 1 stall cycle (bubble), because LW produces its data only at the end of Stage 4 (MEM), whereas ADD needs R1 at the start of Stage 3 (EX)</span> <span style="color:#475569;font-size:12.8px;">(Even with MEM/WB → EX forwarding, a Load instruction fetches data from data cache at the end of MEM (cycle 4), while an immediately following dependent ALU instruction needs that operand at the start of EX (cycle 3) → 1 hardware stall bubble is unavoidable unless the compiler schedules an independent instruction in between.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#34 · COA</span> <strong>Why does a Fully Associative Cache experience ZERO &#x27;Conflict Misses&#x27; (having only Compulsory/Cold misses and Capacity misses)?</strong> &rarr; <span class="ol-ans-highlight">Because any main memory block can be placed into ANY available cache line without index restriction</span> <span style="color:#475569;font-size:12.8px;">(Conflict misses occur in Direct-Mapped and Set-Associative caches when multiple active blocks map to the same line/set; Fully Associative placement allows any block to occupy any cache line.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#35 · COA</span> <strong>According to Flynn&#x27;s taxonomy of computer architectures, how are Graphics Processing Units (GPUs) / Vector Array Processors and Multi-Core Symmetric Multiprocessors (SMPs) classified, respectively?</strong> &rarr; <span class="ol-ans-highlight">GPUs / Vector Processors: SIMD (Single Instruction, Multiple Data); Multi-Core SMPs: MIMD (Multiple Instruction, Multiple Data)</span> <span style="color:#475569;font-size:12.8px;">(Vector units and GPU warps execute a Single Instruction stream across Multiple Data elements in lockstep (SIMD), whereas multi-core CPUs execute independent instruction threads on distinct data streams (MIMD).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#36 · COA</span> <strong>A processor has a two-level cache hierarchy: L1 cache has a 1 ns hit time and 90% hit rate; L2 cache has a 10 ns hit time and 80% local hit rate; Main Memory miss penalty is 100 ns. What is the Average Memory Access Time (AMAT)?</strong> &rarr; <span class="ol-ans-highlight">4.0 ns</span> <span style="color:#475569;font-size:12.8px;">(AMAT = T_L1 + (1 - h_L1) × [T_L2 + (1 - h_L2) × T_MM] = 1 + 0.10 × [10 + 0.20 × 100] = 1 + 0.10 × 30 = 4.0 ns.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#37 · COA</span> <strong>On a little-endian 32-bit processor (such as x86), the 32-bit hexadecimal integer 0x12345678 is stored in memory starting at byte address 0x1000. What byte value is stored at address 0x1000 and at 0x1003?</strong> &rarr; <span class="ol-ans-highlight">0x78 at address 0x1000 and 0x12 at address 0x1003</span> <span style="color:#475569;font-size:12.8px;">(In Little-Endian byte ordering, the Least Significant Byte (LSB = 0x78) is stored at the lowest memory address (0x1000), and the MSB (0x12) is at 0x1003.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#38 · COA</span> <strong>According to Amdahl&#x27;s Law, if 80% of a program&#x27;s execution time can be parallelized across N = 4 processor cores while the remaining 20% is strictly serial, what is the overall speedup S?</strong> &rarr; <span class="ol-ans-highlight">2.50</span> <span style="color:#475569;font-size:12.8px;">(By Amdahl&#x27;s Law: S = 1 / [(1 - f) + f / N] = 1 / [0.20 + 0.80 / 4] = 1 / (0.20 + 0.20) = 1 / 0.40 = 2.50.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#39 · COA</span> <strong>A 4-stage instruction pipeline has stage clock cycle τ = 10 ns. How much total time is required to execute 100 instructions assuming zero pipeline hazards or stalls?</strong> &rarr; <span class="ol-ans-highlight">1,030 ns (103 clock cycles)</span> <span style="color:#475569;font-size:12.8px;">(Total cycles for k = 4 stages and n = 100 instructions = k + (n - 1) = 4 + 99 = 103 cycles. Total time = 103 × 10 ns = 1,030 ns.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#40 · COA</span> <strong>In a Direct-Mapped Cache with 1,024 lines (blocks) and a block size of 32 bytes, to which cache line index (0 to 1023) does the byte physical address 0x0001A45C (decimal 107,612) map?</strong> &rarr; <span class="ol-ans-highlight">Cache Line Index = 290 (since Block # = ⌊107,612 / 32⌋ = 3,362 and 3,362 mod 1024 = 290)</span> <span style="color:#475569;font-size:12.8px;">(Block size = 32 B = 2⁵ ⇒ lower 5 bits (28 = 0x1C) are the Byte Offset. Shifting right by 5 bits gives Main Memory Block Number = 107,612 // 32 = 3,362. In a 1,024-line Direct-Mapped cache, Line Index = 3,362 mod 1,024 = 290.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#41 · COA</span> <strong>Which CPU flag bit in the Program Status Word (PSW) is tested to detect arithmetic overflow in UNSIGNED integer addition vs. SIGNED 2&#x27;s complement addition?</strong> &rarr; <span class="ol-ans-highlight">Unsigned overflow is indicated by the Carry Flag (CF = 1); Signed 2&#x27;s complement overflow is indicated by the Overflow Flag (VF = C_in(MSB) ⊕ C_out(MSB) = 1)</span> <span style="color:#475569;font-size:12.8px;">(In unsigned arithmetic, carry out of the MSB (CF = 1) means overflow; in signed 2&#x27;s complement arithmetic, overflow occurs iff C_in(MSB) ⊕ C_out(MSB) = 1 (VF = 1).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#42 · COA</span> <strong>Why are dynamic 2-bit saturating-counter Branch Predictors preferred over 1-bit Branch Predictors for inner loops?</strong> &rarr; <span class="ol-ans-highlight">A 1-bit predictor mispredicts TWICE per loop execution (on loop exit and on loop re-entry), whereas a 2-bit predictor requires two consecutive wrong outcomes to flip its prediction, mispredicting only ONCE (on loop exit)</span> <span style="color:#475569;font-size:12.8px;">(At the end of an inner loop, a 1-bit predictor flips state on the single exit branch and then mispredicts again when the loop restarts; a 2-bit hysteresis counter stays in &#x27;Predict Taken&#x27; on re-entry.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#43 · COA</span> <strong>What is the role of a &#x27;Write Buffer&#x27; in a Cache subsystem configured with a Write-Through policy?</strong> &rarr; <span class="ol-ans-highlight">It holds words waiting to be written to Main Memory in a fast FIFO queue so the CPU can continue execution immediately without stalling for slow DRAM write cycles</span> <span style="color:#475569;font-size:12.8px;">(In Write-Through caches, every store updates main memory; a small SRAM Write Buffer absorbs store writes so the processor does not stall unless the write buffer fills up.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#44 · COA</span> <strong>How does Memory-Mapped I/O differ from Isolated (Port-Mapped) I/O?</strong> &rarr; <span class="ol-ans-highlight">Memory-Mapped I/O shares the same address space for both memory and I/O devices and uses standard LOAD/STORE instructions, whereas Isolated I/O uses a separate I/O address space and dedicated IN/OUT instructions</span> <span style="color:#475569;font-size:12.8px;">(Memory-Mapped I/O assigns portions of the CPU&#x27;s physical address space to I/O device registers so any memory reference instruction (MOV/LOAD/STORE) can manipulate I/O ports.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#45 · 8085 Microprocessor</span> <strong>In the Intel 8085 microprocessor, which signal pin is used to demultiplex the lower-order multiplexed address/data bus `AD_0–AD_7`?</strong> &rarr; <span class="ol-ans-highlight">ALE (Address Latch Enable)</span> <span style="color:#475569;font-size:12.8px;">(When ALE goes high during T1 of a machine cycle, an external 8-bit latch (74LS373) latches the low byte of the address (`A_0–A_7`) from `AD_0–AD_7`.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#46 · 8085 Microprocessor</span> <strong>Which hardware interrupt in the 8085 microprocessor is Non-Maskable (cannot be disabled by `DI` instruction) and has the HIGHEST priority?</strong> &rarr; <span class="ol-ans-highlight">TRAP (RST 4.5)</span> <span style="color:#475569;font-size:12.8px;">(TRAP is both edge- and level-triggered, non-maskable, and vectored to address `0024H` with the highest priority.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#47 · 8085 Microprocessor</span> <strong>What is the vector memory address for the `RST 7.5` hardware interrupt in the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">003CH</span> <span style="color:#475569;font-size:12.8px;">(Multiply the RST number by 8 and convert to hex: 7.5 × 8 = 60_10 = `003CH`.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#48 · 8085 Microprocessor</span> <strong>How many Flag bits are active in the 8-bit Flag Register of the 8085 microprocessor?</strong> &rarr; <span class="ol-ans-highlight">5 flags (Sign S, Zero Z, Auxiliary Carry AC, Parity P, Carry CY)</span> <span style="color:#475569;font-size:12.8px;">(8085 has 5 condition flags: S (bit 7), Z (bit 6), AC (bit 4, used in DAA for BCD), P (bit 2), and CY (bit 0).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#49 · 8085 Microprocessor</span> <strong>In the 8085 microprocessor, the instruction `LDA 2500H` (Load Accumulator Direct from address 2500H) is how many bytes long and uses which addressing mode?</strong> &rarr; <span class="ol-ans-highlight">3-byte instruction; Direct Addressing Mode</span> <span style="color:#475569;font-size:12.8px;">(`LDA 2500H` has 1 byte opcode + 2 bytes 16-bit address = 3 bytes, and fetches directly from memory address 2500H (Direct Addressing).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#50 · 8085 Microprocessor</span> <strong>In the 8085 microprocessor, what does the instruction `XRA A` (XOR Accumulator with itself) accomplish?</strong> &rarr; <span class="ol-ans-highlight">Clears the Accumulator to 00H, sets Zero flag (Z=1), and resets Carry flag (CY=0)</span> <span style="color:#475569;font-size:12.8px;">(Since any bit XORed with itself is 0 (`A ⊕ A = 00H`), `XRA A` is a fast 1-byte idiom to clear the Accumulator and Carry flag.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#51 · 8086 Microprocessor</span> <strong>In the Intel 8086 microprocessor, the Address Bus is `20 bits` wide. How is the 20-bit Physical Address calculated from a 16-bit Segment Register and 16-bit Offset?</strong> &rarr; <span class="ol-ans-highlight">Physical Address = (Segment Register × 10H) + Offset</span> <span style="color:#475569;font-size:12.8px;">(The Bus Interface Unit (BIU) shifts the 16-bit Segment Register left by 4 bits (`× 16 = × 10H`) and adds the 16-bit Offset to form a 20-bit physical address (1 MB address space).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#52 · 8086 Microprocessor</span> <strong>The internal architecture of the 8086 microprocessor is divided into which two independent functional units to support instruction pipelining?</strong> &rarr; <span class="ol-ans-highlight">Bus Interface Unit (BIU) and Execution Unit (EU)</span> <span style="color:#475569;font-size:12.8px;">(The BIU prefetches up to 6 instruction bytes into the instruction queue while the EU decodes and executes instructions in parallel.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#53 · CPU Registers</span> <strong>Which CPU register temporarily holds the actual data word being read from or written to main memory?</strong> &rarr; <span class="ol-ans-highlight">MDR / MBR (Memory Data Register / Memory Buffer Register)</span> <span style="color:#475569;font-size:12.8px;">(MAR holds the memory address, while MDR (or MBR) holds the data value transferred over the data bus.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#54 · CPU Registers</span> <strong>Which CPU register holds the machine instruction that is currently being decoded and executed?</strong> &rarr; <span class="ol-ans-highlight">IR (Instruction Register)</span> <span style="color:#475569;font-size:12.8px;">(During the Fetch phase, `IR &lt;- M[PC]` loads the instruction opcode and operand fields into the Instruction Register.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#55 · Instruction Formats</span> <strong>Which CPU organization uses `PUSH` and `POP` instructions where arithmetic operations (`ADD`, `MUL`) implicitly use the top two elements of a stack with NO address fields?</strong> &rarr; <span class="ol-ans-highlight">Zero-Address (Stack-Organized) CPU</span> <span style="color:#475569;font-size:12.8px;">(Stack machines (like JVM bytecode and postfix evaluators) use 0-address arithmetic instructions (`ADD` pops top two operands and pushes their sum).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#56 · Addressing Modes</span> <strong>Which addressing mode is most suitable for implementing position-independent (relocatable) code and short conditional branch instructions?</strong> &rarr; <span class="ol-ans-highlight">PC-Relative Addressing Mode (EA = PC + Offset)</span> <span style="color:#475569;font-size:12.8px;">(Adding a signed offset to the Program Counter (`EA = PC + Offset`) allows code to run at any memory base address without modifying branch targets.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#57 · Addressing Modes</span> <strong>Which addressing mode is ideal for accessing elements of an Array inside a loop (`EA = Base_Address + Index_Register`)?</strong> &rarr; <span class="ol-ans-highlight">Indexed / Base-Indexed Addressing Mode</span> <span style="color:#475569;font-size:12.8px;">(Indexed addressing holds the array&#x27;s starting address in a base field/register and varies the index register on each loop iteration.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#58 · Addressing Modes</span> <strong>In which addressing mode is the operand value itself embedded directly inside the instruction word (requiring ZERO memory references after instruction fetch)?</strong> &rarr; <span class="ol-ans-highlight">Immediate Addressing Mode</span> <span style="color:#475569;font-size:12.8px;">(Immediate addressing (e.g., `MVI A, 05H` or `ADDI R1, R1, #10`) places the constant constant operand directly in the instruction.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#59 · Endianness</span> <strong>A 32-bit integer `0x12345678` is stored at memory address `1000H` in a Little-Endian processor (like x86). What byte value is stored at the lowest address `1000H`?</strong> &rarr; <span class="ol-ans-highlight">0x78 (Least Significant Byte at lowest address)</span> <span style="color:#475569;font-size:12.8px;">(Little-Endian stores the Least Significant Byte (`0x78`) at the lowest byte address (`1000H`), whereas Big-Endian stores `0x12` at `1000H`.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#60 · Control Unit</span> <strong>What is the key advantage of a Hardwired Control Unit over a Microprogrammed Control Unit?</strong> &rarr; <span class="ol-ans-highlight">Hardwired control is much faster (higher clock speed) and is preferred in RISC processors</span> <span style="color:#475569;font-size:12.8px;">(Hardwired control generates signals directly via combinational logic gates and state counters, providing maximum speed for RISC pipelines.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#61 · Control Unit</span> <strong>In a Microprogrammed Control Unit, what is the difference between Horizontal and Vertical Microprogramming?</strong> &rarr; <span class="ol-ans-highlight">Horizontal uses unencoded control bits (1 bit per control line, wide microinstruction, high parallelism); Vertical uses encoded fields requiring decoders (narrow microinstruction)</span> <span style="color:#475569;font-size:12.8px;">(Horizontal microinstructions have no encoding (fast, wide, parallel micro-operations), whereas Vertical microinstructions encode fields to save Control Memory width.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#62 · RISC vs CISC</span> <strong>Which of the following is a defining characteristic of RISC (Reduced Instruction Set Computer) architecture?</strong> &rarr; <span class="ol-ans-highlight">Load/Store architecture (only LOAD and store instructions access memory; all ALU operations are register-to-register) with fixed-length instructions</span> <span style="color:#475569;font-size:12.8px;">(RISC architectures (ARM, RISC-V, MIPS) use fixed-length instructions, single-cycle pipelined execution, a large register file, and a strict Load/Store model.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#63 · Computer Arithmetic</span> <strong>Which algorithm multiplies two signed 2&#x27;s complement binary numbers directly without converting them to positive magnitude first, by inspecting bit pairs `(Q_0, Q_{-1})`?</strong> &rarr; <span class="ol-ans-highlight">Booth&#x27;s Multiplication Algorithm</span> <span style="color:#475569;font-size:12.8px;">(Booth&#x27;s algorithm encodes strings of 1s in a 2&#x27;s complement multiplier using transitions `0-&gt;1` (subtract multiplicand) and `1-&gt;0` (add multiplicand).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#64 · Computer Arithmetic</span> <strong>In Booth&#x27;s multiplication algorithm, how many additions/subtractions are performed for the multiplier `01111110_2`?</strong> &rarr; <span class="ol-ans-highlight">Only 2 (1 subtraction at bit 1 `10` and 1 addition at bit 7 `01`)</span> <span style="color:#475569;font-size:12.8px;">(Booth&#x27;s algorithm replaces a block of consecutive 1s from position i to j with `2^(j+1) - 2^i`, requiring only 1 subtraction and 1 addition!)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#65 · Pipelining</span> <strong>A 5-stage instruction pipeline has stage delays of `150 ps, 120 ps, 160 ps, 140 ps, and 100 ps` and inter-stage latch delay of `10 ps`. What is the minimum pipeline clock cycle time?</strong> &rarr; <span class="ol-ans-highlight">170 ps</span> <span style="color:#475569;font-size:12.8px;">(Pipeline clock cycle τ = max(stage delays) + latch delay = 160 + 10 = 170 ps.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#66 · Pipelining</span> <strong>How many clock cycles are required to execute `N = 100` instructions on an ideal `k = 5` stage pipeline with no stalls?</strong> &rarr; <span class="ol-ans-highlight">104 clock cycles</span> <span style="color:#475569;font-size:12.8px;">(Total cycles = k + (N - 1) = 5 + (100 - 1) = 104 clock cycles.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#67 · Pipelining</span> <strong>What is the maximum theoretical speedup of a `k`-stage instruction pipeline (assuming equal stage delays and as instruction count `N → ∞`)?</strong> &rarr; <span class="ol-ans-highlight">k (equal to the number of pipeline stages)</span> <span style="color:#475569;font-size:12.8px;">(As N → ∞, Speedup S = (N · k · τ) / ((k + N - 1) · τ) → k.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#68 · Pipeline Hazards</span> <strong>Consider the instruction pair: `I1: ADD R1, R2, R3` (`R1 &lt;- R2 + R3`) followed immediately by `I2: SUB R4, R1, R5` (`R4 &lt;- R1 - R5`). Which pipeline hazard exists?</strong> &rarr; <span class="ol-ans-highlight">RAW (Read After Write — True Data Dependency on R1)</span> <span style="color:#475569;font-size:12.8px;">(I2 reads R1 before I1 has written the updated result into R1 in the WB stage; this is a RAW (True Data) hazard.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#69 · Pipeline Hazards</span> <strong>Which hardware technique resolves most RAW (Read After Write) data hazards in a 5-stage pipeline without inserting stall cycles?</strong> &rarr; <span class="ol-ans-highlight">Operand Forwarding (Data Bypassing from EX/MEM or MEM/WB pipeline registers directly to ALU inputs)</span> <span style="color:#475569;font-size:12.8px;">(Operand Forwarding routes the newly computed ALU result directly from pipeline latches back to the ALU inputs before WB completes.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#70 · Pipeline Hazards</span> <strong>Which instruction sequence in a 5-stage RISC pipeline STILL requires 1 mandatory stall cycle (bubble) even WITH full Operand Forwarding?</strong> &rarr; <span class="ol-ans-highlight">Load-Use Hazard (`LW R1, 0(R2)` immediately followed by `ADD R3, R1, R4`)</span> <span style="color:#475569;font-size:12.8px;">(A `LW` instruction produces data only at the end of the `MEM` stage (stage 4), whereas the immediately following `ADD` needs it at the start of `EX` (stage 3), requiring 1 stall bubble.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#71 · Pipeline Hazards</span> <strong>WAR (Write After Read) and WAW (Write After Write) hazards in out-of-order superscalar processors are false/name dependencies that can be completely eliminated by:</strong> &rarr; <span class="ol-ans-highlight">Register Renaming (e.g., Tomasulo&#x27;s Algorithm)</span> <span style="color:#475569;font-size:12.8px;">(WAR and WAW arise solely from reusing the same architectural register name; mapping them to distinct physical rename registers eliminates the conflict.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#72 · Pipeline Hazards</span> <strong>If a pipelined processor has an ideal CPI of `1.0`, branch instructions account for `20%` of all instructions, and each branch incurs `2 stall cycles`, what is the actual average CPI?</strong> &rarr; <span class="ol-ans-highlight">1.4</span> <span style="color:#475569;font-size:12.8px;">(CPI = 1.0 + (Branch frequency × Branch penalty) = 1.0 + (0.20 × 2) = 1.0 + 0.4 = 1.4.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#73 · Cache Memory</span> <strong>Cache memory operates effectively because programs exhibit the Principle of Locality. What are its two forms?</strong> &rarr; <span class="ol-ans-highlight">Temporal Locality (reusing the same address soon, e.g., loops) and Spatial Locality (accessing nearby addresses soon, e.g., arrays)</span> <span style="color:#475569;font-size:12.8px;">(Temporal Locality keeps recently accessed items in cache; Spatial Locality fetches an entire multi-word Cache Block (Line) on a miss.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#74 · Cache Memory</span> <strong>A computer has a cache access time of `10 ns` (with a hit ratio of `90%`) and a main memory access time of `100 ns` (simultaneous access). What is the Effective Memory Access Time (EMAT)?</strong> &rarr; <span class="ol-ans-highlight">19 ns</span> <span style="color:#475569;font-size:12.8px;">(For simultaneous (parallel) access, EMAT = h·t_c + (1 - h)·t_m = 0.90(10) + 0.10(100) = 9 + 10 = 19 ns (for hierarchical access, EMAT = 10 + 0.10(100) = 20 ns).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#75 · Cache Mapping</span> <strong>A system has `64 MB` (`2^26` bytes) of byte-addressable main memory, a `64 KB` (`2^16` bytes) Direct-Mapped cache, and a block size of `32 bytes` (`2^5` bytes). What are the sizes of `(Tag, Line Index, Byte Offset)`?</strong> &rarr; <span class="ol-ans-highlight">(10 bits, 11 bits, 5 bits)</span> <span style="color:#475569;font-size:12.8px;">(Offset = log_2(32) = 5 bits; Cache lines = 2^16 / 2^5 = 2^11 =&gt; Index = 11 bits; Tag = 26 - 11 - 5 = 10 bits.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#76 · Cache Mapping</span> <strong>If the same `64 KB` cache (block size `32 bytes`) in a `26-bit` address system is changed to `4-Way Set-Associative`, what are the sizes of `(Tag, Set Index, Byte Offset)`?</strong> &rarr; <span class="ol-ans-highlight">(12 bits, 9 bits, 5 bits)</span> <span style="color:#475569;font-size:12.8px;">(Number of lines = 2^11 = 2048; Number of 4-way sets = 2^11 / 4 = 2^9 = 512 =&gt; Set Index = 9 bits; Tag = 26 - 9 - 5 = 12 bits.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#77 · Cache Misses</span> <strong>In the &#x27;3 Cs&#x27; classification of Cache Misses, which type of miss occurs on the VERY FIRST access to a memory block (and cannot be reduced even by an infinite-sized cache)?</strong> &rarr; <span class="ol-ans-highlight">Compulsory Miss (Cold-Start Miss)</span> <span style="color:#475569;font-size:12.8px;">(Compulsory (Cold) misses occur when a block is brought into the cache for the first time; they can only be reduced by increasing Block Size or prefetching.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#78 · Cache Write Policies</span> <strong>Which cache write policy updates ONLY the cache block on a CPU write (setting a `Dirty Bit = 1`) and writes the modified block to main memory ONLY when it is evicted?</strong> &rarr; <span class="ol-ans-highlight">Write-Back (Copy-Back)</span> <span style="color:#475569;font-size:12.8px;">(Write-Back minimizes memory bus traffic by coalescing multiple writes to the same cache line and writing back to DRAM only upon replacement.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#79 · I/O Organization</span> <strong>Which I/O data transfer method wastes the MOST CPU cycles by forcing the processor to continuously loop and check the device status register (&#x27;busy-waiting&#x27;)?</strong> &rarr; <span class="ol-ans-highlight">Programmed I/O (Polling)</span> <span style="color:#475569;font-size:12.8px;">(In Programmed I/O (Polling), the CPU stays tied up in a tight wait loop checking the device Ready bit.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#80 · DMA</span> <strong>During a DMA (Direct Memory Access) transfer where the DMA controller temporarily borrows the system bus for a single memory cycle to transfer one word while the CPU pauses briefly, the mode is called:</strong> &rarr; <span class="ol-ans-highlight">Cycle Stealing Mode</span> <span style="color:#475569;font-size:12.8px;">(In Cycle Stealing mode, the DMA controller steals single bus cycles from the CPU to transfer one word at a time, minimizing CPU latency.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#81 · Interrupts</span> <strong>When multiple devices share a single interrupt request line (`INTR`) and the Interrupt Acknowledge signal (`INTA`) ripples serially from highest-priority device to lowest-priority device, the scheme is called:</strong> &rarr; <span class="ol-ans-highlight">Daisy Chaining</span> <span style="color:#475569;font-size:12.8px;">(Daisy Chaining connects devices serially along the INTA grant line; the physical proximity to the CPU determines priority.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#82 · Parallel Architecture</span> <strong>In Flynn&#x27;s Taxonomy of computer architectures, a GPU or Vector Array Processor that executes the SAME instruction simultaneously across MULTIPLE data elements belongs to:</strong> &rarr; <span class="ol-ans-highlight">SIMD (Single Instruction stream, Multiple Data streams)</span> <span style="color:#475569;font-size:12.8px;">(SIMD applies a single instruction broadcast to multiple processing elements operating on distinct data vectors in lockstep.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#83 · Performance</span> <strong>According to Amdahl&#x27;s Law, if `60%` (`f = 0.6`) of a program can be parallelized and is sped up by a factor of `S = 3`, what is the overall system speedup?</strong> &rarr; <span class="ol-ans-highlight">1.67 (5/3)</span> <span style="color:#475569;font-size:12.8px;">(Speedup = 1 / ((1 - f) + f / S) = 1 / (0.4 + 0.6 / 3) = 1 / (0.4 + 0.2) = 1 / 0.6 = 5/3 ≈ 1.67.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#84 · Performance</span> <strong>A processor with a `2 GHz` clock executes a program of `10 × 10^6` instructions with an average `CPI = 2.0`. What is the CPU execution time (and MIPS rating)?</strong> &rarr; <span class="ol-ans-highlight">Execution Time = 10 ms; MIPS = 1000 MIPS</span> <span style="color:#475569;font-size:12.8px;">(T_CPU = (IC × CPI) / f = (10^7 × 2) / (2 × 10^9) = 10^(-2) s = 10 ms; MIPS = f / (CPI × 10^6) = 2000 / 2 = 1000 MIPS.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#85 · TPSC PYQ 2024</span> <strong>A scenic image whose physical dimension is 2.5 inch × 2 inch on paper is scanned at 150 DPI (Dots Per Inch). How many pixels will be there in the scanned image?</strong> &rarr; <span class="ol-ans-highlight">112500 pixels</span> <span style="color:#475569;font-size:12.8px;">(Horizontal pixels = 2.5 × 150 = 375; Vertical pixels = 2 × 150 = 300; Total pixels = 375 × 300 = 112,500 pixels.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="pyq-inline-badge">#86 · TPSC PYQ 2024</span> <strong>What is the primary purpose of compression in multimedia systems?</strong> &rarr; <span class="ol-ans-highlight">To reduce the file size of multimedia content for storage and transmission</span> <span style="color:#475569;font-size:12.8px;">(Multimedia compression (lossless or lossy like JPEG/MP3/MPEG) reduces bit rate and file size by removing spatial, temporal, or statistical redundancy.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#87 · 8085 Microprocessor</span> <strong>In the 8085 microprocessor, which 16-bit register pair is used as the default memory pointer (`M`) in Register Indirect addressing (e.g., `MOV A, M`)?</strong> &rarr; <span class="ol-ans-highlight">H-L register pair</span> <span style="color:#475569;font-size:12.8px;">(In 8085, operand `M` always refers to the memory byte addressed by the 16-bit `HL` register pair.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#88 · 8085 Microprocessor</span> <strong>Which instruction in the 8085 microprocessor is a 1-byte Software Interrupt instruction that pushes the PC onto the stack and branches to a fixed vector address (`0000H` to `0038H`)?</strong> &rarr; <span class="ol-ans-highlight">RST n (Restart instruction, where n = 0 to 7)</span> <span style="color:#475569;font-size:12.8px;">(`RST 0` through `RST 7` are 1-byte software interrupt instructions with vector addresses `8 × n` (`0000H, 0008H, ..., 0038H`).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#89 · 8085 Microprocessor</span> <strong>What is the clock frequency of a standard Intel 8085A microprocessor, and how does it relate to the external crystal oscillator connected across pins X1 and X2?</strong> &rarr; <span class="ol-ans-highlight">Internal operating clock is half of the external crystal frequency (e.g., a 6 MHz crystal yields a 3 MHz internal clock)</span> <span style="color:#475569;font-size:12.8px;">(An internal flip-flop divides the external crystal frequency by 2 to guarantee a symmetric 50% duty cycle clock.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#90 · 8085 Microprocessor</span> <strong>In the 8085 microprocessor, when the `PUSH B` instruction is executed, how does the Stack Pointer (`SP`) change?</strong> &rarr; <span class="ol-ans-highlight">SP is decremented by 2 (`SP &lt;- SP - 2`), storing B at `SP - 1` and C at `SP - 2`</span> <span style="color:#475569;font-size:12.8px;">(In x86/8085, the stack grows downward toward lower memory addresses: `PUSH` decrements `SP` by 2, and `POP` increments `SP` by 2.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#91 · Memory Organization</span> <strong>How many `128 × 8` RAM chips are required to construct a memory capacity of `2048 bytes` (`2 KB`, i.e., `2048 × 8`), and how many address lines are decoded to select among the chips?</strong> &rarr; <span class="ol-ans-highlight">16 RAM chips; 4 address lines (via a 4-to-16 decoder) for chip select</span> <span style="color:#475569;font-size:12.8px;">(Number of chips = (2048 × 8) / (128 × 8) = 16 chips. Each chip uses log_2(128) = 7 address lines, and the upper log_2(16) = 4 address lines drive the Chip Select decoder.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#92 · Memory Organization</span> <strong>What is the key operational difference between `SRAM` (Static RAM) and `DRAM` (Dynamic RAM)?</strong> &rarr; <span class="ol-ans-highlight">SRAM uses flip-flop latches (6 transistors, fast, low density, no refresh needed — used for CPU Cache); DRAM uses 1 capacitor + 1 transistor per bit (slow, high density, requires periodic charge refreshing — used for Main Memory)</span> <span style="color:#475569;font-size:12.8px;">(Capacitor charge leakage in DRAM requires periodic refresh cycles, whereas cross-coupled CMOS inverters in SRAM hold state as long as power is applied.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#93 · ROM Types</span> <strong>Which type of non-volatile semiconductor memory allows selective erasure and reprogramming at the byte/block level electrically in-circuit without ultraviolet light?</strong> &rarr; <span class="ol-ans-highlight">EEPROM / Flash Memory</span> <span style="color:#475569;font-size:12.8px;">(EEPROM (Electrically Erasable Programmable ROM) and NAND/NOR Flash erase gates electrically via Fowler-Nordheim tunneling.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#94 · Cache Organization</span> <strong>In a `k-Way Set-Associative Cache` with `S` sets, if `k = 1`, it reduces to ______; and if `k = Total Cache Lines` (`S = 1`), it becomes ______:</strong> &rarr; <span class="ol-ans-highlight">k = 1 is Direct Mapping; k = Total Cache Lines (S = 1) is Fully Associative Mapping</span> <span style="color:#475569;font-size:12.8px;">(Direct Mapping is `1-way set-associative`, and Fully Associative Mapping is `n-way set-associative` (1 set of all n lines).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#95 · Cache Replacement</span> <strong>Why is a Replacement Algorithm (such as `LRU`, `FIFO`, or `Random`) NOT needed in a Direct-Mapped Cache?</strong> &rarr; <span class="ol-ans-highlight">Because each main memory block maps to ONLY ONE unique fixed cache line (`Block_Number mod N_lines`), so there is no choice of which line to evict!</span> <span style="color:#475569;font-size:12.8px;">(With only 1 possible cache frame per memory block, any new block mapping to that frame must unconditionally replace the current occupant.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#96 · I/O Interface</span> <strong>What is the difference between `Memory-Mapped I/O` and `Isolated (Port-Mapped) I/O`?</strong> &rarr; <span class="ol-ans-highlight">Memory-Mapped I/O shares the same address space for both memory and I/O devices (uses standard `LOAD/STORE` instructions); Isolated I/O uses a separate I/O address space and dedicated `IN` / `OUT` instructions</span> <span style="color:#475569;font-size:12.8px;">(In 8085, `IO/M&#x27;` pin distinguishes Isolated I/O (`IN`/`OUT` with 8-bit port address) from Memory-Mapped I/O (`LDA`/`STA` with 16-bit address).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#97 · Bus Arbitration</span> <strong>When multiple bus masters request control of a shared system bus simultaneously, which hardware arbitration method has the FASTEST response time and configurable priority?</strong> &rarr; <span class="ol-ans-highlight">Independent Requests (Parallel Arbitration with a central Priority Encoder/Arbiter)</span> <span style="color:#475569;font-size:12.8px;">(Independent Request arbitration gives each master its own dedicated `Bus Request` and `Bus Grant` pair connected to a central hardware arbiter.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#98 · Pipelining</span> <strong>What is a &#x27;Superscalar Processor&#x27; architecture?</strong> &rarr; <span class="ol-ans-highlight">A processor with multiple parallel execution pipelines (multiple ALUs/FPUs) that fetches, decodes, and issues MORE THAN ONE instruction per clock cycle (`IPC &gt; 1`, or `CPI &lt; 1`)</span> <span style="color:#475569;font-size:12.8px;">(Superscalar processors issue multiple instructions per clock cycle in parallel across duplicated functional units (`IPC &gt; 1`), whereas Superpipelined processors subdivide stages to run at a higher clock rate.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#99 · Branch Prediction</span> <strong>Why is a `2-bit Saturating Counter` Dynamic Branch Predictor preferred over a `1-bit` Branch Predictor for inner loops?</strong> &rarr; <span class="ol-ans-highlight">A 1-bit predictor mispredicts TWICE per loop execution (on loop exit and on re-entry); a 2-bit predictor requires TWO consecutive mispredictions to flip its prediction, so it mispredicts only ONCE (on loop exit)!</span> <span style="color:#475569;font-size:12.8px;">(A 1-bit predictor flips state on the single loop-exit non-taken branch and mispredicts again on the first iteration of the next loop invocation; a 4-state 2-bit predictor stays in &#x27;Predict Taken&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#100 · Computer Architecture</span> <strong>What is the key architectural difference between `Von Neumann Architecture` and `Harvard Architecture`?</strong> &rarr; <span class="ol-ans-highlight">Von Neumann uses a SINGLE shared memory and bus for both instructions and data (causing the Von Neumann bottleneck); Harvard uses SEPARATE memories and buses for instructions and data (allowing simultaneous instruction fetch and data access)</span> <span style="color:#475569;font-size:12.8px;">(Modern CPUs use a Modified Harvard Architecture internally (separate L1 Instruction Cache and L1 Data Cache to prevent structural hazards) backed by unified main memory.)</span></span></li>
+
+      </ul>
+    </div>
+    
+      </div>
+    </section>
+
+    <!-- TAB 2: 100 MOST PROBABLE MCQs -->
+    <section id="paneMcqs" style="display:none;">
+      <div class="toolbar-card">
+        <input type="text" id="mcqSearch" class="search-input" placeholder="🔍 Filter the 100 Most Probable MCQs by topic or keyword..." oninput="renderMcqList()">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span id="scoreBadge" style="font-size:13px;font-weight:800;background:#dcfce7;color:#14532d;padding:7px 12px;border-radius:8px;">Score: 0 / 0</span>
+          <button class="action-btn green" onclick="toggleRevealAll()" id="btnRevealAll">📖 Show All 100 Answers &amp; Explanations</button>
+          <button class="action-btn secondary" onclick="shuffleAllMcqs()">🔀 Shuffle 100 MCQs &amp; Options</button>
+          <button class="action-btn" onclick="resetMcqSession()">↺ Reset</button>
+        </div>
+      </div>
+      <div id="mcqContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    const RAW_QS = [{"id": "P2_S3_Q001", "num": 1, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2024", "question": "Which of the following storage devices offers the fastest access speed for retrieving data?", "options": {"A": "Solid State Drive (SSD)", "B": "Hard Disk Drive (HDD) with mechanical spinning platters", "C": "USB 2.0 Flash Drive over external serial interface", "D": "Blu-ray Optical Disc read by a laser pickup assembly"}, "answer": "A", "explanation": "Among secondary storage devices listed, NVMe/SATA SSD uses flash memory with no moving parts and is fastest."}, {"id": "P2_S3_Q002", "num": 2, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2024", "question": "Which processing technique involves executing multiple tasks simultaneously across multiple processing units?", "options": {"A": "Serial processing executing one instruction stream sequentially", "B": "Parallel processing", "C": "Sequential processing finishing one batch job before the next", "D": "Single-threaded polling loop inside a uniprocessor system"}, "answer": "B", "explanation": "Parallel processing executes multiple tasks/instructions simultaneously on multiple CPUs/cores."}, {"id": "P2_S3_Q003", "num": 3, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2024", "question": "The number of index bits in direct cache mapping (where m = main memory blocks, n = cache blocks) is given by:", "options": {"A": "log_2(m) which gives total block address bits in memory", "B": "log_2(m/n) which gives the tag field size in bits", "C": "log_2(n)", "D": "log_2(m*n) which sums both block counts unnecessarily"}, "answer": "C", "explanation": "In direct mapping with n cache lines, selecting the cache line requires log_2(n) index bits (while tag is log_2(m/n) bits)."}, {"id": "P2_S3_Q004", "num": 4, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which register in the 8085 microprocessor holds the address of the memory location for data transfer?", "options": {"A": "Accumulator which stores 8-bit arithmetic operands and results", "B": "Instruction Register which holds the currently decoded opcode", "C": "Flag Register which holds status bits like Zero and Carry", "D": "Address Register (MAR / HL Pair)"}, "answer": "D", "explanation": "The Memory Address Register (MAR) / Address Register holds the target memory address for data transfer."}, {"id": "P2_S3_Q005", "num": 5, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following is true about the 8085 microprocessor?", "options": {"A": "It has an 8-bit data bus (and supports direct addressing)", "B": "It is a 16-bit microprocessor with a 16-bit ALU", "C": "It has a 32-bit physical memory address bus under standard IEEE/ISO technical specifications and system constraints", "D": "It does not support immediate or direct addressing modes"}, "answer": "A", "explanation": "Intel 8085 is an 8-bit microprocessor with an 8-bit data bus, 16-bit address bus, and supports direct addressing (e.g., LDA/STA)."}, {"id": "P2_S3_Q006", "num": 6, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following instructions is used to transfer data in the 8085 microprocessor?", "options": {"A": "ADD which performs 8-bit arithmetic addition into accumulator", "B": "MOV", "C": "SUB which performs 8-bit arithmetic subtraction from accumulator", "D": "CMA which complements the contents of the accumulator"}, "answer": "B", "explanation": "MOV Rd, Rs copies/transfers data from source register Rs to destination register Rd."}, {"id": "P2_S3_Q007", "num": 7, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following is a valid addressing mode in the 8085 microprocessor?", "options": {"A": "Indexed addressing mode using dedicated index registers", "B": "Segment-offset logical addressing mode used in 8086", "C": "Immediate addressing mode", "D": "Base-scaled-index addressing mode used in 32-bit x86"}, "answer": "C", "explanation": "8085 supports 5 addressing modes: Immediate, Register, Direct, Register Indirect, and Implied."}, {"id": "P2_S3_Q008", "num": 8, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "What is the size of the Program Counter (PC) in the 8085 microprocessor?", "options": {"A": "8 bits matching the width of the accumulator register", "B": "32 bits matching modern 32-bit processor architectures", "C": "64 bits matching modern 64-bit processor architectures", "D": "16 bits"}, "answer": "D", "explanation": "Both Program Counter (PC) and Stack Pointer (SP) in 8085 are 16-bit registers to address 64 KB of memory."}, {"id": "P2_S3_Q009", "num": 9, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following microprocessors is an 8-bit processor?", "options": {"A": "8085", "B": "8086 which is a 16-bit microprocessor with 20-bit address bus", "C": "80286 which is a 16-bit protected-mode microprocessor", "D": "80386 which is a 32-bit microprocessor architecture"}, "answer": "A", "explanation": "Intel 8085 is an 8-bit microprocessor (note: 8051 is an 8-bit microcontroller)."}, {"id": "P2_S3_Q010", "num": 10, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "In the 8085 microprocessor, which register is used to store the result of an arithmetic operation?", "options": {"A": "Stack pointer which holds the 16-bit top-of-stack address", "B": "Accumulator", "C": "Program counter which holds the next instruction address", "D": "Instruction register which holds the fetched opcode byte"}, "answer": "B", "explanation": "In 8085, the 8-bit Accumulator (Register A) stores the result of ALU arithmetic and logic operations."}, {"id": "P2_S3_Q011", "num": 11, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "What is the size of the address bus in the 8085 microprocessor?", "options": {"A": "8 bits which is the width of the bidirectional data bus", "B": "32 bits which addresses 4 GB of physical main memory", "C": "16 bits", "D": "64 bits which addresses 16 Exabytes of physical memory"}, "answer": "C", "explanation": "8085 has a 16-bit unidirectional address bus (A0–A15), addressing 2^16 = 64 KB of memory."}, {"id": "P2_S3_Q012", "num": 12, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following is a key feature of the 8086 microprocessor?", "options": {"A": "8-bit data bus with no instruction prefetch queue", "B": "32-bit data bus with integrated on-chip L2 cache", "C": "64-bit data bus with superscalar out-of-order execution", "D": "16-bit data bus"}, "answer": "D", "explanation": "Intel 8086 is a 16-bit microprocessor featuring a 16-bit data bus, 20-bit address bus, and 6-byte instruction queue."}, {"id": "P2_S3_Q013", "num": 13, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "What is the function of the Stack Pointer (SP) in the 8085 microprocessor?", "options": {"A": "Points to the top of the stack in memory", "B": "Points to the next instruction to be fetched and executed", "C": "Holds the memory address of a direct-addressed operand", "D": "Holds the temporary 8-bit data operand for the ALU"}, "answer": "A", "explanation": "The 16-bit Stack Pointer (SP) always holds the memory address of the current top of the stack."}, {"id": "P2_S3_Q014", "num": 14, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following is NOT an internal component of the CPU?", "options": {"A": "Arithmetic and Logic Unit (ALU) for computations", "B": "Hard Disk Drive", "C": "Control Unit (CU) for instruction decoding and timing", "D": "Internal Register / Memory Unit for high-speed storage"}, "answer": "B", "explanation": "Hard Disk Drive (HDD) is an external secondary storage device, not an internal CPU component."}, {"id": "P2_S3_Q015", "num": 15, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "What does the term 'Bus' in computer organization refer to?", "options": {"A": "A high-level software interface for connecting web APIs", "B": "The central processing unit arithmetic logic core itself", "C": "A physical pathway for data transfer between components", "D": "An external peripheral input/output printing device"}, "answer": "C", "explanation": "A system bus is a shared physical communication pathway (wires/traces) transferring data, addresses, and control signals."}, {"id": "P2_S3_Q016", "num": 16, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which unit is responsible for fetching instructions from memory and decoding them in the CPU?", "options": {"A": "Arithmetic Logic Unit (ALU) which only executes math/logic", "B": "Secondary Memory Unit which stores persistent disk files", "C": "External DMA Controller which transfers bulk I/O blocks", "D": "Control Unit (CU)"}, "answer": "D", "explanation": "The Control Unit (CU) directs the instruction fetch-decode-execute cycle and generates control signals."}, {"id": "P2_S3_Q017", "num": 17, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "In the memory hierarchy, which of the following has the highest access speed?", "options": {"A": "Cache memory", "B": "Main Memory (DRAM) modules on the motherboard", "C": "Hard Disk Drive (HDD) magnetic storage platters", "D": "Magnetic Tape sequential archival storage cartridges"}, "answer": "A", "explanation": "Among the given options, Cache memory (SRAM) is closest to the CPU and has the fastest access speed."}, {"id": "P2_S3_Q018", "num": 18, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2025", "question": "Which of the following is the main function of the Arithmetic Logic Unit (ALU)?", "options": {"A": "Control the overall sequence of instruction fetching", "B": "Perform the arithmetic and logical operations", "C": "Fetch instructions directly from secondary disk storage", "D": "Manage external peripheral device input and output queues"}, "answer": "B", "explanation": "The ALU executes all integer arithmetic (add, subtract) and bitwise logical (AND, OR, XOR, NOT, shift) operations."}, {"id": "P2_S3_Q019", "num": 19, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Mapping", "question": "A computer has a 64 KB, 4-way set-associative cache with a block (line) size of 64 bytes and a 32-bit physical main memory address. What are the exact bit widths of the Tag, Set Index, and Byte Offset fields?", "options": {"A": "Tag = 16 bits, Set Index = 10 bits, Byte Offset = 6 bits", "B": "Tag = 19 bits, Set Index = 7 bits, Byte Offset = 6 bits", "C": "Tag = 18 bits, Set Index = 8 bits, Byte Offset = 6 bits", "D": "Tag = 20 bits, Set Index = 6 bits, Byte Offset = 6 bits"}, "answer": "C", "explanation": "Block size B = 64 B = 2⁶ ⇒ Byte Offset = 6 bits. Total cache lines C = 64 KB / 64 B = 1024 = 2¹⁰ lines. Number of sets S = C / 4 = 1024 / 4 = 256 = 2⁸ sets ⇒ Set Index = 8 bits. Tag = 32 - 8 - 6 = 18 bits."}, {"id": "P2_S3_Q020", "num": 20, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Instruction Pipelining", "question": "A 5-stage instruction pipeline has stage delays of 150 ps, 120 ps, 160 ps, 140 ps, and 130 ps, and each inter-stage pipeline register has a latch delay of 20 ps. What is the pipeline clock cycle time and the asymptotic speedup over a non-pipelined processor?", "options": {"A": "Clock cycle = 160 ps; Asymptotic speedup = 4.38", "B": "Clock cycle = 140 ps; Asymptotic speedup = 5.00 as prescribed under prevailing statutory and departmental technical norms", "C": "Clock cycle = 200 ps; Asymptotic speedup = 3.50", "D": "Clock cycle = 180 ps; Asymptotic speedup = 3.89"}, "answer": "D", "explanation": "Non-pipelined time T_non = 150+120+160+140+130 = 700 ps. Pipeline clock period τ_p = max(150,120,160,140,130) + 20 = 160 + 20 = 180 ps. Asymptotic speedup S_max = 700 / 180 = 3.89."}, {"id": "P2_S3_Q021", "num": 21, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipeline Hazards", "question": "In an out-of-order superscalar processor pipeline, which of the following data hazards represents a TRUE data dependency that cannot be eliminated by Register Renaming alone?", "options": {"A": "Read After Write (RAW — Flow Dependency)", "B": "Write After Read (WAR — Anti-Dependency)", "C": "Write After Write (WAW — Output Dependency)", "D": "Read After Read (RAR — Non-Hazard)"}, "answer": "A", "explanation": "WAR and WAW are false (name) dependencies caused by reusing architectural register names and are completely eliminated by Register Renaming; RAW is a true producer-consumer data dependency."}, {"id": "P2_S3_Q022", "num": 22, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Addressing Modes", "question": "Which CPU addressing mode is specifically suited for implementing position-independent conditional branch instructions and relocatable code?", "options": {"A": "Immediate Addressing Mode", "B": "PC-Relative Addressing Mode", "C": "Auto-Decrement Addressing Mode", "D": "Direct Absolute Addressing Mode"}, "answer": "B", "explanation": "PC-Relative Addressing computes Effective Address = PC + Signed Offset, allowing branch instructions to execute correctly regardless of where the program module is loaded in memory."}, {"id": "P2_S3_Q023", "num": 23, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Memory Hierarchy AMAT", "question": "A hierarchical memory system has an L1 cache with an access time of 2 ns and a hit ratio of 95%, backed by main memory with a miss penalty of 60 ns. Under sequential (look-through) access, what is the Average Memory Access Time (AMAT)?", "options": {"A": "4.9 ns", "B": "3.2 ns when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "5.0 ns", "D": "6.5 ns"}, "answer": "C", "explanation": "In hierarchical (look-through) access, cache is always checked first: AMAT = T_c + (1 - h) × T_m = 2 ns + (1 - 0.95) × 60 ns = 2 + 3.0 = 5.0 ns."}, {"id": "P2_S3_Q024", "num": 24, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "DMA \u0026 I/O", "question": "A DMA controller transfers data from a high-speed disk running at 4 MB/s into main memory over a 32-bit (4-byte) system bus using Cycle Stealing mode. If each memory bus cycle takes 100 ns, what percentage of CPU bus time is stolen by the DMA controller?", "options": {"A": "20%", "B": "5%", "C": "40% as prescribed under prevailing statutory and departmental technical norms", "D": "10%"}, "answer": "D", "explanation": "At 4 MB/s and 4 bytes per word, DMA transfers 1,000,000 words/sec (1 word every 1,000 ns = 1 μs). Each word transfer steals 100 ns of bus time, so fraction stolen = 100 ns / 1000 ns = 10%."}, {"id": "P2_S3_Q025", "num": 25, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Expanding Opcode", "question": "A processor uses 16-bit instructions and 4-bit register address fields. If the ISA already defines 14 three-address instructions and 30 two-address instructions, what is the maximum number of one-address instructions that can be formulated?", "options": {"A": "32 one-address instructions", "B": "16 one-address instructions under standard IEEE/ISO technical specifications and system constraints", "C": "48 one-address instructions", "D": "64 one-address instructions"}, "answer": "A", "explanation": "With 16-bit instruction and three 4-bit fields (12 bits), top opcode has 4 bits (2⁴ = 16 patterns). 14 used for 3-address leaves 16 - 14 = 2 unused patterns → 2 × 2⁴ = 32 two-address slots. Using 30 leaves 32 - 30 = 2 unused patterns → 2 × 2⁴ = 32 one-address instructions."}, {"id": "P2_S3_Q026", "num": 26, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Control Unit", "question": "How does Horizontal Microprogramming differ from Vertical Microprogramming in control unit design?", "options": {"A": "Horizontal microinstructions use shorter control words than Vertical microinstructions", "B": "Horizontal microinstructions use unencoded control bits for higher parallelism and zero decoder delay, whereas Vertical microinstructions use encoded fields requiring external decoders", "C": "Vertical microprogramming is used exclusively in RISC hardwired pipelines according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules", "D": "Horizontal microprogramming cannot trigger more than one control signal per clock cycle"}, "answer": "B", "explanation": "Horizontal microprogramming assigns 1 bit per control line (wide word, high parallelism, fast), while Vertical microprogramming encodes mutually exclusive control signals into log₂(N) bits (short word, slower due to decoder delay)."}, {"id": "P2_S3_Q027", "num": 27, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "A 32-bit processor has a 32 KB, 2-way set-associative cache with a 32-byte cache line (block) size and uses a Write-Back policy (1 Valid bit + 1 Dirty bit per line). What is the total size (in bits) of the Tag Directory (metadata bits across all lines)?", "options": {"A": "18,432 bits (2.25 KB)", "B": "19,456 bits (2.375 KB)", "C": "20,480 bits (2.5 KB)", "D": "32,768 bits (4.0 KB)"}, "answer": "C", "explanation": "Block size = 32 B = 2⁵ ⇒ Offset = 5 bits. Total lines C = 32 KB / 32 B = 1024 = 2¹⁰ lines. Sets S = 1024 / 2 = 512 = 2⁹ sets ⇒ Index = 9 bits. Tag = 32 - 9 - 5 = 18 bits. Metadata per line = 18 (Tag) + 1 (Valid) + 1 (Dirty) = 20 bits. Total Tag Directory = 1024 × 20 = 20,480 bits."}, {"id": "P2_S3_Q028", "num": 28, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "A magnetic hard disk rotates at 7,200 RPM (rotations per minute) and has an average seek time of 6 ms. What is the average rotational latency of this disk?", "options": {"A": "8.33 ms as prescribed under prevailing statutory and departmental technical norms", "B": "6.00 ms", "C": "2.08 ms", "D": "4.17 ms"}, "answer": "D", "explanation": "Time for 1 full rotation at 7,200 RPM = 60 / 7200 s = 8.333 ms. Average rotational latency is half of a full rotation = 8.333 / 2 = 4.17 ms."}, {"id": "P2_S3_Q029", "num": 29, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "In Booth's Multiplication Algorithm for signed 2's complement numbers, how many additions and subtractions are performed when multiplying by the 8-bit multiplier Q = 01111100₂?", "options": {"A": "1 addition and 1 subtraction", "B": "5 additions and 0 subtractions", "C": "2 additions and 2 subtractions", "D": "0 additions and 5 subtractions"}, "answer": "A", "explanation": "Booth's algorithm scans adjacent bit pairs (Q_i, Q_(i-1)) with Q_(-1) = 0. A contiguous block of five 1s from bit 2 to bit 6 in 01111100₂ triggers only 1 subtraction at the start of the 1s block (10 transition at bit 2) and 1 addition at the end of the block (01 transition at bit 7)!"}, {"id": "P2_S3_Q030", "num": 30, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "Which register in the CPU holds the memory address of the next instruction to be fetched, and which register holds the actual data word read from or written to main memory?", "options": {"A": "Instruction Register (IR) holds next instruction address; Memory Address Register (MAR) holds the data word", "B": "Program Counter (PC) holds next instruction address; Memory Data/Buffer Register (MDR/MBR) holds the data word", "C": "Stack Pointer (SP) holds next instruction address; Accumulator (ACC) holds the memory address", "D": "Program Status Word (PSW) holds next instruction address; Base Register holds the opcode according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "PC holds the address of the next instruction; MAR holds the target memory address on the address bus; MDR (MBR) holds the data word transferred over the data bus; IR holds the currently decoding instruction."}, {"id": "P2_S3_Q031", "num": 31, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "A processor executes a program of 10⁶ instructions on a 2 GHz clock. The instruction mix consists of 50% ALU instructions (1 cycle), 30% Load/Store instructions (3 cycles), and 20% Branch instructions (2 cycles). What are the average CPI and total CPU execution time?", "options": {"A": "Average CPI = 2.0; Execution time = 1.0 ms", "B": "Average CPI = 1.5; Execution time = 0.75 ms", "C": "Average CPI = 1.8; Execution time = 0.9 ms", "D": "Average CPI = 1.8; Execution time = 1.8 ms"}, "answer": "C", "explanation": "Average CPI = 0.50(1) + 0.30(3) + 0.20(2) = 0.5 + 0.9 + 0.4 = 1.8 cycles/instruction. Total clock cycles = 1.8 × 10⁶. At 2 GHz (2 × 10⁹ Hz), Execution time = 1.8 × 10⁶ / (2 × 10⁹) = 0.9 × 10⁻³ s = 0.9 ms."}, {"id": "P2_S3_Q032", "num": 32, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "In an Interrupt-Driven I/O system using hardware 'Daisy Chaining' to resolve simultaneous interrupt requests from multiple devices sharing a single INTR line, which device receives the highest priority?", "options": {"A": "The device physically wired farthest from the CPU at the end of the chain", "B": "All devices receive equal round-robin priority simultaneously as prescribed under prevailing statutory and departmental technical norms", "C": "The slowest mechanical I/O device always receives highest priority", "D": "The device physically wired closest to the CPU along the serial INTA (Interrupt Acknowledge) daisy-chain line"}, "answer": "D", "explanation": "In Daisy Chaining, the CPU's Interrupt Acknowledge (INTA) signal propagates serially through devices; the first requesting device closest to the CPU intercepts INTA, blocks downstream propagation, and places its vector on the bus."}, {"id": "P2_S3_Q033", "num": 33, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "In a 5-stage RISC pipeline (IF, ID, EX, MEM, WB) equipped with full hardware operand forwarding (bypassing) paths from EX/MEM and MEM/WB to ALU inputs, how many stall cycles (bubbles) are required for the Load-Use sequence:\nLW R1, 0(R2)\nADD R3, R1, R4", "options": {"A": "Exactly 1 stall cycle (bubble), because LW produces its data only at the end of Stage 4 (MEM), whereas ADD needs R1 at the start of Stage 3 (EX)", "B": "0 stall cycles, because EX/MEM forwarding supplies the loaded memory word immediately", "C": "2 stall cycles, because R1 is only available after Stage 5 (WB) completes", "D": "3 stall cycles, because the entire pipeline must be flushed under standard IEEE/ISO technical specifications and system constraints under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Even with MEM/WB → EX forwarding, a Load instruction fetches data from data cache at the end of MEM (cycle 4), while an immediately following dependent ALU instruction needs that operand at the start of EX (cycle 3) → 1 hardware stall bubble is unavoidable unless the compiler schedules an independent instruction in between."}, {"id": "P2_S3_Q034", "num": 34, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "Why does a Fully Associative Cache experience ZERO 'Conflict Misses' (having only Compulsory/Cold misses and Capacity misses)?", "options": {"A": "Because a Fully Associative Cache has infinite gigabyte storage capacity according to the formal architectural model and runtime execution rules", "B": "Because any main memory block can be placed into ANY available cache line without index restriction", "C": "Because it pre-fetches the entire hard drive at boot time", "D": "Because it uses a 0-bit Tag field and never compares addresses"}, "answer": "B", "explanation": "Conflict misses occur in Direct-Mapped and Set-Associative caches when multiple active blocks map to the same line/set; Fully Associative placement allows any block to occupy any cache line."}, {"id": "P2_S3_Q035", "num": 35, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "According to Flynn's taxonomy of computer architectures, how are Graphics Processing Units (GPUs) / Vector Array Processors and Multi-Core Symmetric Multiprocessors (SMPs) classified, respectively?", "options": {"A": "GPUs: SISD; Multi-Core SMPs: MISD", "B": "GPUs: MIMD; Multi-Core SMPs: SISD when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "GPUs / Vector Processors: SIMD (Single Instruction, Multiple Data); Multi-Core SMPs: MIMD (Multiple Instruction, Multiple Data)", "D": "Both GPUs and Multi-Core SMPs are classified as MISD"}, "answer": "C", "explanation": "Vector units and GPU warps execute a Single Instruction stream across Multiple Data elements in lockstep (SIMD), whereas multi-core CPUs execute independent instruction threads on distinct data streams (MIMD)."}, {"id": "P2_S3_Q036", "num": 36, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "A processor has a two-level cache hierarchy: L1 cache has a 1 ns hit time and 90% hit rate; L2 cache has a 10 ns hit time and 80% local hit rate; Main Memory miss penalty is 100 ns. What is the Average Memory Access Time (AMAT)?", "options": {"A": "3.0 ns", "B": "11.0 ns", "C": "2.8 ns", "D": "4.0 ns"}, "answer": "D", "explanation": "AMAT = T_L1 + (1 - h_L1) × [T_L2 + (1 - h_L2) × T_MM] = 1 + 0.10 × [10 + 0.20 × 100] = 1 + 0.10 × 30 = 4.0 ns."}, {"id": "P2_S3_Q037", "num": 37, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "On a little-endian 32-bit processor (such as x86), the 32-bit hexadecimal integer 0x12345678 is stored in memory starting at byte address 0x1000. What byte value is stored at address 0x1000 and at 0x1003?", "options": {"A": "0x78 at address 0x1000 and 0x12 at address 0x1003", "B": "0x12 at address 0x1000 and 0x78 at address 0x1003 (Big-Endian)", "C": "0x34 at address 0x1000 and 0x56 at address 0x1003", "D": "0x56 at address 0x1000 and 0x34 at address 0x1003"}, "answer": "A", "explanation": "In Little-Endian byte ordering, the Least Significant Byte (LSB = 0x78) is stored at the lowest memory address (0x1000), and the MSB (0x12) is at 0x1003."}, {"id": "P2_S3_Q038", "num": 38, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "According to Amdahl's Law, if 80% of a program's execution time can be parallelized across N = 4 processor cores while the remaining 20% is strictly serial, what is the overall speedup S?", "options": {"A": "4.00", "B": "2.50", "C": "3.20 according to the formal architectural model and runtime execution rules", "D": "2.00"}, "answer": "B", "explanation": "By Amdahl's Law: S = 1 / [(1 - f) + f / N] = 1 / [0.20 + 0.80 / 4] = 1 / (0.20 + 0.20) = 1 / 0.40 = 2.50."}, {"id": "P2_S3_Q039", "num": 39, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "A 4-stage instruction pipeline has stage clock cycle τ = 10 ns. How much total time is required to execute 100 instructions assuming zero pipeline hazards or stalls?", "options": {"A": "1,000 ns (100 clock cycles)", "B": "4,000 ns (400 clock cycles)", "C": "1,030 ns (103 clock cycles)", "D": "1,040 ns (104 clock cycles) when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Total cycles for k = 4 stages and n = 100 instructions = k + (n - 1) = 4 + 99 = 103 cycles. Total time = 103 × 10 ns = 1,030 ns."}, {"id": "P2_S3_Q040", "num": 40, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "In a Direct-Mapped Cache with 1,024 lines (blocks) and a block size of 32 bytes, to which cache line index (0 to 1023) does the byte physical address 0x0001A45C (decimal 107,612) map?", "options": {"A": "Cache Line Index = 354 (0x162) as prescribed under prevailing statutory and departmental technical norms", "B": "Cache Line Index = 512 (0x200)", "C": "Cache Line Index = 28 (0x01C)", "D": "Cache Line Index = 290 (since Block # = ⌊107,612 / 32⌋ = 3,362 and 3,362 mod 1024 = 290)"}, "answer": "D", "explanation": "Block size = 32 B = 2⁵ ⇒ lower 5 bits (28 = 0x1C) are the Byte Offset. Shifting right by 5 bits gives Main Memory Block Number = 107,612 // 32 = 3,362. In a 1,024-line Direct-Mapped cache, Line Index = 3,362 mod 1,024 = 290."}, {"id": "P2_S3_Q041", "num": 41, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "Which CPU flag bit in the Program Status Word (PSW) is tested to detect arithmetic overflow in UNSIGNED integer addition vs. SIGNED 2's complement addition?", "options": {"A": "Unsigned overflow is indicated by the Carry Flag (CF = 1); Signed 2's complement overflow is indicated by the Overflow Flag (VF = C_in(MSB) ⊕ C_out(MSB) = 1)", "B": "Unsigned overflow uses the Sign Flag (SF); Signed overflow uses the Zero Flag (ZF)", "C": "Both Unsigned and Signed overflow use the Parity Flag (PF) only under standard IEEE/ISO technical specifications and system constraints under standard IEEE/ISO technical specifications and system constraints", "D": "Signed overflow occurs whenever the Carry Flag CF = 1"}, "answer": "A", "explanation": "In unsigned arithmetic, carry out of the MSB (CF = 1) means overflow; in signed 2's complement arithmetic, overflow occurs iff C_in(MSB) ⊕ C_out(MSB) = 1 (VF = 1)."}, {"id": "P2_S3_Q042", "num": 42, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "Why are dynamic 2-bit saturating-counter Branch Predictors preferred over 1-bit Branch Predictors for inner loops?", "options": {"A": "A 2-bit predictor requires zero hardware flip-flops", "B": "A 1-bit predictor mispredicts TWICE per loop execution (on loop exit and on loop re-entry), whereas a 2-bit predictor requires two consecutive wrong outcomes to flip its prediction, mispredicting only ONCE (on loop exit)", "C": "A 1-bit predictor can never predict backward branches", "D": "A 2-bit predictor eliminates all RAW data hazards according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "At the end of an inner loop, a 1-bit predictor flips state on the single exit branch and then mispredicts again when the loop restarts; a 2-bit hysteresis counter stays in 'Predict Taken' on re-entry."}, {"id": "P2_S3_Q043", "num": 43, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "What is the role of a 'Write Buffer' in a Cache subsystem configured with a Write-Through policy?", "options": {"A": "It converts a Direct-Mapped cache into a Fully Associative cache when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "It replaces the Instruction Decoder inside the Control Unit", "C": "It holds words waiting to be written to Main Memory in a fast FIFO queue so the CPU can continue execution immediately without stalling for slow DRAM write cycles", "D": "It stores virtual-to-physical page translations instead of the TLB"}, "answer": "C", "explanation": "In Write-Through caches, every store updates main memory; a small SRAM Write Buffer absorbs store writes so the processor does not stall unless the write buffer fills up."}, {"id": "P2_S3_Q044", "num": 44, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "COA", "question": "How does Memory-Mapped I/O differ from Isolated (Port-Mapped) I/O?", "options": {"A": "Memory-Mapped I/O requires special IN and OUT opcodes, whereas Isolated I/O cannot use interrupts", "B": "Isolated I/O reduces the available main memory address space, whereas Memory-Mapped I/O does not as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms", "C": "Memory-Mapped I/O works only with magnetic tape drives", "D": "Memory-Mapped I/O shares the same address space for both memory and I/O devices and uses standard LOAD/STORE instructions, whereas Isolated I/O uses a separate I/O address space and dedicated IN/OUT instructions"}, "answer": "D", "explanation": "Memory-Mapped I/O assigns portions of the CPU's physical address space to I/O device registers so any memory reference instruction (MOV/LOAD/STORE) can manipulate I/O ports."}, {"id": "P2_S3_Q045", "num": 45, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "In the Intel 8085 microprocessor, which signal pin is used to demultiplex the lower-order multiplexed address/data bus `AD_0–AD_7`?", "options": {"A": "ALE (Address Latch Enable)", "B": "HOLD (used for DMA bus request)", "C": "READY (used to insert wait states for slow memory)", "D": "INTR (maskable hardware interrupt request)"}, "answer": "A", "explanation": "When ALE goes high during T1 of a machine cycle, an external 8-bit latch (74LS373) latches the low byte of the address (`A_0–A_7`) from `AD_0–AD_7`."}, {"id": "P2_S3_Q046", "num": 46, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "Which hardware interrupt in the 8085 microprocessor is Non-Maskable (cannot be disabled by `DI` instruction) and has the HIGHEST priority?", "options": {"A": "RST 7.5 (highest priority among maskable interrupts)", "B": "TRAP (RST 4.5)", "C": "RST 6.5", "D": "INTR (lowest priority, non-vectored interrupt)"}, "answer": "B", "explanation": "TRAP is both edge- and level-triggered, non-maskable, and vectored to address `0024H` with the highest priority."}, {"id": "P2_S3_Q047", "num": 47, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "What is the vector memory address for the `RST 7.5` hardware interrupt in the 8085 microprocessor?", "options": {"A": "0024H (vector address for TRAP / RST 4.5)", "B": "0034H (vector address for RST 6.5)", "C": "003CH", "D": "002CH (vector address for RST 5.5)"}, "answer": "C", "explanation": "Multiply the RST number by 8 and convert to hex: 7.5 × 8 = 60_10 = `003CH`."}, {"id": "P2_S3_Q048", "num": 48, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "How many Flag bits are active in the 8-bit Flag Register of the 8085 microprocessor?", "options": {"A": "8 flags", "B": "6 flags (8085 has 5; 8086 has 9 flags)", "C": "4 flags as prescribed under prevailing statutory and departmental technical norms", "D": "5 flags (Sign S, Zero Z, Auxiliary Carry AC, Parity P, Carry CY)"}, "answer": "D", "explanation": "8085 has 5 condition flags: S (bit 7), Z (bit 6), AC (bit 4, used in DAA for BCD), P (bit 2), and CY (bit 0)."}, {"id": "P2_S3_Q049", "num": 49, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "In the 8085 microprocessor, the instruction `LDA 2500H` (Load Accumulator Direct from address 2500H) is how many bytes long and uses which addressing mode?", "options": {"A": "3-byte instruction; Direct Addressing Mode", "B": "1-byte instruction; Register Addressing Mode", "C": "2-byte instruction; Immediate Addressing Mode", "D": "3-byte instruction; Register Indirect Addressing Mode"}, "answer": "A", "explanation": "`LDA 2500H` has 1 byte opcode + 2 bytes 16-bit address = 3 bytes, and fetches directly from memory address 2500H (Direct Addressing)."}, {"id": "P2_S3_Q050", "num": 50, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "In the 8085 microprocessor, what does the instruction `XRA A` (XOR Accumulator with itself) accomplish?", "options": {"A": "Complements all bits of the Accumulator to FFH", "B": "Clears the Accumulator to 00H, sets Zero flag (Z=1), and resets Carry flag (CY=0)", "C": "Increments the Accumulator by 1 according to the formal architectural model and runtime execution rules", "D": "Halts the microprocessor clock"}, "answer": "B", "explanation": "Since any bit XORed with itself is 0 (`A ⊕ A = 00H`), `XRA A` is a fast 1-byte idiom to clear the Accumulator and Carry flag."}, {"id": "P2_S3_Q051", "num": 51, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8086 Microprocessor", "question": "In the Intel 8086 microprocessor, the Address Bus is `20 bits` wide. How is the 20-bit Physical Address calculated from a 16-bit Segment Register and 16-bit Offset?", "options": {"A": "Physical Address = Segment Register + Offset", "B": "Physical Address = (Segment Register × 100H) + Offset", "C": "Physical Address = (Segment Register × 10H) + Offset", "D": "Physical Address = Segment Register XOR Offset"}, "answer": "C", "explanation": "The Bus Interface Unit (BIU) shifts the 16-bit Segment Register left by 4 bits (`× 16 = × 10H`) and adds the 16-bit Offset to form a 20-bit physical address (1 MB address space)."}, {"id": "P2_S3_Q052", "num": 52, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8086 Microprocessor", "question": "The internal architecture of the 8086 microprocessor is divided into which two independent functional units to support instruction pipelining?", "options": {"A": "Control Unit (CU) and Floating Point Unit (FPU) as prescribed under prevailing statutory and departmental technical norms", "B": "DMA Controller and Interrupt Controller", "C": "Cache Controller and Memory Management Unit", "D": "Bus Interface Unit (BIU) and Execution Unit (EU)"}, "answer": "D", "explanation": "The BIU prefetches up to 6 instruction bytes into the instruction queue while the EU decodes and executes instructions in parallel."}, {"id": "P2_S3_Q053", "num": 53, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "CPU Registers", "question": "Which CPU register temporarily holds the actual data word being read from or written to main memory?", "options": {"A": "MDR / MBR (Memory Data Register / Memory Buffer Register)", "B": "MAR (Memory Address Register — holds the address, not the data)", "C": "PC (Program Counter — holds next instruction address)", "D": "PSW (Program Status Word — holds condition flags)"}, "answer": "A", "explanation": "MAR holds the memory address, while MDR (or MBR) holds the data value transferred over the data bus."}, {"id": "P2_S3_Q054", "num": 54, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "CPU Registers", "question": "Which CPU register holds the machine instruction that is currently being decoded and executed?", "options": {"A": "PC (Program Counter)", "B": "IR (Instruction Register)", "C": "SP (Stack Pointer)", "D": "MAR (Memory Address Register)"}, "answer": "B", "explanation": "During the Fetch phase, `IR \u003c- M[PC]` loads the instruction opcode and operand fields into the Instruction Register."}, {"id": "P2_S3_Q055", "num": 55, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Instruction Formats", "question": "Which CPU organization uses `PUSH` and `POP` instructions where arithmetic operations (`ADD`, `MUL`) implicitly use the top two elements of a stack with NO address fields?", "options": {"A": "One-Address (Accumulator-Organized) CPU", "B": "Two-Address Register-Memory CPU", "C": "Zero-Address (Stack-Organized) CPU", "D": "Three-Address RISC Load/Store CPU"}, "answer": "C", "explanation": "Stack machines (like JVM bytecode and postfix evaluators) use 0-address arithmetic instructions (`ADD` pops top two operands and pushes their sum)."}, {"id": "P2_S3_Q056", "num": 56, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Addressing Modes", "question": "Which addressing mode is most suitable for implementing position-independent (relocatable) code and short conditional branch instructions?", "options": {"A": "Absolute / Direct Addressing Mode", "B": "Immediate Addressing Mode as prescribed under prevailing statutory and departmental technical norms", "C": "Implied Addressing Mode", "D": "PC-Relative Addressing Mode (EA = PC + Offset)"}, "answer": "D", "explanation": "Adding a signed offset to the Program Counter (`EA = PC + Offset`) allows code to run at any memory base address without modifying branch targets."}, {"id": "P2_S3_Q057", "num": 57, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Addressing Modes", "question": "Which addressing mode is ideal for accessing elements of an Array inside a loop (`EA = Base_Address + Index_Register`)?", "options": {"A": "Indexed / Base-Indexed Addressing Mode", "B": "Immediate Addressing Mode", "C": "Register Direct Addressing Mode", "D": "Implied Addressing Mode under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Indexed addressing holds the array's starting address in a base field/register and varies the index register on each loop iteration."}, {"id": "P2_S3_Q058", "num": 58, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Addressing Modes", "question": "In which addressing mode is the operand value itself embedded directly inside the instruction word (requiring ZERO memory references after instruction fetch)?", "options": {"A": "Indirect Addressing Mode (requires 2 memory references)", "B": "Immediate Addressing Mode", "C": "Direct Addressing Mode (requires 1 memory reference)", "D": "Register Indirect Addressing Mode"}, "answer": "B", "explanation": "Immediate addressing (e.g., `MVI A, 05H` or `ADDI R1, R1, #10`) places the constant constant operand directly in the instruction."}, {"id": "P2_S3_Q059", "num": 59, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Endianness", "question": "A 32-bit integer `0x12345678` is stored at memory address `1000H` in a Little-Endian processor (like x86). What byte value is stored at the lowest address `1000H`?", "options": {"A": "0x12 (Most Significant Byte at lowest address — Big-Endian!)", "B": "0x34", "C": "0x78 (Least Significant Byte at lowest address)", "D": "0x56"}, "answer": "C", "explanation": "Little-Endian stores the Least Significant Byte (`0x78`) at the lowest byte address (`1000H`), whereas Big-Endian stores `0x12` at `1000H`."}, {"id": "P2_S3_Q060", "num": 60, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Control Unit", "question": "What is the key advantage of a Hardwired Control Unit over a Microprogrammed Control Unit?", "options": {"A": "Hardwired control is easier to modify via firmware updates", "B": "Hardwired control uses a Control ROM to store microinstructions", "C": "Hardwired control is slower and used only in complex CISC instructions as prescribed under prevailing statutory and departmental technical norms", "D": "Hardwired control is much faster (higher clock speed) and is preferred in RISC processors"}, "answer": "D", "explanation": "Hardwired control generates signals directly via combinational logic gates and state counters, providing maximum speed for RISC pipelines."}, {"id": "P2_S3_Q061", "num": 61, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Control Unit", "question": "In a Microprogrammed Control Unit, what is the difference between Horizontal and Vertical Microprogramming?", "options": {"A": "Horizontal uses unencoded control bits (1 bit per control line, wide microinstruction, high parallelism); Vertical uses encoded fields requiring decoders (narrow microinstruction)", "B": "Horizontal uses narrow encoded fields; Vertical uses wide unencoded bits under standard IEEE/ISO technical specifications and system constraints under standard IEEE/ISO technical specifications and system constraints", "C": "Horizontal cannot control the ALU", "D": "Vertical does not use a Control Memory (CM)"}, "answer": "A", "explanation": "Horizontal microinstructions have no encoding (fast, wide, parallel micro-operations), whereas Vertical microinstructions encode fields to save Control Memory width."}, {"id": "P2_S3_Q062", "num": 62, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "RISC vs CISC", "question": "Which of the following is a defining characteristic of RISC (Reduced Instruction Set Computer) architecture?", "options": {"A": "Variable-length instructions that perform arithmetic directly on memory operands", "B": "Load/Store architecture (only LOAD and store instructions access memory; all ALU operations are register-to-register) with fixed-length instructions", "C": "Small number of general-purpose registers (fewer than 8) according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules", "D": "Heavy reliance on microprogrammed control memory"}, "answer": "B", "explanation": "RISC architectures (ARM, RISC-V, MIPS) use fixed-length instructions, single-cycle pipelined execution, a large register file, and a strict Load/Store model."}, {"id": "P2_S3_Q063", "num": 63, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Computer Arithmetic", "question": "Which algorithm multiplies two signed 2's complement binary numbers directly without converting them to positive magnitude first, by inspecting bit pairs `(Q_0, Q_{-1})`?", "options": {"A": "Restoring Division Algorithm", "B": "Non-Restoring Division Algorithm", "C": "Booth's Multiplication Algorithm", "D": "Wallace Tree Unsigned Adder when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Booth's algorithm encodes strings of 1s in a 2's complement multiplier using transitions `0-\u003e1` (subtract multiplicand) and `1-\u003e0` (add multiplicand)."}, {"id": "P2_S3_Q064", "num": 64, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Computer Arithmetic", "question": "In Booth's multiplication algorithm, how many additions/subtractions are performed for the multiplier `01111110_2`?", "options": {"A": "6 additions (one for each 1 bit as in shift-and-add) as prescribed under prevailing statutory and departmental technical norms", "B": "8 additions", "C": "0 additions", "D": "Only 2 (1 subtraction at bit 1 `10` and 1 addition at bit 7 `01`)"}, "answer": "D", "explanation": "Booth's algorithm replaces a block of consecutive 1s from position i to j with `2^(j+1) - 2^i`, requiring only 1 subtraction and 1 addition!"}, {"id": "P2_S3_Q065", "num": 65, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipelining", "question": "A 5-stage instruction pipeline has stage delays of `150 ps, 120 ps, 160 ps, 140 ps, and 100 ps` and inter-stage latch delay of `10 ps`. What is the minimum pipeline clock cycle time?", "options": {"A": "170 ps", "B": "160 ps (forgetting to add the 10 ps latch delay)", "C": "670 ps (which is the non-pipelined sequential execution time)", "D": "144 ps (average stage delay)"}, "answer": "A", "explanation": "Pipeline clock cycle τ = max(stage delays) + latch delay = 160 + 10 = 170 ps."}, {"id": "P2_S3_Q066", "num": 66, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipelining", "question": "How many clock cycles are required to execute `N = 100` instructions on an ideal `k = 5` stage pipeline with no stalls?", "options": {"A": "500 clock cycles (non-pipelined cycle count)", "B": "104 clock cycles", "C": "100 clock cycles", "D": "105 clock cycles"}, "answer": "B", "explanation": "Total cycles = k + (N - 1) = 5 + (100 - 1) = 104 clock cycles."}, {"id": "P2_S3_Q067", "num": 67, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipelining", "question": "What is the maximum theoretical speedup of a `k`-stage instruction pipeline (assuming equal stage delays and as instruction count `N → ∞`)?", "options": {"A": "2^k when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "k²", "C": "k (equal to the number of pipeline stages)", "D": "log_2(k)"}, "answer": "C", "explanation": "As N → ∞, Speedup S = (N · k · τ) / ((k + N - 1) · τ) → k."}, {"id": "P2_S3_Q068", "num": 68, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipeline Hazards", "question": "Consider the instruction pair: `I1: ADD R1, R2, R3` (`R1 \u003c- R2 + R3`) followed immediately by `I2: SUB R4, R1, R5` (`R4 \u003c- R1 - R5`). Which pipeline hazard exists?", "options": {"A": "WAR (Write After Read — Anti-dependency)", "B": "WAW (Write After Write — Output dependency) as prescribed under prevailing statutory and departmental technical norms", "C": "Control (Branch) Hazard", "D": "RAW (Read After Write — True Data Dependency on R1)"}, "answer": "D", "explanation": "I2 reads R1 before I1 has written the updated result into R1 in the WB stage; this is a RAW (True Data) hazard."}, {"id": "P2_S3_Q069", "num": 69, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipeline Hazards", "question": "Which hardware technique resolves most RAW (Read After Write) data hazards in a 5-stage pipeline without inserting stall cycles?", "options": {"A": "Operand Forwarding (Data Bypassing from EX/MEM or MEM/WB pipeline registers directly to ALU inputs)", "B": "Increasing the size of the hard disk drive", "C": "Flushing the entire instruction cache on every ADD", "D": "Using a single unified memory without caches under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "Operand Forwarding routes the newly computed ALU result directly from pipeline latches back to the ALU inputs before WB completes."}, {"id": "P2_S3_Q070", "num": 70, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipeline Hazards", "question": "Which instruction sequence in a 5-stage RISC pipeline STILL requires 1 mandatory stall cycle (bubble) even WITH full Operand Forwarding?", "options": {"A": "Back-to-back ALU instructions (`ADD R1, R2, R3` then `SUB R4, R1, R5`) according to the formal architectural model and runtime execution rules", "B": "Load-Use Hazard (`LW R1, 0(R2)` immediately followed by `ADD R3, R1, R4`)", "C": "Two independent `SW` store instructions", "D": "A `NOP` instruction followed by `ADD`"}, "answer": "B", "explanation": "A `LW` instruction produces data only at the end of the `MEM` stage (stage 4), whereas the immediately following `ADD` needs it at the start of `EX` (stage 3), requiring 1 stall bubble."}, {"id": "P2_S3_Q071", "num": 71, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipeline Hazards", "question": "WAR (Write After Read) and WAW (Write After Write) hazards in out-of-order superscalar processors are false/name dependencies that can be completely eliminated by:", "options": {"A": "Slowing down the CPU clock frequency", "B": "Disabling the L1 data cache when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "Register Renaming (e.g., Tomasulo's Algorithm)", "D": "Increasing virtual memory page size"}, "answer": "C", "explanation": "WAR and WAW arise solely from reusing the same architectural register name; mapping them to distinct physical rename registers eliminates the conflict."}, {"id": "P2_S3_Q072", "num": 72, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipeline Hazards", "question": "If a pipelined processor has an ideal CPI of `1.0`, branch instructions account for `20%` of all instructions, and each branch incurs `2 stall cycles`, what is the actual average CPI?", "options": {"A": "1.2", "B": "2.0", "C": "3.0 as prescribed under prevailing statutory and departmental technical norms", "D": "1.4"}, "answer": "D", "explanation": "CPI = 1.0 + (Branch frequency × Branch penalty) = 1.0 + (0.20 × 2) = 1.0 + 0.4 = 1.4."}, {"id": "P2_S3_Q073", "num": 73, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Memory", "question": "Cache memory operates effectively because programs exhibit the Principle of Locality. What are its two forms?", "options": {"A": "Temporal Locality (reusing the same address soon, e.g., loops) and Spatial Locality (accessing nearby addresses soon, e.g., arrays)", "B": "Static Locality and Dynamic Locality under standard IEEE/ISO technical specifications and system constraints under standard IEEE/ISO technical specifications and system constraints", "C": "Virtual Locality and Physical Locality", "D": "Compiler Locality and Assembler Locality"}, "answer": "A", "explanation": "Temporal Locality keeps recently accessed items in cache; Spatial Locality fetches an entire multi-word Cache Block (Line) on a miss."}, {"id": "P2_S3_Q074", "num": 74, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Memory", "question": "A computer has a cache access time of `10 ns` (with a hit ratio of `90%`) and a main memory access time of `100 ns` (simultaneous access). What is the Effective Memory Access Time (EMAT)?", "options": {"A": "20 ns (which is for hierarchical access: 10 + 0.10×100)", "B": "19 ns", "C": "100 ns", "D": "55 ns"}, "answer": "B", "explanation": "For simultaneous (parallel) access, EMAT = h·t_c + (1 - h)·t_m = 0.90(10) + 0.10(100) = 9 + 10 = 19 ns (for hierarchical access, EMAT = 10 + 0.10(100) = 20 ns)."}, {"id": "P2_S3_Q075", "num": 75, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Mapping", "question": "A system has `64 MB` (`2^26` bytes) of byte-addressable main memory, a `64 KB` (`2^16` bytes) Direct-Mapped cache, and a block size of `32 bytes` (`2^5` bytes). What are the sizes of `(Tag, Line Index, Byte Offset)`?", "options": {"A": "(11 bits, 10 bits, 5 bits)", "B": "(10 bits, 10 bits, 6 bits)", "C": "(10 bits, 11 bits, 5 bits)", "D": "(16 bits, 5 bits, 5 bits) when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Offset = log_2(32) = 5 bits; Cache lines = 2^16 / 2^5 = 2^11 =\u003e Index = 11 bits; Tag = 26 - 11 - 5 = 10 bits."}, {"id": "P2_S3_Q076", "num": 76, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Mapping", "question": "If the same `64 KB` cache (block size `32 bytes`) in a `26-bit` address system is changed to `4-Way Set-Associative`, what are the sizes of `(Tag, Set Index, Byte Offset)`?", "options": {"A": "(10 bits, 11 bits, 5 bits)", "B": "(14 bits, 7 bits, 5 bits)", "C": "(21 bits, 0 bits, 5 bits — Fully Associative)", "D": "(12 bits, 9 bits, 5 bits)"}, "answer": "D", "explanation": "Number of lines = 2^11 = 2048; Number of 4-way sets = 2^11 / 4 = 2^9 = 512 =\u003e Set Index = 9 bits; Tag = 26 - 9 - 5 = 12 bits."}, {"id": "P2_S3_Q077", "num": 77, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Misses", "question": "In the '3 Cs' classification of Cache Misses, which type of miss occurs on the VERY FIRST access to a memory block (and cannot be reduced even by an infinite-sized cache)?", "options": {"A": "Compulsory Miss (Cold-Start Miss)", "B": "Capacity Miss (reduced by increasing total cache size)", "C": "Conflict / Collision Miss (reduced by increasing set associativity)", "D": "Coherence Miss (caused by multiprocessor invalidation)"}, "answer": "A", "explanation": "Compulsory (Cold) misses occur when a block is brought into the cache for the first time; they can only be reduced by increasing Block Size or prefetching."}, {"id": "P2_S3_Q078", "num": 78, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Write Policies", "question": "Which cache write policy updates ONLY the cache block on a CPU write (setting a `Dirty Bit = 1`) and writes the modified block to main memory ONLY when it is evicted?", "options": {"A": "Write-Through (updates both cache and main memory on every write)", "B": "Write-Back (Copy-Back)", "C": "Write-Around (bypasses cache on write Miss)", "D": "Read-Only Cache"}, "answer": "B", "explanation": "Write-Back minimizes memory bus traffic by coalescing multiple writes to the same cache line and writing back to DRAM only upon replacement."}, {"id": "P2_S3_Q079", "num": 79, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "I/O Organization", "question": "Which I/O data transfer method wastes the MOST CPU cycles by forcing the processor to continuously loop and check the device status register ('busy-waiting')?", "options": {"A": "Interrupt-Driven I/O (CPU executes other work until interrupted)", "B": "Direct Memory Access / DMA (transfers blocks without CPU intervention)", "C": "Programmed I/O (Polling)", "D": "I/O Processor / Channel I/O"}, "answer": "C", "explanation": "In Programmed I/O (Polling), the CPU stays tied up in a tight wait loop checking the device Ready bit."}, {"id": "P2_S3_Q080", "num": 80, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "DMA", "question": "During a DMA (Direct Memory Access) transfer where the DMA controller temporarily borrows the system bus for a single memory cycle to transfer one word while the CPU pauses briefly, the mode is called:", "options": {"A": "Burst (Block Transfer) Mode (DMA holds bus for the entire block)", "B": "Polling Mode", "C": "Programmed I/O Mode", "D": "Cycle Stealing Mode"}, "answer": "D", "explanation": "In Cycle Stealing mode, the DMA controller steals single bus cycles from the CPU to transfer one word at a time, minimizing CPU latency."}, {"id": "P2_S3_Q081", "num": 81, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Interrupts", "question": "When multiple devices share a single interrupt request line (`INTR`) and the Interrupt Acknowledge signal (`INTA`) ripples serially from highest-priority device to lowest-priority device, the scheme is called:", "options": {"A": "Daisy Chaining", "B": "Independent Parallel Priority Encoder (fastest hardware arbitration)", "C": "Software Polling (slowest arbitration)", "D": "Direct Memory Access"}, "answer": "A", "explanation": "Daisy Chaining connects devices serially along the INTA grant line; the physical proximity to the CPU determines priority."}, {"id": "P2_S3_Q082", "num": 82, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Parallel Architecture", "question": "In Flynn's Taxonomy of computer architectures, a GPU or Vector Array Processor that executes the SAME instruction simultaneously across MULTIPLE data elements belongs to:", "options": {"A": "SISD (traditional uniprocessor)", "B": "SIMD (Single Instruction stream, Multiple Data streams)", "C": "MIMD (multicore multiprocessor and distributed clusters)", "D": "MISD (systolic fault-tolerant arrays)"}, "answer": "B", "explanation": "SIMD applies a single instruction broadcast to multiple processing elements operating on distinct data vectors in lockstep."}, {"id": "P2_S3_Q083", "num": 83, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Performance", "question": "According to Amdahl's Law, if `60%` (`f = 0.6`) of a program can be parallelized and is sped up by a factor of `S = 3`, what is the overall system speedup?", "options": {"A": "3.0", "B": "1.8 when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "1.67 (5/3)", "D": "2.5"}, "answer": "C", "explanation": "Speedup = 1 / ((1 - f) + f / S) = 1 / (0.4 + 0.6 / 3) = 1 / (0.4 + 0.2) = 1 / 0.6 = 5/3 ≈ 1.67."}, {"id": "P2_S3_Q084", "num": 84, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Performance", "question": "A processor with a `2 GHz` clock executes a program of `10 × 10^6` instructions with an average `CPI = 2.0`. What is the CPU execution time (and MIPS rating)?", "options": {"A": "Execution Time = 20 ms; MIPS = 500 MIPS", "B": "Execution Time = 5 ms; MIPS = 2000 MIPS", "C": "Execution Time = 1 ms; MIPS = 4000 MIPS as prescribed under prevailing statutory and departmental technical norms", "D": "Execution Time = 10 ms; MIPS = 1000 MIPS"}, "answer": "D", "explanation": "T_CPU = (IC × CPI) / f = (10^7 × 2) / (2 × 10^9) = 10^(-2) s = 10 ms; MIPS = f / (CPI × 10^6) = 2000 / 2 = 1000 MIPS."}, {"id": "P2_S3_Q085", "num": 85, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2024", "question": "A scenic image whose physical dimension is 2.5 inch × 2 inch on paper is scanned at 150 DPI (Dots Per Inch). How many pixels will be there in the scanned image?", "options": {"A": "112500 pixels", "B": "125600 pixels (incorrect multiplication of horizontal and vertical dots)", "C": "112850 pixels (adding 350 extra boundary pixels)", "D": "125500 pixels (rounding 2.5 to 2.78 inches)"}, "answer": "A", "explanation": "Horizontal pixels = 2.5 × 150 = 375; Vertical pixels = 2 × 150 = 300; Total pixels = 375 × 300 = 112,500 pixels."}, {"id": "P2_S3_Q086", "num": 86, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "TPSC PYQ 2024", "question": "What is the primary purpose of compression in multimedia systems?", "options": {"A": "To increase the physical screen size of the monitor", "B": "To reduce the file size of multimedia content for storage and transmission", "C": "To add 3D special effects to audio files according to the formal architectural model and runtime execution rules", "D": "To convert digital files back into analog tape"}, "answer": "B", "explanation": "Multimedia compression (lossless or lossy like JPEG/MP3/MPEG) reduces bit rate and file size by removing spatial, temporal, or statistical redundancy."}, {"id": "P2_S3_Q087", "num": 87, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "In the 8085 microprocessor, which 16-bit register pair is used as the default memory pointer (`M`) in Register Indirect addressing (e.g., `MOV A, M`)?", "options": {"A": "B-C register pair", "B": "D-E register pair", "C": "H-L register pair", "D": "PSW (Accumulator + Flag register)"}, "answer": "C", "explanation": "In 8085, operand `M` always refers to the memory byte addressed by the 16-bit `HL` register pair."}, {"id": "P2_S3_Q088", "num": 88, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "Which instruction in the 8085 microprocessor is a 1-byte Software Interrupt instruction that pushes the PC onto the stack and branches to a fixed vector address (`0000H` to `0038H`)?", "options": {"A": "CALL addr16 (which is a 3-byte subroutine call)", "B": "JMP addr16 (which is a 3-byte unconditional jump)", "C": "RET (which returns from a subroutine)", "D": "RST n (Restart instruction, where n = 0 to 7)"}, "answer": "D", "explanation": "`RST 0` through `RST 7` are 1-byte software interrupt instructions with vector addresses `8 × n` (`0000H, 0008H, ..., 0038H`)."}, {"id": "P2_S3_Q089", "num": 89, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "What is the clock frequency of a standard Intel 8085A microprocessor, and how does it relate to the external crystal oscillator connected across pins X1 and X2?", "options": {"A": "Internal operating clock is half of the external crystal frequency (e.g., a 6 MHz crystal yields a 3 MHz internal clock)", "B": "Internal clock is twice the external crystal frequency", "C": "Internal clock is equal to the external crystal frequency under standard IEEE/ISO technical specifications and system constraints", "D": "8085 does not use a clock signal"}, "answer": "A", "explanation": "An internal flip-flop divides the external crystal frequency by 2 to guarantee a symmetric 50% duty cycle clock."}, {"id": "P2_S3_Q090", "num": 90, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "8085 Microprocessor", "question": "In the 8085 microprocessor, when the `PUSH B` instruction is executed, how does the Stack Pointer (`SP`) change?", "options": {"A": "SP is incremented by 2 (`SP \u003c- SP + 2`)", "B": "SP is decremented by 2 (`SP \u003c- SP - 2`), storing B at `SP - 1` and C at `SP - 2`", "C": "SP remains unchanged", "D": "SP is decremented by 1 according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "In x86/8085, the stack grows downward toward lower memory addresses: `PUSH` decrements `SP` by 2, and `POP` increments `SP` by 2."}, {"id": "P2_S3_Q091", "num": 91, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Memory Organization", "question": "How many `128 × 8` RAM chips are required to construct a memory capacity of `2048 bytes` (`2 KB`, i.e., `2048 × 8`), and how many address lines are decoded to select among the chips?", "options": {"A": "8 RAM chips; 3 address lines when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "32 RAM chips; 5 address lines", "C": "16 RAM chips; 4 address lines (via a 4-to-16 decoder) for chip select", "D": "4 RAM chips; 2 address lines"}, "answer": "C", "explanation": "Number of chips = (2048 × 8) / (128 × 8) = 16 chips. Each chip uses log_2(128) = 7 address lines, and the upper log_2(16) = 4 address lines drive the Chip Select decoder."}, {"id": "P2_S3_Q092", "num": 92, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Memory Organization", "question": "What is the key operational difference between `SRAM` (Static RAM) and `DRAM` (Dynamic RAM)?", "options": {"A": "DRAM is faster and more expensive per bit than SRAM", "B": "SRAM requires periodic refresh cycles every 64 ms as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms", "C": "DRAM is used for L1 CPU registers", "D": "SRAM uses flip-flop latches (6 transistors, fast, low density, no refresh needed — used for CPU Cache); DRAM uses 1 capacitor + 1 transistor per bit (slow, high density, requires periodic charge refreshing — used for Main Memory)"}, "answer": "D", "explanation": "Capacitor charge leakage in DRAM requires periodic refresh cycles, whereas cross-coupled CMOS inverters in SRAM hold state as long as power is applied."}, {"id": "P2_S3_Q093", "num": 93, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "ROM Types", "question": "Which type of non-volatile semiconductor memory allows selective erasure and reprogramming at the byte/block level electrically in-circuit without ultraviolet light?", "options": {"A": "EEPROM / Flash Memory", "B": "EPROM (requires UV light through a quartz window for 15–20 minutes)", "C": "PROM (One-Time Programmable via fusible links)", "D": "Mask ROM (programmed permanently at the factory)"}, "answer": "A", "explanation": "EEPROM (Electrically Erasable Programmable ROM) and NAND/NOR Flash erase gates electrically via Fowler-Nordheim tunneling."}, {"id": "P2_S3_Q094", "num": 94, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Organization", "question": "In a `k-Way Set-Associative Cache` with `S` sets, if `k = 1`, it reduces to ______; and if `k = Total Cache Lines` (`S = 1`), it becomes ______:", "options": {"A": "k = 1 is Fully Associative; S = 1 is Direct Mapping according to the formal architectural model and runtime execution rules", "B": "k = 1 is Direct Mapping; k = Total Cache Lines (S = 1) is Fully Associative Mapping", "C": "Both are Virtual Memory paging", "D": "Both require zero comparators"}, "answer": "B", "explanation": "Direct Mapping is `1-way set-associative`, and Fully Associative Mapping is `n-way set-associative` (1 set of all n lines)."}, {"id": "P2_S3_Q095", "num": 95, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Cache Replacement", "question": "Why is a Replacement Algorithm (such as `LRU`, `FIFO`, or `Random`) NOT needed in a Direct-Mapped Cache?", "options": {"A": "Because Direct-Mapped Caches never experience cache misses", "B": "Because Direct-Mapped Caches have infinite capacity when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "Because each main memory block maps to ONLY ONE unique fixed cache line (`Block_Number mod N_lines`), so there is no choice of which line to evict!", "D": "Because Direct-Mapped Caches only store instructions"}, "answer": "C", "explanation": "With only 1 possible cache frame per memory block, any new block mapping to that frame must unconditionally replace the current occupant."}, {"id": "P2_S3_Q096", "num": 96, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "I/O Interface", "question": "What is the difference between `Memory-Mapped I/O` and `Isolated (Port-Mapped) I/O`?", "options": {"A": "Isolated I/O cannot use the data bus", "B": "Memory-Mapped I/O requires special IN and OUT opcodes", "C": "Isolated I/O reduces the available I/O ports to zero as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms", "D": "Memory-Mapped I/O shares the same address space for both memory and I/O devices (uses standard `LOAD/STORE` instructions); Isolated I/O uses a separate I/O address space and dedicated `IN` / `OUT` instructions"}, "answer": "D", "explanation": "In 8085, `IO/M'` pin distinguishes Isolated I/O (`IN`/`OUT` with 8-bit port address) from Memory-Mapped I/O (`LDA`/`STA` with 16-bit address)."}, {"id": "P2_S3_Q097", "num": 97, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Bus Arbitration", "question": "When multiple bus masters request control of a shared system bus simultaneously, which hardware arbitration method has the FASTEST response time and configurable priority?", "options": {"A": "Independent Requests (Parallel Arbitration with a central Priority Encoder/Arbiter)", "B": "Daisy Chaining (serial propagation through all devices) under standard IEEE/ISO technical specifications and system constraints", "C": "Polling (counting over poll lines)", "D": "Software busy-wait loop"}, "answer": "A", "explanation": "Independent Request arbitration gives each master its own dedicated `Bus Request` and `Bus Grant` pair connected to a central hardware arbiter."}, {"id": "P2_S3_Q098", "num": 98, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Pipelining", "question": "What is a 'Superscalar Processor' architecture?", "options": {"A": "A processor with a single 20-stage pipeline issuing at most 1 instruction per cycle (which is Superpipelined!)", "B": "A processor with multiple parallel execution pipelines (multiple ALUs/FPUs) that fetches, decodes, and issues MORE THAN ONE instruction per clock cycle (`IPC \u003e 1`, or `CPI \u003c 1`)", "C": "A processor with no cache memory according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules according to the formal architectural model and runtime execution rules", "D": "An 8-bit microcontroller"}, "answer": "B", "explanation": "Superscalar processors issue multiple instructions per clock cycle in parallel across duplicated functional units (`IPC \u003e 1`), whereas Superpipelined processors subdivide stages to run at a higher clock rate."}, {"id": "P2_S3_Q099", "num": 99, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Branch Prediction", "question": "Why is a `2-bit Saturating Counter` Dynamic Branch Predictor preferred over a `1-bit` Branch Predictor for inner loops?", "options": {"A": "A 2-bit predictor never mispredicts any branch", "B": "A 1-bit predictor uses too much silicon area", "C": "A 1-bit predictor mispredicts TWICE per loop execution (on loop exit and on re-entry); a 2-bit predictor requires TWO consecutive mispredictions to flip its prediction, so it mispredicts only ONCE (on loop exit)!", "D": "A 2-bit predictor only works for unconditional jumps when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "A 1-bit predictor flips state on the single loop-exit non-taken branch and mispredicts again on the first iteration of the next loop invocation; a 4-state 2-bit predictor stays in 'Predict Taken'."}, {"id": "P2_S3_Q100", "num": 100, "unit_id": "P2_S3", "chapter": "PAPER-II · SECTION 3: Computer Organization and Architecture (COA)", "tag": "Computer Architecture", "question": "What is the key architectural difference between `Von Neumann Architecture` and `Harvard Architecture`?", "options": {"A": "Von Neumann has separate instruction and data buses as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms as prescribed under prevailing statutory and departmental technical norms", "B": "Harvard cannot execute stored programs", "C": "Von Neumann is used only in analog computers", "D": "Von Neumann uses a SINGLE shared memory and bus for both instructions and data (causing the Von Neumann bottleneck); Harvard uses SEPARATE memories and buses for instructions and data (allowing simultaneous instruction fetch and data access)"}, "answer": "D", "explanation": "Modern CPUs use a Modified Harvard Architecture internally (separate L1 Instruction Cache and L1 Data Cache to prevent structural hazards) backed by unified main memory."}];
+    let activeQs = JSON.parse(JSON.stringify(RAW_QS));
+    let userAns = {};
+    let revealAll = false;
+
+    function switchSecTab(tab) {
+      const p1 = document.getElementById('paneOneliners');
+      const p2 = document.getElementById('paneMcqs');
+      const b1 = document.getElementById('btnTab1');
+      const b2 = document.getElementById('btnTab2');
+      if (tab === 'oneliners') {
+        p1.style.display = 'block';
+        p2.style.display = 'none';
+        b1.classList.add('active');
+        b2.classList.remove('active');
+      } else {
+        p1.style.display = 'none';
+        p2.style.display = 'block';
+        b1.classList.remove('active');
+        b2.classList.add('active');
+        renderMcqList();
+      }
+    }
+
+    function filterOneLiners(q) {
+      const term = (q || '').trim().toLowerCase();
+      const items = document.querySelectorAll('#olContentWrap .ol-item');
+      items.forEach(li => {
+        const txt = li.textContent.toLowerCase();
+        li.style.display = (!term || txt.includes(term)) ? 'flex' : 'none';
+      });
+    }
+
+    function renderMcqList() {
+      const cont = document.getElementById('mcqContainer');
+      const term = (document.getElementById('mcqSearch').value || '').trim().toLowerCase();
+      let htmlOut = '';
+      let correctCnt = 0;
+      let attemptCnt = 0;
+      Object.keys(userAns).forEach(qid => {
+        attemptCnt++;
+        const qObj = activeQs.find(x => x.id === qid);
+        if (qObj && userAns[qid] === qObj.answer) correctCnt++;
+      });
+      document.getElementById('scoreBadge').textContent = `Score: ${correctCnt} / ${attemptCnt} (Total: 100 MCQs)`;
+
+      activeQs.forEach((q, idx) => {
+        const hay = (q.question + ' ' + q.tag + ' ' + q.explanation + ' ' + Object.values(q.options).join(' ')).toLowerCase();
+        if (term && !hay.includes(term)) return;
+        const picked = userAns[q.id];
+        const showNow = revealAll || Boolean(picked);
+        const isPyq = q.tag.includes('PYQ');
+        let optsHtml = '';
+        ['A', 'B', 'C', 'D'].forEach(L => {
+          let cls = 'mcq-opt-btn';
+          let badge = '';
+          if (showNow) {
+            if (L === q.answer) {
+              cls += ' correct';
+              badge = ' ✅';
+            } else if (picked === L && L !== q.answer) {
+              cls += ' wrong';
+              badge = ' ❌';
+            }
+          }
+          optsHtml += `<button class="${cls}" onclick="pickMcqOption('${q.id}', '${L}')"><strong>(${L})</strong> ${q.options[L]}${badge}</button>`;
+        });
+
+        htmlOut += `
+          <div class="mcq-card">
+            <div class="mcq-head">
+              <span class="mcq-num">MCQ #${idx + 1} · ${q.id}</span>
+              <span class="mcq-tag ${isPyq ? 'pyq' : ''}">${isPyq ? '🔥 ' : ''}${q.tag}</span>
+            </div>
+            <div class="mcq-q">Q${idx + 1}. ${q.question}</div>
+            <div class="mcq-opts">${optsHtml}</div>
+            <div class="mcq-exp ${showNow ? 'show' : ''}">
+              <strong>✔ Answer: Option (${q.answer}) — ${q.options[q.answer]}</strong><br>
+              <span>💡 <strong>One-Liner Explanation:</strong> ${q.explanation}</span>
+            </div>
+          </div>
+        `;
+      });
+      cont.innerHTML = htmlOut || '<div class="mcq-card">No matching MCQs found for this filter.</div>';
+    }
+
+    function pickMcqOption(qid, L) {
+      userAns[qid] = L;
+      renderMcqList();
+    }
+
+    function toggleRevealAll() {
+      revealAll = !revealAll;
+      const btn = document.getElementById('btnRevealAll');
+      btn.textContent = revealAll ? '🙈 Hide Answers (Practice Mode)' : '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+
+    function fyShuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function shuffleAllMcqs() {
+      userAns = {};
+      fyShuffle(activeQs);
+      activeQs.forEach(q => {
+        const corrTxt = q.options[q.answer];
+        const vals = fyShuffle([q.options.A, q.options.B, q.options.C, q.options.D]);
+        ['A', 'B', 'C', 'D'].forEach((L, idx) => {
+          q.options[L] = vals[idx];
+          if (vals[idx] === corrTxt) q.answer = L;
+        });
+      });
+      renderMcqList();
+    }
+
+    function resetMcqSession() {
+      userAns = {};
+      revealAll = false;
+      activeQs = JSON.parse(JSON.stringify(RAW_QS));
+      document.getElementById('btnRevealAll').textContent = '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+  </script>
+</body>
+</html>

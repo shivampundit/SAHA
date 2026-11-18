@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPER-I · TOPIC 1 — English Composition &amp; Verbal Ability (15 Marks · 15 MCQs) | TPSC ATO Grade-IV Portal</title>
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #0f172a;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --green: #15803d;
+  --green-bg: #dcfce7;
+  --amber: #b45309;
+  --amber-bg: #fef3c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.top-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #fff;
+  padding: 18px 24px;
+  border-bottom: 3px solid #38bdf8;
+}
+.top-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid #38bdf8;
+  color: #bae6fd;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.brand-title {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.header-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 13px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat-pill .num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: block;
+}
+.stat-pill .lbl {
+  font-size: 11px;
+  color: #e2e8f0;
+}
+.layout-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 980px) {
+  .layout-wrap { grid-template-columns: 1fr; }
+}
+.sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  height: fit-content;
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+}
+.side-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 12px 6px 6px 6px;
+}
+.sec-btn {
+  width: 100%;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.sec-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.sec-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+.sec-btn .sec-name {
+  font-size: 12.8px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sec-btn .sec-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sec-btn.active .sec-pill {
+  background: #0284c7;
+  color: #fff;
+}
+.main-panel {
+  min-width: 0;
+}
+/* Strictly 2-Tab Bar inside every Section */
+.two-tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.two-tab-btn {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+.two-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+.two-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+.toolbar-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13.8px;
+  font-family: inherit;
+}
+.action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.action-btn.secondary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+.action-btn.green {
+  background: #15803d;
+  color: #ffffff;
+}
+/* One-Liner Styles */
+.ol-banner {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1.5px solid #7dd3fc;
+  border-left: 6px solid #0284c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.ol-badge {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.ol-group-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ol-group-header {
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
+  padding: 11px 16px;
+  border-bottom: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ol-group-num {
+  background: #0f172a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.ol-group-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+.ol-group-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.ol-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.ol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 4px;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 14.2px;
+  color: #1e293b;
+}
+.ol-item:last-child { border-bottom: none; }
+.ol-bullet {
+  font-size: 14px;
+  line-height: 1.4;
+  user-select: none;
+}
+.ol-text { flex: 1; }
+.pyq-inline-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.topic-inline-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.ol-ans-highlight {
+  background: #dcfce7;
+  color: #14532d;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+/* 100 MCQ Card Styles */
+.mcq-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+.mcq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mcq-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.mcq-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+.mcq-tag.pyq {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+.mcq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+.mcq-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+.mcq-opt-btn {
+  text-align: left;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.6px;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  line-height: 1.4;
+}
+.mcq-opt-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+.mcq-opt-btn.correct {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 700;
+}
+.mcq-opt-btn.wrong {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #7f1d1d !important;
+}
+.mcq-exp {
+  margin-top: 10px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-left: 4px solid #16a34a;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13.4px;
+  color: #14532d;
+  display: none;
+}
+.mcq-exp.show { display: block; }
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+.ov-card {
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ov-card h4 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+</style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div>
+        <span class="brand-badge">TPSC ATO GRADE-IV (T-ITS) 2026 · 2-TAB STREAMLINED EDITION</span>
+        <h1 class="brand-title">PAPER-I · TOPIC 1: English Composition &amp; Verbal Ability (15 Marks · 15 MCQs)</h1>
+        <p class="brand-sub">Paper-I: General Ability Test (50 Marks) · 15 Marks (15 OMR MCQs × 1 Mark) · Tab 1: Master One-Liner Notes (165 One-Liners) | Tab 2: 100 Most Probable MCQs</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="index.html" class="action-btn secondary" style="text-decoration:none;">🏠 All 17 Sections Home</a> <a href="02_P1_U2.html" class="action-btn secondary" style="text-decoration:none;">Next: P1_U2 &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1180px;margin:0 auto;padding:20px;">
+    <div class="two-tab-bar">
+      <button id="btnTab1" class="two-tab-btn active" onclick="switchSecTab('oneliners')">
+        📋 Tab 1: Master One-Liner Sheet (165 One-Liners)
+      </button>
+      <button id="btnTab2" class="two-tab-btn" onclick="switchSecTab('mcqs')">
+        🎯 Tab 2: 100 Most Probable MCQs (TPSC &amp; UGC-NET Pattern)
+      </button>
+    </div>
+
+    <!-- TAB 1: MASTER ONE-LINER NOTES -->
+    <section id="paneOneliners">
+      <div class="toolbar-card">
+        <input type="text" id="olSearch" class="search-input" placeholder="🔍 Search any topic, keyword, or formula in these One-Liner Notes..." oninput="filterOneLiners(this.value)">
+        <span style="font-size:12.5px;font-weight:700;color:#475569;">Showing Crisp Exam One-Liners (Zero Bloat)</span>
+      </div>
+      <div id="olContentWrap">
+        
+    <div class="ol-banner">
+      <div>
+        <span class="ol-badge">PAPER-I · TOPIC 1 · MASTER ONE-LINER SHEET</span>
+        <h2 style="margin:6px 0 4px 0;font-size:20px;color:#0f172a;">English Composition &amp; Verbal Ability (15 Marks · 15 MCQs) — Direct Exam One-Liners</h2>
+        <p style="margin:0;font-size:13.5px;color:#334155;"><strong>Official Gazette Syllabus:</strong> English Composition will cover Synonyms, Antonyms, use of common Phrase &amp; Idioms, use of appropriate Prepositions and Articles, Comprehension, ordering of words in a sentence, Ordering of sentences, spotting of errors, use of appropriate and qualifying words. · <strong>Weightage:</strong> 15 Marks (15 OMR MCQs × 1 Mark)</p>
+      </div>
+    </div>
+    
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 1</span>
+            <h3 class="ol-group-title">Fixed Prepositions (High-Frequency TPSC Rules)</h3>
+            <span class="ol-group-count">22 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Latin comparatives (senior, junior, superior, inferior, prior, anterior, posterior, prefer) always take &#x27;to&#x27;, never &#x27;than&#x27;.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Transitive verbs in active voice (discuss, describe, comprise, investigate, order, reach, resemble, attack, sign, await) take NO preposition.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Comprise&#x27; = &#x27;consist of&#x27; (in active voice, never write &#x27;comprises of&#x27;; in passive voice, &#x27;is comprised of&#x27; is occasionally used).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Die of&#x27; is used for a disease (die of malaria/cholera), whereas &#x27;die from&#x27; is used for an external cause (die from overwork/wounds/starvation).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Agree with&#x27; is used for a person; &#x27;agree to&#x27; is used for a proposal/plan; &#x27;agree on&#x27; is used for a matter/terms.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Angry with&#x27; / &#x27;annoyed with&#x27; is used for a person; &#x27;angry at&#x27; / &#x27;annoyed at&#x27; is used for a thing, behaviour, or situation.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Blind in&#x27; refers to physical blindness in an eye (blind in the left eye); &#x27;blind to&#x27; means ignoring faults or shortcomings.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Abide by&#x27; means to obey or follow a rule, law, or decision.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Accused of&#x27;, &#x27;acquitted of&#x27;, &#x27;convicted of&#x27;, &#x27;guilty of&#x27;, and &#x27;innocent of&#x27; all take the fixed preposition &#x27;of&#x27;.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Charged with&#x27; is used in legal contexts (charged with a crime/offence), whereas &#x27;accused&#x27; takes &#x27;of&#x27;.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Prevent from&#x27;, &#x27;prohibit from&#x27;, &#x27;abstain from&#x27;, &#x27;refrain from&#x27;, and &#x27;debar from&#x27; take &#x27;from&#x27; + Gerund (V-ing).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Congratulate on&#x27; is always used for achievements (congratulate someone on success, never &#x27;for&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Insist on&#x27; takes &#x27;on&#x27; + V-ing (insisted on inspecting the logs).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Deal in&#x27; means to trade in goods/commodities; &#x27;deal with&#x27; means to handle a person, problem, or subject.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Between&#x27; is used for two entities (followed by &#x27;and&#x27;); &#x27;among&#x27; is used for more than two entities.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Beside&#x27; means by the side of (next to); &#x27;besides&#x27; means in addition to.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Since&#x27; denotes a specific point in time (since 1972, since Monday); &#x27;for&#x27; denotes a period/duration of time (for 10 years).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Inquire into&#x27; / &#x27;look into&#x27; means to investigate a matter thoroughly.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Preside over&#x27; means to chair or lead an official meeting.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Indispensable to&#x27;, &#x27;essential to&#x27;, &#x27;tantamount to&#x27;, &#x27;akin to&#x27;, and &#x27;conducive to&#x27; all take the preposition &#x27;to&#x27;.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Endowed with&#x27;, &#x27;blessed with&#x27;, &#x27;compatible with&#x27;, &#x27;comply with&#x27;, and &#x27;cope with&#x27; take the preposition &#x27;with&#x27; (never &#x27;cope up with&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Consist of&#x27; means to be made up of; &#x27;consist in&#x27; means to lie or reside in as the main essence.</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 2</span>
+            <h3 class="ol-group-title">Articles (A, An, The &amp; Zero Article)</h3>
+            <span class="ol-group-count">11 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Indefinite article &#x27;a&#x27; vs &#x27;an&#x27; is governed strictly by the initial phonetic sound (vowel vs consonant sound), NOT the written letter.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Words starting with a &#x27;/juː/&#x27; (&#x27;yoo&#x27;) or &#x27;/w/&#x27; consonant sound take &#x27;a&#x27;: a university, a union, a European, a uniform, a unique key, a one-rupee note, a one-eyed man.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Words starting with a silent &#x27;h&#x27; take &#x27;an&#x27;: an hour, an heir, an honest officer, an honourable post.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Acronyms starting with a vowel sound (/ɛf/, /ɛm/, /ɛs/, /ɛl/, /eɪtʃ/) take &#x27;an&#x27;: an FIR, an M.Tech, an SQL query, an HTTP request, an LL.B., an SDO, an MLA.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Use &#x27;the&#x27; before mountain ranges (the Himalayas, the Jampui Hills), rivers (the Manu, the Gomati), oceans/seas/gulfs, and island groups (the Andamans).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Do NOT use &#x27;the&#x27; before single mountain peaks (Mount Everest, Betalongchhip) or single islands (Majuli, Sri Lanka).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Use &#x27;the&#x27; before superlative adjectives (the fastest access speed), ordinal numbers (the first phase), and musical instruments (play the flute).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Do NOT use any article before names of sports/games (play cricket), languages (speak Kokborok/English), or academic subjects.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Use &#x27;the&#x27; in parallel comparative constructions: &#x27;The higher the bandwidth, the lower the latency.&#x27;</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Use &#x27;the + Adjective&#x27; to represent an entire class of people as a plural noun: &#x27;The rich&#x27;, &#x27;The poor&#x27;, &#x27;The blind&#x27; (takes a plural verb).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Use &#x27;the&#x27; when a proper noun is used metaphorically as a common archetype: &#x27;Kalidasa is the Shakespeare of India.&#x27;</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 3</span>
+            <h3 class="ol-group-title">Spotting of Errors &amp; Subject-Verb Agreement</h3>
+            <span class="ol-group-count">14 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">First-Subject Rule: When subjects are joined by &#x27;as well as&#x27;, &#x27;along with&#x27;, &#x27;together with&#x27;, &#x27;in addition to&#x27;, &#x27;besides&#x27;, &#x27;accompanied by&#x27;, the verb agrees with the FIRST subject.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Proximity Rule: When subjects are joined by &#x27;neither...nor&#x27;, &#x27;either...or&#x27;, &#x27;not only...but also&#x27;, the verb agrees with the NEAREST subject.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Distributive &amp; Indefinite Pronouns (Each, every, either, neither, everyone, somebody, nobody, many a, more than one) always take a SINGULAR verb.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;One of the + Plural Noun&#x27; takes a singular main verb: &#x27;One of the servers is down.&#x27;</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;The number of + Plural Noun&#x27; takes a SINGULAR verb (&#x27;has&#x27;), whereas &#x27;A number of + Plural Noun&#x27; takes a PLURAL verb (&#x27;have&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Negative Adverb Inversion: Sentences starting with &#x27;Hardly&#x27;, &#x27;Scarcely&#x27;, &#x27;Barely&#x27;, &#x27;No sooner&#x27;, &#x27;Seldom&#x27;, &#x27;Never&#x27; require Auxiliary + Subject inversion (&#x27;Hardly had he...&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Correlative Pairings: &#x27;Hardly/Scarcely&#x27; always pairs with &#x27;when&#x27; (never &#x27;than&#x27;); &#x27;No sooner&#x27; always pairs with &#x27;than&#x27; (never &#x27;when&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Uncountable Nouns (equipment, information, furniture, advice, luggage, machinery, scenery, evidence, poetry, bread) are always singular and never take &#x27;-s&#x27; or &#x27;a/an&#x27;.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Plural-Only Nouns (cattle, police, gentry, peasantry, clergy, vermin, scissors, trousers) always take a plural verb.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Type-1 Real Conditional: &#x27;If + Simple Present (V1)&#x27; -&gt; &#x27;will/can/may + V1&#x27;.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Type-2 Unreal Present Conditional: &#x27;If + Simple Past / Subjunctive were&#x27; -&gt; &#x27;would/could + V1&#x27; (e.g., &#x27;If I were the CISO, I would...&#x27;).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Type-3 Unfulfilled Past Conditional: &#x27;If + Past Perfect (had + V3)&#x27; -&gt; &#x27;would have + V3&#x27; (never put &#x27;would have&#x27; inside the If-clause!).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">&#x27;Unless&#x27; (= if not) and &#x27;Until&#x27; are inherently negative; never use &#x27;not&#x27; or &#x27;do not&#x27; inside an &#x27;unless/until&#x27; clause.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">After &#x27;It is high time&#x27; or &#x27;It is time&#x27; followed by a subject, always use the Simple Past tense (V2): &#x27;It is high time we upgraded the server.&#x27;</span></li>
+
+          </ul>
+        </div>
+        
+
+        <div class="ol-group-card">
+          <div class="ol-group-header">
+            <span class="ol-group-num">Part 4</span>
+            <h3 class="ol-group-title">Synonyms, Antonyms, Idioms, Qualifying Words &amp; Voice</h3>
+            <span class="ol-group-count">18 One-Liners</span>
+          </div>
+          <ul class="ol-list">
+            <li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Ephemeral / Transient = short-lived, fleeting (Antonym: Perpetual, eternal, enduring).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Pragmatic = practical, realistic, sensible (Antonym: Idealistic, utopian, impractical).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Obfuscate = make obscure, unclear, confuse (Antonym: Elucidate, clarify, explicate).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Ubiquitous / Pervasive = omnipresent, found everywhere (Antonym: Rare, scarce, sporadic).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Meticulous / Fastidious / Scrupulous = extremely careful with details (Antonym: Negligent, sloppy, remiss).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Mitigate / Alleviate / Assuage = lessen severity or pain (Antonym: Aggravate, exacerbate, intensify).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Candour = frankness, sincerity, honesty (Antonym: Guile, duplicity, deceit).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Verbose / Garrulous / Loquacious = excessively wordy (Antonym: Laconic, succinct, concise, reticent).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Benevolent = kindly, charitable (Antonym: Malevolent, malicious); Audacious = bold (Antonym: Timid, pusillanimous).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Idiom &#x27;A bolt from the blue&#x27; = a sudden, unexpected, and shocking event.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Idiom &#x27;A white elephant&#x27; = a costly possession that is burdensome to maintain with little utility.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Idiom &#x27;Bury the hatchet&#x27; = end a quarrel and make peace; &#x27;Burn the midnight oil&#x27; = work or study late into the night.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Idiom &#x27;At the eleventh hour&#x27; = at the very last moment; &#x27;By leaps and bounds&#x27; = very rapidly.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Idiom &#x27;Read between the lines&#x27; = find hidden meaning; &#x27;Once in a blue moon&#x27; = very rarely; &#x27;Play devil&#x27;s advocate&#x27; = argue against an idea to test it.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Qualifying Words: &#x27;Few / a few / the few&#x27; modify countable plural nouns; &#x27;Little / a little / the little&#x27; modify uncountable nouns (&#x27;few/little&#x27; = almost none; &#x27;a few/a little&#x27; = some positive quantity).</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Qualifying Words: &#x27;Hard&#x27; = diligently vs &#x27;Hardly&#x27; = scarcely/almost not; &#x27;Late&#x27; = not on time vs &#x27;Lately&#x27; = recently; &#x27;Farther&#x27; = physical distance vs &#x27;Further&#x27; = additional.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Confusable Pairs: &#x27;Principal&#x27; = main/head vs &#x27;Principle&#x27; = rule/law; &#x27;Affect&#x27; (verb) = influence vs &#x27;Effect&#x27; (noun) = result; &#x27;Stationary&#x27; = not moving vs &#x27;Stationery&#x27; = office paper.</span></li>
+<li class="ol-item"><span class="ol-bullet">⚡</span><span class="ol-text">Passive Voice Preposition Exceptions: &#x27;known to&#x27; (not by), &#x27;alarmed/surprised/astonished at&#x27;, &#x27;pleased/satisfied with&#x27;, &#x27;contained in&#x27;.</span></li>
+
+          </ul>
+        </div>
+        
+
+    <div class="ol-group-card">
+      <div class="ol-group-header" style="background:linear-gradient(90deg,#f0fdf4,#dcfce7);border-bottom-color:#bbf7d0;">
+        <span class="ol-group-num" style="background:#15803d;">100-Point Quick Sheet</span>
+        <h3 class="ol-group-title" style="color:#14532d;">100 Most Probable Exam Pointers (Question &rarr; Direct One-Liner Answer)</h3>
+        <span class="ol-group-count" style="background:#dcfce7;color:#166534;">100 Pointers</span>
+      </div>
+      <ul class="ol-list">
+        <li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#1 · Prepositions</span> <strong>Choose the grammatically correct preposition to complete the sentence: &#x27;As a senior systems architect, Ramesh is senior ___ all other Assistant Technical Officers in the directorate.&#x27;</strong> &rarr; <span class="ol-ans-highlight">to</span> <span style="color:#475569;font-size:12.8px;">(Latin comparative adjectives ending in &#x27;-ior&#x27; (senior, junior, superior, inferior, prior, anterior, posterior) and &#x27;prefer/preferable&#x27; always take the preposition &#x27;to&#x27;, never &#x27;than&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#2 · Prepositions</span> <strong>Select the appropriate preposition: &#x27;The cybersecurity audit panel discussed ___ the Tripura Cyber Security Policy 2025 during the emergency briefing.&#x27;</strong> &rarr; <span class="ol-ans-highlight">No preposition is required</span> <span style="color:#475569;font-size:12.8px;">(In active voice, transitive verbs such as &#x27;discuss&#x27;, &#x27;describe&#x27;, &#x27;investigate&#x27;, &#x27;comprise&#x27;, &#x27;order&#x27;, &#x27;reach&#x27;, and &#x27;attack&#x27; take a direct object without any intervening preposition.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#3 · Prepositions</span> <strong>Fill in the blank with the exact prepositional pair: &#x27;The veteran administrator agreed ___ the Technical Officer ___ the proposed cloud migration timeline.&#x27;</strong> &rarr; <span class="ol-ans-highlight">with; to</span> <span style="color:#475569;font-size:12.8px;">(Standard usage requires &#x27;agree with&#x27; a person and &#x27;agree to&#x27; a proposal, plan, or stipulation (&#x27;agree on&#x27; is used for a shared topic or price).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#4 · Prepositions</span> <strong>Choose the correct preposition: &#x27;All government employees deployed at the state data centre must strictly abide ___ the access control guidelines.&#x27;</strong> &rarr; <span class="ol-ans-highlight">by</span> <span style="color:#475569;font-size:12.8px;">(The phrasal verb &#x27;abide by&#x27; means to accept or act in accordance with a rule, law, or decision.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#5 · Prepositions</span> <strong>Fill in the blank: &#x27;The official was acquitted ___ all charges of negligence after the forensic log audit proved his innocence.&#x27;</strong> &rarr; <span class="ol-ans-highlight">of</span> <span style="color:#475569;font-size:12.8px;">(Both &#x27;accused&#x27; and &#x27;acquitted&#x27; (as well as &#x27;convicted&#x27; and &#x27;guilty&#x27;) take the fixed preposition &#x27;of&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#6 · Prepositions</span> <strong>Identify the right preposition: &#x27;A vigilant network administrator can never remain blind ___ zero-day vulnerabilities in public web servers.&#x27;</strong> &rarr; <span class="ol-ans-highlight">to</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Blind in&#x27; refers to physical blindness in an eye (e.g., blind in the left eye), whereas &#x27;blind to&#x27; means ignoring or failing to notice faults, defects, or dangers.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#7 · Prepositions</span> <strong>Select the correct option: &#x27;Unauthorized visitors are strictly prevented ___ entering the server room without biometric verification.&#x27;</strong> &rarr; <span class="ol-ans-highlight">from</span> <span style="color:#475569;font-size:12.8px;">(Verbs of prohibition like &#x27;prevent&#x27;, &#x27;prohibit&#x27;, &#x27;abstain&#x27;, &#x27;refrain&#x27;, and &#x27;debar&#x27; take &#x27;from&#x27; followed by a gerund (V-ing).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#8 · Articles</span> <strong>Complete the sentence with the correct article: &#x27;The nodal officer filed ___ FIR immediately after detecting ___ SQL injection attack on the portal.&#x27;</strong> &rarr; <span class="ol-ans-highlight">an; an</span> <span style="color:#475569;font-size:12.8px;">(Article choice depends on initial vowel sound: &#x27;FIR&#x27; starts with the vowel sound /ɛf/ (&#x27;ef-ai-ar&#x27;) and &#x27;SQL&#x27; (pronounced &#x27;es-kyu-el&#x27;) starts with /ɛs/, so both require &#x27;an&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#9 · Articles</span> <strong>Choose the appropriate article pair: &#x27;___ European cybersecurity expert was invited to deliver a lecture at ___ university in Agartala.&#x27;</strong> &rarr; <span class="ol-ans-highlight">A; a</span> <span style="color:#475569;font-size:12.8px;">(Both &#x27;European&#x27; (/jʊərəˈpiːən/) and &#x27;university&#x27; (/juːnɪˈvɜːsɪti/) begin with the consonant glide sound /j/ (&#x27;yoo&#x27;), so both take the indefinite article &#x27;a&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#10 · Articles</span> <strong>Select the correct article usage for geographical names: &#x27;___ Betalongchhip is the highest peak of ___ Jampui Hills in Tripura.&#x27;</strong> &rarr; <span class="ol-ans-highlight">No article; the</span> <span style="color:#475569;font-size:12.8px;">(Single mountain peaks (Mount Everest, Betalongchhip) take NO article, whereas mountain ranges (the Himalayas, the Jampui Hills) always take &#x27;the&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#11 · Spotting Errors</span> <strong>Identify the grammatically erroneous segment: &#x27;(A) Neither the primary database server / (B) nor the backup storage nodes / (C) was reachable during / (D) the scheduled failover drill.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (C) — replace &#x27;was&#x27; with &#x27;were&#x27;</span> <span style="color:#475569;font-size:12.8px;">(By the Proximity Rule, when subjects are joined by &#x27;neither...nor&#x27; or &#x27;either...or&#x27;, the verb agrees with the nearer subject (&#x27;backup storage nodes&#x27;, plural → &#x27;were&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#12 · Spotting Errors</span> <strong>Locate the error in the sentence: &#x27;(A) The Director of Information Technology, / (B) along with twenty Assistant Technical Officers, / (C) have inspected / (D) the new Agartala data centre.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (C) — replace &#x27;have&#x27; with &#x27;has&#x27;</span> <span style="color:#475569;font-size:12.8px;">(When two nouns are connected by &#x27;along with&#x27;, &#x27;as well as&#x27;, &#x27;together with&#x27;, or &#x27;in addition to&#x27;, the verb agrees strictly with the first subject (&#x27;The Director&#x27;, singular → &#x27;has&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#13 · Spotting Errors</span> <strong>Find the segment containing a grammatical error: &#x27;(A) No sooner had the security patch / (B) been deployed on the production cluster / (C) when the CPU utilization / (D) dropped to normal levels.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (C) — replace &#x27;when&#x27; with &#x27;than&#x27;</span> <span style="color:#475569;font-size:12.8px;">(The correlative conjunction pair is strictly &#x27;No sooner...than&#x27; (whereas &#x27;Hardly/Scarcely&#x27; pairs with &#x27;when&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#14 · Spotting Errors</span> <strong>Identify the incorrect part: &#x27;(A) All the networking equipments / (B) procured for the district headquarters / (C) have been configured / (D) with IPv6 addresses.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (A) &amp; (C) — &#x27;equipment&#x27; is uncountable and takes singular verb &#x27;has&#x27;</span> <span style="color:#475569;font-size:12.8px;">(Nouns such as &#x27;equipment&#x27;, &#x27;information&#x27;, &#x27;furniture&#x27;, &#x27;machinery&#x27;, &#x27;advice&#x27;, and &#x27;luggage&#x27; are uncountable singular nouns; they never take &#x27;-s&#x27; and always take a singular verb (&#x27;equipment...has&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#15 · Spotting Errors</span> <strong>Spot the error in conditional syntax: &#x27;(A) If the system administrator / (B) would have enabled multi-factor authentication, / (C) the unauthorized account takeover / (D) would have been prevented.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (B) — replace &#x27;would have enabled&#x27; with &#x27;had enabled&#x27;</span> <span style="color:#475569;font-size:12.8px;">(In a Type-3 (unfulfilled past) conditional clause, the &#x27;If&#x27;-clause (protasis) must use Past Perfect (&#x27;had + V3&#x27;), never &#x27;would have + V3&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#16 · Synonyms</span> <strong>Choose the word closest in meaning (Synonym) to the word &#x27;EPHEMERAL&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Transitory and short-lived</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Ephemeral&#x27; means lasting for a very short time (fleeting, transient, transitory), such as ephemeral port numbers in TCP/IP.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#17 · Synonyms</span> <strong>Select the closest synonym for the word &#x27;PRAGMATIC&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Practical and realistic</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Pragmatic&#x27; means dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#18 · Synonyms</span> <strong>Which word is the nearest synonym of &#x27;UBIQUITOUS&#x27;?</strong> &rarr; <span class="ol-ans-highlight">Omnipresent</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Ubiquitous&#x27; means present, appearing, or found everywhere simultaneously (omnipresent, pervasive), as in ubiquitous computing.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#19 · Antonyms</span> <strong>Choose the exact opposite (Antonym) of the word &#x27;OBFUSCATE&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Elucidate</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Obfuscate&#x27; means to render obscure, unclear, or unintelligible (like code obfuscation); its exact antonym is &#x27;elucidate&#x27; (to make clear and explain).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#20 · Antonyms</span> <strong>Select the correct antonym for the word &#x27;MITIGATE&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Aggravate</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Mitigate&#x27; means to make less severe, serious, or painful (like mitigating a cyber risk); its antonym is &#x27;aggravate&#x27; or &#x27;exacerbate&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#21 · Antonyms</span> <strong>Identify the opposite in meaning to &#x27;METICULOUS&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Negligent</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Meticulous&#x27; means showing great attention to detail; its antonym is &#x27;negligent&#x27;, &#x27;careless&#x27;, or &#x27;sloppy&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#22 · Idioms &amp; Phrases</span> <strong>What is the exact meaning of the idiom &#x27;A bolt from the blue&#x27;?</strong> &rarr; <span class="ol-ans-highlight">A sudden and completely unexpected shock or event</span> <span style="color:#475569;font-size:12.8px;">(&#x27;A bolt from the blue&#x27; refers to a sudden, unexpected, and startling event (like lightning from a clear blue sky).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#23 · Idioms &amp; Phrases</span> <strong>Choose the correct meaning of the phrase &#x27;A white elephant&#x27;:</strong> &rarr; <span class="ol-ans-highlight">A costly possession that is burdensome to maintain and of little practical utility</span> <span style="color:#475569;font-size:12.8px;">(&#x27;A white elephant&#x27; denotes an expensive item or project that is troublesome to maintain and yields low practical value.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#24 · Idioms &amp; Phrases</span> <strong>What does the idiom &#x27;To bury the hatchet&#x27; mean?</strong> &rarr; <span class="ol-ans-highlight">To end an old quarrel and make peace</span> <span style="color:#475569;font-size:12.8px;">(&#x27;To bury the hatchet&#x27; means to cease hostilities, end a conflict, and become reconciled.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#25 · Sentence Ordering</span> <strong>Arrange the following segments (P, Q, R, S) between S1 and S6 to form a coherent paragraph:
+S1: Zero Trust Architecture (ZTA) has replaced traditional perimeter-based network security.
+P: Instead, it enforces strict identity verification for every user and device.
+Q: Legacy firewalls assumed that every entity inside the corporate LAN could be trusted.
+R: This verification applies regardless of whether the request originates inside or outside the network.
+S: Under ZTA, however, no user or service is trusted by default.
+S6: Consequently, lateral movement by attackers after an initial breach is severely restricted.</strong> &rarr; <span class="ol-ans-highlight">Q - S - P - R</span> <span style="color:#475569;font-size:12.8px;">(S1 introduces ZTA vs. traditional security; Q explains the legacy firewall assumption; S contrasts it (&#x27;Under ZTA, however...&#x27;); P states what ZTA does (&#x27;Instead, it enforces verification...&#x27;); R links via &#x27;This verification applies...&#x27;; leading into S6.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#26 · Word Ordering</span> <strong>Rearrange the jumbled words to form a meaningful and grammatically accurate sentence:
+P: before deploying them / Q: all database queries / R: to prevent SQL injection / S: developers must parameterize</strong> &rarr; <span class="ol-ans-highlight">S - Q - P - R</span> <span style="color:#475569;font-size:12.8px;">(Subject + Verb (&#x27;developers must parameterize&#x27; = S) + Direct Object (&#x27;all database queries&#x27; = Q) + Temporal Clause (&#x27;before deploying them&#x27; = P) + Purpose Infinitive (&#x27;to prevent SQL injection&#x27; = R).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#27 · Qualifying Words</span> <strong>Choose the appropriate qualifying words to fill in the blanks: &#x27;Because ___ documentation was left by the previous team, only ___ engineers could understand the legacy compiler.&#x27;</strong> &rarr; <span class="ol-ans-highlight">little; a few</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Documentation&#x27; is uncountable (requiring &#x27;little&#x27;, meaning almost none negatively), while &#x27;engineers&#x27; is plural countable (requiring &#x27;a few&#x27;, meaning a small positive number).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#28 · Qualifying Words</span> <strong>Select the right qualifying adverb/adjective pair: &#x27;The network technician worked ___ throughout the night, as he had ___ any time left before the morning audit.&#x27;</strong> &rarr; <span class="ol-ans-highlight">hard; hardly</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Worked hard&#x27; means worked diligently, whereas &#x27;hardly any&#x27; means &#x27;almost no / scarcely any&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#29 · Comprehension</span> <strong>Read the passage and answer: &#x27;Digital disintermediation in public administration eliminates middlemen by delivering welfare benefits and statutory certificates directly to citizens via unified web portals. While this enhances transparency and curbs leakage, bridging the rural digital divide requires parallel investment in vernacular interfaces and last-mile optical fibre connectivity.&#x27; According to the passage, what is essential for rural inclusion alongside digital portals?</strong> &rarr; <span class="ol-ans-highlight">Vernacular language interfaces and last-mile optical fibre connectivity</span> <span style="color:#475569;font-size:12.8px;">(The passage explicitly states that bridging the rural digital divide requires parallel investment in vernacular interfaces and last-mile optical fibre connectivity.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#30 · Qualifying Words</span> <strong>Fill in the blank with the correct subjunctive verb form: &#x27;The junior programmer issued commands during the outage as though he ___ the Chief Information Security Officer.&#x27;</strong> &rarr; <span class="ol-ans-highlight">were</span> <span style="color:#475569;font-size:12.8px;">(Clauses introduced by &#x27;as if&#x27; or &#x27;as though&#x27; expressing an unreal or hypothetical present condition always require the past subjunctive &#x27;were&#x27; regardless of the subject&#x27;s number.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#31 · Prepositions</span> <strong>Choose the correct preposition: &#x27;The suspect was charged ___ unauthorized intrusion into the state treasury database under the IT Act.&#x27;</strong> &rarr; <span class="ol-ans-highlight">with</span> <span style="color:#475569;font-size:12.8px;">(While &#x27;accused&#x27; takes &#x27;of&#x27; (accused of a crime), the verb &#x27;charged&#x27; in legal usage takes &#x27;with&#x27; (charged with an offence).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#32 · Prepositions</span> <strong>Fill in the blank: &#x27;The Assistant Technical Officer presided ___ the district e-governance review meeting at Udaipur.&#x27;</strong> &rarr; <span class="ol-ans-highlight">over</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Preside over&#x27; is the fixed phrasal verb meaning to be in the position of authority in a meeting or gathering.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#33 · Prepositions</span> <strong>Select the right preposition: &#x27;Good documentation is indispensable ___ maintaining large enterprise software systems.&#x27;</strong> &rarr; <span class="ol-ans-highlight">to</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Indispensable&#x27; (like essential or vital) takes the preposition &#x27;to&#x27; when referring to an activity or goal.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#34 · Articles</span> <strong>Identify the correct article usage: &#x27;He plays ___ flute in the cultural troupe, whereas his brother plays ___ cricket for Tripura.&#x27;</strong> &rarr; <span class="ol-ans-highlight">the; no article</span> <span style="color:#475569;font-size:12.8px;">(Musical instruments take the definite article &#x27;the&#x27; (&#x27;play the flute/violin&#x27;), whereas names of sports and games take NO article (&#x27;play cricket/football&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#35 · Spotting Errors</span> <strong>Spot the grammatical error: &#x27;(A) Hardly the network engineer had / (B) plugged in the optical transceiver / (C) when the link status LED / (D) turned solid green.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (A) — use inverted order &#x27;Hardly had the network engineer&#x27;</span> <span style="color:#475569;font-size:12.8px;">(When a sentence begins with a negative/restrictive adverb like &#x27;Hardly&#x27;, &#x27;Scarcely&#x27;, &#x27;Never&#x27;, or &#x27;Seldom&#x27;, subject-auxiliary inversion is mandatory: &#x27;Hardly had the network engineer...&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#36 · Spotting Errors</span> <strong>Identify the erroneous part: &#x27;(A) One of the web servers / (B) that was deployed last week / (C) in the DMZ subnet / (D) are showing high memory usage.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (D) — replace &#x27;are&#x27; with &#x27;is&#x27; (and in B &#x27;was&#x27; with &#x27;were&#x27;)</span> <span style="color:#475569;font-size:12.8px;">(The main subject of the sentence is &#x27;One&#x27; (singular), which requires the singular main verb &#x27;is showing&#x27; (while the relative clause &#x27;that were deployed&#x27; modifies plural &#x27;servers&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#37 · Synonyms</span> <strong>Select the word closest in meaning (Synonym) to &#x27;CANDOUR&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Frankness and sincerity</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Candour&#x27; (or candor) means the quality of being open, honest, and frank in expression.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#38 · Synonyms</span> <strong>Choose the nearest synonym of &#x27;FASTIDIOUS&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Meticulous and hard to please</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Fastidious&#x27; means very attentive to and concerned about accuracy and detail (meticulous, scrupulous).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#39 · Antonyms</span> <strong>Select the exact antonym of &#x27;BENEVOLENT&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Malevolent</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Benevolent&#x27; means well-meaning and kindly; its exact Latin-root antonym is &#x27;malevolent&#x27; (wishing evil or harm to others).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#40 · Antonyms</span> <strong>Choose the word opposite in meaning to &#x27;VERBOSE&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Laconic and concise</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Verbose&#x27; means using more words than needed (wordy); its antonym is &#x27;laconic&#x27;, &#x27;succinct&#x27;, or &#x27;concise&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#41 · Idioms &amp; Phrases</span> <strong>What is the meaning of the idiom &#x27;To burn the midnight oil&#x27;?</strong> &rarr; <span class="ol-ans-highlight">To read or work late into the night</span> <span style="color:#475569;font-size:12.8px;">(&#x27;To burn the midnight oil&#x27; means to study or work diligently late into the night.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#42 · Idioms &amp; Phrases</span> <strong>What does the phrase &#x27;By leaps and bounds&#x27; signify?</strong> &rarr; <span class="ol-ans-highlight">Very rapidly and in large progressive stages</span> <span style="color:#475569;font-size:12.8px;">(&#x27;By leaps and bounds&#x27; means with startlingly rapid progress.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#43 · Prepositions</span> <strong>Choose the correct preposition: &#x27;The Chief Information Security Officer congratulated the SOC team ___ thwarting the ransomware attack.&#x27;</strong> &rarr; <span class="ol-ans-highlight">on</span> <span style="color:#475569;font-size:12.8px;">(The verb &#x27;congratulate&#x27; always takes the fixed preposition &#x27;on&#x27; (congratulate someone on something), never &#x27;for&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#44 · Prepositions</span> <strong>Select the right preposition: &#x27;The legacy mainframe system is no longer compatible ___ modern TLS 1.3 cipher suites.&#x27;</strong> &rarr; <span class="ol-ans-highlight">with</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Compatible&#x27; (and &#x27;incompatible&#x27;) always takes the preposition &#x27;with&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#45 · Prepositions</span> <strong>Fill in the blank: &#x27;The internal auditor insisted ___ inspecting the raw firewall access logs personally.&#x27;</strong> &rarr; <span class="ol-ans-highlight">on</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Insist&#x27; takes &#x27;on&#x27; followed by a gerund (&#x27;insisted on inspecting&#x27;), never an infinitive (&#x27;to inspect&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#46 · Prepositions</span> <strong>Choose the appropriate preposition pair: &#x27;A diligent officer never complains ___ heavy workload even when suffering ___ a seasonal fever.&#x27;</strong> &rarr; <span class="ol-ans-highlight">of; from</span> <span style="color:#475569;font-size:12.8px;">(We &#x27;complain of&#x27; an ailment/inconvenience (&#x27;complain to&#x27; a person, &#x27;complain against&#x27; someone), and &#x27;suffer from&#x27; a disease or loss.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#47 · Articles</span> <strong>Select the correct article usage: &#x27;___ rich should contribute generously to bridge ___ digital divide in rural areas.&#x27;</strong> &rarr; <span class="ol-ans-highlight">The; the</span> <span style="color:#475569;font-size:12.8px;">(When an adjective (&#x27;rich&#x27;, &#x27;poor&#x27;, &#x27;blind&#x27;) represents an entire class of people as a plural noun, it must be preceded by &#x27;the&#x27; (&#x27;The rich&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#48 · Articles</span> <strong>Fill in the blank: &#x27;Maharaja Bir Bikram Kishore Manikya is remembered as ___ Vikramaditya of modern Tripura architecture.&#x27;</strong> &rarr; <span class="ol-ans-highlight">the</span> <span style="color:#475569;font-size:12.8px;">(When a proper noun (&#x27;Vikramaditya&#x27;, &#x27;Kalidasa&#x27;, &#x27;Shakespeare&#x27;) is used as a common noun to compare eminence, it takes the definite article &#x27;the&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#49 · Spotting Errors</span> <strong>Spot the error: &#x27;(A) Many a software developer / (B) have overlooked / (C) integer overflow vulnerabilities / (D) in C pointer arithmetic.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (B) — replace &#x27;have&#x27; with &#x27;has&#x27;</span> <span style="color:#475569;font-size:12.8px;">(The idiom &#x27;Many a + Singular Noun&#x27; always takes a Singular Verb (&#x27;Many a software developer has overlooked...&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#50 · Spotting Errors</span> <strong>Identify the erroneous segment: &#x27;(A) Unless you do not configure / (B) the default gateway properly, / (C) packets will not route / (D) outside the local subnet.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (A) — remove &#x27;do not&#x27; (&#x27;Unless you configure&#x27;)</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Unless&#x27; means &#x27;if not&#x27; and is inherently negative; using &#x27;not&#x27; inside an &#x27;unless&#x27; or &#x27;until&#x27; clause creates an invalid double negative.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#51 · Spotting Errors</span> <strong>Find the error: &#x27;(A) The technical committee comprises of / (B) five senior professors / (C) and three cyber security specialists / (D) from CERT-In.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (A) — remove &#x27;of&#x27; (&#x27;comprises&#x27; takes no preposition in active voice)</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Comprise&#x27; means &#x27;consist of&#x27;; therefore &#x27;comprises of&#x27; is redundant and incorrect in active voice (use &#x27;comprises&#x27; or &#x27;consists of&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#52 · Synonyms</span> <strong>Select the nearest synonym for &#x27;IMPECCABLE&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Flawless and faultless</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Impeccable&#x27; means in accordance with the highest standards of propriety; faultless or flawless.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#53 · Synonyms</span> <strong>Choose the word closest in meaning to &#x27;ALLEVIATE&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Relieve and lessen</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Alleviate&#x27; means to make suffering, deficiency, or a problem less severe.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#54 · Antonyms</span> <strong>Select the exact antonym of &#x27;AUDACIOUS&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Timid and cowardly</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Audacious&#x27; means showing a willingness to take surprisingly bold risks; its antonym is &#x27;timid&#x27;, &#x27;cowardly&#x27;, or &#x27;pusillanimous&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#55 · Antonyms</span> <strong>Choose the opposite in meaning to &#x27;PROLIFIC&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Barren and unproductive</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Prolific&#x27; means producing much fruit or many works; its antonym is &#x27;barren&#x27;, &#x27;sterile&#x27;, or &#x27;unproductive&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#56 · Idioms &amp; Phrases</span> <strong>What does the idiom &#x27;To read between the lines&#x27; mean?</strong> &rarr; <span class="ol-ans-highlight">To discern the hidden or implicit meaning not explicitly stated in the text</span> <span style="color:#475569;font-size:12.8px;">(&#x27;To read between the lines&#x27; means to look for or discover a meaning that is implied rather than explicitly stated.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#57 · Idioms &amp; Phrases</span> <strong>Choose the correct meaning of &#x27;Once in a blue moon&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Very rarely or almost never</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Once in a blue moon&#x27; means happening very rarely.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#58 · Sentence Ordering</span> <strong>Arrange P, Q, R, S between S1 and S6:
+S1: Database normalization eliminates update, insertion, and deletion anomalies.
+P: However, excessive normalization across many tables can degrade read query performance.
+Q: This occurs because reconstructing composite entities requires expensive multi-table SQL joins.
+R: By decomposing relations using functional dependencies, redundancy is systematically minimized.
+S: Therefore, analytical data warehouses often selectively denormalize schemas into star topologies.
+S6: This balanced approach optimizes both transactional integrity and analytical speed.</strong> &rarr; <span class="ol-ans-highlight">R - P - Q - S</span> <span style="color:#475569;font-size:12.8px;">(S1 states the goal of normalization; R explains how it works (&#x27;By decomposing relations...&#x27;); P introduces the trade-off (&#x27;However, excessive normalization...&#x27;); Q explains why (&#x27;This occurs because...joins&#x27;); S gives the warehouse resolution (&#x27;Therefore...denormalize&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#59 · Qualifying Words</span> <strong>Choose the correct pair of qualifying words: &#x27;___ knowledge of shell scripting can be dangerous if an administrator executes ___ untested root commands.&#x27;</strong> &rarr; <span class="ol-ans-highlight">A little; a few</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Knowledge&#x27; is uncountable (&#x27;A little knowledge is a dangerous thing&#x27;), and &#x27;commands&#x27; is plural countable (&#x27;a few untested root commands&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#60 · Word Ordering</span> <strong>Rearrange into a coherent sentence:
+P: across all eight districts of Tripura / Q: high-speed optical fibre connectivity / R: has significantly accelerated / S: the deployment of e-District services</strong> &rarr; <span class="ol-ans-highlight">Q - P - R - S</span> <span style="color:#475569;font-size:12.8px;">(Subject (&#x27;high-speed optical fibre connectivity across all eight districts of Tripura&#x27; = Q - P) + Verb (&#x27;has significantly accelerated&#x27; = R) + Object (&#x27;the deployment of e-District services&#x27; = S).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#61 · Prepositions</span> <strong>Choose the correct preposition: &#x27;The Assistant Technical Officer was entrusted ___ the responsibility of securing the state data centre.&#x27;</strong> &rarr; <span class="ol-ans-highlight">with</span> <span style="color:#475569;font-size:12.8px;">(We &#x27;entrust someone WITH a task&#x27; (or &#x27;entrust a task TO someone&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#62 · Prepositions</span> <strong>Select the appropriate preposition: &#x27;His technical proposal is akin ___ the microservice architecture deployed by SEBI.&#x27;</strong> &rarr; <span class="ol-ans-highlight">to</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Akin&#x27; (meaning similar in character) always takes the fixed preposition &#x27;to&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#63 · Articles</span> <strong>Choose the right article: &#x27;Kalidasa is universally acclaimed as ___ Shakespeare of India.&#x27;</strong> &rarr; <span class="ol-ans-highlight">the</span> <span style="color:#475569;font-size:12.8px;">(When a proper noun (&#x27;Shakespeare&#x27;) is used metaphorically to denote a preeminent archetype with an &#x27;of&#x27; phrase, it takes &#x27;the&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#64 · Spotting Errors</span> <strong>Spot the error: &#x27;(A) Scarcely had the database administrator / (B) initiated the transaction rollback / (C) than the primary storage array / (D) went offline.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (C) — replace &#x27;than&#x27; with &#x27;when&#x27;</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Scarcely&#x27; and &#x27;Hardly&#x27; must be followed by &#x27;when&#x27; (never &#x27;than&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#65 · Synonyms</span> <strong>Select the closest synonym for &#x27;PERVASIVE&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Widespread and omnipresent</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Pervasive&#x27; means spreading widely throughout an area or group of people (like pervasive computing).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#66 · Antonyms</span> <strong>Choose the exact antonym of &#x27;LUCID&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Obscure and ambiguous</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Lucid&#x27; means expressed clearly and easy to understand; its antonym is &#x27;obscure&#x27;, &#x27;murky&#x27;, or &#x27;ambiguous&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#67 · Passive Voice Prepositions</span> <strong>Convert the sentence into Passive Voice with the exact grammatical preposition: &#x27;The Chief Secretary knows the Assistant Technical Officer well.&#x27;</strong> &rarr; <span class="ol-ans-highlight">The Assistant Technical Officer is well known to the Chief Secretary</span> <span style="color:#475569;font-size:12.8px;">(In passive voice, stative verbs like &#x27;know&#x27; and &#x27;oblige&#x27; take the preposition &#x27;to&#x27; (&#x27;known to&#x27;, &#x27;obliged to&#x27;), never &#x27;by&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#68 · Passive Voice Prepositions</span> <strong>Select the correct passive transformation: &#x27;The sudden surge in DDoS traffic alarmed the network engineers.&#x27;</strong> &rarr; <span class="ol-ans-highlight">The network engineers were alarmed at the sudden surge in DDoS traffic</span> <span style="color:#475569;font-size:12.8px;">(Verbs expressing emotion/surprise such as &#x27;alarmed&#x27;, &#x27;surprised&#x27;, &#x27;astonished&#x27;, and &#x27;amazed&#x27; take the preposition &#x27;at&#x27; in passive voice.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#69 · Confusable Words</span> <strong>Choose the correct word pair to complete the sentence: &#x27;The ___ of least privilege is the ___ security rule enforced across our cloud servers.&#x27;</strong> &rarr; <span class="ol-ans-highlight">principle; principal</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Principle&#x27; (noun only) means a fundamental rule, law, or doctrine; &#x27;principal&#x27; (adjective/noun) means main, chief, or head of an institution.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#70 · Confusable Words</span> <strong>Fill in the blanks: &#x27;Severe electromagnetic interference can ___ the signal-to-noise ratio and produce an adverse ___ on bit error rate.&#x27;</strong> &rarr; <span class="ol-ans-highlight">affect; effect</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Affect&#x27; is a transitive verb meaning to influence or alter, whereas &#x27;effect&#x27; (preceded by &#x27;an adverse&#x27;) is a noun meaning result or consequence.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#71 · Indirect Speech</span> <strong>Convert into Indirect (Reported) Speech: The professor said to the students, &#x27;Optical fibre transmits light pulses using total internal reflection.&#x27;</strong> &rarr; <span class="ol-ans-highlight">The professor told the students that optical fibre transmits light pulses using total internal reflection</span> <span style="color:#475569;font-size:12.8px;">(When the reported clause states a universal scientific truth or physical law, its present tense (&#x27;transmits&#x27;) remains unchanged even when the reporting verb (&#x27;said&#x27;) is in the past tense.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#72 · Prepositions</span> <strong>Choose the correct preposition: &#x27;The cyber forensic team is inquiring ___ the root cause of the unauthorized privilege escalation.&#x27;</strong> &rarr; <span class="ol-ans-highlight">into</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Inquire into&#x27; means to investigate thoroughly.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#73 · Prepositions</span> <strong>Select the appropriate preposition: &#x27;The nodal officer was endowed ___ exceptional analytical capabilities.&#x27;</strong> &rarr; <span class="ol-ans-highlight">with</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Endowed&#x27; always takes the fixed preposition &#x27;with&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#74 · Prepositions</span> <strong>Fill in the blank: &#x27;True public service consists ___ delivering transparent governance to every citizen.&#x27;</strong> &rarr; <span class="ol-ans-highlight">in</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Consist of&#x27; means to be composed of, whereas &#x27;consist in&#x27; means to have as its essential feature or reside in.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#75 · Articles</span> <strong>Select the right article pair: &#x27;___ honest officer is ___ noblest asset of public administration.&#x27;</strong> &rarr; <span class="ol-ans-highlight">An; the</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Honest&#x27; begins with a silent &#x27;h&#x27; (/ɒnɪst/ → &#x27;An&#x27;), and the superlative &#x27;noblest&#x27; takes &#x27;the&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#76 · Spotting Errors</span> <strong>Spot the error: &#x27;(A) If I was the Chief Information Security Officer, / (B) I would mandate / (C) hardware security keys / (D) for all privileged root accounts.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (A) — replace &#x27;was&#x27; with subjunctive &#x27;were&#x27;</span> <span style="color:#475569;font-size:12.8px;">(Hypothetical/unreal Type-2 conditional clauses (&#x27;If I were...&#x27;) require the past subjunctive &#x27;were&#x27; for all subjects.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#77 · Spotting Errors</span> <strong>Identify the erroneous part: &#x27;(A) The number of cyber attacks / (B) targeting cloud storage buckets / (C) have increased sharply / (D) over the past six months.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (C) — replace &#x27;have&#x27; with &#x27;has&#x27;</span> <span style="color:#475569;font-size:12.8px;">(&#x27;The number of + Plural Noun&#x27; takes a Singular Verb (&#x27;has increased&#x27;), whereas &#x27;A number of + Plural Noun&#x27; takes a Plural Verb.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#78 · Synonyms</span> <strong>Choose the nearest synonym of &#x27;ASSIDUOUS&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Diligent and persevering</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Assiduous&#x27; means showing great care, attention, and persistent effort.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#79 · Antonyms</span> <strong>Select the exact antonym of &#x27;PARSIMONIOUS&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Extravagant and generous</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Parsimonious&#x27; means unwilling to spend money or use resources; its antonym is &#x27;extravagant&#x27;, &#x27;lavish&#x27;, or &#x27;generous&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#80 · Idioms &amp; Phrases</span> <strong>What does the idiom &#x27;To leave no stone unturned&#x27; mean?</strong> &rarr; <span class="ol-ans-highlight">To try every possible course of action in order to achieve a goal</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Leave no stone unturned&#x27; means to make every possible effort and search exhaustively.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#81 · Qualifying Words</span> <strong>Choose the correct qualifying word: &#x27;Between the two routing protocols RIP and OSPF, the ___ is far more scalable for large enterprise networks.&#x27;</strong> &rarr; <span class="ol-ans-highlight">latter</span> <span style="color:#475569;font-size:12.8px;">(When comparing exactly two entities, &#x27;former&#x27; refers to the first and &#x27;latter&#x27; refers to the second (&#x27;last&#x27; is used for three or more).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#82 · Prepositions</span> <strong>Fill in the blank: &#x27;The candidate is eligible ___ the post of Assistant Technical Officer.&#x27;</strong> &rarr; <span class="ol-ans-highlight">for</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Eligible for&#x27; is the fixed prepositional collocation meaning qualified for a post.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#83 · Prepositions</span> <strong>Choose the correct preposition: &#x27;The server room is infested ___ dust and needs immediate cleaning.&#x27;</strong> &rarr; <span class="ol-ans-highlight">with</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Infested with&#x27; is always used for pests, vermin, or unwanted substances.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#84 · Prepositions</span> <strong>Select the right preposition: &#x27;He was debarred ___ appearing in the competitive examination for three years.&#x27;</strong> &rarr; <span class="ol-ans-highlight">from</span> <span style="color:#475569;font-size:12.8px;">(Verbs of prohibition (debar, prevent, prohibit, abstain, refrain) take &#x27;from&#x27; + gerund (-ing).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#85 · Prepositions</span> <strong>Fill in the blank: &#x27;The technical architecture is devoid ___ any single point of failure.&#x27;</strong> &rarr; <span class="ol-ans-highlight">of</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Devoid of&#x27; means completely lacking or free from.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#86 · Prepositions</span> <strong>Choose the right preposition: &#x27;The Queen Pineapple is indigenous ___ the state of Tripura.&#x27;</strong> &rarr; <span class="ol-ans-highlight">to</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Indigenous to&#x27; means originating or occurring naturally in a particular place.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#87 · Articles</span> <strong>Fill in the blank: &#x27;___ Ganga rises in ___ Himalayas and flows into ___ Bay of Bengal.&#x27;</strong> &rarr; <span class="ol-ans-highlight">The; the; the</span> <span style="color:#475569;font-size:12.8px;">(Rivers (the Ganga), mountain ranges (the Himalayas), and bays/seas/oceans (the Bay of Bengal) all take &#x27;the&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#88 · Articles</span> <strong>Choose the correct article: &#x27;My younger brother is ___ MBBS doctor working at ___ government hospital.&#x27;</strong> &rarr; <span class="ol-ans-highlight">an; a</span> <span style="color:#475569;font-size:12.8px;">(&#x27;MBBS&#x27; starts with the vowel sound /ɛm/ (&#x27;em&#x27;) requiring &#x27;an&#x27;, while &#x27;government&#x27; starts with consonant /g/ requiring &#x27;a&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#89 · Articles</span> <strong>Select the appropriate article: &#x27;___ wisdom is far more valuable than ___ riches.&#x27;</strong> &rarr; <span class="ol-ans-highlight">No article; no article</span> <span style="color:#475569;font-size:12.8px;">(Abstract uncountable nouns (&#x27;wisdom&#x27;) and plural general nouns (&#x27;riches&#x27;) used in a universal sense take Zero Article.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#90 · Spotting Errors</span> <strong>Spot the error: &#x27;(A) It is high time / (B) that the department upgrades / (C) its legacy firewall / (D) to a Zero Trust architecture.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (B) — replace &#x27;upgrades&#x27; with &#x27;upgraded&#x27;</span> <span style="color:#475569;font-size:12.8px;">(The phrase &#x27;It is time / It is high time&#x27; followed by a subject always takes the Simple Past tense (V2: &#x27;upgraded&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#91 · Spotting Errors</span> <strong>Identify the error: &#x27;(A) Neither of the two network switches / (B) were functioning properly / (C) after the lightning strike / (D) at the sub-division office.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (B) — replace &#x27;were&#x27; with &#x27;was&#x27;</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Neither of&#x27; (and &#x27;Either of&#x27; / &#x27;Each of&#x27;) used for two entities always takes a singular verb (&#x27;was&#x27;).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#92 · Spotting Errors</span> <strong>Find the error: &#x27;(A) The Sceneries of Jampui Hills / (B) in North Tripura / (C) are breathtaking / (D) during winter.&#x27;</strong> &rarr; <span class="ol-ans-highlight">Segment (A) &amp; (C) — replace &#x27;Sceneries...are&#x27; with &#x27;Scenery...is&#x27;</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Scenery&#x27; is an uncountable singular noun; it has no plural form &#x27;sceneries&#x27; and takes singular verb &#x27;is&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#93 · Synonyms</span> <strong>Choose the closest synonym of the word &#x27;RECALCITRANT&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Obstinately defiant and uncooperative</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Recalcitrant&#x27; means having an obstinately uncooperative attitude toward authority or discipline.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#94 · Synonyms</span> <strong>Select the word nearest in meaning to &#x27;SAGACIOUS&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Wise and showing keen mental discernment</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Sagacious&#x27; means having or showing keen mental discernment and good judgment (wise, shrewd).)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#95 · Antonyms</span> <strong>Choose the exact antonym of the word &#x27;EPHEMERAL&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Perpetual</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Ephemeral&#x27; means short-lived; its antonym is &#x27;perpetual&#x27;, &#x27;eternal&#x27;, or &#x27;permanent&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#96 · Antonyms</span> <strong>Select the opposite in meaning to &#x27;EQUANIMITY&#x27;:</strong> &rarr; <span class="ol-ans-highlight">Agitation and anxiety</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Equanimity&#x27; means mental calmness and composure; its opposite is &#x27;agitation&#x27; or &#x27;anxiety&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#97 · Idioms &amp; Phrases</span> <strong>What is the meaning of the idiom &#x27;To cry over spilt milk&#x27;?</strong> &rarr; <span class="ol-ans-highlight">To waste time feeling sorry about an past mistake that cannot be undone</span> <span style="color:#475569;font-size:12.8px;">(&#x27;To cry over spilt milk&#x27; means to regret uselessly something that has already happened and cannot be changed.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#98 · Idioms &amp; Phrases</span> <strong>Choose the correct meaning of &#x27;To call a spade a spade&#x27;:</strong> &rarr; <span class="ol-ans-highlight">To speak frankly, directly, and bluntly even if unpleasant</span> <span style="color:#475569;font-size:12.8px;">(&#x27;To call a spade a spade&#x27; means to speak plainly and candidly without euphemism.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#99 · Qualifying Words</span> <strong>Fill in the blank: &#x27;Agartala is ___ from Kolkata by road than Dhaka is.&#x27;</strong> &rarr; <span class="ol-ans-highlight">farther</span> <span style="color:#475569;font-size:12.8px;">(&#x27;Farther&#x27; denotes measurable physical/geographical distance, whereas &#x27;further&#x27; means &#x27;additional&#x27;.)</span></span></li>
+<li class="ol-item"><span class="ol-bullet">📌</span><span class="ol-text"><span class="topic-inline-badge">#100 · Sentence Ordering</span> <strong>Arrange P, Q, R, S to form a coherent sentence: P: of the Tripura Information Technology Service / Q: the Public Service Commission / R: for recruitment to Grade-IV / S: conducted a competitive examination</strong> &rarr; <span class="ol-ans-highlight">Q - S - R - P</span> <span style="color:#475569;font-size:12.8px;">(&#x27;The Public Service Commission (Q) conducted a competitive examination (S) for recruitment to Grade-IV (R) of the Tripura Information Technology Service (P).&#x27;)</span></span></li>
+
+      </ul>
+    </div>
+    
+      </div>
+    </section>
+
+    <!-- TAB 2: 100 MOST PROBABLE MCQs -->
+    <section id="paneMcqs" style="display:none;">
+      <div class="toolbar-card">
+        <input type="text" id="mcqSearch" class="search-input" placeholder="🔍 Filter the 100 Most Probable MCQs by topic or keyword..." oninput="renderMcqList()">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span id="scoreBadge" style="font-size:13px;font-weight:800;background:#dcfce7;color:#14532d;padding:7px 12px;border-radius:8px;">Score: 0 / 0</span>
+          <button class="action-btn green" onclick="toggleRevealAll()" id="btnRevealAll">📖 Show All 100 Answers &amp; Explanations</button>
+          <button class="action-btn secondary" onclick="shuffleAllMcqs()">🔀 Shuffle 100 MCQs &amp; Options</button>
+          <button class="action-btn" onclick="resetMcqSession()">↺ Reset</button>
+        </div>
+      </div>
+      <div id="mcqContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    const RAW_QS = [{"id": "P1_U1_Q001", "num": 1, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the grammatically correct preposition to complete the sentence: 'As a senior systems architect, Ramesh is senior ___ all other Assistant Technical Officers in the directorate.'", "options": {"A": "to", "B": "than", "C": "from", "D": "over"}, "answer": "A", "explanation": "Latin comparative adjectives ending in '-ior' (senior, junior, superior, inferior, prior, anterior, posterior) and 'prefer/preferable' always take the preposition 'to', never 'than'."}, {"id": "P1_U1_Q002", "num": 2, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the appropriate preposition: 'The cybersecurity audit panel discussed ___ the Tripura Cyber Security Policy 2025 during the emergency briefing.'", "options": {"A": "about", "B": "No preposition is required", "C": "regarding according to the formal architectural model and runtime execution rules", "D": "upon"}, "answer": "B", "explanation": "In active voice, transitive verbs such as 'discuss', 'describe', 'investigate', 'comprise', 'order', 'reach', and 'attack' take a direct object without any intervening preposition."}, {"id": "P1_U1_Q003", "num": 3, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank with the exact prepositional pair: 'The veteran administrator agreed ___ the Technical Officer ___ the proposed cloud migration timeline.'", "options": {"A": "to; with", "B": "on; for", "C": "with; to", "D": "with; on when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "Standard usage requires 'agree with' a person and 'agree to' a proposal, plan, or stipulation ('agree on' is used for a shared topic or price)."}, {"id": "P1_U1_Q004", "num": 4, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the correct preposition: 'All government employees deployed at the state data centre must strictly abide ___ the access control guidelines.'", "options": {"A": "with", "B": "to", "C": "in", "D": "by"}, "answer": "D", "explanation": "The phrasal verb 'abide by' means to accept or act in accordance with a rule, law, or decision."}, {"id": "P1_U1_Q005", "num": 5, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank: 'The official was acquitted ___ all charges of negligence after the forensic log audit proved his innocence.'", "options": {"A": "of", "B": "from", "C": "by", "D": "off"}, "answer": "A", "explanation": "Both 'accused' and 'acquitted' (as well as 'convicted' and 'guilty') take the fixed preposition 'of'."}, {"id": "P1_U1_Q006", "num": 6, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Identify the right preposition: 'A vigilant network administrator can never remain blind ___ zero-day vulnerabilities in public web servers.'", "options": {"A": "in", "B": "to", "C": "at", "D": "of according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "'Blind in' refers to physical blindness in an eye (e.g., blind in the left eye), whereas 'blind to' means ignoring or failing to notice faults, defects, or dangers."}, {"id": "P1_U1_Q007", "num": 7, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the correct option: 'Unauthorized visitors are strictly prevented ___ entering the server room without biometric verification.'", "options": {"A": "to", "B": "against", "C": "from", "D": "by"}, "answer": "C", "explanation": "Verbs of prohibition like 'prevent', 'prohibit', 'abstain', 'refrain', and 'debar' take 'from' followed by a gerund (V-ing)."}, {"id": "P1_U1_Q008", "num": 8, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Complete the sentence with the correct article: 'The nodal officer filed ___ FIR immediately after detecting ___ SQL injection attack on the portal.'", "options": {"A": "a; a", "B": "an; a as prescribed under prevailing statutory and departmental technical norms", "C": "a; an", "D": "an; an"}, "answer": "D", "explanation": "Article choice depends on initial vowel sound: 'FIR' starts with the vowel sound /ɛf/ ('ef-ai-ar') and 'SQL' (pronounced 'es-kyu-el') starts with /ɛs/, so both require 'an'."}, {"id": "P1_U1_Q009", "num": 9, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Choose the appropriate article pair: '___ European cybersecurity expert was invited to deliver a lecture at ___ university in Agartala.'", "options": {"A": "A; a", "B": "An; an", "C": "An; a", "D": "A; an"}, "answer": "A", "explanation": "Both 'European' (/jʊərəˈpiːən/) and 'university' (/juːnɪˈvɜːsɪti/) begin with the consonant glide sound /j/ ('yoo'), so both take the indefinite article 'a'."}, {"id": "P1_U1_Q010", "num": 10, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Select the correct article usage for geographical names: '___ Betalongchhip is the highest peak of ___ Jampui Hills in Tripura.'", "options": {"A": "The; the according to the formal architectural model and runtime execution rules", "B": "No article; the", "C": "The; no article", "D": "A; the"}, "answer": "B", "explanation": "Single mountain peaks (Mount Everest, Betalongchhip) take NO article, whereas mountain ranges (the Himalayas, the Jampui Hills) always take 'the'."}, {"id": "P1_U1_Q011", "num": 11, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Identify the grammatically erroneous segment: '(A) Neither the primary database server / (B) nor the backup storage nodes / (C) was reachable during / (D) the scheduled failover drill.'", "options": {"A": "Segment (A) — replace 'Neither' with 'None'", "B": "Segment (B) — replace 'nor' with 'or'", "C": "Segment (C) — replace 'was' with 'were'", "D": "Segment (D) — no error in the sentence"}, "answer": "C", "explanation": "By the Proximity Rule, when subjects are joined by 'neither...nor' or 'either...or', the verb agrees with the nearer subject ('backup storage nodes', plural → 'were')."}, {"id": "P1_U1_Q012", "num": 12, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Locate the error in the sentence: '(A) The Director of Information Technology, / (B) along with twenty Assistant Technical Officers, / (C) have inspected / (D) the new Agartala data centre.'", "options": {"A": "Segment (A) — remove 'The'", "B": "Segment (B) — replace 'along with' by 'and'", "C": "Segment (D) — replace 'the' with 'a'", "D": "Segment (C) — replace 'have' with 'has'"}, "answer": "D", "explanation": "When two nouns are connected by 'along with', 'as well as', 'together with', or 'in addition to', the verb agrees strictly with the first subject ('The Director', singular → 'has')."}, {"id": "P1_U1_Q013", "num": 13, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Find the segment containing a grammatical error: '(A) No sooner had the security patch / (B) been deployed on the production cluster / (C) when the CPU utilization / (D) dropped to normal levels.'", "options": {"A": "Segment (C) — replace 'when' with 'than'", "B": "Segment (A) — replace 'had' with 'did'", "C": "Segment (B) — replace 'been' with 'being'", "D": "Segment (D) — replace 'to' with 'at'"}, "answer": "A", "explanation": "The correlative conjunction pair is strictly 'No sooner...than' (whereas 'Hardly/Scarcely' pairs with 'when')."}, {"id": "P1_U1_Q014", "num": 14, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Identify the incorrect part: '(A) All the networking equipments / (B) procured for the district headquarters / (C) have been configured / (D) with IPv6 addresses.'", "options": {"A": "Segment (B) — replace 'for' with 'to'", "B": "Segment (A) \u0026 (C) — 'equipment' is uncountable and takes singular verb 'has'", "C": "Segment (D) — replace 'with' with 'by' according to the formal architectural model and runtime execution rules", "D": "No error in any segment of the sentence"}, "answer": "B", "explanation": "Nouns such as 'equipment', 'information', 'furniture', 'machinery', 'advice', and 'luggage' are uncountable singular nouns; they never take '-s' and always take a singular verb ('equipment...has')."}, {"id": "P1_U1_Q015", "num": 15, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Spot the error in conditional syntax: '(A) If the system administrator / (B) would have enabled multi-factor authentication, / (C) the unauthorized account takeover / (D) would have been prevented.'", "options": {"A": "Segment (A) — replace 'If' with 'Unless'", "B": "Segment (C) — replace 'the' with 'an'", "C": "Segment (B) — replace 'would have enabled' with 'had enabled'", "D": "Segment (D) — replace 'would have been' with 'will be' when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "In a Type-3 (unfulfilled past) conditional clause, the 'If'-clause (protasis) must use Past Perfect ('had + V3'), never 'would have + V3'."}, {"id": "P1_U1_Q016", "num": 16, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Choose the word closest in meaning (Synonym) to the word 'EPHEMERAL':", "options": {"A": "Perpetual and everlasting as prescribed under prevailing statutory and departmental technical norms", "B": "Omnipresent and pervasive", "C": "Fastidious and meticulous", "D": "Transitory and short-lived"}, "answer": "D", "explanation": "'Ephemeral' means lasting for a very short time (fleeting, transient, transitory), such as ephemeral port numbers in TCP/IP."}, {"id": "P1_U1_Q017", "num": 17, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Select the closest synonym for the word 'PRAGMATIC':", "options": {"A": "Practical and realistic", "B": "Dogmatic and rigid", "C": "Utopian and idealistic under standard IEEE/ISO technical specifications and system constraints", "D": "Ambiguous and obscure"}, "answer": "A", "explanation": "'Pragmatic' means dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations."}, {"id": "P1_U1_Q018", "num": 18, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Which word is the nearest synonym of 'UBIQUITOUS'?", "options": {"A": "Sporadic", "B": "Omnipresent", "C": "Clandestine", "D": "Magnanimous according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "'Ubiquitous' means present, appearing, or found everywhere simultaneously (omnipresent, pervasive), as in ubiquitous computing."}, {"id": "P1_U1_Q019", "num": 19, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Choose the exact opposite (Antonym) of the word 'OBFUSCATE':", "options": {"A": "Complicate", "B": "Confound", "C": "Elucidate", "D": "Exacerbate"}, "answer": "C", "explanation": "'Obfuscate' means to render obscure, unclear, or unintelligible (like code obfuscation); its exact antonym is 'elucidate' (to make clear and explain)."}, {"id": "P1_U1_Q020", "num": 20, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Select the correct antonym for the word 'MITIGATE':", "options": {"A": "Alleviate", "B": "Assuage as prescribed under prevailing statutory and departmental technical norms", "C": "Palliate", "D": "Aggravate"}, "answer": "D", "explanation": "'Mitigate' means to make less severe, serious, or painful (like mitigating a cyber risk); its antonym is 'aggravate' or 'exacerbate'."}, {"id": "P1_U1_Q021", "num": 21, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Identify the opposite in meaning to 'METICULOUS':", "options": {"A": "Negligent", "B": "Scrupulous", "C": "Fastidious", "D": "Diligent"}, "answer": "A", "explanation": "'Meticulous' means showing great attention to detail; its antonym is 'negligent', 'careless', or 'sloppy'."}, {"id": "P1_U1_Q022", "num": 22, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What is the exact meaning of the idiom 'A bolt from the blue'?", "options": {"A": "A predictable seasonal thunderstorm in the hills according to the formal architectural model and runtime execution rules", "B": "A sudden and completely unexpected shock or event", "C": "An ancient royal decree written on blue parchment", "D": "A minor technical glitch resolved during testing"}, "answer": "B", "explanation": "'A bolt from the blue' refers to a sudden, unexpected, and startling event (like lightning from a clear blue sky)."}, {"id": "P1_U1_Q023", "num": 23, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "Choose the correct meaning of the phrase 'A white elephant':", "options": {"A": "A rare and highly profitable government infrastructure asset", "B": "An auspicious beginning to a new software project when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "A costly possession that is burdensome to maintain and of little practical utility", "D": "A transparent and middleman-free public service portal"}, "answer": "C", "explanation": "'A white elephant' denotes an expensive item or project that is troublesome to maintain and yields low practical value."}, {"id": "P1_U1_Q024", "num": 24, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What does the idiom 'To bury the hatchet' mean?", "options": {"A": "To conceal forensic evidence on a hard drive", "B": "To abandon a software project before deployment", "C": "To work late into the night before an examination", "D": "To end an old quarrel and make peace"}, "answer": "D", "explanation": "'To bury the hatchet' means to cease hostilities, end a conflict, and become reconciled."}, {"id": "P1_U1_Q025", "num": 25, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Sentence Ordering", "question": "Arrange the following segments (P, Q, R, S) between S1 and S6 to form a coherent paragraph:\nS1: Zero Trust Architecture (ZTA) has replaced traditional perimeter-based network security.\nP: Instead, it enforces strict identity verification for every user and device.\nQ: Legacy firewalls assumed that every entity inside the corporate LAN could be trusted.\nR: This verification applies regardless of whether the request originates inside or outside the network.\nS: Under ZTA, however, no user or service is trusted by default.\nS6: Consequently, lateral movement by attackers after an initial breach is severely restricted.", "options": {"A": "Q - S - P - R", "B": "P - R - Q - S under standard IEEE/ISO technical specifications and system constraints", "C": "S - Q - R - P", "D": "R - P - S - Q"}, "answer": "A", "explanation": "S1 introduces ZTA vs. traditional security; Q explains the legacy firewall assumption; S contrasts it ('Under ZTA, however...'); P states what ZTA does ('Instead, it enforces verification...'); R links via 'This verification applies...'; leading into S6."}, {"id": "P1_U1_Q026", "num": 26, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Word Ordering", "question": "Rearrange the jumbled words to form a meaningful and grammatically accurate sentence:\nP: before deploying them / Q: all database queries / R: to prevent SQL injection / S: developers must parameterize", "options": {"A": "Q - S - R - P", "B": "S - Q - P - R", "C": "R - P - Q - S according to the formal architectural model and runtime execution rules", "D": "P - R - S - Q"}, "answer": "B", "explanation": "Subject + Verb ('developers must parameterize' = S) + Direct Object ('all database queries' = Q) + Temporal Clause ('before deploying them' = P) + Purpose Infinitive ('to prevent SQL injection' = R)."}, {"id": "P1_U1_Q027", "num": 27, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Qualifying Words", "question": "Choose the appropriate qualifying words to fill in the blanks: 'Because ___ documentation was left by the previous team, only ___ engineers could understand the legacy compiler.'", "options": {"A": "a little; the few", "B": "few; little", "C": "little; a few", "D": "the little; fewer"}, "answer": "C", "explanation": "'Documentation' is uncountable (requiring 'little', meaning almost none negatively), while 'engineers' is plural countable (requiring 'a few', meaning a small positive number)."}, {"id": "P1_U1_Q028", "num": 28, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Qualifying Words", "question": "Select the right qualifying adverb/adjective pair: 'The network technician worked ___ throughout the night, as he had ___ any time left before the morning audit.'", "options": {"A": "hardly; hard", "B": "harder; hardest", "C": "lately; late", "D": "hard; hardly"}, "answer": "D", "explanation": "'Worked hard' means worked diligently, whereas 'hardly any' means 'almost no / scarcely any'."}, {"id": "P1_U1_Q029", "num": 29, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Comprehension", "question": "Read the passage and answer: 'Digital disintermediation in public administration eliminates middlemen by delivering welfare benefits and statutory certificates directly to citizens via unified web portals. While this enhances transparency and curbs leakage, bridging the rural digital divide requires parallel investment in vernacular interfaces and last-mile optical fibre connectivity.' According to the passage, what is essential for rural inclusion alongside digital portals?", "options": {"A": "Vernacular language interfaces and last-mile optical fibre connectivity", "B": "Replacing all online web portals with manual paper ledgers", "C": "Restricting digital certificates exclusively to urban municipalities under standard IEEE/ISO technical specifications and system constraints", "D": "Eliminating biometric authentication from citizen service centres"}, "answer": "A", "explanation": "The passage explicitly states that bridging the rural digital divide requires parallel investment in vernacular interfaces and last-mile optical fibre connectivity."}, {"id": "P1_U1_Q030", "num": 30, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Qualifying Words", "question": "Fill in the blank with the correct subjunctive verb form: 'The junior programmer issued commands during the outage as though he ___ the Chief Information Security Officer.'", "options": {"A": "was", "B": "were", "C": "is", "D": "has been"}, "answer": "B", "explanation": "Clauses introduced by 'as if' or 'as though' expressing an unreal or hypothetical present condition always require the past subjunctive 'were' regardless of the subject's number."}, {"id": "P1_U1_Q031", "num": 31, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the correct preposition: 'The suspect was charged ___ unauthorized intrusion into the state treasury database under the IT Act.'", "options": {"A": "of when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "for", "C": "with", "D": "by"}, "answer": "C", "explanation": "While 'accused' takes 'of' (accused of a crime), the verb 'charged' in legal usage takes 'with' (charged with an offence)."}, {"id": "P1_U1_Q032", "num": 32, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank: 'The Assistant Technical Officer presided ___ the district e-governance review meeting at Udaipur.'", "options": {"A": "at", "B": "in as prescribed under prevailing statutory and departmental technical norms", "C": "on", "D": "over"}, "answer": "D", "explanation": "'Preside over' is the fixed phrasal verb meaning to be in the position of authority in a meeting or gathering."}, {"id": "P1_U1_Q033", "num": 33, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the right preposition: 'Good documentation is indispensable ___ maintaining large enterprise software systems.'", "options": {"A": "to", "B": "for", "C": "in", "D": "with"}, "answer": "A", "explanation": "'Indispensable' (like essential or vital) takes the preposition 'to' when referring to an activity or goal."}, {"id": "P1_U1_Q034", "num": 34, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Identify the correct article usage: 'He plays ___ flute in the cultural troupe, whereas his brother plays ___ cricket for Tripura.'", "options": {"A": "a; the according to the formal architectural model and runtime execution rules", "B": "the; no article", "C": "the; the", "D": "no article; a"}, "answer": "B", "explanation": "Musical instruments take the definite article 'the' ('play the flute/violin'), whereas names of sports and games take NO article ('play cricket/football')."}, {"id": "P1_U1_Q035", "num": 35, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Spot the grammatical error: '(A) Hardly the network engineer had / (B) plugged in the optical transceiver / (C) when the link status LED / (D) turned solid green.'", "options": {"A": "Segment (B) — replace 'plugged in' with 'plugging'", "B": "Segment (C) — replace 'when' with 'than' when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "Segment (A) — use inverted order 'Hardly had the network engineer'", "D": "Segment (D) — replace 'turned' with 'turns'"}, "answer": "C", "explanation": "When a sentence begins with a negative/restrictive adverb like 'Hardly', 'Scarcely', 'Never', or 'Seldom', subject-auxiliary inversion is mandatory: 'Hardly had the network engineer...'."}, {"id": "P1_U1_Q036", "num": 36, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Identify the erroneous part: '(A) One of the web servers / (B) that was deployed last week / (C) in the DMZ subnet / (D) are showing high memory usage.'", "options": {"A": "Segment (A) — replace 'servers' with 'server'", "B": "Segment (C) — replace 'in' with 'at'", "C": "No error in the sentence as prescribed under prevailing statutory and departmental technical norms", "D": "Segment (D) — replace 'are' with 'is' (and in B 'was' with 'were')"}, "answer": "D", "explanation": "The main subject of the sentence is 'One' (singular), which requires the singular main verb 'is showing' (while the relative clause 'that were deployed' modifies plural 'servers')."}, {"id": "P1_U1_Q037", "num": 37, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Select the word closest in meaning (Synonym) to 'CANDOUR':", "options": {"A": "Frankness and sincerity", "B": "Deceit and duplicity under standard IEEE/ISO technical specifications and system constraints", "C": "Arrogance and pride", "D": "Hesitation and doubt"}, "answer": "A", "explanation": "'Candour' (or candor) means the quality of being open, honest, and frank in expression."}, {"id": "P1_U1_Q038", "num": 38, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Choose the nearest synonym of 'FASTIDIOUS':", "options": {"A": "Careless and negligent", "B": "Meticulous and hard to please", "C": "Lethargic and slow according to the formal architectural model and runtime execution rules", "D": "Generous and forgiving"}, "answer": "B", "explanation": "'Fastidious' means very attentive to and concerned about accuracy and detail (meticulous, scrupulous)."}, {"id": "P1_U1_Q039", "num": 39, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Select the exact antonym of 'BENEVOLENT':", "options": {"A": "Munificent", "B": "Altruistic", "C": "Malevolent", "D": "Philanthropic"}, "answer": "C", "explanation": "'Benevolent' means well-meaning and kindly; its exact Latin-root antonym is 'malevolent' (wishing evil or harm to others)."}, {"id": "P1_U1_Q040", "num": 40, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Choose the word opposite in meaning to 'VERBOSE':", "options": {"A": "Loquacious and garrulous", "B": "Redundant and prolix", "C": "Eloquent and fluent", "D": "Laconic and concise"}, "answer": "D", "explanation": "'Verbose' means using more words than needed (wordy); its antonym is 'laconic', 'succinct', or 'concise'."}, {"id": "P1_U1_Q041", "num": 41, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What is the meaning of the idiom 'To burn the midnight oil'?", "options": {"A": "To read or work late into the night", "B": "To waste scarce energy resources", "C": "To instigate a secret dispute under standard IEEE/ISO technical specifications and system constraints", "D": "To celebrate a promotion lavishly"}, "answer": "A", "explanation": "'To burn the midnight oil' means to study or work diligently late into the night."}, {"id": "P1_U1_Q042", "num": 42, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What does the phrase 'By leaps and bounds' signify?", "options": {"A": "In a hesitant and erratic manner", "B": "Very rapidly and in large progressive stages", "C": "Strictly within statutory boundaries", "D": "Through physical athletics and sports according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "'By leaps and bounds' means with startlingly rapid progress."}, {"id": "P1_U1_Q043", "num": 43, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the correct preposition: 'The Chief Information Security Officer congratulated the SOC team ___ thwarting the ransomware attack.'", "options": {"A": "for", "B": "at", "C": "on", "D": "with"}, "answer": "C", "explanation": "The verb 'congratulate' always takes the fixed preposition 'on' (congratulate someone on something), never 'for'."}, {"id": "P1_U1_Q044", "num": 44, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the right preposition: 'The legacy mainframe system is no longer compatible ___ modern TLS 1.3 cipher suites.'", "options": {"A": "to", "B": "for as prescribed under prevailing statutory and departmental technical norms", "C": "by", "D": "with"}, "answer": "D", "explanation": "'Compatible' (and 'incompatible') always takes the preposition 'with'."}, {"id": "P1_U1_Q045", "num": 45, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank: 'The internal auditor insisted ___ inspecting the raw firewall access logs personally.'", "options": {"A": "on", "B": "to", "C": "for", "D": "in"}, "answer": "A", "explanation": "'Insist' takes 'on' followed by a gerund ('insisted on inspecting'), never an infinitive ('to inspect')."}, {"id": "P1_U1_Q046", "num": 46, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the appropriate preposition pair: 'A diligent officer never complains ___ heavy workload even when suffering ___ a seasonal fever.'", "options": {"A": "from; of", "B": "of; from", "C": "about; with", "D": "against; in"}, "answer": "B", "explanation": "We 'complain of' an ailment/inconvenience ('complain to' a person, 'complain against' someone), and 'suffer from' a disease or loss."}, {"id": "P1_U1_Q047", "num": 47, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Select the correct article usage: '___ rich should contribute generously to bridge ___ digital divide in rural areas.'", "options": {"A": "A; the", "B": "No article; a", "C": "The; the", "D": "The; no article"}, "answer": "C", "explanation": "When an adjective ('rich', 'poor', 'blind') represents an entire class of people as a plural noun, it must be preceded by 'the' ('The rich')."}, {"id": "P1_U1_Q048", "num": 48, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Fill in the blank: 'Maharaja Bir Bikram Kishore Manikya is remembered as ___ Vikramaditya of modern Tripura architecture.'", "options": {"A": "a", "B": "an", "C": "no article", "D": "the"}, "answer": "D", "explanation": "When a proper noun ('Vikramaditya', 'Kalidasa', 'Shakespeare') is used as a common noun to compare eminence, it takes the definite article 'the'."}, {"id": "P1_U1_Q049", "num": 49, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Spot the error: '(A) Many a software developer / (B) have overlooked / (C) integer overflow vulnerabilities / (D) in C pointer arithmetic.'", "options": {"A": "Segment (B) — replace 'have' with 'has'", "B": "Segment (A) — replace 'developer' with 'developers'", "C": "Segment (C) — replace 'vulnerabilities' with 'vulnerability'", "D": "Segment (D) — replace 'in' with 'at'"}, "answer": "A", "explanation": "The idiom 'Many a + Singular Noun' always takes a Singular Verb ('Many a software developer has overlooked...')."}, {"id": "P1_U1_Q050", "num": 50, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Identify the erroneous segment: '(A) Unless you do not configure / (B) the default gateway properly, / (C) packets will not route / (D) outside the local subnet.'", "options": {"A": "Segment (B) — replace 'properly' with 'proper'", "B": "Segment (A) — remove 'do not' ('Unless you configure')", "C": "Segment (C) — replace 'will not' with 'would not' according to the formal architectural model and runtime execution rules", "D": "Segment (D) — replace 'outside' with 'out'"}, "answer": "B", "explanation": "'Unless' means 'if not' and is inherently negative; using 'not' inside an 'unless' or 'until' clause creates an invalid double negative."}, {"id": "P1_U1_Q051", "num": 51, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Find the error: '(A) The technical committee comprises of / (B) five senior professors / (C) and three cyber security specialists / (D) from CERT-In.'", "options": {"A": "Segment (B) — replace 'five' with 'fifth'", "B": "Segment (C) — replace 'and' with 'with'", "C": "Segment (A) — remove 'of' ('comprises' takes no preposition in active voice)", "D": "Segment (D) — replace 'from' with 'by' when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "'Comprise' means 'consist of'; therefore 'comprises of' is redundant and incorrect in active voice (use 'comprises' or 'consists of')."}, {"id": "P1_U1_Q052", "num": 52, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Select the nearest synonym for 'IMPECCABLE':", "options": {"A": "Erroneous and defective", "B": "Ostentatious and flashy", "C": "Tentative and hesitant", "D": "Flawless and faultless"}, "answer": "D", "explanation": "'Impeccable' means in accordance with the highest standards of propriety; faultless or flawless."}, {"id": "P1_U1_Q053", "num": 53, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Choose the word closest in meaning to 'ALLEVIATE':", "options": {"A": "Relieve and lessen", "B": "Exacerbate and worsen", "C": "Procrastinate and delay", "D": "Consolidate and merge"}, "answer": "A", "explanation": "'Alleviate' means to make suffering, deficiency, or a problem less severe."}, {"id": "P1_U1_Q054", "num": 54, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Select the exact antonym of 'AUDACIOUS':", "options": {"A": "Bold and daring", "B": "Timid and cowardly", "C": "Intrepid and fearless", "D": "Gregarious and sociable"}, "answer": "B", "explanation": "'Audacious' means showing a willingness to take surprisingly bold risks; its antonym is 'timid', 'cowardly', or 'pusillanimous'."}, {"id": "P1_U1_Q055", "num": 55, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Choose the opposite in meaning to 'PROLIFIC':", "options": {"A": "Abundant and fruitful when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "Fecund and fertile", "C": "Barren and unproductive", "D": "Eloquent and articulate"}, "answer": "C", "explanation": "'Prolific' means producing much fruit or many works; its antonym is 'barren', 'sterile', or 'unproductive'."}, {"id": "P1_U1_Q056", "num": 56, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What does the idiom 'To read between the lines' mean?", "options": {"A": "To scan a source code file for syntax errors", "B": "To read only odd-numbered lines of a document as prescribed under prevailing statutory and departmental technical norms", "C": "To publicly criticize an official notification", "D": "To discern the hidden or implicit meaning not explicitly stated in the text"}, "answer": "D", "explanation": "'To read between the lines' means to look for or discover a meaning that is implied rather than explicitly stated."}, {"id": "P1_U1_Q057", "num": 57, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "Choose the correct meaning of 'Once in a blue moon':", "options": {"A": "Very rarely or almost never", "B": "Every fortnight during lunar cycles", "C": "Regularly at the end of every month", "D": "With complete certainty and predictability"}, "answer": "A", "explanation": "'Once in a blue moon' means happening very rarely."}, {"id": "P1_U1_Q058", "num": 58, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Sentence Ordering", "question": "Arrange P, Q, R, S between S1 and S6:\nS1: Database normalization eliminates update, insertion, and deletion anomalies.\nP: However, excessive normalization across many tables can degrade read query performance.\nQ: This occurs because reconstructing composite entities requires expensive multi-table SQL joins.\nR: By decomposing relations using functional dependencies, redundancy is systematically minimized.\nS: Therefore, analytical data warehouses often selectively denormalize schemas into star topologies.\nS6: This balanced approach optimizes both transactional integrity and analytical speed.", "options": {"A": "P - Q - R - S according to the formal architectural model and runtime execution rules", "B": "R - P - Q - S", "C": "S - R - P - Q", "D": "Q - P - S - R"}, "answer": "B", "explanation": "S1 states the goal of normalization; R explains how it works ('By decomposing relations...'); P introduces the trade-off ('However, excessive normalization...'); Q explains why ('This occurs because...joins'); S gives the warehouse resolution ('Therefore...denormalize')."}, {"id": "P1_U1_Q059", "num": 59, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Qualifying Words", "question": "Choose the correct pair of qualifying words: '___ knowledge of shell scripting can be dangerous if an administrator executes ___ untested root commands.'", "options": {"A": "The few; little", "B": "Fewer; less when evaluated across worst-case asymptotic bounds and boundary conditions", "C": "A little; a few", "D": "Many; much"}, "answer": "C", "explanation": "'Knowledge' is uncountable ('A little knowledge is a dangerous thing'), and 'commands' is plural countable ('a few untested root commands')."}, {"id": "P1_U1_Q060", "num": 60, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Word Ordering", "question": "Rearrange into a coherent sentence:\nP: across all eight districts of Tripura / Q: high-speed optical fibre connectivity / R: has significantly accelerated / S: the deployment of e-District services", "options": {"A": "R - S - P - Q", "B": "P - R - Q - S", "C": "S - P - Q - R as prescribed under prevailing statutory and departmental technical norms", "D": "Q - P - R - S"}, "answer": "D", "explanation": "Subject ('high-speed optical fibre connectivity across all eight districts of Tripura' = Q - P) + Verb ('has significantly accelerated' = R) + Object ('the deployment of e-District services' = S)."}, {"id": "P1_U1_Q061", "num": 61, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the correct preposition: 'The Assistant Technical Officer was entrusted ___ the responsibility of securing the state data centre.'", "options": {"A": "with", "B": "to under standard IEEE/ISO technical specifications and system constraints", "C": "for", "D": "in"}, "answer": "A", "explanation": "We 'entrust someone WITH a task' (or 'entrust a task TO someone')."}, {"id": "P1_U1_Q062", "num": 62, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the appropriate preposition: 'His technical proposal is akin ___ the microservice architecture deployed by SEBI.'", "options": {"A": "with", "B": "to", "C": "as", "D": "for"}, "answer": "B", "explanation": "'Akin' (meaning similar in character) always takes the fixed preposition 'to'."}, {"id": "P1_U1_Q063", "num": 63, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Choose the right article: 'Kalidasa is universally acclaimed as ___ Shakespeare of India.'", "options": {"A": "a", "B": "an", "C": "the", "D": "no article"}, "answer": "C", "explanation": "When a proper noun ('Shakespeare') is used metaphorically to denote a preeminent archetype with an 'of' phrase, it takes 'the'."}, {"id": "P1_U1_Q064", "num": 64, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Spot the error: '(A) Scarcely had the database administrator / (B) initiated the transaction rollback / (C) than the primary storage array / (D) went offline.'", "options": {"A": "Segment (A) — replace 'had' with 'did'", "B": "Segment (B) — replace 'initiated' with 'initiate'", "C": "Segment (D) — replace 'went' with 'gone'", "D": "Segment (C) — replace 'than' with 'when'"}, "answer": "D", "explanation": "'Scarcely' and 'Hardly' must be followed by 'when' (never 'than')."}, {"id": "P1_U1_Q065", "num": 65, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Select the closest synonym for 'PERVASIVE':", "options": {"A": "Widespread and omnipresent", "B": "Localized and restricted", "C": "Ephemeral and fleeting under standard IEEE/ISO technical specifications and system constraints", "D": "Obsolete and archaic"}, "answer": "A", "explanation": "'Pervasive' means spreading widely throughout an area or group of people (like pervasive computing)."}, {"id": "P1_U1_Q066", "num": 66, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Choose the exact antonym of 'LUCID':", "options": {"A": "Clear and intelligible", "B": "Obscure and ambiguous", "C": "Pellucid and transparent", "D": "Cogent and coherent"}, "answer": "B", "explanation": "'Lucid' means expressed clearly and easy to understand; its antonym is 'obscure', 'murky', or 'ambiguous'."}, {"id": "P1_U1_Q067", "num": 67, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Passive Voice Prepositions", "question": "Convert the sentence into Passive Voice with the exact grammatical preposition: 'The Chief Secretary knows the Assistant Technical Officer well.'", "options": {"A": "The Assistant Technical Officer is well known by the Chief Secretary", "B": "The Assistant Technical Officer was known with the Chief Secretary", "C": "The Assistant Technical Officer is well known to the Chief Secretary", "D": "The Assistant Technical Officer has been known for the Chief Secretary"}, "answer": "C", "explanation": "In passive voice, stative verbs like 'know' and 'oblige' take the preposition 'to' ('known to', 'obliged to'), never 'by'."}, {"id": "P1_U1_Q068", "num": 68, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Passive Voice Prepositions", "question": "Select the correct passive transformation: 'The sudden surge in DDoS traffic alarmed the network engineers.'", "options": {"A": "The network engineers were alarmed by the sudden surge in DDoS traffic", "B": "The network engineers had been alarmed with the sudden surge in DDoS traffic", "C": "The network engineers are alarmed on the sudden surge in DDoS traffic", "D": "The network engineers were alarmed at the sudden surge in DDoS traffic"}, "answer": "D", "explanation": "Verbs expressing emotion/surprise such as 'alarmed', 'surprised', 'astonished', and 'amazed' take the preposition 'at' in passive voice."}, {"id": "P1_U1_Q069", "num": 69, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Confusable Words", "question": "Choose the correct word pair to complete the sentence: 'The ___ of least privilege is the ___ security rule enforced across our cloud servers.'", "options": {"A": "principle; principal", "B": "principal; principle", "C": "principle; principle", "D": "principal; principal under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "'Principle' (noun only) means a fundamental rule, law, or doctrine; 'principal' (adjective/noun) means main, chief, or head of an institution."}, {"id": "P1_U1_Q070", "num": 70, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Confusable Words", "question": "Fill in the blanks: 'Severe electromagnetic interference can ___ the signal-to-noise ratio and produce an adverse ___ on bit error rate.'", "options": {"A": "effect; affect according to the formal architectural model and runtime execution rules", "B": "affect; effect", "C": "affect; affect", "D": "effect; effect"}, "answer": "B", "explanation": "'Affect' is a transitive verb meaning to influence or alter, whereas 'effect' (preceded by 'an adverse') is a noun meaning result or consequence."}, {"id": "P1_U1_Q071", "num": 71, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Indirect Speech", "question": "Convert into Indirect (Reported) Speech: The professor said to the students, 'Optical fibre transmits light pulses using total internal reflection.'", "options": {"A": "The professor told the students that optical fibre transmitted light pulses using total internal reflection", "B": "The professor asked the students if optical fibre had transmitted light pulses", "C": "The professor told the students that optical fibre transmits light pulses using total internal reflection", "D": "The professor said that optical fibre would transmit light pulses"}, "answer": "C", "explanation": "When the reported clause states a universal scientific truth or physical law, its present tense ('transmits') remains unchanged even when the reporting verb ('said') is in the past tense."}, {"id": "P1_U1_Q072", "num": 72, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the correct preposition: 'The cyber forensic team is inquiring ___ the root cause of the unauthorized privilege escalation.'", "options": {"A": "of", "B": "about", "C": "after", "D": "into"}, "answer": "D", "explanation": "'Inquire into' means to investigate thoroughly."}, {"id": "P1_U1_Q073", "num": 73, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the appropriate preposition: 'The nodal officer was endowed ___ exceptional analytical capabilities.'", "options": {"A": "with", "B": "by under standard IEEE/ISO technical specifications and system constraints", "C": "in", "D": "of"}, "answer": "A", "explanation": "'Endowed' always takes the fixed preposition 'with'."}, {"id": "P1_U1_Q074", "num": 74, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank: 'True public service consists ___ delivering transparent governance to every citizen.'", "options": {"A": "of", "B": "in", "C": "with", "D": "for"}, "answer": "B", "explanation": "'Consist of' means to be composed of, whereas 'consist in' means to have as its essential feature or reside in."}, {"id": "P1_U1_Q075", "num": 75, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Select the right article pair: '___ honest officer is ___ noblest asset of public administration.'", "options": {"A": "A; the", "B": "An; a", "C": "An; the", "D": "The; a when evaluated across worst-case asymptotic bounds and boundary conditions"}, "answer": "C", "explanation": "'Honest' begins with a silent 'h' (/ɒnɪst/ → 'An'), and the superlative 'noblest' takes 'the'."}, {"id": "P1_U1_Q076", "num": 76, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Spot the error: '(A) If I was the Chief Information Security Officer, / (B) I would mandate / (C) hardware security keys / (D) for all privileged root accounts.'", "options": {"A": "Segment (B) — replace 'would' with 'will' as prescribed under prevailing statutory and departmental technical norms", "B": "Segment (C) — replace 'keys' with 'key'", "C": "Segment (D) — replace 'for' with 'to'", "D": "Segment (A) — replace 'was' with subjunctive 'were'"}, "answer": "D", "explanation": "Hypothetical/unreal Type-2 conditional clauses ('If I were...') require the past subjunctive 'were' for all subjects."}, {"id": "P1_U1_Q077", "num": 77, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Identify the erroneous part: '(A) The number of cyber attacks / (B) targeting cloud storage buckets / (C) have increased sharply / (D) over the past six months.'", "options": {"A": "Segment (C) — replace 'have' with 'has'", "B": "Segment (A) — replace 'The' with 'A'", "C": "Segment (B) — replace 'targeting' with 'targeted'", "D": "Segment (D) — replace 'over' with 'in'"}, "answer": "A", "explanation": "'The number of + Plural Noun' takes a Singular Verb ('has increased'), whereas 'A number of + Plural Noun' takes a Plural Verb."}, {"id": "P1_U1_Q078", "num": 78, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Choose the nearest synonym of 'ASSIDUOUS':", "options": {"A": "Lethargic andindolent", "B": "Diligent and persevering", "C": "Cursory and superficial", "D": "Hostile and belligerent according to the formal architectural model and runtime execution rules"}, "answer": "B", "explanation": "'Assiduous' means showing great care, attention, and persistent effort."}, {"id": "P1_U1_Q079", "num": 79, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Select the exact antonym of 'PARSIMONIOUS':", "options": {"A": "Frugal and thrifty when evaluated across worst-case asymptotic bounds and boundary conditions", "B": "Stingy and miserly", "C": "Extravagant and generous", "D": "Prudent and cautious"}, "answer": "C", "explanation": "'Parsimonious' means unwilling to spend money or use resources; its antonym is 'extravagant', 'lavish', or 'generous'."}, {"id": "P1_U1_Q080", "num": 80, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What does the idiom 'To leave no stone unturned' mean?", "options": {"A": "To halt a geological survey in the hills", "B": "To ignore minor warnings during compilation as prescribed under prevailing statutory and departmental technical norms", "C": "To delegate all difficult tasks to subordinates", "D": "To try every possible course of action in order to achieve a goal"}, "answer": "D", "explanation": "'Leave no stone unturned' means to make every possible effort and search exhaustively."}, {"id": "P1_U1_Q081", "num": 81, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Qualifying Words", "question": "Choose the correct qualifying word: 'Between the two routing protocols RIP and OSPF, the ___ is far more scalable for large enterprise networks.'", "options": {"A": "latter", "B": "last", "C": "later", "D": "latest under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "When comparing exactly two entities, 'former' refers to the first and 'latter' refers to the second ('last' is used for three or more)."}, {"id": "P1_U1_Q082", "num": 82, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank: 'The candidate is eligible ___ the post of Assistant Technical Officer.'", "options": {"A": "to (used with senior, junior, superior, prefer)", "B": "for", "C": "with (used with endowed, satisfied, compatible)", "D": "at (used with good, bad, amazed, astonished)"}, "answer": "B", "explanation": "'Eligible for' is the fixed prepositional collocation meaning qualified for a post."}, {"id": "P1_U1_Q083", "num": 83, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the correct preposition: 'The server room is infested ___ dust and needs immediate cleaning.'", "options": {"A": "by (used for agent in passive voice)", "B": "from (used with abstain, refrain, prevent)", "C": "with", "D": "in (used for location or consist in)"}, "answer": "C", "explanation": "'Infested with' is always used for pests, vermin, or unwanted substances."}, {"id": "P1_U1_Q084", "num": 84, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Select the right preposition: 'He was debarred ___ appearing in the competitive examination for three years.'", "options": {"A": "to (never used after debar or prohibit)", "B": "of (used after accused, acquitted, devoid)", "C": "on (used after insist, congratulate, depend)", "D": "from"}, "answer": "D", "explanation": "Verbs of prohibition (debar, prevent, prohibit, abstain, refrain) take 'from' + gerund (-ing)."}, {"id": "P1_U1_Q085", "num": 85, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Fill in the blank: 'The technical architecture is devoid ___ any single point of failure.'", "options": {"A": "of", "B": "from (used with exempt or abstain)", "C": "with (used with endowed or replete)", "D": "to (used with indigenous or akin)"}, "answer": "A", "explanation": "'Devoid of' means completely lacking or free from."}, {"id": "P1_U1_Q086", "num": 86, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Prepositions", "question": "Choose the right preposition: 'The Queen Pineapple is indigenous ___ the state of Tripura.'", "options": {"A": "in (used for general geographical containment)", "B": "to", "C": "of (used with native of a noun phrase)", "D": "for (used with famous or renowned)"}, "answer": "B", "explanation": "'Indigenous to' means originating or occurring naturally in a particular place."}, {"id": "P1_U1_Q087", "num": 87, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Fill in the blank: '___ Ganga rises in ___ Himalayas and flows into ___ Bay of Bengal.'", "options": {"A": "A; the; the", "B": "No article; the; the", "C": "The; the; the", "D": "The; no article; a"}, "answer": "C", "explanation": "Rivers (the Ganga), mountain ranges (the Himalayas), and bays/seas/oceans (the Bay of Bengal) all take 'the'."}, {"id": "P1_U1_Q088", "num": 88, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Choose the correct article: 'My younger brother is ___ MBBS doctor working at ___ government hospital.'", "options": {"A": "a; a", "B": "an; an", "C": "the; an", "D": "an; a"}, "answer": "D", "explanation": "'MBBS' starts with the vowel sound /ɛm/ ('em') requiring 'an', while 'government' starts with consonant /g/ requiring 'a'."}, {"id": "P1_U1_Q089", "num": 89, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Articles", "question": "Select the appropriate article: '___ wisdom is far more valuable than ___ riches.'", "options": {"A": "No article; no article", "B": "The; the", "C": "A; the under standard IEEE/ISO technical specifications and system constraints", "D": "The; no article"}, "answer": "A", "explanation": "Abstract uncountable nouns ('wisdom') and plural general nouns ('riches') used in a universal sense take Zero Article."}, {"id": "P1_U1_Q090", "num": 90, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Spot the error: '(A) It is high time / (B) that the department upgrades / (C) its legacy firewall / (D) to a Zero Trust architecture.'", "options": {"A": "Segment (A) — replace 'high time' with 'much time'", "B": "Segment (B) — replace 'upgrades' with 'upgraded'", "C": "Segment (C) — replace 'its' with 'it is'", "D": "Segment (D) — replace 'to' with 'into'"}, "answer": "B", "explanation": "The phrase 'It is time / It is high time' followed by a subject always takes the Simple Past tense (V2: 'upgraded')."}, {"id": "P1_U1_Q091", "num": 91, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Identify the error: '(A) Neither of the two network switches / (B) were functioning properly / (C) after the lightning strike / (D) at the sub-division office.'", "options": {"A": "Segment (A) — replace 'Neither' with 'None'", "B": "Segment (C) — replace 'after' with 'since'", "C": "Segment (B) — replace 'were' with 'was'", "D": "Segment (D) — replace 'at' with 'in'"}, "answer": "C", "explanation": "'Neither of' (and 'Either of' / 'Each of') used for two entities always takes a singular verb ('was')."}, {"id": "P1_U1_Q092", "num": 92, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Spotting Errors", "question": "Find the error: '(A) The Sceneries of Jampui Hills / (B) in North Tripura / (C) are breathtaking / (D) during winter.'", "options": {"A": "Segment (B) — replace 'in' with 'at'", "B": "Segment (D) — replace 'during' with 'in the' as prescribed under prevailing statutory and departmental technical norms", "C": "No grammatical error in any segment", "D": "Segment (A) \u0026 (C) — replace 'Sceneries...are' with 'Scenery...is'"}, "answer": "D", "explanation": "'Scenery' is an uncountable singular noun; it has no plural form 'sceneries' and takes singular verb 'is'."}, {"id": "P1_U1_Q093", "num": 93, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Choose the closest synonym of the word 'RECALCITRANT':", "options": {"A": "Obstinately defiant and uncooperative", "B": "Obedient and compliant with authority", "C": "Enthusiastic and eager to collaborate", "D": "Timid and easily frightened by noise under standard IEEE/ISO technical specifications and system constraints"}, "answer": "A", "explanation": "'Recalcitrant' means having an obstinately uncooperative attitude toward authority or discipline."}, {"id": "P1_U1_Q094", "num": 94, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Synonyms", "question": "Select the word nearest in meaning to 'SAGACIOUS':", "options": {"A": "Foolish and lacking common judgment according to the formal architectural model and runtime execution rules", "B": "Wise and showing keen mental discernment", "C": "Hostile and aggressive in debate", "D": "Careless and hasty in execution"}, "answer": "B", "explanation": "'Sagacious' means having or showing keen mental discernment and good judgment (wise, shrewd)."}, {"id": "P1_U1_Q095", "num": 95, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Choose the exact antonym of the word 'EPHEMERAL':", "options": {"A": "Transient (synonym meaning short-lived)", "B": "Fleeting (synonym meaning lasting briefly)", "C": "Perpetual", "D": "Fragile (meaning easily broken or damaged)"}, "answer": "C", "explanation": "'Ephemeral' means short-lived; its antonym is 'perpetual', 'eternal', or 'permanent'."}, {"id": "P1_U1_Q096", "num": 96, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Antonyms", "question": "Select the opposite in meaning to 'EQUANIMITY':", "options": {"A": "Composure and calmness under stress", "B": "Serenity and mental peace", "C": "Indifference to external rewards", "D": "Agitation and anxiety"}, "answer": "D", "explanation": "'Equanimity' means mental calmness and composure; its opposite is 'agitation' or 'anxiety'."}, {"id": "P1_U1_Q097", "num": 97, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "What is the meaning of the idiom 'To cry over spilt milk'?", "options": {"A": "To waste time feeling sorry about an past mistake that cannot be undone", "B": "To celebrate a minor technical achievement excessively under standard IEEE/ISO technical specifications and system constraints", "C": "To complain about impure dairy products in the market", "D": "To work diligently without taking any rest breaks"}, "answer": "A", "explanation": "'To cry over spilt milk' means to regret uselessly something that has already happened and cannot be changed."}, {"id": "P1_U1_Q098", "num": 98, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Idioms \u0026 Phrases", "question": "Choose the correct meaning of 'To call a spade a spade':", "options": {"A": "To use agricultural tools for software engineering", "B": "To speak frankly, directly, and bluntly even if unpleasant", "C": "To conceal the truth behind diplomatic praise according to the formal architectural model and runtime execution rules", "D": "To exaggerate a small issue into a major crisis"}, "answer": "B", "explanation": "'To call a spade a spade' means to speak plainly and candidly without euphemism."}, {"id": "P1_U1_Q099", "num": 99, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Qualifying Words", "question": "Fill in the blank: 'Agartala is ___ from Kolkata by road than Dhaka is.'", "options": {"A": "further (used for additional abstract degree, not physical distance)", "B": "nearest (superlative degree cannot pair with 'than')", "C": "farther", "D": "more far (double comparative is grammatically incorrect)"}, "answer": "C", "explanation": "'Farther' denotes measurable physical/geographical distance, whereas 'further' means 'additional'."}, {"id": "P1_U1_Q100", "num": 100, "unit_id": "P1_U1", "chapter": "PAPER-I · TOPIC 1: English Composition \u0026 Verbal Ability (15 Marks · 15 MCQs)", "tag": "Sentence Ordering", "question": "Arrange P, Q, R, S to form a coherent sentence: P: of the Tripura Information Technology Service / Q: the Public Service Commission / R: for recruitment to Grade-IV / S: conducted a competitive examination", "options": {"A": "P - Q - R - S as prescribed under prevailing statutory and departmental technical norms", "B": "R - P - Q - S", "C": "S - Q - P - R", "D": "Q - S - R - P"}, "answer": "D", "explanation": "'The Public Service Commission (Q) conducted a competitive examination (S) for recruitment to Grade-IV (R) of the Tripura Information Technology Service (P).'"}];
+    let activeQs = JSON.parse(JSON.stringify(RAW_QS));
+    let userAns = {};
+    let revealAll = false;
+
+    function switchSecTab(tab) {
+      const p1 = document.getElementById('paneOneliners');
+      const p2 = document.getElementById('paneMcqs');
+      const b1 = document.getElementById('btnTab1');
+      const b2 = document.getElementById('btnTab2');
+      if (tab === 'oneliners') {
+        p1.style.display = 'block';
+        p2.style.display = 'none';
+        b1.classList.add('active');
+        b2.classList.remove('active');
+      } else {
+        p1.style.display = 'none';
+        p2.style.display = 'block';
+        b1.classList.remove('active');
+        b2.classList.add('active');
+        renderMcqList();
+      }
+    }
+
+    function filterOneLiners(q) {
+      const term = (q || '').trim().toLowerCase();
+      const items = document.querySelectorAll('#olContentWrap .ol-item');
+      items.forEach(li => {
+        const txt = li.textContent.toLowerCase();
+        li.style.display = (!term || txt.includes(term)) ? 'flex' : 'none';
+      });
+    }
+
+    function renderMcqList() {
+      const cont = document.getElementById('mcqContainer');
+      const term = (document.getElementById('mcqSearch').value || '').trim().toLowerCase();
+      let htmlOut = '';
+      let correctCnt = 0;
+      let attemptCnt = 0;
+      Object.keys(userAns).forEach(qid => {
+        attemptCnt++;
+        const qObj = activeQs.find(x => x.id === qid);
+        if (qObj && userAns[qid] === qObj.answer) correctCnt++;
+      });
+      document.getElementById('scoreBadge').textContent = `Score: ${correctCnt} / ${attemptCnt} (Total: 100 MCQs)`;
+
+      activeQs.forEach((q, idx) => {
+        const hay = (q.question + ' ' + q.tag + ' ' + q.explanation + ' ' + Object.values(q.options).join(' ')).toLowerCase();
+        if (term && !hay.includes(term)) return;
+        const picked = userAns[q.id];
+        const showNow = revealAll || Boolean(picked);
+        const isPyq = q.tag.includes('PYQ');
+        let optsHtml = '';
+        ['A', 'B', 'C', 'D'].forEach(L => {
+          let cls = 'mcq-opt-btn';
+          let badge = '';
+          if (showNow) {
+            if (L === q.answer) {
+              cls += ' correct';
+              badge = ' ✅';
+            } else if (picked === L && L !== q.answer) {
+              cls += ' wrong';
+              badge = ' ❌';
+            }
+          }
+          optsHtml += `<button class="${cls}" onclick="pickMcqOption('${q.id}', '${L}')"><strong>(${L})</strong> ${q.options[L]}${badge}</button>`;
+        });
+
+        htmlOut += `
+          <div class="mcq-card">
+            <div class="mcq-head">
+              <span class="mcq-num">MCQ #${idx + 1} · ${q.id}</span>
+              <span class="mcq-tag ${isPyq ? 'pyq' : ''}">${isPyq ? '🔥 ' : ''}${q.tag}</span>
+            </div>
+            <div class="mcq-q">Q${idx + 1}. ${q.question}</div>
+            <div class="mcq-opts">${optsHtml}</div>
+            <div class="mcq-exp ${showNow ? 'show' : ''}">
+              <strong>✔ Answer: Option (${q.answer}) — ${q.options[q.answer]}</strong><br>
+              <span>💡 <strong>One-Liner Explanation:</strong> ${q.explanation}</span>
+            </div>
+          </div>
+        `;
+      });
+      cont.innerHTML = htmlOut || '<div class="mcq-card">No matching MCQs found for this filter.</div>';
+    }
+
+    function pickMcqOption(qid, L) {
+      userAns[qid] = L;
+      renderMcqList();
+    }
+
+    function toggleRevealAll() {
+      revealAll = !revealAll;
+      const btn = document.getElementById('btnRevealAll');
+      btn.textContent = revealAll ? '🙈 Hide Answers (Practice Mode)' : '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+
+    function fyShuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function shuffleAllMcqs() {
+      userAns = {};
+      fyShuffle(activeQs);
+      activeQs.forEach(q => {
+        const corrTxt = q.options[q.answer];
+        const vals = fyShuffle([q.options.A, q.options.B, q.options.C, q.options.D]);
+        ['A', 'B', 'C', 'D'].forEach((L, idx) => {
+          q.options[L] = vals[idx];
+          if (vals[idx] === corrTxt) q.answer = L;
+        });
+      });
+      renderMcqList();
+    }
+
+    function resetMcqSession() {
+      userAns = {};
+      revealAll = false;
+      activeQs = JSON.parse(JSON.stringify(RAW_QS));
+      document.getElementById('btnRevealAll').textContent = '📖 Show All 100 Answers & Explanations';
+      renderMcqList();
+    }
+  </script>
+</body>
+</html>
